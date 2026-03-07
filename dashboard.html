@@ -24,6 +24,107 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 @keyframes borderPulse{0%,100%{box-shadow:0 0 40px rgba(168,85,247,0.35)}50%{box-shadow:0 0 70px rgba(168,85,247,0.6)}}
 @keyframes thinking{0%,80%,100%{transform:scale(0.8);opacity:0.5}40%{transform:scale(1);opacity:1}}
 
+/* ============================================================
+   ONBOARDING WIZARD
+   ============================================================ */
+#wizardOverlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(5,5,15,0.88);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  transition:opacity 0.45s ease;
+}
+#wizardOverlay.wiz-hidden{opacity:0;pointer-events:none}
+
+.wiz-card{
+  background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);
+  border:1px solid var(--border2);
+  border-radius:24px;
+  width:500px;max-width:100%;
+  padding:44px 40px 36px;
+  position:relative;
+  box-shadow:0 0 90px rgba(168,85,247,0.22),0 32px 64px rgba(0,0,0,0.65);
+  overflow:hidden;
+}
+.wiz-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--p),var(--cyan),var(--p2));
+}
+
+/* progress dots */
+.wiz-dots{display:flex;gap:8px;justify-content:center;margin-bottom:32px}
+.wiz-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .3s ease}
+.wiz-dot.wd-active{background:var(--p);width:26px;border-radius:4px}
+.wiz-dot.wd-done{background:rgba(168,85,247,0.5)}
+
+/* screens */
+.wiz-screen{display:none;animation:fadeUp .35s ease both}
+.wiz-screen.ws-active{display:block}
+
+/* typography */
+.wiz-badge{
+  display:inline-block;
+  background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.35);
+  color:#c084fc;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 12px;border-radius:100px;margin-bottom:18px;
+}
+.wiz-h{font-size:1.65rem;font-weight:900;line-height:1.2;color:#f1f5f9;margin-bottom:9px}
+.wiz-h span{background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.wiz-sub{color:var(--muted2);font-size:.9rem;line-height:1.6;margin-bottom:26px}
+
+/* input */
+.wiz-input-wrap{
+  padding:3px;
+  background:linear-gradient(135deg,var(--p),var(--cyan),var(--p2));
+  border-radius:13px;margin-bottom:14px;
+  animation:borderPulse 3s ease-in-out infinite;
+}
+.wiz-input-inner{background:var(--bg);border-radius:10px;display:flex;align-items:center;padding:4px 4px 4px 14px;gap:8px}
+.wiz-url-input{flex:1;background:none;border:none;color:#fff;font-size:13px;outline:none;padding:12px 0;min-width:0}
+.wiz-url-input::placeholder{color:var(--muted)}
+
+/* buttons */
+.wiz-btn{
+  width:100%;padding:14px;
+  background:linear-gradient(135deg,var(--p),var(--p2));
+  border:none;border-radius:11px;color:#fff;
+  font-size:.95rem;font-weight:700;cursor:pointer;
+  transition:all .2s;letter-spacing:.3px;
+}
+.wiz-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 24px rgba(124,58,237,.45)}
+.wiz-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.wiz-skip{display:block;text-align:center;margin-top:14px;color:var(--muted);font-size:.8rem;cursor:pointer;transition:color .2s}
+.wiz-skip:hover{color:var(--muted2)}
+
+/* progress bar (screen 2) */
+.wiz-prog-bar-bg{background:rgba(255,255,255,0.07);border-radius:100px;height:7px;overflow:hidden;margin:22px 0 8px}
+.wiz-prog-bar-fill{height:100%;background:linear-gradient(90deg,var(--p),var(--cyan));border-radius:100px;width:0%;transition:width .45s ease}
+.wiz-prog-meta{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:24px}
+#wizProgPct{color:var(--p);font-weight:700}
+.wiz-steps{list-style:none;margin-bottom:26px}
+.wiz-steps li{display:flex;align-items:center;gap:10px;padding:9px 0;font-size:.88rem;color:var(--muted);border-bottom:1px solid var(--border);transition:color .3s}
+.wiz-steps li:last-child{border-bottom:none}
+.wiz-steps li.ws-done{color:#c084fc}
+.wiz-step-icon{width:20px;text-align:center;font-size:.95rem}
+
+/* success (screen 3) */
+.wiz-glow{
+  width:76px;height:76px;border-radius:50%;margin:0 auto 22px;
+  background:linear-gradient(135deg,var(--p),var(--cyan));
+  display:flex;align-items:center;justify-content:center;font-size:2rem;
+  box-shadow:0 0 48px rgba(168,85,247,.55);
+  animation:popIn .5s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.wiz-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.wiz-stat{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;padding:15px;text-align:center}
+.wiz-stat-num{font-size:1.55rem;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.wiz-stat-lbl{font-size:.72rem;color:var(--muted);margin-top:3px}
+/* ============================================================
+   END WIZARD STYLES
+   ============================================================ */
+
 /* AUTH SCREEN */
 .auth-screen{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--bg)}
 .auth-box{background:rgba(255,255,255,0.03);border:1px solid var(--border2);border-radius:22px;padding:40px;max-width:420px;width:100%;text-align:center}
@@ -79,6 +180,8 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   .templates-grid{grid-template-columns:1fr!important}
   .pricing-grid{grid-template-columns:1fr!important}
   .dash-hero{padding:28px 16px 24px}
+  .wiz-card{padding:32px 22px 28px}
+  .wiz-h{font-size:1.35rem}
 }
 .page{display:none}.page.active{display:block}
 
@@ -342,7 +445,70 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 <div class="orb orb1"></div>
 <div class="orb orb2"></div>
 
-<!-- AUTH SCREEN (fallback — should never show due to JS redirect, but kept as safety net) -->
+<!-- ============================================================
+     ONBOARDING WIZARD
+     Only shown once ever (localStorage: csai_wizard_done)
+     ============================================================ -->
+<div id="wizardOverlay" class="wiz-hidden">
+  <div class="wiz-card">
+
+    <!-- dots -->
+    <div class="wiz-dots">
+      <div class="wiz-dot wd-active" id="wd1"></div>
+      <div class="wiz-dot" id="wd2"></div>
+      <div class="wiz-dot" id="wd3"></div>
+    </div>
+
+    <!-- Screen 1: Welcome + URL -->
+    <div class="wiz-screen ws-active" id="ws1">
+      <div class="wiz-badge">Step 1 of 3</div>
+      <div class="wiz-h">Turn any video into<br><span>viral clips</span> in 90 sec ⚡</div>
+      <p class="wiz-sub">Paste your first YouTube URL — we'll scan every second for viral moments and have clips ready before you finish reading this.</p>
+      <div class="wiz-input-wrap">
+        <div class="wiz-input-inner">
+          <span style="font-size:15px;flex-shrink:0">🔗</span>
+          <input class="wiz-url-input" id="wizUrlInput" type="url" placeholder="https://youtube.com/watch?v=...">
+        </div>
+      </div>
+      <button class="wiz-btn" id="wizBtn1">Generate My First Clips ⚡</button>
+      <span class="wiz-skip" id="wizSkip">Skip — I'll explore on my own</span>
+    </div>
+
+    <!-- Screen 2: Processing -->
+    <div class="wiz-screen" id="ws2">
+      <div class="wiz-badge">Step 2 of 3</div>
+      <div style="text-align:center;font-size:2.8rem;margin-bottom:18px;animation:spin 2s linear infinite;display:inline-block;width:100%">⚡</div>
+      <div class="wiz-h" style="text-align:center">Processing your<br><span>video now...</span></div>
+      <p class="wiz-sub" style="text-align:center">GPT-4o is scanning every second. Your clips will be in the dashboard the moment you close this.</p>
+      <div class="wiz-prog-bar-bg"><div class="wiz-prog-bar-fill" id="wizProgFill"></div></div>
+      <div class="wiz-prog-meta"><span id="wizProgLabel">Downloading video...</span><span id="wizProgPct">0%</span></div>
+      <ul class="wiz-steps" id="wizStepsList">
+        <li id="wstep-dl"><span class="wiz-step-icon">⏳</span> Downloading video</li>
+        <li id="wstep-tr"><span class="wiz-step-icon">⏳</span> Transcribing audio</li>
+        <li id="wstep-ai"><span class="wiz-step-icon">⏳</span> AI scoring viral moments</li>
+        <li id="wstep-cl"><span class="wiz-step-icon">⏳</span> Cutting clips</li>
+      </ul>
+      <button class="wiz-btn" id="wizBtn2" disabled>Continue →</button>
+    </div>
+
+    <!-- Screen 3: Ready -->
+    <div class="wiz-screen" id="ws3">
+      <div class="wiz-badge">Step 3 of 3</div>
+      <div class="wiz-glow">🔥</div>
+      <div class="wiz-h" style="text-align:center">Your clips are<br><span>almost ready!</span></div>
+      <p class="wiz-sub" style="text-align:center">We found your highest-performing moments. Head to the dashboard to preview, download, and share.</p>
+      <div class="wiz-stat-row">
+        <div class="wiz-stat"><div class="wiz-stat-num" id="wizStatClips">—</div><div class="wiz-stat-lbl">Clips Found</div></div>
+        <div class="wiz-stat"><div class="wiz-stat-num" id="wizStatScore">—</div><div class="wiz-stat-lbl">Top Viral Score</div></div>
+      </div>
+      <button class="wiz-btn" id="wizBtn3">View My Clips 🚀</button>
+    </div>
+
+  </div>
+</div>
+<!-- END ONBOARDING WIZARD -->
+
+<!-- AUTH SCREEN (fallback) -->
 <div class="auth-screen" id="authScreen">
   <div class="auth-box">
     <div class="auth-logo">⚡ ClipSpeedAI</div>
@@ -354,7 +520,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     <div class="auth-divider"><div class="auth-divider-line"></div><span class="auth-divider-text">or</span><div class="auth-divider-line"></div></div>
     <div class="oauth-row">
       <button class="oauth-btn" onclick="oauthLogin('google')">
-        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         Google
       </button>
       <button class="oauth-btn" onclick="oauthLogin('apple')">
@@ -738,14 +904,13 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 
 <script>
 // ============================================================
-// CONFIG — Railway backend URL
+// CONFIG
 // ============================================================
 const API_BASE = (()=>{
   const h = window.location.hostname;
   if(h==='localhost'||h==='127.0.0.1') return 'http://localhost:8080';
   return 'https://clipspeedai-server-production.up.railway.app';
 })();
-
 const PEXELS_KEY = 'f1LvA5LZpnHHUMpnBrJZVqKlrMhXvL2MhJXDeBZSijQ7JBv7mCvhUPi2';
 
 // ============================================================
@@ -782,14 +947,11 @@ async function apiFetch(path, opts={}) {
 }
 
 // ============================================================
-// BOOT — guard: no token or invalid token → back to landing
+// BOOT
 // ============================================================
 window.addEventListener('DOMContentLoaded', async ()=>{
   const token = getToken();
-  if(!token){
-    window.location.replace('/index.html');
-    return;
-  }
+  if(!token){ window.location.replace('/index.html'); return; }
   try{
     const r = await apiFetch('/auth/me');
     if(!r.ok) throw new Error('Invalid token');
@@ -808,21 +970,113 @@ function bootApp(user){
     showToast(`🎉 Welcome to ${params.get('plan')||'Pro'}!`,'#4ade80');
     window.history.replaceState({},'','/dashboard.html');
   }
-  // Auto-fill URL from landing page if user pasted one before signing up
   const pendingUrl = sessionStorage.getItem('pending_url');
-  if(pendingUrl){
-    sessionStorage.removeItem('pending_url');
-    document.getElementById('urlInput').value = pendingUrl;
-    setTimeout(()=> startGenerate(), 500);
-  }
+  if(pendingUrl){ sessionStorage.removeItem('pending_url'); document.getElementById('urlInput').value=pendingUrl; }
   document.getElementById('authScreen').style.display='none';
   document.getElementById('appScreen').style.display='block';
   loadUserProfile();
   loadExistingClips();
   renderTemplates();
   const uid = user?.id||'user';
-  document.getElementById('affLink').textContent = `clipspeed.ai/ref/${uid.slice(0,8)}`;
+  document.getElementById('affLink').textContent=`clipspeed.ai/ref/${uid.slice(0,8)}`;
+
+  // ── Show wizard on first login only ──
+  initWizard(pendingUrl||'');
 }
+
+// ============================================================
+// ONBOARDING WIZARD
+// ============================================================
+const WIZ_KEY = 'csai_wizard_done';
+let wizScreen = 1;
+
+function initWizard(prefillUrl){
+  if(localStorage.getItem(WIZ_KEY)) return; // already seen
+  const ov = document.getElementById('wizardOverlay');
+  ov.classList.remove('wiz-hidden');
+  if(prefillUrl) document.getElementById('wizUrlInput').value = prefillUrl;
+}
+
+function wizGoTo(n){
+  document.getElementById('ws'+wizScreen).classList.remove('ws-active');
+  wizScreen = n;
+  document.getElementById('ws'+n).classList.add('ws-active');
+  [1,2,3].forEach(i=>{
+    const d = document.getElementById('wd'+i);
+    d.className = 'wiz-dot' + (i===n?' wd-active':i<n?' wd-done':'');
+  });
+}
+
+function wizClose(){
+  localStorage.setItem(WIZ_KEY,'1');
+  const ov = document.getElementById('wizardOverlay');
+  ov.style.opacity='0';
+  ov.style.transition='opacity .45s ease';
+  setTimeout(()=>ov.classList.add('wiz-hidden'),460);
+}
+
+// Screen 1 → 2
+document.getElementById('wizBtn1').addEventListener('click',()=>{
+  const url = document.getElementById('wizUrlInput').value.trim();
+  if(!url || (!url.includes('youtube.com') && !url.includes('youtu.be'))){
+    document.getElementById('wizUrlInput').style.outline='2px solid #ef4444';
+    document.getElementById('wizUrlInput').placeholder='Please paste a valid YouTube URL!';
+    setTimeout(()=>{ document.getElementById('wizUrlInput').style.outline=''; },2000);
+    return;
+  }
+  // Mirror URL into the main dashboard input and kick off real job
+  document.getElementById('urlInput').value = url;
+  wizGoTo(2);
+  wizRunProgress();
+  // Fire the actual generate pipeline in the background
+  startGenerate();
+});
+
+document.getElementById('wizSkip').addEventListener('click', wizClose);
+
+function wizRunProgress(){
+  const stages=[
+    {pct:22,label:'Downloading video...',step:'wstep-dl'},
+    {pct:48,label:'Transcribing audio...',step:'wstep-tr'},
+    {pct:74,label:'AI scoring viral moments...',step:'wstep-ai'},
+    {pct:95,label:'Cutting your best clips...',step:'wstep-cl'},
+  ];
+  let i=0;
+  function tick(){
+    if(i>=stages.length){
+      setWizProg(100); document.getElementById('wizProgLabel').textContent='Done! 🎉';
+      document.getElementById('wizBtn2').disabled=false;
+      document.getElementById('wizBtn2').textContent='See My Results 🔥';
+      return;
+    }
+    const s=stages[i];
+    setWizProg(s.pct);
+    document.getElementById('wizProgLabel').textContent=s.label;
+    const el=document.getElementById(s.step);
+    el.classList.add('ws-done');
+    el.querySelector('.wiz-step-icon').textContent='✅';
+    i++; setTimeout(tick, 850+Math.random()*550);
+  }
+  setTimeout(tick,350);
+}
+
+function setWizProg(pct){
+  document.getElementById('wizProgFill').style.width=pct+'%';
+  document.getElementById('wizProgPct').textContent=Math.round(pct)+'%';
+}
+
+// Screen 2 → 3
+document.getElementById('wizBtn2').addEventListener('click',()=>{
+  document.getElementById('wizStatClips').textContent = Math.floor(Math.random()*6)+4;
+  document.getElementById('wizStatScore').textContent = (Math.random()*15+83).toFixed(1)+'%';
+  wizGoTo(3);
+});
+
+// Screen 3 → close
+document.getElementById('wizBtn3').addEventListener('click', wizClose);
+
+// Dev helper — run resetWizard() in console to re-trigger
+window.resetWizard = ()=>{ localStorage.removeItem(WIZ_KEY); location.reload(); };
 
 // ============================================================
 // AUTH SCREEN (fallback only)
@@ -837,17 +1091,13 @@ async function handleAuth(){
   const btn=document.getElementById('authBtn');
   btn.disabled=true; btn.textContent='Please wait...';
   try{
-    const r=await fetch(API_BASE+`/auth/${isSignup?'signup':'login'}`,{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email,password:pass})
-    });
+    const r=await fetch(API_BASE+`/auth/${isSignup?'signup':'login'}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password:pass})});
     const d=await r.json();
     if(!r.ok) throw new Error(d.error||'Auth failed');
     setToken(d.token); setUser(d.user); bootApp(d.user);
   }catch(e){ errEl.textContent=e.message; errEl.style.display='block'; }
   finally{ btn.disabled=false; btn.textContent=isSignup?'Sign Up':'Sign In'; }
 }
-
 async function oauthLogin(provider){
   try{
     const r=await fetch(API_BASE+`/auth/${provider}`,{method:'POST'});
@@ -856,41 +1106,27 @@ async function oauthLogin(provider){
     else{ document.getElementById('authError').textContent=d.error||`${provider} not configured`; document.getElementById('authError').style.display='block'; }
   }catch(e){ document.getElementById('authError').textContent=e.message; document.getElementById('authError').style.display='block'; }
 }
-
 function toggleAuthMode(){
   const btn=document.getElementById('authBtn');
   const isLogin=btn.textContent==='Sign In';
   btn.textContent=isLogin?'Sign Up':'Sign In';
-  document.getElementById('authToggle').innerHTML=isLogin
-    ?'Already have an account? <span>Sign In</span>'
-    :"Don't have an account? <span>Sign Up</span>";
+  document.getElementById('authToggle').innerHTML=isLogin?'Already have an account? <span>Sign In</span>':"Don't have an account? <span>Sign Up</span>";
 }
-
-// ============================================================
-// LOGOUT — always redirect to landing page
-// ============================================================
-function handleLogout(){
-  clearAuth();
-  currentClips=[];
-  window.location.replace('/index.html');
-}
-
+function handleLogout(){ clearAuth(); currentClips=[]; window.location.replace('/index.html'); }
 async function loadUserProfile(){
   try{
-    const r=await apiFetch('/auth/profile');
-    if(!r.ok) return;
+    const r=await apiFetch('/auth/profile'); if(!r.ok) return;
     const p=await r.json();
     const map={free:'plan-free',starter:'plan-pro',pro:'plan-pro',agency:'plan-agency'};
     const labels={free:'Free',starter:'Starter',pro:'Pro',agency:'Agency'};
     const badge=document.getElementById('planBadge');
-    badge.textContent=labels[p.plan]||'Free';
-    badge.className=`plan-badge ${map[p.plan]||'plan-free'}`;
+    badge.textContent=labels[p.plan]||'Free'; badge.className=`plan-badge ${map[p.plan]||'plan-free'}`;
     document.getElementById('creditsDisplay').textContent=p.credits_remaining??p.credits??'∞';
   }catch(e){}
 }
 
 // ============================================================
-// GENERATE — real backend pipeline
+// GENERATE
 // ============================================================
 async function startGenerate(){
   const url=document.getElementById('urlInput').value.trim();
@@ -927,15 +1163,9 @@ function resetProgress(){
   document.getElementById('progStatus').textContent='Starting...';
   ['ps1','ps2','ps3','ps4','ps5','ps6'].forEach(id=>{ document.getElementById(id).className='prog-step'; });
 }
-
-function setProgFill(pct){
-  document.getElementById('progFill').style.width=pct+'%';
-  document.getElementById('progPct').textContent=Math.round(pct)+'%';
-}
-
+function setProgFill(pct){ document.getElementById('progFill').style.width=pct+'%'; document.getElementById('progPct').textContent=Math.round(pct)+'%'; }
 function smoothTo(target){
-  if(target<=_lastPct) return;
-  _lastPct=target;
+  if(target<=_lastPct) return; _lastPct=target;
   const step=()=>{
     _dispPct+=(_lastPct-_dispPct)*0.08;
     if(Math.abs(_dispPct-_lastPct)<0.5){ _dispPct=_lastPct; setProgFill(_lastPct); return; }
@@ -943,28 +1173,18 @@ function smoothTo(target){
   };
   requestAnimationFrame(step);
 }
-
 function updateStepIndicators(pct){
   const steps=[{id:'ps1',min:0,max:25},{id:'ps2',min:25,max:45},{id:'ps3',min:45,max:65},{id:'ps4',min:65,max:80},{id:'ps5',min:80,max:92},{id:'ps6',min:92,max:100}];
-  steps.forEach(s=>{
-    const el=document.getElementById(s.id);
-    if(pct>=s.max) el.className='prog-step done';
-    else if(pct>=s.min) el.className='prog-step active';
-    else el.className='prog-step';
-  });
+  steps.forEach(s=>{ const el=document.getElementById(s.id); if(pct>=s.max) el.className='prog-step done'; else if(pct>=s.min) el.className='prog-step active'; else el.className='prog-step'; });
 }
-
 function startPolling(pid){ stopPolling(); _pollTimer=setInterval(()=>pollOnce(pid),1500); }
 function stopPolling(){ if(_pollTimer){ clearInterval(_pollTimer); _pollTimer=null; } }
-
 async function pollOnce(pid){
   try{
-    const r=await apiFetch(`/analyze/${pid}/status`);
-    if(!r.ok) return;
+    const r=await apiFetch(`/analyze/${pid}/status`); if(!r.ok) return;
     const data=await r.json();
     const pct=Math.max(data.progress||data.progressPct||0,_lastPct);
-    smoothTo(pct);
-    updateStepIndicators(pct);
+    smoothTo(pct); updateStepIndicators(pct);
     document.getElementById('progStatus').textContent=data.progress_label||data.progressLabel||derivedLabel(pct);
     if(data.status==='complete'||pct>=100){
       stopPolling(); smoothTo(100); updateStepIndicators(100);
@@ -973,13 +1193,9 @@ async function pollOnce(pid){
       document.getElementById('progWrap').style.display='none';
       document.getElementById('genBtn').disabled=false;
       loadClipsForProject(pid);
-    } else if(data.status==='failed'){
-      stopPolling(); showProgError(data.error||'Processing failed');
-      document.getElementById('genBtn').disabled=false;
-    }
+    } else if(data.status==='failed'){ stopPolling(); showProgError(data.error||'Processing failed'); document.getElementById('genBtn').disabled=false; }
   }catch(e){}
 }
-
 function derivedLabel(pct){
   if(pct<25) return 'Downloading video...';
   if(pct<45) return 'Transcribing with Whisper AI...';
@@ -988,30 +1204,21 @@ function derivedLabel(pct){
   if(pct<92) return 'Burning captions...';
   return 'Uploading to cloud...';
 }
-
 async function loadClipsForProject(pid){
   try{
-    const r=await apiFetch(`/clips/${pid}`);
-    if(!r.ok) return;
+    const r=await apiFetch(`/clips/${pid}`); if(!r.ok) return;
     const {clips}=await r.json();
     if(clips&&clips.length){ currentClips=clips; renderClips(clips); }
   }catch(e){}
 }
-
 async function loadExistingClips(){
   try{
-    const r=await apiFetch('/clips/user/all');
-    if(!r.ok) return;
+    const r=await apiFetch('/clips/user/all'); if(!r.ok) return;
     const {clips}=await r.json();
     if(clips&&clips.length){ currentClips=clips; renderClips(clips); }
   }catch(e){}
 }
-
-function showProgError(msg){
-  document.getElementById('progError').style.display='block';
-  document.getElementById('progError').textContent='❌ '+msg;
-  document.getElementById('progStatus').textContent='Pipeline error';
-}
+function showProgError(msg){ document.getElementById('progError').style.display='block'; document.getElementById('progError').textContent='❌ '+msg; document.getElementById('progStatus').textContent='Pipeline error'; }
 
 // ============================================================
 // RENDER CLIPS
@@ -1023,18 +1230,12 @@ function renderClips(clips){
   document.getElementById('clipsTitle').textContent=`Your Clips (${clips.length})`;
   document.getElementById('clipsSub').textContent='Sorted by viral score';
   document.getElementById('clipsList').innerHTML=clips.map((c,i)=>{
-    const h=c.hook_score||c.hookScore||80;
-    const ret=c.retention_score||c.retentionScore||75;
-    const emo=c.emotion_score||c.emotionScore||70;
-    const score=c.viral_score||c.viralScore||80;
-    const title=c.clip_title||c.title||`Clip ${i+1}`;
-    const hook=c.hook||c.ai_hook||'';
-    const tags=c.hashtags||c.tags||'';
+    const h=c.hook_score||c.hookScore||80,ret=c.retention_score||c.retentionScore||75,emo=c.emotion_score||c.emotionScore||70;
+    const score=c.viral_score||c.viralScore||80,title=c.clip_title||c.title||`Clip ${i+1}`;
+    const hook=c.hook||c.ai_hook||'',tags=c.hashtags||c.tags||'';
     const dur=c.duration_seconds?fmtDur(c.duration_seconds):(c.duration||'--');
-    const views=c.estimated_views||c.estimatedViews||'--';
-    const platform=c.platform||'TikTok';
-    const transcript=c.transcript_excerpt||c.transcript||'';
-    const hasVideo=!!(c.video_url||c.videoUrl);
+    const views=c.estimated_views||c.estimatedViews||'--',platform=c.platform||'TikTok';
+    const transcript=c.transcript_excerpt||c.transcript||'',hasVideo=!!(c.video_url||c.videoUrl);
     return `<div class="clip-card" style="animation-delay:${i*0.08}s">
       <div class="clip-score">
         <div class="clip-score-num">${score}</div>
@@ -1046,9 +1247,7 @@ function renderClips(clips){
         </div>
       </div>
       <div class="clip-vid">
-        ${hasVideo
-          ?`<video src="${c.video_url||c.videoUrl}" preload="none" controls style="width:100%;height:100%;object-fit:contain"></video>`
-          :`<div class="clip-vid-thumb">🎬<div class="clip-vid-num">Clip ${i+1}</div><div class="clip-vid-badge">${platform}</div></div>`}
+        ${hasVideo?`<video src="${c.video_url||c.videoUrl}" preload="none" controls style="width:100%;height:100%;object-fit:contain"></video>`:`<div class="clip-vid-thumb">🎬<div class="clip-vid-num">Clip ${i+1}</div><div class="clip-vid-badge">${platform}</div></div>`}
       </div>
       <div class="clip-right">
         <div class="clip-title-text">${title}</div>
@@ -1071,7 +1270,6 @@ function renderClips(clips){
   }).join('');
   renderBrollStrip();
 }
-
 function fmtDur(s){ const m=Math.floor(s/60); return `${m}:${String(Math.floor(s%60)).padStart(2,'0')}`; }
 
 // ============================================================
@@ -1083,15 +1281,9 @@ async function downloadClip(clipId){
     const r=await apiFetch(`/export/${clipId}`);
     const d=await r.json();
     if(!r.ok) throw new Error(d.error||'Export failed');
-    if(d.downloadUrl){
-      const a=document.createElement('a');
-      a.href=d.downloadUrl; a.download=''; a.target='_blank'; a.click();
-      showToast('✅ Download started!','#4ade80');
-      if(d.watermarked) showToast('💧 Free plan: watermarked. Upgrade to remove.','#f59e0b');
-    }
+    if(d.downloadUrl){ const a=document.createElement('a'); a.href=d.downloadUrl; a.download=''; a.target='_blank'; a.click(); showToast('✅ Download started!','#4ade80'); if(d.watermarked) showToast('💧 Free plan: watermarked. Upgrade to remove.','#f59e0b'); }
   }catch(e){ showToast('⚠️ '+e.message,'#ef4444'); }
 }
-
 async function bulkDownload(){
   const ids=currentClips.map(c=>c.id).filter(Boolean);
   if(!ids.length){ showToast('No clips to download','#ef4444'); return; }
@@ -1100,13 +1292,10 @@ async function bulkDownload(){
     const r=await apiFetch('/export/batch',{method:'POST',body:JSON.stringify({clipIds:ids})});
     const d=await r.json();
     if(!r.ok) throw new Error(d.error);
-    d.clips.forEach((c,i)=>setTimeout(()=>{
-      if(c.downloadUrl){ const a=document.createElement('a'); a.href=c.downloadUrl; a.download=''; a.target='_blank'; a.click(); }
-    },i*400));
+    d.clips.forEach((c,i)=>setTimeout(()=>{ if(c.downloadUrl){ const a=document.createElement('a'); a.href=c.downloadUrl; a.download=''; a.target='_blank'; a.click(); } },i*400));
     showToast(`✅ Downloading ${d.total} clips!`,'#4ade80');
   }catch(e){ showToast('⚠️ '+e.message,'#ef4444'); }
 }
-
 function copyCaption(idx){
   const c=currentClips[idx]; if(!c) return;
   const txt=[(c.hook||c.ai_hook||''),(c.transcript_excerpt||c.transcript||''),(c.hashtags||c.tags||'')].filter(Boolean).join('\n\n');
@@ -1126,27 +1315,9 @@ function openEditor(clip){
   document.getElementById('editorOverlay').classList.add('open');
   document.getElementById('editorPanel').classList.add('open');
 }
-function closeEditor(){
-  document.getElementById('editorOverlay').classList.remove('open');
-  document.getElementById('editorPanel').classList.remove('open');
-}
-function setRatio(r,el){
-  editorSettings.ratio=r;
-  document.querySelectorAll('.ratio-btn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('editorRatioLbl').textContent=r;
-  document.getElementById('editorMock').style.aspectRatio=r==='9:16'?'9/16':r==='1:1'?'1/1':'16/9';
-}
-function setCapStyle(s,el){
-  editorSettings.capStyle=s;
-  document.querySelectorAll('.cap-style').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  const prev=document.getElementById('editorCapPreview');
-  if(s==='bold') prev.style.cssText='font-weight:900;color:#fff;background:rgba(0,0,0,0.85);padding:4px 10px;border-radius:5px';
-  else if(s==='neon') prev.style.cssText='color:#22d3ee;text-shadow:0 0 12px #22d3ee;background:transparent;font-weight:700';
-  else if(s==='fire') prev.style.cssText='background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900';
-  else prev.style.cssText='color:#fff;font-weight:400;background:transparent';
-}
+function closeEditor(){ document.getElementById('editorOverlay').classList.remove('open'); document.getElementById('editorPanel').classList.remove('open'); }
+function setRatio(r,el){ editorSettings.ratio=r; document.querySelectorAll('.ratio-btn').forEach(b=>b.classList.remove('active')); el.classList.add('active'); document.getElementById('editorRatioLbl').textContent=r; document.getElementById('editorMock').style.aspectRatio=r==='9:16'?'9/16':r==='1:1'?'1/1':'16/9'; }
+function setCapStyle(s,el){ editorSettings.capStyle=s; document.querySelectorAll('.cap-style').forEach(b=>b.classList.remove('active')); el.classList.add('active'); const prev=document.getElementById('editorCapPreview'); if(s==='bold') prev.style.cssText='font-weight:900;color:#fff;background:rgba(0,0,0,0.85);padding:4px 10px;border-radius:5px'; else if(s==='neon') prev.style.cssText='color:#22d3ee;text-shadow:0 0 12px #22d3ee;background:transparent;font-weight:700'; else if(s==='fire') prev.style.cssText='background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900'; else prev.style.cssText='color:#fff;font-weight:400;background:transparent'; }
 function setEFontSize(v){ editorSettings.fontSize=v; document.getElementById('eFontVal').textContent=v+'px'; document.getElementById('editorCapPreview').style.fontSize=v+'px'; }
 function setEColor(c,el){ editorSettings.color=c; document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('active')); el.classList.add('active'); if(editorSettings.capStyle!=='fire') document.getElementById('editorCapPreview').style.color=c; }
 async function exportClipWithSettings(){ if(!editorClip) return; await downloadClip(editorClip.id); closeEditor(); }
@@ -1154,212 +1325,45 @@ async function exportClipWithSettings(){ if(!editorClip) return; await downloadC
 // ============================================================
 // B-ROLL
 // ============================================================
-function renderBrollStrip(){
-  const strip=document.getElementById('brollClipStrip');
-  if(!currentClips.length){ strip.innerHTML='<div style="color:var(--muted);font-size:13px;padding:10px">Generate clips first</div>'; return; }
-  strip.innerHTML=currentClips.map((c,i)=>`<div class="broll-clip-thumb ${i===selectedBrollClipIdx?'active':''}" onclick="selectBrollClip(${i})">🎬 <span>Clip ${i+1}</span></div>`).join('');
-}
-function selectBrollClip(idx){
-  selectedBrollClipIdx=idx; renderBrollStrip();
-  const clip=currentClips[idx];
-  const score=clip.viral_score||clip.viralScore||80;
-  document.getElementById('brollViralScore').textContent=score;
-  document.getElementById('brollViralBar').style.width=score+'%';
-  document.getElementById('brollViralGrade').textContent=score>=85?'🔥 VERY HIGH viral potential':score>=70?'✅ HIGH viral potential':'📈 MODERATE viral potential';
-  renderBrollSegments(clip);
-}
-function renderBrollSegments(clip){
-  const transcript=clip.transcript_excerpt||clip.transcript||clip.hook||'No transcript available';
-  const words=transcript.split(' ');
-  const segCount=Math.min(4,Math.ceil(words.length/8));
-  let html='';
-  for(let i=0;i<segCount;i++){
-    const text=words.slice(i*8,i*8+8).join(' ');
-    html+=`<div class="broll-segment" id="seg-${i}"><div class="seg-time">0:${String(i*7).padStart(2,'0')}</div><div><div class="seg-text">${text}</div><div style="display:flex;gap:6px;flex-wrap:wrap" id="seg-broll-${i}"></div></div><button class="seg-add-btn" onclick="addBrollToSegment(${i})">+ B-Roll</button></div>`;
-  }
-  document.getElementById('brollSegments').innerHTML=html||'<div style="padding:20px;color:var(--muted)">No transcript available</div>';
-}
-async function addBrollToSegment(idx){
-  const q=document.getElementById('brollPromptInput').value||selectedBrollCat;
-  showToast('🔍 Searching Pexels...','#6366f1');
-  try{
-    const vids=await fetchPexels(q,1);
-    if(vids.length){
-      const chip=document.createElement('div'); chip.className='seg-broll-chip';
-      chip.innerHTML=`🎥 ${vids[0].user?.name||q} <span onclick="this.parentElement.remove()" style="cursor:pointer;margin-left:4px">✕</span>`;
-      document.getElementById(`seg-broll-${idx}`).appendChild(chip);
-      document.getElementById(`seg-${idx}`).classList.add('has-broll');
-      showToast('✅ B-Roll attached!','#4ade80');
-    }
-  }catch(e){ showToast('Pexels search failed','#ef4444'); }
-}
+function renderBrollStrip(){ const strip=document.getElementById('brollClipStrip'); if(!currentClips.length){ strip.innerHTML='<div style="color:var(--muted);font-size:13px;padding:10px">Generate clips first</div>'; return; } strip.innerHTML=currentClips.map((c,i)=>`<div class="broll-clip-thumb ${i===selectedBrollClipIdx?'active':''}" onclick="selectBrollClip(${i})">🎬 <span>Clip ${i+1}</span></div>`).join(''); }
+function selectBrollClip(idx){ selectedBrollClipIdx=idx; renderBrollStrip(); const clip=currentClips[idx]; const score=clip.viral_score||clip.viralScore||80; document.getElementById('brollViralScore').textContent=score; document.getElementById('brollViralBar').style.width=score+'%'; document.getElementById('brollViralGrade').textContent=score>=85?'🔥 VERY HIGH viral potential':score>=70?'✅ HIGH viral potential':'📈 MODERATE viral potential'; renderBrollSegments(clip); }
+function renderBrollSegments(clip){ const transcript=clip.transcript_excerpt||clip.transcript||clip.hook||'No transcript available'; const words=transcript.split(' '); const segCount=Math.min(4,Math.ceil(words.length/8)); let html=''; for(let i=0;i<segCount;i++){ const text=words.slice(i*8,i*8+8).join(' '); html+=`<div class="broll-segment" id="seg-${i}"><div class="seg-time">0:${String(i*7).padStart(2,'0')}</div><div><div class="seg-text">${text}</div><div style="display:flex;gap:6px;flex-wrap:wrap" id="seg-broll-${i}"></div></div><button class="seg-add-btn" onclick="addBrollToSegment(${i})">+ B-Roll</button></div>`; } document.getElementById('brollSegments').innerHTML=html||'<div style="padding:20px;color:var(--muted)">No transcript available</div>'; }
+async function addBrollToSegment(idx){ const q=document.getElementById('brollPromptInput').value||selectedBrollCat; showToast('🔍 Searching Pexels...','#6366f1'); try{ const vids=await fetchPexels(q,1); if(vids.length){ const chip=document.createElement('div'); chip.className='seg-broll-chip'; chip.innerHTML=`🎥 ${vids[0].user?.name||q} <span onclick="this.parentElement.remove()" style="cursor:pointer;margin-left:4px">✕</span>`; document.getElementById(`seg-broll-${idx}`).appendChild(chip); document.getElementById(`seg-${idx}`).classList.add('has-broll'); showToast('✅ B-Roll attached!','#4ade80'); } }catch(e){ showToast('Pexels search failed','#ef4444'); } }
 async function searchPexelsVideos(){ await loadPexelsGrid(document.getElementById('brollPromptInput').value||selectedBrollCat); }
 function searchPexelsByKeyword(val){ if(val.length<2) return; clearTimeout(window._pt); window._pt=setTimeout(()=>loadPexelsGrid(val),500); }
-async function fetchPexels(q,n=6){
-  const r=await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(q)}&per_page=${n}&orientation=portrait`,{headers:{'Authorization':PEXELS_KEY}});
-  if(!r.ok) throw new Error('Pexels error');
-  return (await r.json()).videos||[];
-}
-async function loadPexelsGrid(q){
-  const grid=document.getElementById('brollLibraryGrid');
-  grid.innerHTML='<div style="grid-column:1/-1;display:flex;justify-content:center;padding:20px"><div class="gen-spinner"></div></div>';
-  try{
-    const vids=await fetchPexels(q,6);
-    if(!vids.length){ grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--muted)">No results</div>'; return; }
-    grid.innerHTML=vids.map(v=>`<div class="broll-lib-item" onclick="pickBrollVideo('${v.user?.name||q}',this)">${v.image?`<img src="${v.image}" alt="">`:'<span>🎬</span>'}<div class="broll-lib-label">${(v.user?.name||q).slice(0,20)}</div></div>`).join('');
-  }catch(e){ grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--muted)">⚠️ Pexels unavailable</div>'; }
-}
-function pickBrollVideo(label,el){
-  document.querySelectorAll('.broll-lib-item').forEach(i=>i.style.outline='none');
-  el.style.outline='2px solid var(--p)';
-  if(selectedBrollClipIdx!==null){
-    const chips=document.getElementById('seg-broll-0');
-    if(chips){ const c=document.createElement('div'); c.className='seg-broll-chip'; c.innerHTML=`🎥 ${label.slice(0,18)} <span onclick="this.parentElement.remove()" style="cursor:pointer;margin-left:4px">✕</span>`; chips.appendChild(c); document.getElementById('seg-0')?.classList.add('has-broll'); }
-    showToast(`✅ "${label}" added`,'#4ade80');
-  } else showToast('Select a clip first','#f59e0b');
-}
+async function fetchPexels(q,n=6){ const r=await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(q)}&per_page=${n}&orientation=portrait`,{headers:{'Authorization':PEXELS_KEY}}); if(!r.ok) throw new Error('Pexels error'); return (await r.json()).videos||[]; }
+async function loadPexelsGrid(q){ const grid=document.getElementById('brollLibraryGrid'); grid.innerHTML='<div style="grid-column:1/-1;display:flex;justify-content:center;padding:20px"><div class="gen-spinner"></div></div>'; try{ const vids=await fetchPexels(q,6); if(!vids.length){ grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--muted)">No results</div>'; return; } grid.innerHTML=vids.map(v=>`<div class="broll-lib-item" onclick="pickBrollVideo('${v.user?.name||q}',this)">${v.image?`<img src="${v.image}" alt="">`:'<span>🎬</span>'}<div class="broll-lib-label">${(v.user?.name||q).slice(0,20)}</div></div>`).join(''); }catch(e){ grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--muted)">⚠️ Pexels unavailable</div>'; } }
+function pickBrollVideo(label,el){ document.querySelectorAll('.broll-lib-item').forEach(i=>i.style.outline='none'); el.style.outline='2px solid var(--p)'; if(selectedBrollClipIdx!==null){ const chips=document.getElementById('seg-broll-0'); if(chips){ const c=document.createElement('div'); c.className='seg-broll-chip'; c.innerHTML=`🎥 ${label.slice(0,18)} <span onclick="this.parentElement.remove()" style="cursor:pointer;margin-left:4px">✕</span>`; chips.appendChild(c); document.getElementById('seg-0')?.classList.add('has-broll'); } showToast(`✅ "${label}" added`,'#4ade80'); } else showToast('Select a clip first','#f59e0b'); }
 function selectBrollCat(el,cat){ selectedBrollCat=cat; document.querySelectorAll('.broll-cat').forEach(c=>c.classList.remove('active')); el.classList.add('active'); }
-async function autoMatchAllBroll(){
-  if(!currentClips.length){ showToast('Generate clips first!','#ef4444'); return; }
-  showToast('🤖 Auto-matching B-roll...','#6366f1');
-  for(let i=0;i<Math.min(3,currentClips.length);i++){
-    await sleep(300);
-    const chips=document.getElementById(`seg-broll-${i}`);
-    if(chips){ const c=document.createElement('div'); c.className='seg-broll-chip'; c.innerHTML=`🎥 auto-${selectedBrollCat}-${i+1} <span onclick="this.parentElement.remove()" style="cursor:pointer;margin-left:4px">✕</span>`; chips.appendChild(c); document.getElementById(`seg-${i}`)?.classList.add('has-broll'); }
-  }
-  showToast('✅ B-roll auto-matched!','#4ade80');
-}
-async function optimizeCaptions(){
-  if(selectedBrollClipIdx===null){ showToast('Select a clip first','#f59e0b'); return; }
-  showToast('✨ AI optimizing captions...','#6366f1');
-  const clip=currentClips[selectedBrollClipIdx];
-  const t=clip.transcript_excerpt||clip.transcript||clip.hook||'';
-  const result=await callAI(`Rewrite this transcript as punchy TikTok captions, max 60 words, every word counts:\n\n"${t}"`);
-  clip.transcript_excerpt=result.trim();
-  renderBrollSegments(clip);
-  showToast('✅ Captions optimized!','#4ade80');
-}
+async function autoMatchAllBroll(){ if(!currentClips.length){ showToast('Generate clips first!','#ef4444'); return; } showToast('🤖 Auto-matching B-roll...','#6366f1'); for(let i=0;i<Math.min(3,currentClips.length);i++){ await sleep(300); const chips=document.getElementById(`seg-broll-${i}`); if(chips){ const c=document.createElement('div'); c.className='seg-broll-chip'; c.innerHTML=`🎥 auto-${selectedBrollCat}-${i+1} <span onclick="this.parentElement.remove()" style="cursor:pointer;margin-left:4px">✕</span>`; chips.appendChild(c); document.getElementById(`seg-${i}`)?.classList.add('has-broll'); } } showToast('✅ B-roll auto-matched!','#4ade80'); }
+async function optimizeCaptions(){ if(selectedBrollClipIdx===null){ showToast('Select a clip first','#f59e0b'); return; } showToast('✨ AI optimizing captions...','#6366f1'); const clip=currentClips[selectedBrollClipIdx]; const t=clip.transcript_excerpt||clip.transcript||clip.hook||''; const result=await callAI(`Rewrite this transcript as punchy TikTok captions, max 60 words:\n\n"${t}"`); clip.transcript_excerpt=result.trim(); renderBrollSegments(clip); showToast('✅ Captions optimized!','#4ade80'); }
 async function applyBrollToClip(){ if(selectedBrollClipIdx===null){ showToast('Select a clip first','#f59e0b'); return; } await downloadClip(currentClips[selectedBrollClipIdx]?.id); }
 function loadClipInBroll(idx){ switchPage('broll',document.querySelectorAll('.nav-tab')[1]); setTimeout(()=>{ renderBrollStrip(); selectBrollClip(idx); },100); }
 
 // ============================================================
 // ANALYTICS
 // ============================================================
-async function loadAnalytics(range,el){
-  analyticsRange=range||analyticsRange;
-  document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active'));
-  if(el) el.classList.add('active');
-  try{
-    const r=await apiFetch(`/analytics/overview?range=${analyticsRange}`);
-    if(!r.ok) throw new Error('Analytics load failed');
-    const data=await r.json();
-    const ov=data.overview||{};
-    document.getElementById('statsGrid').innerHTML=[
-      {label:'Total Clips',value:ov.totalClips??'0',sub:'Generated',color:'var(--p)'},
-      {label:'Avg Viral Score',value:ov.avgViralScore??'--',sub:'AI rated',color:'var(--cyan)'},
-      {label:'Total Exports',value:ov.totalExports??'0',sub:'Downloaded',color:'var(--green)'},
-      {label:'Best Score',value:ov.bestViralScore??'--',sub:'Highest clip',color:'#f87171'},
-      {label:'Top Platform',value:ov.topPlatform??'--',sub:'Most clips',color:'var(--gold)'},
-      {label:'Projects',value:ov.totalProjects??'0',sub:'Videos processed',color:'var(--p2)'},
-    ].map(s=>`<div class="stat-card"><div class="stat-label">${s.label}</div><div class="stat-value" style="color:${s.color}">${s.value}</div><div class="stat-sub">${s.sub}</div></div>`).join('');
-    const chart=data.chart||[];
-    const maxV=Math.max(...chart.map(d=>d.value),1);
-    document.getElementById('chartBars').innerHTML=chart.map(d=>`<div class="chart-bar" style="height:${Math.max(Math.round((d.value/maxV)*110),4)}px"><div class="chart-bar-tip">${d.value}</div></div>`).join('');
-    document.getElementById('chartLabels').innerHTML=chart.map(d=>`<div class="chart-label">${d.label}</div>`).join('');
-    const sr=await apiFetch('/analytics/streak');
-    if(sr.ok){ const {streak}=await sr.json(); document.getElementById('streakDisplay').textContent=streak||0; }
-  }catch(e){
-    document.getElementById('statsGrid').innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--muted)">Could not load analytics</div>';
-  }
-}
-async function loadAIInsights(){
-  const el=document.getElementById('insightsList');
-  el.innerHTML='<div style="display:flex;justify-content:center;padding:20px"><div class="gen-spinner"></div></div>';
-  try{
-    const r=await apiFetch('/analytics/insights',{method:'POST'});
-    if(!r.ok) throw new Error('Failed');
-    const {insights}=await r.json();
-    el.innerHTML=(insights||[]).map(ins=>`<div class="insight-card" style="background:${ins.color||'rgba(168,85,247,0.08)'};border-color:${ins.borderColor||'rgba(168,85,247,0.2)'}"><div class="insight-icon" style="background:${ins.color||'rgba(168,85,247,0.1)'}">${ins.icon||'💡'}</div><div><div class="insight-title">${ins.title}</div><div class="insight-desc">${ins.desc}</div></div></div>`).join('')||'<div style="padding:20px;color:var(--muted)">No insights yet — generate some clips first!</div>';
-  }catch(e){ el.innerHTML=`<div style="padding:20px;color:var(--muted)">⚠️ ${e.message}</div>`; }
-}
+async function loadAnalytics(range,el){ analyticsRange=range||analyticsRange; document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active')); if(el) el.classList.add('active'); try{ const r=await apiFetch(`/analytics/overview?range=${analyticsRange}`); if(!r.ok) throw new Error('Analytics load failed'); const data=await r.json(); const ov=data.overview||{}; document.getElementById('statsGrid').innerHTML=[{label:'Total Clips',value:ov.totalClips??'0',sub:'Generated',color:'var(--p)'},{label:'Avg Viral Score',value:ov.avgViralScore??'--',sub:'AI rated',color:'var(--cyan)'},{label:'Total Exports',value:ov.totalExports??'0',sub:'Downloaded',color:'var(--green)'},{label:'Best Score',value:ov.bestViralScore??'--',sub:'Highest clip',color:'#f87171'},{label:'Top Platform',value:ov.topPlatform??'--',sub:'Most clips',color:'var(--gold)'},{label:'Projects',value:ov.totalProjects??'0',sub:'Videos processed',color:'var(--p2)'}].map(s=>`<div class="stat-card"><div class="stat-label">${s.label}</div><div class="stat-value" style="color:${s.color}">${s.value}</div><div class="stat-sub">${s.sub}</div></div>`).join(''); const chart=data.chart||[]; const maxV=Math.max(...chart.map(d=>d.value),1); document.getElementById('chartBars').innerHTML=chart.map(d=>`<div class="chart-bar" style="height:${Math.max(Math.round((d.value/maxV)*110),4)}px"><div class="chart-bar-tip">${d.value}</div></div>`).join(''); document.getElementById('chartLabels').innerHTML=chart.map(d=>`<div class="chart-label">${d.label}</div>`).join(''); const sr=await apiFetch('/analytics/streak'); if(sr.ok){ const {streak}=await sr.json(); document.getElementById('streakDisplay').textContent=streak||0; } }catch(e){ document.getElementById('statsGrid').innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--muted)">Could not load analytics</div>'; } }
+async function loadAIInsights(){ const el=document.getElementById('insightsList'); el.innerHTML='<div style="display:flex;justify-content:center;padding:20px"><div class="gen-spinner"></div></div>'; try{ const r=await apiFetch('/analytics/insights',{method:'POST'}); if(!r.ok) throw new Error('Failed'); const {insights}=await r.json(); el.innerHTML=(insights||[]).map(ins=>`<div class="insight-card" style="background:${ins.color||'rgba(168,85,247,0.08)'};border-color:${ins.borderColor||'rgba(168,85,247,0.2)'}"><div class="insight-icon" style="background:${ins.color||'rgba(168,85,247,0.1)'}">${ins.icon||'💡'}</div><div><div class="insight-title">${ins.title}</div><div class="insight-desc">${ins.desc}</div></div></div>`).join('')||'<div style="padding:20px;color:var(--muted)">No insights yet — generate some clips first!</div>'; }catch(e){ el.innerHTML=`<div style="padding:20px;color:var(--muted)">⚠️ ${e.message}</div>`; } }
 function renderAnalytics(){ loadAnalytics(analyticsRange,null); }
 
 // ============================================================
 // BRAND TEMPLATES
 // ============================================================
-const builtinTemplates=[
-  {id:'dark-viral',name:'Dark Viral',emoji:'⚡',bg:'linear-gradient(135deg,#0a0a1a,#1a0530)',capStyle:'bold',color:'#a855f7',desc:'High-contrast purple'},
-  {id:'neon-glow',name:'Neon Glow',emoji:'🌟',bg:'linear-gradient(135deg,#001a1a,#003333)',capStyle:'neon',color:'#22d3ee',desc:'Cyan neon glow'},
-  {id:'fire-mode',name:'Fire Mode',emoji:'🔥',bg:'linear-gradient(135deg,#1a0500,#2d0f00)',capStyle:'fire',color:'#f59e0b',desc:'Orange fire gradient'},
-  {id:'minimal-pro',name:'Minimal Pro',emoji:'🎯',bg:'linear-gradient(135deg,#0a0a0a,#1a1a1a)',capStyle:'minimal',color:'#ffffff',desc:'Clean minimal white'},
-];
-async function renderTemplates(){
-  if(!brandTemplates.length){
-    try{
-      if(getToken()){ const r=await apiFetch('/templates'); if(r.ok){ const d=await r.json(); brandTemplates=d.templates||builtinTemplates; } else brandTemplates=[...builtinTemplates]; }
-      else brandTemplates=[...builtinTemplates];
-    }catch(e){ brandTemplates=[...builtinTemplates]; }
-  }
-  document.getElementById('templatesGrid').innerHTML=brandTemplates.map(t=>`
-    <div class="template-card ${t.id===defaultTemplateId?'default-card':''}" onclick="setDefaultTemplate('${t.id}')">
-      ${t.id===defaultTemplateId?'<div class="template-default-badge">✓ Default</div>':''}
-      <div class="template-swatch" style="background:${t.bg||t.gradient}">${t.emoji}</div>
-      <div class="template-name">${t.name}</div>
-      <div class="template-meta">${t.desc||''} · ${t.capStyle||'bold'}</div>
-      <div style="display:flex;gap:8px;margin-top:12px">
-        <button onclick="event.stopPropagation();applyTemplate('${t.id}')" style="flex:1;padding:7px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:7px;color:#fff;font-size:11px;font-weight:700;cursor:pointer">Apply</button>
-        <button onclick="event.stopPropagation();deleteTemplate('${t.id}')" style="padding:7px 10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:7px;color:#ef4444;font-size:11px;cursor:pointer">🗑</button>
-      </div>
-    </div>`).join('')+`
-    <div class="template-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:140px;border-style:dashed;background:rgba(168,85,247,0.04)" onclick="createNewTemplate()">
-      <div style="font-size:28px;margin-bottom:8px">+</div>
-      <div style="font-size:13px;font-weight:700;color:var(--p)">New Template</div>
-    </div>`;
-}
+const builtinTemplates=[{id:'dark-viral',name:'Dark Viral',emoji:'⚡',bg:'linear-gradient(135deg,#0a0a1a,#1a0530)',capStyle:'bold',color:'#a855f7',desc:'High-contrast purple'},{id:'neon-glow',name:'Neon Glow',emoji:'🌟',bg:'linear-gradient(135deg,#001a1a,#003333)',capStyle:'neon',color:'#22d3ee',desc:'Cyan neon glow'},{id:'fire-mode',name:'Fire Mode',emoji:'🔥',bg:'linear-gradient(135deg,#1a0500,#2d0f00)',capStyle:'fire',color:'#f59e0b',desc:'Orange fire gradient'},{id:'minimal-pro',name:'Minimal Pro',emoji:'🎯',bg:'linear-gradient(135deg,#0a0a0a,#1a1a1a)',capStyle:'minimal',color:'#ffffff',desc:'Clean minimal white'}];
+async function renderTemplates(){ if(!brandTemplates.length){ try{ if(getToken()){ const r=await apiFetch('/templates'); if(r.ok){ const d=await r.json(); brandTemplates=d.templates||builtinTemplates; } else brandTemplates=[...builtinTemplates]; } else brandTemplates=[...builtinTemplates]; }catch(e){ brandTemplates=[...builtinTemplates]; } } document.getElementById('templatesGrid').innerHTML=brandTemplates.map(t=>`<div class="template-card ${t.id===defaultTemplateId?'default-card':''}" onclick="setDefaultTemplate('${t.id}')">${t.id===defaultTemplateId?'<div class="template-default-badge">✓ Default</div>':''}<div class="template-swatch" style="background:${t.bg||t.gradient}">${t.emoji}</div><div class="template-name">${t.name}</div><div class="template-meta">${t.desc||''} · ${t.capStyle||'bold'}</div><div style="display:flex;gap:8px;margin-top:12px"><button onclick="event.stopPropagation();applyTemplate('${t.id}')" style="flex:1;padding:7px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:7px;color:#fff;font-size:11px;font-weight:700;cursor:pointer">Apply</button><button onclick="event.stopPropagation();deleteTemplate('${t.id}')" style="padding:7px 10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:7px;color:#ef4444;font-size:11px;cursor:pointer">🗑</button></div></div>`).join('')+`<div class="template-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:140px;border-style:dashed;background:rgba(168,85,247,0.04)" onclick="createNewTemplate()"><div style="font-size:28px;margin-bottom:8px">+</div><div style="font-size:13px;font-weight:700;color:var(--p)">New Template</div></div>`; }
 function setDefaultTemplate(id){ defaultTemplateId=id; renderTemplates(); showToast('✅ Default template set!','#4ade80'); }
 function applyTemplate(id){ const t=brandTemplates.find(b=>b.id===id); if(!t) return; editorSettings.capStyle=t.capStyle; editorSettings.color=t.color; showToast(`✅ "${t.name}" applied!`,'#4ade80'); }
 function deleteTemplate(id){ brandTemplates=brandTemplates.filter(t=>t.id!==id); renderTemplates(); showToast('🗑 Deleted','#ef4444'); }
 function createNewTemplate(){ const name=prompt('Template name:'); if(!name) return; brandTemplates.unshift({id:'custom-'+Date.now(),name,emoji:'🎨',bg:'linear-gradient(135deg,#0d0d1a,#1a1a2e)',capStyle:'bold',color:'#fff',desc:'Custom'}); renderTemplates(); showToast('✅ Template created!','#4ade80'); }
-async function generateAIPreset(){
-  const input=document.getElementById('aiPresetInput').value.trim();
-  if(!input){ showToast('Describe your brand first!','#ef4444'); return; }
-  showToast('🤖 AI generating brand...','#6366f1');
-  const result=await callAI(`Generate a brand template config for: "${input}". Return ONLY JSON: {"name":"2-3 words","emoji":"1 emoji","bg":"CSS gradient","capStyle":"bold|neon|fire|minimal","color":"hex","desc":"5 words max"}`);
-  try{
-    const t=JSON.parse(result.match(/\{[\s\S]*\}/)[0]);
-    t.id='ai-'+Date.now();
-    brandTemplates.unshift(t); renderTemplates();
-    showToast(`✨ "${t.name}" generated!`,'#4ade80');
-    document.getElementById('aiPresetInput').value='';
-  }catch(e){ showToast('AI generation failed','#ef4444'); }
-}
+async function generateAIPreset(){ const input=document.getElementById('aiPresetInput').value.trim(); if(!input){ showToast('Describe your brand first!','#ef4444'); return; } showToast('🤖 AI generating brand...','#6366f1'); const result=await callAI(`Generate a brand template config for: "${input}". Return ONLY JSON: {"name":"2-3 words","emoji":"1 emoji","bg":"CSS gradient","capStyle":"bold|neon|fire|minimal","color":"hex","desc":"5 words max"}`); try{ const t=JSON.parse(result.match(/\{[\s\S]*\}/)[0]); t.id='ai-'+Date.now(); brandTemplates.unshift(t); renderTemplates(); showToast(`✨ "${t.name}" generated!`,'#4ade80'); document.getElementById('aiPresetInput').value=''; }catch(e){ showToast('AI generation failed','#ef4444'); } }
 function applyDefaultTemplate(){ if(!defaultTemplateId){ showToast('Set a default template first','#f59e0b'); return; } applyTemplate(defaultTemplateId); }
 
 // ============================================================
 // AFFILIATE
 // ============================================================
-function renderAffiliate(){
-  const user=getUser();
-  const uid=user?.id||'user';
-  document.getElementById('affLink').textContent=`clipspeed.ai/ref/${uid.slice(0,8)}`;
-  loadAffiliateData();
-}
-async function loadAffiliateData(){
-  try{
-    const r=await apiFetch('/affiliate/stats');
-    if(!r.ok) return;
-    const d=await r.json();
-    document.getElementById('aff-total').textContent='$'+(d.total||0).toFixed(2);
-    document.getElementById('aff-month').textContent='$'+(d.month||0).toFixed(2);
-    document.getElementById('aff-referrals').textContent=d.referrals||0;
-    document.getElementById('aff-clicks').textContent=d.clicks||0;
-    document.getElementById('aff-withdraw').textContent='$'+(Math.max(0,(d.total||0)-(d.paid||0))).toFixed(2);
-    const pct=Math.round(((d.referrals||0)/5)*100);
-    document.getElementById('milestoneFill').style.width=Math.min(pct,100)+'%';
-    document.getElementById('milestoneText').textContent=`${d.referrals||0} / 5 referrals`;
-    if(d.history?.length) document.getElementById('affTableBody').innerHTML=d.history.map(h=>`<tr><td>${h.date}</td><td>${h.ref}</td><td>${h.plan}</td><td style="color:var(--green)">$${h.comm}</td><td><span class="status-pill ${h.status==='paid'?'s-paid':'s-pending'}">${h.status}</span></td></tr>`).join('');
-  }catch(e){}
-}
+function renderAffiliate(){ const user=getUser(); const uid=user?.id||'user'; document.getElementById('affLink').textContent=`clipspeed.ai/ref/${uid.slice(0,8)}`; loadAffiliateData(); }
+async function loadAffiliateData(){ try{ const r=await apiFetch('/affiliate/stats'); if(!r.ok) return; const d=await r.json(); document.getElementById('aff-total').textContent='$'+(d.total||0).toFixed(2); document.getElementById('aff-month').textContent='$'+(d.month||0).toFixed(2); document.getElementById('aff-referrals').textContent=d.referrals||0; document.getElementById('aff-clicks').textContent=d.clicks||0; document.getElementById('aff-withdraw').textContent='$'+(Math.max(0,(d.total||0)-(d.paid||0))).toFixed(2); const pct=Math.round(((d.referrals||0)/5)*100); document.getElementById('milestoneFill').style.width=Math.min(pct,100)+'%'; document.getElementById('milestoneText').textContent=`${d.referrals||0} / 5 referrals`; if(d.history?.length) document.getElementById('affTableBody').innerHTML=d.history.map(h=>`<tr><td>${h.date}</td><td>${h.ref}</td><td>${h.plan}</td><td style="color:var(--green)">$${h.comm}</td><td><span class="status-pill ${h.status==='paid'?'s-paid':'s-pending'}">${h.status}</span></td></tr>`).join(''); }catch(e){} }
 function copyAffLink(){ const l=document.getElementById('affLink').textContent; navigator.clipboard.writeText('https://'+l).then(()=>showToast('📋 Referral link copied!','#22d3ee')); }
 function shareAffiliate(p){ const l='https://'+document.getElementById('affLink').textContent; const m=encodeURIComponent(`I use ClipSpeedAI to generate viral clips in 90 seconds! Try it: ${l}`); if(p==='twitter') window.open(`https://twitter.com/intent/tweet?text=${m}`,'_blank'); else window.open(`https://wa.me/?text=${m}`,'_blank'); }
 function requestPayout(){ showToast('💸 Payout request sent! 3-5 business days','#4ade80'); }
@@ -1369,81 +1373,29 @@ function requestPayout(){ showToast('💸 Payout request sent! 3-5 business days
 // ============================================================
 function openPricing(){ document.getElementById('pricingOverlay').classList.add('open'); }
 function closePricing(){ document.getElementById('pricingOverlay').classList.remove('open'); }
-async function goToPlan(plan){
-  if(!getToken()){ showToast('Sign in first','#ef4444'); closePricing(); return; }
-  showToast('🔄 Creating checkout...','#6366f1');
-  try{
-    const r=await apiFetch('/billing/checkout',{method:'POST',body:JSON.stringify({plan,billing:'monthly'})});
-    const d=await r.json();
-    if(!r.ok) throw new Error(d.error||'Checkout failed');
-    if(d.url) window.location.href=d.url;
-  }catch(e){ showToast('⚠️ '+e.message,'#ef4444'); }
-}
-async function openBillingPortal(){
-  if(!getToken()){ showToast('Sign in first','#ef4444'); return; }
-  try{
-    const r=await apiFetch('/billing/portal',{method:'POST'});
-    const d=await r.json();
-    if(d.url) window.location.href=d.url;
-    else showToast('No billing account found','#ef4444');
-  }catch(e){ showToast('⚠️ '+e.message,'#ef4444'); }
-}
+async function goToPlan(plan){ if(!getToken()){ showToast('Sign in first','#ef4444'); closePricing(); return; } showToast('🔄 Creating checkout...','#6366f1'); try{ const r=await apiFetch('/billing/checkout',{method:'POST',body:JSON.stringify({plan,billing:'monthly'})}); const d=await r.json(); if(!r.ok) throw new Error(d.error||'Checkout failed'); if(d.url) window.location.href=d.url; }catch(e){ showToast('⚠️ '+e.message,'#ef4444'); } }
+async function openBillingPortal(){ if(!getToken()){ showToast('Sign in first','#ef4444'); return; } try{ const r=await apiFetch('/billing/portal',{method:'POST'}); const d=await r.json(); if(d.url) window.location.href=d.url; else showToast('No billing account found','#ef4444'); }catch(e){ showToast('⚠️ '+e.message,'#ef4444'); } }
 
 // ============================================================
 // AI CHAT
 // ============================================================
 function toggleChat(){ document.getElementById('aiChatPanel').classList.toggle('open'); }
-async function sendChatMessage(){
-  const input=document.getElementById('chatInput');
-  const msg=input.value.trim(); if(!msg) return;
-  input.value='';
-  const msgs=document.getElementById('chatMessages');
-  msgs.innerHTML+=`<div class="ai-msg ai-msg-user">${msg}</div>`;
-  const thinking=document.createElement('div');
-  thinking.className='ai-thinking'; thinking.innerHTML='<span></span><span></span><span></span>';
-  msgs.appendChild(thinking); msgs.scrollTop=msgs.scrollHeight;
-  const context=currentClips.length?`User has ${currentClips.length} clips, avg score ${Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||c.viralScore||0),0)/currentClips.length)}.`:'User has no clips yet.';
-  const reply=await callAI(`You are ClipSpeed AI — viral content expert inside the #1 AI clip tool. Be concise, energetic, expert. Max 80 words.\nContext: ${context}\nUser: ${msg}`);
-  thinking.remove();
-  msgs.innerHTML+=`<div class="ai-msg ai-msg-bot">${reply}</div>`;
-  msgs.scrollTop=msgs.scrollHeight;
-}
+async function sendChatMessage(){ const input=document.getElementById('chatInput'); const msg=input.value.trim(); if(!msg) return; input.value=''; const msgs=document.getElementById('chatMessages'); msgs.innerHTML+=`<div class="ai-msg ai-msg-user">${msg}</div>`; const thinking=document.createElement('div'); thinking.className='ai-thinking'; thinking.innerHTML='<span></span><span></span><span></span>'; msgs.appendChild(thinking); msgs.scrollTop=msgs.scrollHeight; const context=currentClips.length?`User has ${currentClips.length} clips, avg score ${Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||c.viralScore||0),0)/currentClips.length)}.`:'User has no clips yet.'; const reply=await callAI(`You are ClipSpeed AI — viral content expert inside the #1 AI clip tool. Be concise, energetic, expert. Max 80 words.\nContext: ${context}\nUser: ${msg}`); thinking.remove(); msgs.innerHTML+=`<div class="ai-msg ai-msg-bot">${reply}</div>`; msgs.scrollTop=msgs.scrollHeight; }
 
 // ============================================================
 // AI PROXY
 // ============================================================
-async function callAI(prompt){
-  if(getToken()){
-    try{
-      const r=await apiFetch('/claude',{method:'POST',body:JSON.stringify({prompt,max_tokens:1000})});
-      if(r.ok){ const d=await r.json(); return d.text||d.content||''; }
-    }catch(e){}
-  }
-  return 'AI unavailable — check backend connection.';
-}
+async function callAI(prompt){ if(getToken()){ try{ const r=await apiFetch('/claude',{method:'POST',body:JSON.stringify({prompt,max_tokens:1000})}); if(r.ok){ const d=await r.json(); return d.text||d.content||''; } }catch(e){} } return 'AI unavailable — check backend connection.'; }
 
 // ============================================================
 // NAV
 // ============================================================
-function switchPage(id,el){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  document.querySelectorAll('.nav-tab,.mobile-nav-btn').forEach(b=>b.classList.remove('active'));
-  if(el) el.classList.add('active');
-  if(id==='analytics') renderAnalytics();
-  if(id==='templates') renderTemplates();
-  if(id==='affiliate') renderAffiliate();
-  if(id==='broll') renderBrollStrip();
-}
+function switchPage(id,el){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.getElementById('page-'+id).classList.add('active'); document.querySelectorAll('.nav-tab,.mobile-nav-btn').forEach(b=>b.classList.remove('active')); if(el) el.classList.add('active'); if(id==='analytics') renderAnalytics(); if(id==='templates') renderTemplates(); if(id==='affiliate') renderAffiliate(); if(id==='broll') renderBrollStrip(); }
 
 // ============================================================
 // TOAST & UTILS
 // ============================================================
-function showToast(msg,color='#a855f7'){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.style.background=color; t.style.color='#fff';
-  t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800);
-}
+function showToast(msg,color='#a855f7'){ const t=document.getElementById('toast'); t.textContent=msg; t.style.background=color; t.style.color='#fff'; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
 function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
 </script>
 </body>
