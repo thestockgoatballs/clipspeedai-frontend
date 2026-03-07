@@ -25,6 +25,8 @@ a{color:var(--p);text-decoration:none}
 @keyframes borderPulse{0%,100%{box-shadow:0 0 40px rgba(168,85,247,0.35)}50%{box-shadow:0 0 70px rgba(168,85,247,0.6)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* NAV */
 .nav{position:sticky;top:0;z-index:100;background:rgba(7,7,14,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{font-size:18px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
 .nav-links{display:flex;gap:4px;align-items:center}
@@ -36,6 +38,8 @@ a{color:var(--p);text-decoration:none}
 .nav-start{padding:9px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s}
 .nav-start:hover{opacity:0.88;transform:translateY(-1px)}
 @media(max-width:700px){.nav-links{display:none}.nav{padding:0 16px}}
+
+/* HERO */
 .hero{min-height:92vh;display:flex;align-items:center;justify-content:center;padding:60px 24px 80px;position:relative;z-index:1;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(168,85,247,0.1),transparent 65%);pointer-events:none}
 .hero-inner{max-width:720px;width:100%;text-align:center;animation:fadeUp 0.7s ease both}
@@ -56,9 +60,32 @@ a{color:var(--p);text-decoration:none}
 .hero-stat{text-align:center}
 .hero-stat-num{font-size:28px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .hero-stat-lbl{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* PROOF STRIP */
 .proof-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:center;gap:40px;background:rgba(255,255,255,0.01);position:relative;z-index:1;flex-wrap:wrap}
 .proof-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted2);font-weight:600}
 .proof-icon{font-size:18px}
+
+/* CLIPS SHOWCASE */
+.clips-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
+.clips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1080px;margin:0 auto}
+@media(max-width:900px){.clips-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.clips-grid{grid-template-columns:1fr}}
+.clip-card{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(168,85,247,0.25);box-shadow:0 0 30px rgba(168,85,247,0.15);background:var(--bg2);aspect-ratio:9/16;display:flex;align-items:flex-end;transition:transform 0.25s,box-shadow 0.25s}
+.clip-card:hover{transform:translateY(-4px);box-shadow:0 0 50px rgba(168,85,247,0.3)}
+.clip-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px}
+.clip-skeleton{position:absolute;inset:0;background:linear-gradient(135deg,var(--bg2),var(--bg3),var(--bg2));background-size:200%;animation:shimmer 1.5s linear infinite;display:flex;align-items:center;justify-content:center;font-size:32px}
+.clip-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);border-radius:16px}
+.clip-watermark{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#7C3AED,#6366f1);border-radius:20px;padding:4px 10px;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;gap:4px;z-index:3}
+.clip-score-ring{position:absolute;top:10px;left:10px;width:38px;height:38px;border-radius:50%;border:2px solid var(--p);background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff;z-index:3}
+.clip-caption{position:absolute;bottom:52px;left:0;right:0;text-align:center;font-size:13px;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.8);padding:0 12px;z-index:3;line-height:1.3}
+.clip-caption span{background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.clip-meta{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;z-index:3;display:flex;align-items:center;justify-content:space-between}
+.clip-creator{font-size:11px;font-weight:700;color:rgba(255,255,255,0.9)}
+.clip-views{font-size:10px;color:var(--muted2)}
+.clip-duration{position:absolute;bottom:10px;right:12px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);padding:2px 6px;border-radius:4px;z-index:3}
+
+/* STEPS */
 .section{padding:80px 24px;position:relative;z-index:1}
 .section-inner{max-width:1080px;margin:0 auto}
 .section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--p);margin-bottom:12px;text-align:center}
@@ -73,6 +100,8 @@ a{color:var(--p);text-decoration:none}
 .step-title{font-size:17px;font-weight:800;margin-bottom:8px}
 .step-desc{font-size:13px;color:var(--muted2);line-height:1.6}
 @media(min-width:700px){.step-card:not(:last-child)::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--p);z-index:2}}
+
+/* FEATURES */
 .features-section{padding:80px 24px;background:rgba(168,85,247,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
 .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;max-width:1080px;margin:0 auto}
 .feat-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.25s;animation:fadeUp 0.5s ease both}
@@ -80,6 +109,8 @@ a{color:var(--p);text-decoration:none}
 .feat-icon-wrap{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
 .feat-title{font-size:15px;font-weight:800;margin-bottom:6px}
 .feat-desc{font-size:13px;color:var(--muted2);line-height:1.6}
+
+/* DEMO */
 .demo-section{padding:80px 24px;position:relative;z-index:1}
 .demo-wrap{max-width:860px;margin:0 auto}
 .demo-mockup{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.6),0 0 60px rgba(168,85,247,0.15)}
@@ -99,6 +130,8 @@ a{color:var(--p);text-decoration:none}
 .demo-prog-fill{height:100%;width:100%;background:linear-gradient(90deg,var(--p),var(--cyan),var(--p));background-size:200%;animation:shimmer 2s linear infinite;border-radius:2px}
 .demo-prog-steps{display:flex;gap:6px;flex-wrap:wrap}
 .demo-prog-step{font-size:10px;padding:3px 8px;border-radius:20px;border:1px solid rgba(74,222,128,0.3);background:rgba(74,222,128,0.06);color:var(--green)}
+
+/* TESTIMONIALS */
 .testimonials-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;max-width:1080px;margin:0 auto}
 .testi-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px;transition:all 0.25s}
@@ -109,25 +142,8 @@ a{color:var(--p);text-decoration:none}
 .testi-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;flex-shrink:0}
 .testi-name{font-size:13px;font-weight:700}
 .testi-handle{font-size:11px;color:var(--muted)}
-.pricing-section{padding:80px 24px;background:rgba(168,85,247,0.02);border-top:1px solid var(--border);position:relative;z-index:1}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px;margin:0 auto}
-@media(max-width:700px){.pricing-grid{grid-template-columns:1fr}}
-.plan-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:16px;position:relative;transition:all 0.25s}
-.plan-card:hover{transform:translateY(-3px)}
-.plan-card.popular{border-color:var(--p);background:rgba(168,85,247,0.04)}
-.popular-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:5px 16px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:20px;font-size:11px;font-weight:800;color:#fff}
-.plan-name{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted2)}
-.plan-price{font-size:46px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
-.plan-period{font-size:13px;color:var(--muted)}
-.plan-features{display:flex;flex-direction:column;gap:9px}
-.plan-feat{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted2)}
-.feat-check{color:var(--green)}
-.feat-x{color:var(--muted)}
-.plan-btn{width:100%;padding:14px;border:none;border-radius:11px;font-size:14px;font-weight:800;cursor:pointer;margin-top:auto;transition:all 0.2s}
-.plan-btn-primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff}
-.plan-btn-primary:hover{opacity:0.88}
-.plan-btn-sec{background:rgba(255,255,255,0.06);border:1px solid var(--border2);color:#fff}
-.plan-btn-sec:hover{border-color:var(--p)}
+
+/* VS TABLE */
 .vs-section{padding:80px 24px;position:relative;z-index:1;border-top:1px solid var(--border)}
 .vs-table-wrap{max-width:780px;margin:0 auto;overflow-x:auto}
 .vs-table{width:100%;border-collapse:collapse}
@@ -138,18 +154,90 @@ a{color:var(--p);text-decoration:none}
 .vs-yes{color:var(--green);font-weight:700}
 .vs-no{color:var(--muted);font-weight:700}
 .vs-col-us{color:var(--p);font-weight:700}
+
+/* PRICING */
+.pricing-section{padding:80px 24px;background:rgba(168,85,247,0.02);border-top:1px solid var(--border);position:relative;z-index:1}
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px}
+.billing-toggle span{font-size:13px;font-weight:700;color:var(--muted2);transition:color 0.2s}
+.billing-toggle span.active{color:#fff}
+.toggle-wrap{position:relative;width:48px;height:26px;cursor:pointer}
+.toggle-track{width:100%;height:100%;background:rgba(255,255,255,0.1);border-radius:999px;border:1px solid var(--border2);transition:background 0.3s}
+.toggle-track.on{background:linear-gradient(135deg,var(--p),var(--p2))}
+.toggle-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform 0.3s;box-shadow:0 2px 6px rgba(0,0,0,0.4)}
+.toggle-knob.on{transform:translateX(22px)}
+.annual-badge{display:inline-flex;align-items:center;padding:3px 10px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:20px;font-size:11px;font-weight:800;color:var(--green)}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1100px;margin:0 auto}
+@media(max-width:900px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.pricing-grid{grid-template-columns:1fr}}
+.plan-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;position:relative;transition:all 0.25s;height:fit-content}
+.plan-card:hover{transform:translateY(-3px)}
+.plan-card.popular{border-color:var(--p);background:rgba(168,85,247,0.04)}
+.plan-card.agency-card{border-color:rgba(34,211,238,0.3);background:rgba(34,211,238,0.02)}
+.popular-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:5px 16px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:20px;font-size:11px;font-weight:800;color:#fff}
+.plan-name{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted2)}
+.plan-price-wrap{display:flex;align-items:flex-end;gap:4px}
+.plan-price{font-size:42px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.plan-period{font-size:13px;color:var(--muted);padding-bottom:6px}
+.plan-og{font-size:13px;color:var(--muted);text-decoration:line-through;padding-bottom:6px;margin-left:4px;display:none}
+.plan-credits{font-size:12px;font-weight:700;color:var(--p);margin-top:-4px}
+.plan-desc{font-size:12px;color:var(--muted2);line-height:1.5}
+.plan-features{display:flex;flex-direction:column;gap:7px}
+.plan-feat{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--muted2);line-height:1.4}
+.feat-check{color:var(--green);flex-shrink:0;margin-top:1px}
+.plan-btn{width:100%;padding:13px;border:none;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;transition:all 0.2s;margin-top:0}
+.plan-btn-primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff}
+.plan-btn-primary:hover{opacity:0.88}
+.plan-btn-cyan{background:linear-gradient(135deg,#22d3ee,#6366f1);color:#fff}
+.plan-btn-cyan:hover{opacity:0.88}
+.empire{text-align:center;font-size:11px;font-weight:800;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+.packs-inner{border-top:1px solid rgba(168,85,247,0.2);padding-top:12px;margin-top:4px;display:flex;flex-direction:column;gap:7px}
+.packs-inner-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--p);margin-bottom:4px}
+.pack-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:8px 12px;cursor:pointer;transition:border 0.2s}
+.pack-row:hover{border-color:rgba(168,85,247,0.4)}
+.pack-row.best{background:rgba(168,85,247,0.07);border-color:rgba(168,85,247,0.3)}
+.pack-row.best:hover{border-color:rgba(168,85,247,0.6)}
+.pack-row-left{display:flex;flex-direction:column;gap:2px}
+.pack-row-name{font-size:11px;font-weight:800;color:#fff;display:flex;align-items:center;gap:6px}
+.pack-best-pill{background:linear-gradient(135deg,var(--p),var(--p2));padding:1px 6px;border-radius:20px;font-size:8px;font-weight:800;color:#fff}
+.pack-row-credits{font-size:10px;color:var(--muted)}
+.pack-row-right{text-align:right}
+.pack-row-og{font-size:10px;color:var(--muted);text-decoration:line-through}
+.pack-row-price{font-size:15px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pack-row-save{font-size:9px;color:var(--green);font-weight:700}
+
+/* FAQ */
+.faq-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
+.faq-wrap{max-width:1080px;margin:0 auto}
+.faq-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:700px){.faq-cols{grid-template-columns:1fr}}
+.faq-item{border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border 0.2s;height:fit-content}
+.faq-item.open{border-color:rgba(168,85,247,0.3)}
+.faq-q{width:100%;background:var(--bg2);border:none;color:#fff;padding:16px 18px;text-align:left;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background 0.2s;line-height:1.4}
+.faq-q:hover{background:rgba(168,85,247,0.05)}
+.faq-icon{font-size:18px;color:var(--p);flex-shrink:0;transition:transform 0.3s;font-weight:300;line-height:1}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{background:var(--bg3);max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s}
+.faq-item.open .faq-a{max-height:300px;padding:14px 18px}
+.faq-a p{font-size:13px;color:var(--muted2);line-height:1.7}
+.faq-a strong{color:#fff}
+
+/* CTA */
 .cta-section{padding:100px 24px;text-align:center;position:relative;z-index:1;overflow:hidden}
 .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(168,85,247,0.12),transparent 65%);pointer-events:none}
 .cta-title{font-size:clamp(30px,5vw,60px);font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:16px}
 .cta-sub{font-size:16px;color:var(--muted2);margin-bottom:36px;max-width:460px;margin-left:auto;margin-right:auto}
 .cta-btn{padding:18px 40px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:800;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:10px;animation:borderPulse 3s ease-in-out infinite}
 .cta-btn:hover{opacity:0.88;transform:translateY(-2px)}
+
+/* FOOTER */
 .footer{border-top:1px solid var(--border);padding:40px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1}
 .footer-logo{font-size:15px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .footer-links{display:flex;gap:20px;flex-wrap:wrap}
 .footer-link{font-size:12px;color:var(--muted);cursor:pointer;transition:color 0.2s}
 .footer-link:hover{color:var(--p)}
 .footer-copy{font-size:12px;color:var(--muted)}
+
+/* AUTH */
 .auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
 .auth-overlay.open{display:flex}
 .auth-box{background:var(--bg2);border:1px solid var(--border2);border-radius:22px;padding:40px;max-width:420px;width:100%;text-align:center;animation:fadeUp 0.3s ease;position:relative}
@@ -206,6 +294,7 @@ a{color:var(--p);text-decoration:none}
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge"><div class="live-dot"></div>#1 Fastest AI Clip Tool · Destroys OpuClip</div>
@@ -242,6 +331,19 @@ a{color:var(--p);text-decoration:none}
   <div class="proof-item"><span class="proof-icon">💳</span>No credit card</div>
 </div>
 
+<!-- CLIPS SHOWCASE -->
+<section class="clips-section" id="clips">
+  <div style="text-align:center;margin-bottom:40px">
+    <div class="section-label">Real Results</div>
+    <h2 class="section-title">Real clips. <span class="grad">Real results.</span></h2>
+    <p style="font-size:15px;color:var(--muted2);max-width:480px;margin:0 auto;line-height:1.6">Top viral moments pulled straight from the dashboard. These clips were generated in under 90 seconds.</p>
+  </div>
+  <div class="clips-grid" id="clipsGrid">
+    <!-- populated by JS -->
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
 <section class="section" id="how">
   <div class="section-inner">
     <div class="section-label">How it works</div>
@@ -255,6 +357,7 @@ a{color:var(--p);text-decoration:none}
   </div>
 </section>
 
+<!-- DEMO -->
 <section class="demo-section">
   <div class="demo-wrap">
     <div style="text-align:center;margin-bottom:32px"><div class="section-label">Live Demo</div><h2 class="section-title" style="margin-bottom:0">See it in action</h2></div>
@@ -274,15 +377,16 @@ a{color:var(--p);text-decoration:none}
           </div>
         </div>
         <div class="demo-clips">
-          <div class="demo-clip" style="animation-delay:0s"><div class="demo-clip-score">94</div><div class="demo-clip-info"><div class="demo-clip-title">This single habit changed everything for my business</div><div class="demo-clip-meta">⏱ 0:47 · 📍 2:14 · 👁 45K–120K est. views</div></div><div class="demo-clip-badge">TikTok</div></div>
-          <div class="demo-clip" style="animation-delay:0.1s"><div class="demo-clip-score">88</div><div class="demo-clip-info"><div class="demo-clip-title">Nobody tells you this about going viral online</div><div class="demo-clip-meta">⏱ 0:52 · 📍 8:33 · 👁 30K–90K est. views</div></div><div class="demo-clip-badge">Reels</div></div>
-          <div class="demo-clip" style="animation-delay:0.2s"><div class="demo-clip-score">82</div><div class="demo-clip-info"><div class="demo-clip-title">I went from 0 to 100K followers using this</div><div class="demo-clip-meta">⏱ 0:38 · 📍 15:07 · 👁 20K–60K est. views</div></div><div class="demo-clip-badge">Shorts</div></div>
+          <div class="demo-clip"><div class="demo-clip-score">94</div><div class="demo-clip-info"><div class="demo-clip-title">This single habit changed everything for my business</div><div class="demo-clip-meta">⏱ 0:47 · 📍 2:14 · 👁 45K–120K est. views</div></div><div class="demo-clip-badge">TikTok</div></div>
+          <div class="demo-clip"><div class="demo-clip-score">88</div><div class="demo-clip-info"><div class="demo-clip-title">Nobody tells you this about going viral online</div><div class="demo-clip-meta">⏱ 0:52 · 📍 8:33 · 👁 30K–90K est. views</div></div><div class="demo-clip-badge">Reels</div></div>
+          <div class="demo-clip"><div class="demo-clip-score">82</div><div class="demo-clip-info"><div class="demo-clip-title">I went from 0 to 100K followers using this</div><div class="demo-clip-meta">⏱ 0:38 · 📍 15:07 · 👁 20K–60K est. views</div></div><div class="demo-clip-badge">Shorts</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FEATURES -->
 <section class="features-section" id="features">
   <div class="section-inner">
     <div class="section-label">Features</div>
@@ -294,11 +398,12 @@ a{color:var(--p);text-decoration:none}
       <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(74,222,128,0.15)">🎬</div><div class="feat-title">AI B-Roll Editor</div><div class="feat-desc">Emotion-synced B-roll from Pexels. Auto-matched to your transcript segments with one click.</div></div>
       <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(245,158,11,0.15)">📐</div><div class="feat-title">Auto Reframe</div><div class="feat-desc">Speaker tracking auto-reframes for 9:16 TikTok, 1:1 Instagram, and 16:9 YouTube Shorts.</div></div>
       <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(168,85,247,0.15)">🏷️</div><div class="feat-title">Brand Templates</div><div class="feat-desc">Save your caption style, colors, and layout as a brand template. Apply to every clip in one click.</div></div>
-      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(99,102,241,0.15)">📊</div><div class="feat-title">AI Growth Analytics</div><div class="feat-desc">Track your clips' viral scores, estimated reach, and get GPT-4o powered insights on how to grow faster.</div></div>
+      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(99,102,241,0.15)">📊</div><div class="feat-title">AI Growth Analytics</div><div class="feat-desc">Track your clips viral scores, estimated reach, and get GPT-4o powered insights on how to grow faster.</div></div>
     </div>
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section class="testimonials-section" id="testimonials">
   <div class="section-inner">
     <div class="section-label">Reviews</div>
@@ -315,6 +420,7 @@ a{color:var(--p);text-decoration:none}
   </div>
 </section>
 
+<!-- VS TABLE -->
 <section class="vs-section">
   <div class="section-inner">
     <div style="text-align:center;margin-bottom:40px"><div class="section-label">Comparison</div><h2 class="section-title">ClipSpeedAI vs <span class="grad">The Rest</span></h2></div>
@@ -334,57 +440,142 @@ a{color:var(--p);text-decoration:none}
   </div>
 </section>
 
+<!-- PRICING -->
 <section class="pricing-section" id="pricing">
-  <div class="section-inner">
-    <div class="section-label">Pricing</div>
-    <h2 class="section-title">Simple, transparent <span class="grad">pricing</span></h2>
-    <p class="section-sub" style="margin-bottom:48px">Start free. Upgrade when you're ready.</p>
-    <div class="pricing-grid">
-      <div class="plan-card">
-        <div class="plan-name">Starter</div>
-        <div><span class="plan-price">$20</span><span class="plan-period">/mo</span></div>
-        <div style="font-size:13px;color:var(--muted2)">Perfect for solo creators.</div>
-        <div class="plan-features">
-          <div class="plan-feat"><span class="feat-check">✓</span>50 clips / month</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>GPT-4o viral analysis</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>720p export</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>Auto captions</div>
-          <div class="plan-feat"><span class="feat-x">✗</span><span style="color:var(--muted)">B-Roll editor</span></div>
-        </div>
-        <button class="plan-btn plan-btn-sec" onclick="openAuth(true)">Get Started</button>
+  <div class="section-label">Pricing</div>
+  <h2 class="section-title">Simple, transparent <span class="grad">pricing</span></h2>
+  <p class="section-sub">Simple credits. No surprises. Save 40% going yearly.</p>
+
+  <div class="billing-toggle">
+    <span id="monthlyLabel" class="active">Monthly</span>
+    <div class="toggle-wrap" onclick="toggleBilling()">
+      <div class="toggle-track" id="toggleTrack"></div>
+      <div class="toggle-knob" id="toggleKnob"></div>
+    </div>
+    <span id="annualLabel">Annual</span>
+    <div class="annual-badge">Save 40%</div>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- FREE -->
+    <div class="plan-card">
+      <div class="plan-name">Free</div>
+      <div class="plan-price-wrap">
+        <div class="plan-price">$0</div>
+        <div class="plan-period">/forever</div>
       </div>
-      <div class="plan-card popular">
-        <div class="popular-badge">⚡ Most Popular</div>
-        <div class="plan-name" style="color:var(--p)">Pro</div>
-        <div><span class="plan-price">$40</span><span class="plan-period">/mo</span></div>
-        <div style="font-size:13px;color:var(--muted2)">For creators who publish daily.</div>
-        <div class="plan-features">
-          <div class="plan-feat"><span class="feat-check">✓</span>Unlimited clips</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>1080p export</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>Priority queue</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>B-Roll editor + Pexels</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>AI growth insights</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>Brand templates</div>
-        </div>
-        <button class="plan-btn plan-btn-primary" onclick="openAuth(true)">Upgrade to Pro ⚡</button>
+      <div class="plan-credits">50 credits included</div>
+      <div class="plan-desc">1 credit = 1 min of video. Try it out.</div>
+      <div class="plan-features">
+        <div class="plan-feat"><span class="feat-check">✓</span>50 free credits</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>AI viral scoring</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>Auto-captions (basic)</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>720p export</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>Affiliate Program</div>
+        <div class="plan-feat"><span style="color:#ef4444;flex-shrink:0">✗</span><span style="color:#ef4444">Watermark removal</span></div>
       </div>
-      <div class="plan-card">
-        <div class="plan-name">Agency</div>
-        <div><span class="plan-price">$120</span><span class="plan-period">/mo</span></div>
-        <div style="font-size:13px;color:var(--muted2)">For agencies & teams.</div>
-        <div class="plan-features">
-          <div class="plan-feat"><span class="feat-check">✓</span>Everything in Pro</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>10 team seats</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>White-label exports</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>4K export</div>
-          <div class="plan-feat"><span class="feat-check">✓</span>Priority support</div>
-        </div>
-        <button class="plan-btn plan-btn-sec" onclick="openAuth(true)">Contact Sales</button>
+      <button class="plan-btn plan-btn-primary" onclick="openAuth(true)">Start Free →</button>
+      <div class="empire">⚡ Build your empire</div>
+    </div>
+
+    <!-- STARTER -->
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-price-wrap">
+        <div class="plan-price" id="starterPrice">$20</div>
+        <div class="plan-og" id="starterOg">$20</div>
+        <div class="plan-period">/mo</div>
       </div>
+      <div class="plan-credits">200 credits/month</div>
+      <div class="plan-desc">No watermark. Starts immediately.</div>
+      <div class="plan-features">
+        <div class="plan-feat"><span class="feat-check">✓</span>200 credits/month</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>No watermark</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>All caption styles</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>1080p export</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>3 platforms</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>Priority processing</div>
+      </div>
+      <button class="plan-btn plan-btn-primary" onclick="openAuth(true)">Get Starter →</button>
+      <div class="empire">⚡ Build your empire</div>
+    </div>
+
+    <!-- PRO -->
+    <div class="plan-card popular">
+      <div class="popular-badge">⭐ Most Popular</div>
+      <div class="plan-name" style="color:var(--p)">Pro</div>
+      <div class="plan-price-wrap">
+        <div class="plan-price" id="proPrice">$40</div>
+        <div class="plan-og" id="proOg">$40</div>
+        <div class="plan-period">/mo</div>
+      </div>
+      <div class="plan-credits">300 credits/month</div>
+      <div class="plan-desc">For creators serious about going viral.</div>
+      <div class="plan-features">
+        <div class="plan-feat"><span class="feat-check">✓</span>300 credits/month</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>No watermark</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>All caption styles</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>1080p export</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>All 5 platforms</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>Affiliate Program (40%)</div>
+      </div>
+      <button class="plan-btn plan-btn-primary" onclick="openAuth(true)">Get Pro ⚡</button>
+      <div class="empire">⚡ Build your empire</div>
+      <div class="packs-inner">
+        <div class="packs-inner-label">⚡ Scale with Credit Packs</div>
+        <div class="pack-row" onclick="openAuth(true)">
+          <div class="pack-row-left"><div class="pack-row-name">2× Pack</div><div class="pack-row-credits">600 credits/mo</div></div>
+          <div class="pack-row-right"><div class="pack-row-og">$80/mo</div><div class="pack-row-price" id="pack2price">$70</div><div class="pack-row-save" id="pack2save">Save $10/mo</div></div>
+        </div>
+        <div class="pack-row best" onclick="openAuth(true)">
+          <div class="pack-row-left"><div class="pack-row-name">3× Pack <span class="pack-best-pill">Best Value</span></div><div class="pack-row-credits">900 credits/mo</div></div>
+          <div class="pack-row-right"><div class="pack-row-og">$120/mo</div><div class="pack-row-price" id="pack3price">$90</div><div class="pack-row-save" id="pack3save">Save $30/mo</div></div>
+        </div>
+        <div class="pack-row" onclick="openAuth(true)">
+          <div class="pack-row-left"><div class="pack-row-name">4× Pack</div><div class="pack-row-credits">1,200 credits/mo</div></div>
+          <div class="pack-row-right"><div class="pack-row-og">$160/mo</div><div class="pack-row-price" id="pack4price">$110</div><div class="pack-row-save" id="pack4save">Save $50/mo</div></div>
+        </div>
+        <div class="pack-row" onclick="openAuth(true)">
+          <div class="pack-row-left"><div class="pack-row-name">5× Pack</div><div class="pack-row-credits">1,500 credits/mo</div></div>
+          <div class="pack-row-right"><div class="pack-row-og">$200/mo</div><div class="pack-row-price" id="pack5price">$130</div><div class="pack-row-save" id="pack5save">Save $70/mo</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGENCY -->
+    <div class="plan-card agency-card">
+      <div class="plan-name" style="color:var(--cyan)">💎 Agency</div>
+      <div class="plan-price-wrap">
+        <div class="plan-price" id="agencyPrice" style="background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">$200</div>
+        <div class="plan-og" id="agencyOg">$200</div>
+        <div class="plan-period">/mo</div>
+      </div>
+      <div class="plan-credits">2,500 credits/month</div>
+      <div class="plan-desc">Run multiple channels at scale.</div>
+      <div class="plan-features">
+        <div class="plan-feat"><span class="feat-check">✓</span>2,500 credits/month</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>Everything in Pro</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>White-label exports</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>4K export</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>API access</div>
+        <div class="plan-feat"><span class="feat-check">✓</span>50% affiliate rate</div>
+      </div>
+      <button class="plan-btn plan-btn-cyan" onclick="openAuth(true)">Get Agency →</button>
+      <div class="empire">⚡ Build your empire</div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-wrap">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title" style="margin-bottom:40px">Everything you <span class="grad">need to know</span></h2>
+    <div class="faq-cols" id="faqCols"></div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta-section">
   <div style="position:relative;z-index:1">
     <h2 class="cta-title">Stop leaving<br><span class="grad">viral clips on the table</span></h2>
@@ -433,21 +624,19 @@ a{color:var(--p);text-decoration:none}
 <div class="toast" id="toast"></div>
 
 <script>
-const API_BASE = (()=>{
-  const h = window.location.hostname;
+var API_BASE = (function(){
+  var h = window.location.hostname;
   if(h==='localhost'||h==='127.0.0.1') return 'http://localhost:8080';
   return 'https://clipspeedai-server-production.up.railway.app';
 })();
 
-// BOOT — redirect already-logged-in users straight to dashboard
-window.addEventListener('DOMContentLoaded', async ()=>{
-  const token = localStorage.getItem('csa_token');
+// Boot redirect
+window.addEventListener('DOMContentLoaded', async function(){
+  var token = localStorage.getItem('csa_token');
   if(!token) return;
   document.getElementById('redirectSplash').classList.add('show');
   try{
-    const r = await fetch(API_BASE+'/auth/me',{
-      headers:{'Authorization':`Bearer ${token}`}
-    });
+    var r = await fetch(API_BASE+'/auth/me',{headers:{'Authorization':'Bearer '+token}});
     if(r.ok){ window.location.href='/dashboard.html'; return; }
   }catch(e){}
   localStorage.removeItem('csa_token');
@@ -455,79 +644,190 @@ window.addEventListener('DOMContentLoaded', async ()=>{
   document.getElementById('redirectSplash').classList.remove('show');
 });
 
-function heroGenerate(){
-  const url = document.getElementById('heroUrl').value.trim();
-  if(url) sessionStorage.setItem('pending_url', url);
-  openAuth(true);
+// ── CLIPS SHOWCASE ─────────────────────────────────────────
+var FALLBACK_CLIPS = [
+  {creator:'Adin Ross',caption:'I literally cannot stop laughing bro',score:96,duration:'1:12',views:'890K–2.1M'},
+  {creator:'Joe Rogan',caption:'Nobody talks about this and it changes everything',score:93,duration:'1:28',views:'520K–1.4M'},
+  {creator:'IShowSpeed',caption:'BRO THIS IS ACTUALLY INSANE no way',score:91,duration:'0:58',views:'740K–1.9M'},
+  {creator:'Clavicular',caption:'This is the moment everything shifted for me',score:88,duration:'1:05',views:'310K–820K'}
+];
+var CAPTIONS = ['I literally cannot stop laughing bro','Nobody talks about this and it changes everything','BRO THIS IS ACTUALLY INSANE no way','This is the moment everything shifted for me'];
+
+function buildClipCard(c, i) {
+  var colors = ['#7C3AED','#6366f1','#8B5CF6','#a855f7'];
+  return '<div class="clip-card">' +
+    '<div class="clip-skeleton" style="background:linear-gradient(135deg,'+colors[i%4]+'22,#0d0d1a,'+colors[i%4]+'11)">🎬</div>' +
+    '<div class="clip-overlay"></div>' +
+    '<div class="clip-watermark">⚡ ClipSpeedAI</div>' +
+    '<div class="clip-score-ring">'+c.score+'</div>' +
+    '<div class="clip-caption"><span>'+c.caption+'</span></div>' +
+    '<div class="clip-meta"><span class="clip-creator">@'+c.creator+'</span><span class="clip-views">👁 '+c.views+'</span></div>' +
+    '<div class="clip-duration">'+c.duration+'</div>' +
+  '</div>';
 }
 
-let _isSignup = true;
+(async function loadClips(){
+  var grid = document.getElementById('clipsGrid');
+  FALLBACK_CLIPS.forEach(function(c,i){ grid.innerHTML += buildClipCard(c,i); });
+  try{
+    var r = await fetch(API_BASE+'/clips/showcase?limit=4');
+    if(!r.ok) return;
+    var data = await r.json();
+    var clips = data.clips || data;
+    if(!clips||!clips.length) return;
+    grid.innerHTML = '';
+    clips.forEach(function(c,i){
+      var card = '<div class="clip-card">' +
+        (c.clip_url ? '<video class="clip-video" autoplay muted loop playsinline src="'+c.clip_url+'"></video>' : '<div class="clip-skeleton">🎬</div>') +
+        '<div class="clip-overlay"></div>' +
+        '<div class="clip-watermark">⚡ ClipSpeedAI</div>' +
+        '<div class="clip-score-ring">'+(c.viral_score||'?')+'</div>' +
+        '<div class="clip-caption"><span>'+(c.caption||CAPTIONS[i%CAPTIONS.length])+'</span></div>' +
+        '<div class="clip-meta"><span class="clip-creator">'+(c.creator||'Creator')+'</span><span class="clip-views">👁 '+(c.predicted_views||'')+'</span></div>' +
+        '<div class="clip-duration">'+(c.duration||'')+'</div>' +
+      '</div>';
+      grid.innerHTML += card;
+    });
+  }catch(e){ /* keep fallback */ }
+})();
 
-function openAuth(signup=true){
-  _isSignup = signup;
-  document.getElementById('authBtn').textContent = signup ? 'Sign Up Free' : 'Sign In';
-  document.getElementById('authTagline').textContent = signup ? 'Create your free account' : 'Welcome back';
-  document.getElementById('authToggle').innerHTML = signup
+// ── BILLING TOGGLE ─────────────────────────────────────────
+var isAnnual = false;
+var monthly  = {starter:20,pro:40,agency:200,packs:[70,90,110,130]};
+var annual   = {
+  starter:Math.round(20*0.6), pro:Math.round(40*0.6), agency:Math.round(200*0.6),
+  packs:[70,90,110,130].map(function(p){return Math.round(p*0.6);})
+};
+
+function toggleBilling(){
+  isAnnual = !isAnnual;
+  document.getElementById('toggleTrack').classList.toggle('on',isAnnual);
+  document.getElementById('toggleKnob').classList.toggle('on',isAnnual);
+  document.getElementById('monthlyLabel').classList.toggle('active',!isAnnual);
+  document.getElementById('annualLabel').classList.toggle('active',isAnnual);
+  var p = isAnnual ? annual : monthly;
+  document.getElementById('starterPrice').textContent = '$'+p.starter;
+  document.getElementById('proPrice').textContent     = '$'+p.pro;
+  document.getElementById('agencyPrice').textContent  = '$'+p.agency;
+  ['starter','pro','agency'].forEach(function(k){
+    var el = document.getElementById(k+'Og');
+    el.style.display = isAnnual ? 'block' : 'none';
+    el.textContent = '$'+monthly[k];
+  });
+  var packIds = [2,3,4,5];
+  var moSaves = ['Save $10/mo','Save $30/mo','Save $50/mo','Save $70/mo'];
+  p.packs.forEach(function(price,i){
+    var id = packIds[i];
+    document.getElementById('pack'+id+'price').textContent = '$'+price;
+    var saveEl = document.getElementById('pack'+id+'save');
+    if(isAnnual){
+      var saved = Math.round((monthly.packs[i]-price)*12);
+      saveEl.textContent = saved>0 ? 'Save $'+saved+'/yr' : '';
+    } else {
+      saveEl.textContent = moSaves[i];
+    }
+  });
+}
+
+// ── FAQ ────────────────────────────────────────────────────
+var faqs = [
+  {q:'What is a credit and how does it work?',a:'1 credit = 1 minute of source video processed. A 60-minute podcast costs 60 credits. You are only charged once per video, not per clip generated.'},
+  {q:'How fast does ClipSpeedAI process videos?',a:'Most videos are fully processed in <strong>under 90 seconds</strong>. Long-form videos (60+ minutes) may take 3-5 minutes using parallel FFmpeg workers and GPT-4o in batch mode.'},
+  {q:'What platforms are clips optimized for?',a:'We support <strong>TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn</strong>. Each gets the correct aspect ratio, resolution, and caption style automatically.'},
+  {q:'Do I need to edit clips after they are generated?',a:'No — clips come out ready to post. Captions are burned in, the speaker is reframed to 9:16, and the clip is trimmed to the exact viral moment.'},
+  {q:'What is the Affiliate Program?',a:'Pro users earn <strong>40% recurring commission</strong> on every referral. Agency users earn <strong>50%</strong>. Commissions are paid monthly with no cap.'},
+  {q:'What is the difference between Pro packs?',a:'All Pro packs include the same features. The only difference is credits per month. <strong>2x = 600, 3x = 900, 4x = 1,200, 5x = 1,500 credits/mo.</strong>'},
+  {q:'Can I switch plans or cancel anytime?',a:'Yes — upgrade, downgrade, or cancel anytime from your dashboard. No contracts, no fees. If you cancel you keep access until the end of your billing period.'},
+  {q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small <strong>ClipSpeedAI</strong> watermark. All paid plans (Starter, Pro, Agency) export with zero watermark.'},
+  {q:'What video sources does ClipSpeedAI support?',a:'Paste any <strong>YouTube URL</strong> — podcasts, interviews, tutorials, Shorts, and livestream VODs are all supported. Direct file upload is coming soon.'},
+  {q:'How does the AI decide which moments are viral?',a:'GPT-4o scores every segment on <strong>hook strength, emotional intensity, retention, and shareability</strong>. Each clip gets a score from 0-100.'},
+  {q:'What caption styles are available?',a:'10 styles: <strong>Bold Word-by-Word, Neon Pop, Fire, Highlight Box, Minimal, Shadow Pop, Typewriter, Hormone, Cinematic, and Gaming HUD.</strong> All animate word-by-word.'},
+  {q:'Is there a video length limit?',a:'No hard limit — we support videos up to <strong>3+ hours</strong>. Long videos are auto-chunked for transcription and merged with correct timestamps.'},
+  {q:'What is the B-Roll editor?',a:'Available on Pro and Agency — the AI matches emotion-synced B-roll footage from <strong>Pexels</strong> to your transcript segments automatically.'},
+  {q:'How does annual billing work?',a:'Annual plans are billed once per year at <strong>40% off monthly</strong>. Same credits and features — just pay upfront and save significantly.'},
+  {q:'Is my content secure?',a:'Yes — videos are processed in isolated containers and <strong>temp files deleted immediately</strong> after processing. Clips are stored in encrypted cloud storage. We never train on your content.'},
+  {q:'Do you offer refunds?',a:'We offer a <strong>48-hour money-back guarantee</strong> on your first payment. Contact support and we will process it same day — no questions asked.'},
+  {q:'Can I use ClipSpeedAI for client work?',a:'Absolutely — the <strong>Agency plan</strong> includes white-label exports, 2,500 credits/month, and API access for integrating into your own client workflow.'},
+  {q:'What happens when I run out of credits?',a:'You will be notified when running low. Upgrade your plan, purchase a Pro Pack, or wait for your credits to reset. We never auto-charge for overages.'},
+  {q:'Do unused credits roll over?',a:'Currently credits <strong>do not roll over</strong> — they reset each billing cycle. We are exploring rollover for annual plans.'},
+  {q:'How is ClipSpeedAI different from OpuClip?',a:'ClipSpeedAI is <strong>10x faster</strong> (90s vs 5-15min), uses GPT-4o for viral scoring, includes a live Pexels B-Roll editor, and costs less. We also offer a 40-50% affiliate program.'}
+];
+
+var col1 = faqs.filter(function(_,i){return i%2===0;});
+var col2 = faqs.filter(function(_,i){return i%2!==0;});
+function renderCol(items,offset){
+  return items.map(function(f,i){
+    var idx = offset+i*2;
+    return '<div class="faq-item" id="faq-'+idx+'"><button class="faq-q" onclick="toggleFaq('+idx+')"><span>'+f.q+'</span><span class="faq-icon">+</span></button><div class="faq-a"><p>'+f.a+'</p></div></div>';
+  }).join('');
+}
+document.getElementById('faqCols').innerHTML = '<div>'+renderCol(col1,0)+'</div><div>'+renderCol(col2,1)+'</div>';
+function toggleFaq(i){
+  var item = document.getElementById('faq-'+i);
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(el){el.classList.remove('open');});
+  if(!isOpen) item.classList.add('open');
+}
+
+// ── AUTH ───────────────────────────────────────────────────
+var _isSignup = true;
+function openAuth(signup){
+  _isSignup = signup===undefined?true:signup;
+  document.getElementById('authBtn').textContent = _isSignup?'Sign Up Free':'Sign In';
+  document.getElementById('authTagline').textContent = _isSignup?'Create your free account':'Welcome back';
+  document.getElementById('authToggle').innerHTML = _isSignup
     ? 'Already have an account? <span>Sign In</span>'
-    : "Don't have an account? <span>Sign Up Free</span>";
+    : 'Don\'t have an account? <span>Sign Up Free</span>';
   document.getElementById('authError').style.display = 'none';
   document.getElementById('authOverlay').classList.add('open');
-  setTimeout(()=>document.getElementById('authEmail').focus(), 100);
+  setTimeout(function(){document.getElementById('authEmail').focus();},100);
 }
-
-function closeAuth(){
-  document.getElementById('authOverlay').classList.remove('open');
-}
-
-function toggleAuthMode(){ openAuth(!_isSignup); }
-
+function closeAuth(){document.getElementById('authOverlay').classList.remove('open');}
+function toggleAuthMode(){openAuth(!_isSignup);}
 async function handleAuth(){
-  const email = document.getElementById('authEmail').value.trim();
-  const pass  = document.getElementById('authPass').value;
-  const errEl = document.getElementById('authError');
-  errEl.style.display = 'none';
-  if(!email||!pass){ errEl.textContent='Email and password required'; errEl.style.display='block'; return; }
-  const btn = document.getElementById('authBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spin"></span>';
+  var email = document.getElementById('authEmail').value.trim();
+  var pass  = document.getElementById('authPass').value;
+  var errEl = document.getElementById('authError');
+  errEl.style.display='none';
+  if(!email||!pass){errEl.textContent='Email and password required';errEl.style.display='block';return;}
+  var btn = document.getElementById('authBtn');
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span>';
   try{
-    const r = await fetch(API_BASE+(_isSignup?'/auth/signup':'/auth/login'),{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({email, password:pass})
+    var r = await fetch(API_BASE+(_isSignup?'/auth/signup':'/auth/login'),{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,password:pass})
     });
-    const d = await r.json();
+    var d = await r.json();
     if(!r.ok) throw new Error(d.error||'Auth failed');
-    localStorage.setItem('csa_token', d.token);
-    localStorage.setItem('csa_user', JSON.stringify(d.user));
-    showToast(_isSignup ? '🎉 Account created! Redirecting...' : '👋 Welcome back! Redirecting...','#4ade80');
-    setTimeout(()=>{ window.location.href='/dashboard.html'; }, 900);
+    localStorage.setItem('csa_token',d.token);
+    localStorage.setItem('csa_user',JSON.stringify(d.user));
+    showToast(_isSignup?'Account created! Redirecting...':'Welcome back! Redirecting...','#4ade80');
+    setTimeout(function(){window.location.href='/dashboard.html';},900);
   }catch(e){
-    errEl.textContent = e.message;
-    errEl.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = _isSignup ? 'Sign Up Free' : 'Sign In';
+    errEl.textContent=e.message; errEl.style.display='block';
+    btn.disabled=false; btn.textContent=_isSignup?'Sign Up Free':'Sign In';
   }
 }
-
 async function oauthLogin(provider){
-  const errEl = document.getElementById('authError');
+  var errEl=document.getElementById('authError');
   try{
-    const r = await fetch(API_BASE+`/auth/${provider}`,{method:'POST'});
-    const d = await r.json();
-    if(d.url) window.location.href = d.url;
-    else{ errEl.textContent = d.error||`${provider} not configured`; errEl.style.display='block'; }
-  }catch(e){ errEl.textContent = e.message; errEl.style.display='block'; }
+    var r=await fetch(API_BASE+'/auth/'+provider,{method:'POST'});
+    var d=await r.json();
+    if(d.url) window.location.href=d.url;
+    else{errEl.textContent=d.error||provider+' not configured';errEl.style.display='block';}
+  }catch(e){errEl.textContent=e.message;errEl.style.display='block';}
 }
 
-function scrollTo(id){
-  document.getElementById(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+function heroGenerate(){
+  var url=document.getElementById('heroUrl').value.trim();
+  if(url) sessionStorage.setItem('pending_url',url);
+  openAuth(true);
 }
-
-function showToast(msg, color='#a855f7'){
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.style.background = color; t.style.color = '#fff';
-  t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 3000);
+function scrollTo(id){document.getElementById(id)&&document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
+function showToast(msg,color){
+  var t=document.getElementById('toast');
+  t.textContent=msg; t.style.background=color||'#a855f7'; t.style.color='#fff';
+  t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},3000);
 }
 </script>
 </body>
