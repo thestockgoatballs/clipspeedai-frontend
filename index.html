@@ -3,176 +3,311 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>ClipSpeedAI — Get Viral Clips in 90 Seconds</title>
+<title>ClipSpeedAI — The #1 AI Clip Super App</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --p:#a855f7;--p2:#6366f1;--cyan:#22d3ee;--green:#4ade80;--gold:#f59e0b;
-  --bg:#07070e;--bg2:#0d0d1a;--bg3:#131320;
-  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+  --p:#a855f7;--p2:#6366f1;--cyan:#22d3ee;--green:#4ade80;--gold:#f59e0b;--pink:#ec4899;
+  --bg:#05050f;--bg2:#0a0a1a;--bg3:#0f0f20;--bg4:#141428;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.11);
   --text:#e2e8f0;--muted:#64748b;--muted2:#94a3b8;
 }
-html,body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;min-height:100vh}
-a{color:var(--p);text-decoration:none}
-.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;max-width:none}
-.orb1{width:600px;height:600px;background:rgba(168,85,247,0.12);top:-200px;left:-200px;animation:drift 12s ease-in-out infinite}
-.orb2{width:500px;height:500px;background:rgba(99,102,241,0.09);bottom:-150px;right:-150px;animation:drift 15s ease-in-out infinite reverse}
-.orb3{width:300px;height:300px;background:rgba(34,211,238,0.06);top:50%;left:50%;transform:translate(-50%,-50%);animation:drift 18s ease-in-out infinite}
-@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,15px)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
-@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.4)}50%{box-shadow:0 0 0 6px rgba(74,222,128,0)}}
-@keyframes borderPulse{0%,100%{box-shadow:0 0 40px rgba(168,85,247,0.35)}50%{box-shadow:0 0 70px rgba(168,85,247,0.6)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+html,body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,.5)}50%{box-shadow:0 0 0 8px rgba(74,222,128,0)}}
+@keyframes shimmer{0%{background-position:-200%}100%{background-position:200%}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes borderGlow{0%,100%{box-shadow:0 0 30px rgba(168,85,247,.3)}50%{box-shadow:0 0 70px rgba(168,85,247,.7)}}
+@keyframes scanline{0%{top:-10%}100%{top:110%}}
+@keyframes countFlip{0%{transform:translateY(100%);opacity:0}20%{transform:translateY(0);opacity:1}80%{transform:translateY(0);opacity:1}100%{transform:translateY(-100%);opacity:0}}
+@keyframes barFill{from{width:0}to{width:var(--w)}}
+@keyframes pulseBig{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes typewriter{from{width:0}to{width:100%}}
+@keyframes captionWord{0%{transform:scale(.7);opacity:0}30%{transform:scale(1.15);opacity:1}60%{transform:scale(1);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes raceBar{from{width:0%}to{width:var(--tw)}}
+@keyframes meterFill{from{width:0}to{width:var(--score)}}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,18px)}}
+
+/* ORBS */
+.orb{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0}
+.orb1{width:700px;height:700px;background:rgba(168,85,247,.1);top:-250px;left:-200px;animation:drift 14s ease-in-out infinite}
+.orb2{width:600px;height:600px;background:rgba(99,102,241,.08);bottom:-200px;right:-200px;animation:drift 18s ease-in-out infinite reverse}
+.orb3{width:400px;height:400px;background:rgba(34,211,238,.05);top:40%;left:40%;animation:drift 22s ease-in-out infinite}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(7,7,14,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav{position:sticky;top:0;z-index:200;background:rgba(5,5,15,.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{font-size:18px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
-.nav-links{display:flex;gap:4px;align-items:center}
-.nav-link{padding:8px 16px;font-size:13px;font-weight:600;color:var(--muted2);cursor:pointer;border-radius:8px;transition:all 0.2s;background:none;border:none}
-.nav-link:hover{color:#fff;background:rgba(255,255,255,0.05)}
-.nav-cta-row{display:flex;gap:8px;align-items:center}
-.nav-signin{padding:8px 16px;background:rgba(255,255,255,0.05);border:1px solid var(--border2);border-radius:9px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s}
+.nav-links{display:flex;gap:2px}
+.nav-link{padding:7px 14px;font-size:13px;font-weight:600;color:var(--muted2);cursor:pointer;border-radius:8px;transition:all .2s;background:none;border:none}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nav-cta-row{display:flex;gap:8px}
+.nav-signin{padding:8px 16px;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:9px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
 .nav-signin:hover{border-color:var(--p);color:var(--p)}
-.nav-start{padding:9px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s}
-.nav-start:hover{opacity:0.88;transform:translateY(-1px)}
-@media(max-width:700px){.nav-links{display:none}.nav{padding:0 16px}}
+.nav-start{padding:9px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
+.nav-start:hover{opacity:.88;transform:translateY(-1px)}
+@media(max-width:768px){.nav-links{display:none}.nav{padding:0 16px}}
 
-/* HERO */
-.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;padding:60px 24px 80px;position:relative;z-index:1;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(168,85,247,0.1),transparent 65%);pointer-events:none}
-.hero-inner{max-width:720px;width:100%;text-align:center;animation:fadeUp 0.7s ease both}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.25);border-radius:100px;font-size:12px;color:var(--p);font-weight:700;margin-bottom:24px}
+/* TICKER */
+.ticker-bar{background:linear-gradient(90deg,var(--p),var(--p2),var(--cyan),var(--p));background-size:300%;animation:gradShift 4s ease infinite;padding:9px 0;overflow:hidden;position:relative;z-index:1}
+.ticker-inner{display:flex;white-space:nowrap;animation:ticker 28s linear infinite}
+.ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:12px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px}
+.ticker-dot{width:5px;height:5px;background:rgba(255,255,255,.5);border-radius:50%}
+
+/* HERO + CANVAS */
+.hero{min-height:95vh;display:flex;align-items:center;justify-content:center;padding:60px 24px 80px;position:relative;z-index:1;overflow:hidden}
+#particleCanvas{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--bg),transparent);pointer-events:none;z-index:2}
+.hero-inner{max-width:780px;width:100%;text-align:center;position:relative;z-index:3;animation:fadeUp .7s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.3);border-radius:100px;font-size:12px;color:var(--p);font-weight:700;margin-bottom:28px}
 .live-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:livePulse 2s infinite;flex-shrink:0}
-.hero-title{font-size:clamp(38px,7vw,80px);font-weight:900;letter-spacing:-3px;line-height:0.95;margin-bottom:20px}
+.hero-title{font-size:clamp(42px,7.5vw,88px);font-weight:900;letter-spacing:-3.5px;line-height:.93;margin-bottom:22px}
 .grad{background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:clamp(14px,2vw,18px);color:var(--muted2);line-height:1.65;margin-bottom:36px;max-width:540px;margin-left:auto;margin-right:auto}
-.hero-input-wrap{width:100%;max-width:580px;margin:0 auto 16px;padding:3px;background:linear-gradient(135deg,var(--p),var(--cyan),var(--p2));border-radius:16px;animation:borderPulse 3s ease-in-out infinite}
-.hero-input-inner{background:var(--bg);border-radius:13px;padding:5px 5px 5px 18px;display:flex;align-items:center;gap:8px}
-.hero-input{flex:1;background:none;border:none;color:#fff;font-size:15px;outline:none;padding:12px 0;min-width:0}
+.hero-sub{font-size:clamp(15px,2.2vw,19px);color:var(--muted2);line-height:1.65;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto}
+.hero-input-wrap{width:100%;max-width:620px;margin:0 auto 14px;padding:3px;background:linear-gradient(135deg,var(--p),var(--cyan),var(--p2),var(--p));background-size:300%;animation:gradShift 4s ease infinite,borderGlow 3s ease-in-out infinite;border-radius:18px}
+.hero-input-inner{background:var(--bg);border-radius:15px;padding:6px 6px 6px 20px;display:flex;align-items:center;gap:10px}
+.hero-input{flex:1;background:none;border:none;color:#fff;font-size:15px;outline:none;padding:13px 0;min-width:0}
 .hero-input::placeholder{color:var(--muted)}
-.hero-btn{padding:14px 22px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:11px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap;transition:all 0.25s;flex-shrink:0}
-.hero-btn:hover{opacity:0.88;transform:translateY(-1px)}
-.hero-trust{display:flex;align-items:center;gap:12px;justify-content:center;font-size:12px;color:var(--muted);flex-wrap:wrap;margin-bottom:48px}
-.hero-trust span{display:flex;align-items:center;gap:5px}
-.hero-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-.hero-stat{text-align:center}
-.hero-stat-num{font-size:28px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
-.hero-stat-lbl{font-size:11px;color:var(--muted);margin-top:3px}
+.hero-btn{padding:15px 26px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:13px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+.hero-btn:hover{transform:translateY(-1px);opacity:.9}
+.hero-trust{display:flex;align-items:center;gap:10px;justify-content:center;font-size:12px;color:var(--muted);flex-wrap:wrap;margin-bottom:52px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:620px;margin:0 auto}
+@media(max-width:480px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+.hero-stat{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:16px 12px;text-align:center;transition:border .3s}
+.hero-stat:hover{border-color:rgba(168,85,247,.3)}
+.hero-stat-num{font-size:26px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.hero-stat-lbl{font-size:10px;color:var(--muted);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+
+/* LIVE COUNTER STRIP */
+.live-strip{background:rgba(74,222,128,.04);border-top:1px solid rgba(74,222,128,.12);border-bottom:1px solid rgba(74,222,128,.12);padding:20px 32px;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;position:relative;z-index:1}
+.live-counter{text-align:center}
+.live-counter-num{font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--green),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;font-variant-numeric:tabular-nums}
+.live-counter-label{font-size:11px;font-weight:700;color:rgba(74,222,128,.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.live-indicator{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--green);margin-bottom:4px}
 
 /* PROOF STRIP */
-.proof-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:center;gap:40px;background:rgba(255,255,255,0.01);position:relative;z-index:1;flex-wrap:wrap}
+.proof-strip{border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:center;gap:36px;background:rgba(255,255,255,.01);position:relative;z-index:1;flex-wrap:wrap}
 .proof-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted2);font-weight:600}
-.proof-icon{font-size:18px}
 
-/* CLIPS SHOWCASE */
-.clips-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
-.clips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1080px;margin:0 auto}
-@media(max-width:900px){.clips-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:500px){.clips-grid{grid-template-columns:1fr}}
-.clip-card{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(168,85,247,0.25);box-shadow:0 0 30px rgba(168,85,247,0.15);background:var(--bg2);aspect-ratio:9/16;display:flex;align-items:flex-end;transition:transform 0.25s,box-shadow 0.25s}
-.clip-card:hover{transform:translateY(-4px);box-shadow:0 0 50px rgba(168,85,247,0.3)}
-.clip-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px}
-.clip-skeleton{position:absolute;inset:0;background:linear-gradient(135deg,var(--bg2),var(--bg3),var(--bg2));background-size:200%;animation:shimmer 1.5s linear infinite;display:flex;align-items:center;justify-content:center;font-size:32px}
-.clip-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);border-radius:16px}
-.clip-watermark{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#7C3AED,#6366f1);border-radius:20px;padding:4px 10px;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;gap:4px;z-index:3}
-.clip-score-ring{position:absolute;top:10px;left:10px;width:38px;height:38px;border-radius:50%;border:2px solid var(--p);background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff;z-index:3}
-.clip-caption{position:absolute;bottom:52px;left:0;right:0;text-align:center;font-size:13px;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.8);padding:0 12px;z-index:3;line-height:1.3}
-.clip-caption span{background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.clip-meta{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;z-index:3;display:flex;align-items:center;justify-content:space-between}
-.clip-creator{font-size:11px;font-weight:700;color:rgba(255,255,255,0.9)}
-.clip-views{font-size:10px;color:var(--muted2)}
-.clip-duration{position:absolute;bottom:10px;right:12px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);padding:2px 6px;border-radius:4px;z-index:3}
+/* LOGO WALL */
+.logos-section{padding:56px 24px;border-bottom:1px solid var(--border);position:relative;z-index:1;overflow:hidden}
+.logos-section::before,.logos-section::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.logos-section::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.logos-section::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.logos-label{text-align:center;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
+.logos-track{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
+.logos-track:hover{animation-play-state:paused}
+.logo-item{display:inline-flex;align-items:center;gap:10px;padding:0 32px;font-size:13px;font-weight:800;color:var(--muted2);transition:color .2s;cursor:default}
+.logo-item:hover{color:#fff}
+.logo-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff;flex-shrink:0}
+
+/* PHONE MOCKUP SECTION */
+.phone-section{padding:90px 24px;position:relative;z-index:1;overflow:hidden}
+.phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1080px;margin:0 auto;align-items:center}
+@media(max-width:768px){.phone-grid{grid-template-columns:1fr;gap:40px}}
+.phone-wrap{display:flex;justify-content:center;position:relative}
+.phone-frame{width:220px;height:480px;background:var(--bg2);border:2px solid rgba(168,85,247,.4);border-radius:36px;position:relative;overflow:hidden;box-shadow:0 0 80px rgba(168,85,247,.25),0 40px 80px rgba(0,0,0,.6)}
+.phone-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:80px;height:6px;background:var(--bg3);border-radius:10px;z-index:10}
+.phone-screen{position:absolute;inset:0;display:flex;flex-direction:column}
+.phone-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a0a2e,#0a0a1a)}
+.phone-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 60%,transparent 100%)}
+.phone-watermark{position:absolute;top:28px;right:12px;background:linear-gradient(135deg,#7C3AED,#6366f1);border-radius:20px;padding:3px 8px;font-size:8px;font-weight:800;color:#fff;z-index:5}
+.phone-score{position:absolute;top:28px;left:12px;width:34px;height:34px;border-radius:50%;border:2px solid var(--p);background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff;z-index:5}
+.phone-caption-area{position:absolute;bottom:80px;left:0;right:0;text-align:center;padding:0 16px;z-index:5}
+.phone-caption-word{display:inline-block;font-size:16px;font-weight:900;color:#fff;margin:2px;transition:all .15s}
+.phone-caption-word.active{background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;transform:scale(1.2)}
+.phone-meta{position:absolute;bottom:20px;left:0;right:0;padding:0 16px;display:flex;justify-content:space-between;z-index:5;font-size:10px;font-weight:700;color:rgba(255,255,255,.8)}
+.phone-style-pill{position:absolute;top:72px;right:12px;background:rgba(168,85,247,.2);border:1px solid rgba(168,85,247,.4);border-radius:8px;padding:3px 8px;font-size:9px;font-weight:800;color:var(--p);z-index:5}
+.phone-content{animation:fadeUp .6s ease both}
+.caption-styles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:28px}
+.style-btn{padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:11px;color:var(--muted2);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;text-align:left}
+.style-btn:hover,.style-btn.active{border-color:var(--p);color:#fff;background:rgba(168,85,247,.08)}
+.style-btn .style-preview{font-size:10px;font-weight:800;margin-top:2px}
+
+/* SPEED RACE */
+.race-section{padding:80px 24px;background:rgba(168,85,247,.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.race-wrap{max-width:760px;margin:0 auto}
+.race-lanes{display:flex;flex-direction:column;gap:20px;margin-top:40px}
+.race-lane{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px 24px}
+.race-lane.us{border-color:rgba(168,85,247,.3)}
+.race-lane-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.race-lane-name{font-size:14px;font-weight:800}
+.race-lane-time{font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
+.race-bar-track{height:10px;background:rgba(255,255,255,.05);border-radius:99px;overflow:hidden}
+.race-bar-fill{height:100%;border-radius:99px;width:0;transition:width .1s linear}
+.race-bar-us{background:linear-gradient(90deg,var(--p),var(--cyan))}
+.race-bar-them{background:rgba(100,116,139,.4)}
+.race-cta{text-align:center;margin-top:32px}
+.race-verdict{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);border-radius:14px;font-size:14px;font-weight:800;color:var(--green)}
+
+/* VIRAL SCORE CALCULATOR */
+.calc-section{padding:90px 24px;position:relative;z-index:1}
+.calc-wrap{max-width:680px;margin:0 auto;background:var(--bg2);border:1px solid rgba(168,85,247,.25);border-radius:24px;padding:44px;text-align:center;position:relative;overflow:hidden}
+.calc-wrap::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:linear-gradient(135deg,rgba(168,85,247,.3),transparent,rgba(34,211,238,.2),transparent);border-radius:24px;z-index:-1}
+.calc-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--p),transparent);animation:scanline 3s ease-in-out infinite;opacity:.5;pointer-events:none}
+.calc-niches{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:24px 0}
+.niche-btn{padding:9px 18px;background:var(--bg3);border:1px solid var(--border);border-radius:99px;font-size:13px;font-weight:700;color:var(--muted2);cursor:pointer;transition:all .2s}
+.niche-btn:hover,.niche-btn.active{background:rgba(168,85,247,.12);border-color:var(--p);color:#fff}
+.calc-meter-wrap{margin:32px 0 24px;position:relative}
+.calc-meter-track{height:14px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.calc-meter-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p2),var(--p),var(--cyan));width:0;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.calc-score-display{font-size:72px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin:16px 0 8px}
+.calc-label{font-size:14px;color:var(--muted2);margin-bottom:8px}
+.calc-verdict{font-size:13px;font-weight:700;padding:8px 18px;border-radius:20px;display:inline-block;margin-bottom:24px}
+
+/* AI MODELS */
+.models-section{padding:90px 24px;position:relative;z-index:1}
+.models-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:0 auto}
+@media(max-width:800px){.models-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.models-grid{grid-template-columns:1fr}}
+.model-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:all .3s}
+.model-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(168,85,247,.06),transparent 60%);opacity:0;transition:opacity .3s}
+.model-card:hover{border-color:rgba(168,85,247,.35);transform:translateY(-4px)}
+.model-card:hover::before{opacity:1}
+.model-card.featured{border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.04)}
+.model-scan{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--p),transparent);animation:scanline 3s ease-in-out infinite;opacity:.6}
+.model-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.badge-new{background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);color:var(--green)}
+.badge-core{background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:var(--p)}
+.badge-pro{background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.3);color:var(--cyan)}
+.model-icon{font-size:40px;margin-bottom:16px;display:block;animation:float 5s ease-in-out infinite}
+.model-name{font-size:18px;font-weight:900;margin-bottom:8px;letter-spacing:-.5px}
+.model-desc{font-size:13px;color:var(--muted2);line-height:1.65}
+.model-speed{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:5px 12px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);border-radius:20px;font-size:11px;font-weight:700;color:var(--green)}
+
+/* RESULTS TICKER */
+.results-section{padding:60px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1;overflow:hidden}
+.results-section::before,.results-section::after{content:'';position:absolute;top:0;bottom:0;width:150px;z-index:2;pointer-events:none}
+.results-section::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.results-section::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.results-track{display:flex;white-space:nowrap;animation:marquee 40s linear infinite}
+.result-card-inline{display:inline-flex;align-items:center;gap:14px;margin:0 20px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px 20px;white-space:nowrap}
+.result-num{font-size:22px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.result-label{font-size:12px;color:var(--muted2);font-weight:600}
+
+/* SUPER APP */
+.superapp-section{padding:90px 24px;background:rgba(168,85,247,.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.superapp-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1080px;margin:0 auto;align-items:center}
+@media(max-width:768px){.superapp-grid{grid-template-columns:1fr;gap:40px}}
+.app-screen{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(168,85,247,.12)}
+.app-bar{height:36px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:7px}
+.app-dot{width:9px;height:9px;border-radius:50%}
+.app-body{padding:18px;display:flex;flex-direction:column;gap:10px}
+.app-row{display:flex;align-items:center;gap:12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 14px}
+.app-row-icon{font-size:20px;flex-shrink:0}
+.app-row-title{font-size:12px;font-weight:700;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.app-row-meta{font-size:10px;color:var(--muted)}
+.app-row-score{font-size:16px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex-shrink:0}
+.prog-mini{height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-top:6px}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--p),var(--cyan));background-size:200%;animation:shimmer 2s linear infinite;border-radius:2px}
+.sf-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.sf-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sf-title{font-size:14px;font-weight:800;margin-bottom:4px}
+.sf-desc{font-size:13px;color:var(--muted2);line-height:1.55}
+
+/* PLATFORMS */
+.platforms-section{padding:80px 24px;position:relative;z-index:1}
+.platforms-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:900px;margin:0 auto}
+.platform-chip{display:flex;align-items:center;gap:10px;padding:12px 22px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;font-size:14px;font-weight:700;color:#fff;transition:all .25s;cursor:default}
+.platform-chip:hover{border-color:rgba(168,85,247,.4);background:rgba(168,85,247,.06);transform:translateY(-2px)}
+.platform-chip span{font-size:22px}
 
 /* STEPS */
 .section{padding:80px 24px;position:relative;z-index:1}
 .section-inner{max-width:1080px;margin:0 auto}
 .section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--p);margin-bottom:12px;text-align:center}
-.section-title{font-size:clamp(26px,4vw,44px);font-weight:900;letter-spacing:-1.5px;text-align:center;margin-bottom:14px;line-height:1.1}
+.section-title{font-size:clamp(26px,4vw,46px);font-weight:900;letter-spacing:-1.5px;text-align:center;margin-bottom:14px;line-height:1.05}
 .section-sub{font-size:15px;color:var(--muted2);text-align:center;max-width:520px;margin:0 auto 52px;line-height:1.6}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:700px){.steps-grid{grid-template-columns:1fr}}
-.step-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:28px;position:relative;transition:border 0.3s;animation:fadeUp 0.5s ease both}
-.step-card:hover{border-color:rgba(168,85,247,0.3)}
+.step-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:30px;position:relative;transition:all .3s;overflow:hidden}
+.step-card:hover{border-color:rgba(168,85,247,.3);transform:translateY(-4px)}
 .step-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--p);margin-bottom:16px}
-.step-icon{font-size:36px;margin-bottom:14px;display:block;animation:float 4s ease-in-out infinite}
+.step-icon{font-size:38px;margin-bottom:14px;display:block;animation:float 5s ease-in-out infinite}
 .step-title{font-size:17px;font-weight:800;margin-bottom:8px}
 .step-desc{font-size:13px;color:var(--muted2);line-height:1.6}
 @media(min-width:700px){.step-card:not(:last-child)::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--p);z-index:2}}
 
+/* CLIPS */
+.clips-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
+.clips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1080px;margin:0 auto}
+@media(max-width:900px){.clips-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.clips-grid{grid-template-columns:1fr}}
+.clip-card{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(168,85,247,.2);box-shadow:0 0 30px rgba(168,85,247,.12);background:var(--bg2);aspect-ratio:9/16;transition:all .3s;cursor:default}
+.clip-card:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(168,85,247,.45);box-shadow:0 20px 60px rgba(168,85,247,.25)}
+.clip-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:36px}
+.clip-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.2) 60%,transparent 100%)}
+.clip-watermark{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#7C3AED,#6366f1);border-radius:20px;padding:4px 9px;font-size:9px;font-weight:800;color:#fff;z-index:3}
+.clip-score{position:absolute;top:10px;left:10px;width:36px;height:36px;border-radius:50%;border:2px solid var(--p);background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#fff;z-index:3}
+.clip-caption{position:absolute;bottom:50px;left:0;right:0;text-align:center;font-size:12px;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.8);padding:0 12px;z-index:3;line-height:1.3}
+.clip-caption span{background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.clip-meta{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;z-index:3;display:flex;align-items:center;justify-content:space-between}
+.clip-creator{font-size:11px;font-weight:700;color:rgba(255,255,255,.9)}
+.clip-views{font-size:10px;color:var(--muted2)}
+.clip-dur{position:absolute;bottom:10px;right:12px;font-size:9px;font-weight:700;color:rgba(255,255,255,.6);background:rgba(0,0,0,.5);padding:2px 5px;border-radius:4px;z-index:4}
+
 /* FEATURES */
-.features-section{padding:80px 24px;background:rgba(168,85,247,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.features-section{padding:80px 24px;background:rgba(168,85,247,.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
 .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;max-width:1080px;margin:0 auto}
-.feat-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.25s;animation:fadeUp 0.5s ease both}
-.feat-card:hover{border-color:rgba(168,85,247,0.3);transform:translateY(-3px)}
-.feat-icon-wrap{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.feat-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:26px;transition:all .25s;position:relative;overflow:hidden}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan));opacity:0;transition:opacity .3s}
+.feat-card:hover{border-color:rgba(168,85,247,.3);transform:translateY(-4px)}
+.feat-card:hover::before{opacity:1}
+.feat-icon-wrap{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:16px}
 .feat-title{font-size:15px;font-weight:800;margin-bottom:6px}
 .feat-desc{font-size:13px;color:var(--muted2);line-height:1.6}
 
-/* DEMO */
-.demo-section{padding:80px 24px;position:relative;z-index:1}
-.demo-wrap{max-width:860px;margin:0 auto}
-.demo-mockup{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.6),0 0 60px rgba(168,85,247,0.15)}
-.demo-bar{height:40px;background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:8px}
-.demo-dot{width:10px;height:10px;border-radius:50%}
-.demo-inner{padding:24px}
-.demo-url-bar{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:12px;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.demo-clips{display:flex;flex-direction:column;gap:10px}
-.demo-clip{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:14px;animation:fadeUp 0.5s ease both}
-.demo-clip-score{font-size:24px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;min-width:42px}
-.demo-clip-info{flex:1;min-width:0}
-.demo-clip-title{font-size:13px;font-weight:700;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.demo-clip-meta{font-size:11px;color:var(--muted)}
-.demo-clip-badge{padding:3px 9px;border-radius:20px;font-size:10px;font-weight:700;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;white-space:nowrap}
-.demo-prog{margin-bottom:16px}
-.demo-prog-bar{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;margin-bottom:8px}
-.demo-prog-fill{height:100%;width:100%;background:linear-gradient(90deg,var(--p),var(--cyan),var(--p));background-size:200%;animation:shimmer 2s linear infinite;border-radius:2px}
-.demo-prog-steps{display:flex;gap:6px;flex-wrap:wrap}
-.demo-prog-step{font-size:10px;padding:3px 8px;border-radius:20px;border:1px solid rgba(74,222,128,0.3);background:rgba(74,222,128,0.06);color:var(--green)}
-
 /* TESTIMONIALS */
-.testimonials-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;max-width:1080px;margin:0 auto}
-.testi-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px;transition:all 0.25s}
-.testi-card:hover{border-color:rgba(168,85,247,0.25)}
-.testi-stars{font-size:14px;margin-bottom:10px;color:var(--gold)}
+.testi-section{padding:80px 0;border-top:1px solid var(--border);position:relative;z-index:1;overflow:hidden}
+.testi-section::before,.testi-section::after{content:'';position:absolute;top:0;bottom:0;width:150px;z-index:2;pointer-events:none}
+.testi-section::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.testi-section::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.testi-header{text-align:center;padding:0 24px 48px;position:relative;z-index:3}
+.testi-track{display:flex;white-space:nowrap;animation:marquee 50s linear infinite}
+.testi-track:hover{animation-play-state:paused}
+.testi-card{display:inline-block;width:320px;margin:0 10px;background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:22px;white-space:normal;vertical-align:top;transition:border .25s}
+.testi-card:hover{border-color:rgba(168,85,247,.25)}
+.testi-stars{font-size:13px;margin-bottom:10px;color:var(--gold)}
 .testi-text{font-size:13px;color:var(--muted2);line-height:1.65;margin-bottom:14px;font-style:italic}
 .testi-author{display:flex;align-items:center;gap:10px}
-.testi-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;flex-shrink:0}
+.testi-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0}
 .testi-name{font-size:13px;font-weight:700}
 .testi-handle{font-size:11px;color:var(--muted)}
 
-/* VS TABLE */
+/* VS */
 .vs-section{padding:80px 24px;position:relative;z-index:1;border-top:1px solid var(--border)}
-.vs-table-wrap{max-width:780px;margin:0 auto;overflow-x:auto}
+.vs-table-wrap{max-width:820px;margin:0 auto;border-radius:16px;border:1px solid var(--border);overflow:hidden}
 .vs-table{width:100%;border-collapse:collapse}
-.vs-table th{padding:14px 18px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;text-align:left;background:var(--bg3);border-bottom:1px solid var(--border)}
-.vs-table td{padding:13px 18px;font-size:13px;border-bottom:1px solid var(--border);color:var(--muted2)}
+.vs-table th{padding:16px 20px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;text-align:left;background:var(--bg3);border-bottom:1px solid var(--border)}
+.vs-table td{padding:14px 20px;font-size:13px;border-bottom:1px solid var(--border);color:var(--muted2)}
 .vs-table tr:last-child td{border-bottom:none}
-.vs-table tr:hover td{background:rgba(168,85,247,0.03)}
+.vs-table tr:hover td{background:rgba(168,85,247,.03)}
 .vs-yes{color:var(--green);font-weight:700}
-.vs-no{color:var(--muted);font-weight:700}
+.vs-no{color:var(--muted);font-weight:600}
 .vs-col-us{color:var(--p);font-weight:700}
 
 /* PRICING */
-.pricing-section{padding:80px 24px;background:rgba(168,85,247,0.02);border-top:1px solid var(--border);position:relative;z-index:1}
+.pricing-section{padding:80px 24px;background:rgba(168,85,247,.02);border-top:1px solid var(--border);position:relative;z-index:1}
 .billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px}
-.billing-toggle span{font-size:13px;font-weight:700;color:var(--muted2);transition:color 0.2s}
+.billing-toggle span{font-size:13px;font-weight:700;color:var(--muted2);transition:color .2s}
 .billing-toggle span.active{color:#fff}
 .toggle-wrap{position:relative;width:48px;height:26px;cursor:pointer}
-.toggle-track{width:100%;height:100%;background:rgba(255,255,255,0.1);border-radius:999px;border:1px solid var(--border2);transition:background 0.3s}
+.toggle-track{width:100%;height:100%;background:rgba(255,255,255,.1);border-radius:999px;border:1px solid var(--border2);transition:background .3s}
 .toggle-track.on{background:linear-gradient(135deg,var(--p),var(--p2))}
-.toggle-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform 0.3s;box-shadow:0 2px 6px rgba(0,0,0,0.4)}
+.toggle-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .3s;box-shadow:0 2px 6px rgba(0,0,0,.4)}
 .toggle-knob.on{transform:translateX(22px)}
-.annual-badge{display:inline-flex;align-items:center;padding:3px 10px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:20px;font-size:11px;font-weight:800;color:var(--green)}
+.annual-badge{display:inline-flex;align-items:center;padding:3px 10px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);border-radius:20px;font-size:11px;font-weight:800;color:var(--green)}
 .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1100px;margin:0 auto}
 @media(max-width:900px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:540px){.pricing-grid{grid-template-columns:1fr}}
-.plan-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;position:relative;transition:all 0.25s;height:fit-content}
+.plan-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;position:relative;transition:all .25s;height:fit-content}
 .plan-card:hover{transform:translateY(-3px)}
-.plan-card.popular{border-color:var(--p);background:rgba(168,85,247,0.04)}
-.plan-card.agency-card{border-color:rgba(34,211,238,0.3);background:rgba(34,211,238,0.02)}
+.plan-card.popular{border-color:var(--p);background:rgba(168,85,247,.04)}
+.plan-card.agency-card{border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.02)}
 .popular-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:5px 16px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:20px;font-size:11px;font-weight:800;color:#fff}
 .plan-name{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted2)}
 .plan-price-wrap{display:flex;align-items:flex-end;gap:4px}
@@ -184,18 +319,17 @@ a{color:var(--p);text-decoration:none}
 .plan-features{display:flex;flex-direction:column;gap:7px}
 .plan-feat{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--muted2);line-height:1.4}
 .feat-check{color:var(--green);flex-shrink:0;margin-top:1px}
-.plan-btn{width:100%;padding:13px;border:none;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;transition:all 0.2s;margin-top:0}
+.plan-btn{width:100%;padding:13px;border:none;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;transition:all .2s}
 .plan-btn-primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff}
-.plan-btn-primary:hover{opacity:0.88}
+.plan-btn-primary:hover{opacity:.88}
 .plan-btn-cyan{background:linear-gradient(135deg,#22d3ee,#6366f1);color:#fff}
-.plan-btn-cyan:hover{opacity:0.88}
+.plan-btn-cyan:hover{opacity:.88}
 .empire{text-align:center;font-size:11px;font-weight:800;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;text-transform:uppercase;margin-top:4px}
-.packs-inner{border-top:1px solid rgba(168,85,247,0.2);padding-top:12px;margin-top:4px;display:flex;flex-direction:column;gap:7px}
+.packs-inner{border-top:1px solid rgba(168,85,247,.2);padding-top:12px;margin-top:4px;display:flex;flex-direction:column;gap:7px}
 .packs-inner-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--p);margin-bottom:4px}
-.pack-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:8px 12px;cursor:pointer;transition:border 0.2s}
-.pack-row:hover{border-color:rgba(168,85,247,0.4)}
-.pack-row.best{background:rgba(168,85,247,0.07);border-color:rgba(168,85,247,0.3)}
-.pack-row.best:hover{border-color:rgba(168,85,247,0.6)}
+.pack-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:8px 12px;cursor:pointer;transition:border .2s}
+.pack-row:hover{border-color:rgba(168,85,247,.4)}
+.pack-row.best{background:rgba(168,85,247,.07);border-color:rgba(168,85,247,.3)}
 .pack-row-left{display:flex;flex-direction:column;gap:2px}
 .pack-row-name{font-size:11px;font-weight:800;color:#fff;display:flex;align-items:center;gap:6px}
 .pack-best-pill{background:linear-gradient(135deg,var(--p),var(--p2));padding:1px 6px;border-radius:20px;font-size:8px;font-weight:800;color:#fff}
@@ -210,230 +344,350 @@ a{color:var(--p);text-decoration:none}
 .faq-wrap{max-width:1080px;margin:0 auto}
 .faq-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:700px){.faq-cols{grid-template-columns:1fr}}
-.faq-item{border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border 0.2s;height:fit-content}
-.faq-item.open{border-color:rgba(168,85,247,0.3)}
-.faq-q{width:100%;background:var(--bg2);border:none;color:#fff;padding:16px 18px;text-align:left;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background 0.2s;line-height:1.4}
-.faq-q:hover{background:rgba(168,85,247,0.05)}
-.faq-icon{font-size:18px;color:var(--p);flex-shrink:0;transition:transform 0.3s;font-weight:300;line-height:1}
+.faq-item{border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border .2s;height:fit-content}
+.faq-item.open{border-color:rgba(168,85,247,.3)}
+.faq-q{width:100%;background:var(--bg2);border:none;color:#fff;padding:16px 18px;text-align:left;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .2s;line-height:1.4}
+.faq-q:hover{background:rgba(168,85,247,.05)}
+.faq-icon{font-size:18px;color:var(--p);flex-shrink:0;transition:transform .3s;line-height:1}
 .faq-item.open .faq-icon{transform:rotate(45deg)}
-.faq-a{background:var(--bg3);max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s}
+.faq-a{background:var(--bg3);max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s}
 .faq-item.open .faq-a{max-height:300px;padding:14px 18px}
 .faq-a p{font-size:13px;color:var(--muted2);line-height:1.7}
 .faq-a strong{color:#fff}
 
 /* CTA */
-.cta-section{padding:100px 24px;text-align:center;position:relative;z-index:1;overflow:hidden}
-.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(168,85,247,0.12),transparent 65%);pointer-events:none}
-.cta-title{font-size:clamp(30px,5vw,60px);font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:16px}
-.cta-sub{font-size:16px;color:var(--muted2);margin-bottom:36px;max-width:460px;margin-left:auto;margin-right:auto}
-.cta-btn{padding:18px 40px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:800;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:10px;animation:borderPulse 3s ease-in-out infinite}
-.cta-btn:hover{opacity:0.88;transform:translateY(-2px)}
+.cta-section{padding:120px 24px;text-align:center;position:relative;z-index:1;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(168,85,247,.14),transparent 65%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.cta-title{font-size:clamp(34px,5.5vw,66px);font-weight:900;letter-spacing:-2.5px;line-height:.95;margin-bottom:18px}
+.cta-sub{font-size:17px;color:var(--muted2);margin-bottom:40px;line-height:1.6}
+.cta-btn{padding:20px 46px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:16px;color:#fff;font-size:17px;font-weight:800;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 20px 60px rgba(168,85,247,.4);opacity:.92}
+.cta-trust{margin-top:24px;font-size:13px;color:var(--muted)}
 
 /* FOOTER */
 .footer{border-top:1px solid var(--border);padding:40px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1}
 .footer-logo{font-size:15px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .footer-links{display:flex;gap:20px;flex-wrap:wrap}
-.footer-link{font-size:12px;color:var(--muted);cursor:pointer;transition:color 0.2s}
+.footer-link{font-size:12px;color:var(--muted);cursor:pointer;transition:color .2s}
 .footer-link:hover{color:var(--p)}
 .footer-copy{font-size:12px;color:var(--muted)}
 
 /* AUTH */
-.auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
+.auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
 .auth-overlay.open{display:flex}
-.auth-box{background:var(--bg2);border:1px solid var(--border2);border-radius:22px;padding:40px;max-width:420px;width:100%;text-align:center;animation:fadeUp 0.3s ease;position:relative}
-.auth-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);cursor:pointer;color:var(--muted2);font-size:16px;display:flex;align-items:center;justify-content:center}
+.auth-box{background:var(--bg2);border:1px solid var(--border2);border-radius:22px;padding:40px;max-width:420px;width:100%;text-align:center;animation:fadeUp .3s ease;position:relative}
+.auth-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);cursor:pointer;color:var(--muted2);font-size:16px;display:flex;align-items:center;justify-content:center}
 .auth-logo{font-size:22px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
 .auth-tagline{color:var(--muted);font-size:13px;margin-bottom:28px}
-.auth-error{color:#ef4444;font-size:13px;margin-bottom:12px;display:none;padding:10px;background:rgba(239,68,68,0.1);border-radius:8px}
-.auth-input{width:100%;padding:13px 16px;background:rgba(255,255,255,0.05);border:1px solid var(--border2);border-radius:11px;color:#fff;font-size:14px;margin-bottom:10px;outline:none;transition:border 0.2s}
+.auth-error{color:#ef4444;font-size:13px;margin-bottom:12px;display:none;padding:10px;background:rgba(239,68,68,.1);border-radius:8px}
+.auth-input{width:100%;padding:13px 16px;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:11px;color:#fff;font-size:14px;margin-bottom:10px;outline:none;transition:border .2s}
 .auth-input:focus{border-color:var(--p)}
 .auth-input::placeholder{color:var(--muted)}
-.auth-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:11px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:14px;transition:opacity 0.2s}
-.auth-btn:hover:not(:disabled){opacity:0.88}
-.auth-btn:disabled{opacity:0.5;cursor:not-allowed}
+.auth-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:11px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:14px;transition:opacity .2s}
+.auth-btn:hover:not(:disabled){opacity:.88}
+.auth-btn:disabled{opacity:.5;cursor:not-allowed}
 .auth-divider{display:flex;align-items:center;gap:10px;margin:4px 0 14px}
 .auth-divider-line{flex:1;height:1px;background:var(--border)}
 .auth-divider-text{color:var(--muted);font-size:11px}
 .oauth-row{display:flex;gap:10px;margin-bottom:14px}
-.oauth-btn{flex:1;padding:11px;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:11px;color:#fff;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all 0.2s}
+.oauth-btn{flex:1;padding:11px;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:11px;color:#fff;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .2s}
 .oauth-btn:hover{border-color:var(--p)}
 .auth-toggle{color:var(--muted);font-size:13px;cursor:pointer;margin-top:14px}
 .auth-toggle span{color:var(--p)}
-.spin{width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;display:inline-block}
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);padding:12px 22px;border-radius:10px;font-size:13px;font-weight:700;z-index:9999;pointer-events:none;transition:opacity 0.3s;box-shadow:0 4px 24px rgba(0,0,0,0.4);white-space:nowrap;opacity:0}
+.spin{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);padding:12px 22px;border-radius:10px;font-size:13px;font-weight:700;z-index:9999;pointer-events:none;transition:opacity .3s;box-shadow:0 4px 24px rgba(0,0,0,.4);opacity:0}
 .toast.show{opacity:1}
 .redirect-splash{position:fixed;inset:0;background:var(--bg);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .redirect-splash.show{display:flex}
-.redirect-splash .logo{font-size:28px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.redirect-splash .sub{font-size:14px;color:var(--muted2)}
-.redir-spin{width:36px;height:36px;border:3px solid rgba(168,85,247,0.2);border-top-color:var(--p);border-radius:50%;animation:spin 0.8s linear infinite}
+.redir-spin{width:36px;height:36px;border:3px solid rgba(168,85,247,.2);border-top-color:var(--p);border-radius:50%;animation:spin .8s linear infinite}
 </style>
 </head>
 <body>
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
+<div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
 
 <div class="redirect-splash" id="redirectSplash">
-  <div class="logo">⚡ ClipSpeedAI</div>
+  <div style="font-size:28px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent">⚡ ClipSpeedAI</div>
   <div class="redir-spin"></div>
-  <div class="sub">Taking you to your dashboard...</div>
+  <div style="font-size:14px;color:var(--muted2)">Taking you to your dashboard...</div>
 </div>
 
+<!-- TICKER -->
+<div class="ticker-bar"><div class="ticker-inner" id="tickerInner"></div></div>
+
+<!-- NAV -->
 <nav class="nav">
   <div class="nav-logo">⚡ ClipSpeedAI</div>
   <div class="nav-links">
-    <button class="nav-link" onclick="scrollTo('how')">How it Works</button>
-    <button class="nav-link" onclick="scrollTo('features')">Features</button>
-    <button class="nav-link" onclick="scrollTo('pricing')">Pricing</button>
-    <button class="nav-link" onclick="scrollTo('testimonials')">Reviews</button>
+    <button class="nav-link" onclick="goTo('how')">How it Works</button>
+    <button class="nav-link" onclick="goTo('features')">Features</button>
+    <button class="nav-link" onclick="goTo('pricing')">Pricing</button>
+    <button class="nav-link" onclick="goTo('testimonials')">Reviews</button>
   </div>
   <div class="nav-cta-row">
     <button class="nav-signin" onclick="openAuth(false)">Sign In</button>
-    <button class="nav-start" onclick="openAuth(true)">Get Started Free ⚡</button>
+    <button class="nav-start" onclick="openAuth(true)">Start Free ⚡</button>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO + PARTICLE CANVAS -->
 <section class="hero">
+  <canvas id="particleCanvas"></canvas>
   <div class="hero-inner">
-    <div class="hero-badge"><div class="live-dot"></div>#1 Fastest AI Clip Tool · Destroys OpuClip</div>
-    <h1 class="hero-title">Get Viral Clips<br><span class="grad">In 90 Seconds Flat</span></h1>
-    <p class="hero-sub">Paste any YouTube URL — GPT-4o finds your viral moments, adds captions, and reframes for every platform automatically.</p>
+    <div class="hero-badge"><div class="live-dot"></div>⚡ 10x Faster Than OpuClip · GPT-4o Powered · 47K+ Creators</div>
+    <h1 class="hero-title">The World's Fastest<br><span class="grad">AI Clip Super App</span></h1>
+    <p class="hero-sub">Paste any YouTube URL. GPT-4o finds your viral moments, burns in captions, reframes for every platform — delivering ready-to-post clips in under 90 seconds.</p>
     <div class="hero-input-wrap">
       <div class="hero-input-inner">
-        <span style="font-size:18px;flex-shrink:0">🔗</span>
-        <input class="hero-input" id="heroUrl" type="text" placeholder="Paste a YouTube URL to get started...">
+        <span style="font-size:19px;flex-shrink:0">🔗</span>
+        <input class="hero-input" id="heroUrl" type="text" placeholder="Paste any YouTube URL to get started...">
         <button class="hero-btn" onclick="heroGenerate()">Generate Clips ⚡</button>
       </div>
     </div>
     <div class="hero-trust">
-      <span>✓ ~90 seconds</span><span>·</span>
-      <span>✓ GPT-4o viral detection</span><span>·</span>
-      <span>✓ Auto captions + reframe</span><span>·</span>
-      <span>✓ No credit card needed</span>
+      <span>✓ No credit card</span><span>·</span><span>✓ 90 second results</span><span>·</span><span>✓ GPT-4o detection</span><span>·</span><span>✓ Free forever</span>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="hero-stat-num">2.4M+</div><div class="hero-stat-lbl">Clips Generated</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">47K+</div><div class="hero-stat-lbl">Creators</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">47K+</div><div class="hero-stat-lbl">Active Creators</div></div>
       <div class="hero-stat"><div class="hero-stat-num">90s</div><div class="hero-stat-lbl">Avg Processing</div></div>
       <div class="hero-stat"><div class="hero-stat-num">4.9★</div><div class="hero-stat-lbl">Avg Rating</div></div>
     </div>
   </div>
 </section>
 
-<div class="proof-strip">
-  <div class="proof-item"><span class="proof-icon">🎬</span>TikTok optimized</div>
-  <div class="proof-item"><span class="proof-icon">📸</span>Reels ready</div>
-  <div class="proof-item"><span class="proof-icon">▶️</span>YouTube Shorts</div>
-  <div class="proof-item"><span class="proof-icon">🤖</span>GPT-4o powered</div>
-  <div class="proof-item"><span class="proof-icon">🎥</span>Pexels B-Roll</div>
-  <div class="proof-item"><span class="proof-icon">💳</span>No credit card</div>
+<!-- LIVE COUNTERS -->
+<div class="live-strip">
+  <div class="live-counter">
+    <div class="live-indicator"><div class="live-dot" style="animation:livePulse 1.5s infinite"></div>LIVE RIGHT NOW</div>
+    <div class="live-counter-num" id="liveClips">0</div>
+    <div class="live-counter-label">Clips Processing</div>
+  </div>
+  <div class="live-counter">
+    <div class="live-counter-num" id="liveViews">0</div>
+    <div class="live-counter-label">Views Earned Today</div>
+  </div>
+  <div class="live-counter">
+    <div class="live-counter-num" id="liveCreators">0</div>
+    <div class="live-counter-label">Creators Online</div>
+  </div>
+  <div class="live-counter">
+    <div class="live-counter-num" id="liveSaved">0</div>
+    <div class="live-counter-label">Hours Saved Today</div>
+  </div>
 </div>
+
+<div class="proof-strip">
+  <div class="proof-item"><span>🎬</span>TikTok</div>
+  <div class="proof-item"><span>📸</span>Instagram Reels</div>
+  <div class="proof-item"><span>▶️</span>YouTube Shorts</div>
+  <div class="proof-item"><span>𝕏</span>Twitter/X</div>
+  <div class="proof-item"><span>💼</span>LinkedIn</div>
+  <div class="proof-item"><span>🤖</span>GPT-4o Powered</div>
+  <div class="proof-item"><span>🎥</span>Pexels B-Roll</div>
+</div>
+
+<!-- LOGO WALL -->
+<div class="logos-section">
+  <div class="logos-label" style="font-size:13px;font-weight:900;color:#fff;letter-spacing:.5px;text-transform:none;margin-bottom:6px">⚡ ClipSpeedAI</div>
+  <div class="logos-label" style="margin-bottom:24px">Elite software to clip your favorite creators</div>
+  <div class="logos-track" id="logosTrack"></div>
+</div>
+
+<!-- PHONE MOCKUP + CAPTION STYLES -->
+<section class="phone-section" id="how">
+  <div class="phone-grid">
+    <div class="phone-wrap">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-bg" id="phoneBg"></div>
+          <div class="phone-overlay"></div>
+          <div class="phone-watermark">⚡ ClipSpeedAI</div>
+          <div class="phone-score" id="phoneScore">96</div>
+          <div class="phone-style-pill" id="phoneStylePill">Bold</div>
+          <div class="phone-caption-area" id="phoneCaptionArea"></div>
+          <div class="phone-meta"><span id="phoneCreator">@JoeRogan</span><span>👁 1.2M est.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-content">
+      <div class="section-label" style="text-align:left">Live Caption Preview</div>
+      <h2 class="section-title" style="text-align:left;font-size:clamp(24px,3.5vw,40px)">10 caption styles.<br><span class="grad">Pick your vibe.</span></h2>
+      <p style="font-size:14px;color:var(--muted2);line-height:1.65;margin:14px 0 24px">Click any style to preview it live on the phone. Every style exports burned-in at 1080p — word-by-word animated, ready to post.</p>
+      <div class="caption-styles-grid" id="captionStylesGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEED RACE -->
+<section class="race-section">
+  <div class="race-wrap">
+    <div style="text-align:center;margin-bottom:8px"><div class="section-label">Speed Test</div></div>
+    <h2 class="section-title">We race. <span class="grad">They crawl.</span></h2>
+    <p class="section-sub" style="margin-bottom:0">Watch the real-time difference. Click start to run the race.</p>
+    <div class="race-lanes">
+      <div class="race-lane us">
+        <div class="race-lane-header">
+          <div class="race-lane-name">⚡ ClipSpeedAI</div>
+          <div class="race-lane-time" id="raceTimeUs" style="background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">0.0s</div>
+        </div>
+        <div class="race-bar-track"><div class="race-bar-fill race-bar-us" id="raceBarUs"></div></div>
+      </div>
+      <div class="race-lane">
+        <div class="race-lane-header">
+          <div class="race-lane-name" style="color:var(--muted2)">OpuClip</div>
+          <div class="race-lane-time" id="raceTimeThem" style="color:var(--muted)">0.0s</div>
+        </div>
+        <div class="race-bar-track"><div class="race-bar-fill race-bar-them" id="raceBarThem"></div></div>
+      </div>
+    </div>
+    <div class="race-cta">
+      <button id="raceBtn" onclick="startRace()" style="padding:13px 32px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:12px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;transition:all .2s;margin-bottom:16px">▶ Start Race</button>
+      <div id="raceVerdict" style="display:none" class="race-verdict">⚡ ClipSpeedAI finished <span id="raceMultiple"></span> faster — clips already in your dashboard!</div>
+    </div>
+  </div>
+</section>
+
+<!-- VIRAL SCORE CALCULATOR -->
+<section class="calc-section">
+  <div class="calc-wrap">
+    <div class="calc-scan"></div>
+    <div class="section-label">AI Viral Score Calculator</div>
+    <h2 class="section-title" style="margin-bottom:8px">What's your <span class="grad">viral potential?</span></h2>
+    <p style="font-size:14px;color:var(--muted2);margin-bottom:0">Pick your content niche and let ViralBrain™ predict your score.</p>
+    <div class="calc-niches" id="calcNiches"></div>
+    <div class="calc-score-display" id="calcScore">—</div>
+    <div class="calc-label" id="calcLabel">Select a niche above</div>
+    <div class="calc-verdict" id="calcVerdict" style="display:none"></div>
+    <div class="calc-meter-wrap">
+      <div class="calc-meter-track"><div class="calc-meter-fill" id="calcMeter"></div></div>
+    </div>
+    <button onclick="openAuth(true)" id="calcCta" style="display:none;padding:13px 28px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:12px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;margin-top:8px">Get My Free Clips ⚡</button>
+  </div>
+</section>
+
+<!-- AI MODELS -->
+<section class="models-section">
+  <div class="section-inner">
+    <div class="section-label">AI Engine</div>
+    <h2 class="section-title">6 proprietary AI models.<br><span class="grad">Built to make you go viral.</span></h2>
+    <p class="section-sub" style="margin-bottom:48px">Not off-the-shelf — purpose-built models running in parallel, trained specifically for short-form performance.</p>
+    <div class="models-grid">
+      <div class="model-card featured"><div class="model-scan"></div><div class="model-badge badge-core">Core Model</div><span class="model-icon">🧠</span><div class="model-name">ViralBrain™</div><div class="model-desc">GPT-4o powered scoring engine. Analyzes hook strength, emotional intensity, pacing, and shareability — ranking every moment 0–100.</div><div class="model-speed">⚡ Results in 90 seconds</div></div>
+      <div class="model-card"><div class="model-badge badge-core">Core Model</div><span class="model-icon">✂️</span><div class="model-name">CutAnything™</div><div class="model-desc">Frame-perfect cutting on any genre — podcasts, gaming, sports, interviews, vlogs. Finds exact in/out points GPT-4o flags as viral.</div><div class="model-speed">⚡ Frame-accurate cuts</div></div>
+      <div class="model-card"><div class="model-badge badge-core">Core Model</div><span class="model-icon">💬</span><div class="model-name">CaptionFire™</div><div class="model-desc">10 animated styles. Word-by-word sync using Whisper AI with sub-100ms accuracy. Burned in at export in any resolution.</div><div class="model-speed">⚡ 10 animated styles</div></div>
+      <div class="model-card"><div class="model-badge badge-pro">Pro Model</div><span class="model-icon" style="animation-delay:1s">📐</span><div class="model-name">ReframeAI™</div><div class="model-desc">Speaker tracking auto-reframes every clip for 9:16, 1:1, 16:9, and 4:5 simultaneously in one export.</div><div class="model-speed">⚡ 4 formats, 1 click</div></div>
+      <div class="model-card"><div class="model-badge badge-pro">Pro Model</div><span class="model-icon" style="animation-delay:2s">🎬</span><div class="model-name">BrollBot™</div><div class="model-desc">Live Pexels integration. Reads your transcript, detects emotion and context, auto-swaps in matching B-roll footage.</div><div class="model-speed">⚡ Auto B-roll match</div></div>
+      <div class="model-card"><div class="model-badge badge-new">New</div><span class="model-icon" style="animation-delay:.5s">📊</span><div class="model-name">GrowthOS™</div><div class="model-desc">AI analytics that learns what makes YOUR audience engage. Tracks scores, estimated reach, and your next best content move.</div><div class="model-speed">⚡ Personalized insights</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS TICKER -->
+<div class="results-section"><div class="results-track" id="resultsTrack"></div></div>
+
+<!-- SUPER APP -->
+<section class="superapp-section">
+  <div class="superapp-grid">
+    <div>
+      <div class="app-screen">
+        <div class="app-bar"><div class="app-dot" style="background:#ef4444"></div><div class="app-dot" style="background:#f59e0b"></div><div class="app-dot" style="background:#4ade80"></div><div style="flex:1;margin-left:8px;background:rgba(255,255,255,.04);border-radius:5px;padding:4px 10px;font-size:11px;color:var(--muted)">clipspeed.ai/dashboard</div></div>
+        <div class="app-body">
+          <div style="font-size:10px;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">⚡ Processing — 67%</div>
+          <div class="prog-mini"><div class="prog-fill" style="width:67%"></div></div>
+          <div style="height:8px"></div>
+          <div class="app-row"><div class="app-row-icon">🔥</div><div style="flex:1;min-width:0"><div class="app-row-title">This is the moment nobody talks about</div><div class="app-row-meta">0:47 · TikTok · 45K–120K est.</div></div><div class="app-row-score">96</div></div>
+          <div class="app-row"><div class="app-row-icon">⚡</div><div style="flex:1;min-width:0"><div class="app-row-title">I went from 0 to 100K doing this</div><div class="app-row-meta">0:52 · Reels · 30K–90K est.</div></div><div class="app-row-score">91</div></div>
+          <div class="app-row"><div class="app-row-icon">🎯</div><div style="flex:1;min-width:0"><div class="app-row-title">The algorithm rewards this exact behavior</div><div class="app-row-meta">1:04 · Shorts · 20K–60K est.</div></div><div class="app-row-score">88</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label" style="text-align:left">The Super App</div>
+      <h2 class="section-title" style="text-align:left;font-size:clamp(24px,3vw,40px)">Your entire content<br><span class="grad">operation. One place.</span></h2>
+      <p style="font-size:14px;color:var(--muted2);line-height:1.65;margin:16px 0 28px">ClipSpeedAI is the command center for your entire short-form strategy. Paste, generate, edit, and track — without leaving the app.</p>
+      <div class="sf-item"><div class="sf-icon" style="background:rgba(168,85,247,.12)">⚡</div><div><div class="sf-title">90-Second Pipeline</div><div class="sf-desc">Download → Transcribe → Score → Cut → Caption → Reframe → Export. Fully automated, fully parallel.</div></div></div>
+      <div class="sf-item"><div class="sf-icon" style="background:rgba(34,211,238,.12)">🎨</div><div><div class="sf-title">Brand Template System</div><div class="sf-desc">Lock in your fonts, colors, logo, and caption style once. Every clip matches your brand instantly.</div></div></div>
+      <div class="sf-item"><div class="sf-icon" style="background:rgba(74,222,128,.12)">📊</div><div><div class="sf-title">GrowthOS Analytics</div><div class="sf-desc">AI-powered insights that learn what works for YOUR audience and tell you what to create next.</div></div></div>
+      <div class="sf-item"><div class="sf-icon" style="background:rgba(245,158,11,.12)">💰</div><div><div class="sf-title">40–50% Affiliate Program</div><div class="sf-desc">The most generous referral program in the industry. Recurring monthly commissions, no cap.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="platforms-section">
+  <div style="text-align:center;margin-bottom:36px"><div class="section-label">Platforms</div><h2 class="section-title">One video → <span class="grad">every platform</span></h2><p class="section-sub" style="margin-bottom:0">Auto-formatted. No manual resizing. Ever.</p></div>
+  <div class="platforms-grid">
+    <div class="platform-chip"><span>🎵</span>TikTok 9:16</div>
+    <div class="platform-chip"><span>📸</span>Instagram Reels 9:16</div>
+    <div class="platform-chip"><span>▶️</span>YouTube Shorts 9:16</div>
+    <div class="platform-chip"><span>𝕏</span>Twitter/X 16:9</div>
+    <div class="platform-chip"><span>💼</span>LinkedIn 4:5</div>
+    <div class="platform-chip"><span>📱</span>Instagram Feed 1:1</div>
+    <div class="platform-chip"><span>🎮</span>Twitch Clips</div>
+    <div class="platform-chip"><span>🎙️</span>Podcast Clips</div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section" style="border-top:1px solid var(--border)">
+  <div class="section-inner">
+    <div class="section-label">How it Works</div>
+    <h2 class="section-title">From long video to<br><span class="grad">viral clips in 3 steps</span></h2>
+    <p class="section-sub">No editing skills. No timeline scrubbing. Just paste, generate, and dominate.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">Step 01</div><span class="step-icon">🔗</span><div class="step-title">Paste Your URL</div><div class="step-desc">Drop any YouTube link — podcasts, interviews, vlogs, tutorials, gaming. We handle downloads, transcription, and analysis automatically.</div></div>
+      <div class="step-card"><div class="step-num">Step 02</div><span class="step-icon">🧠</span><div class="step-title">ViralBrain™ Scores Everything</div><div class="step-desc">GPT-4o reads your entire transcript and scores every window for hook strength, emotion, pacing, and retention power.</div></div>
+      <div class="step-card"><div class="step-num">Step 03</div><span class="step-icon">🚀</span><div class="step-title">Post. Go Viral. Repeat.</div><div class="step-desc">Get 5–10 ready-to-post clips with captions burned in, speaker auto-reframed, formatted for every platform. In 90 seconds.</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- CLIPS SHOWCASE -->
 <section class="clips-section" id="clips">
-  <div style="text-align:center;margin-bottom:40px">
-    <div class="section-label">Real Results</div>
-    <h2 class="section-title">Real clips. <span class="grad">Real results.</span></h2>
-    <p style="font-size:15px;color:var(--muted2);max-width:480px;margin:0 auto;line-height:1.6">Top viral moments pulled straight from the dashboard. These clips were generated in under 90 seconds.</p>
-  </div>
-  <div class="clips-grid" id="clipsGrid">
-    <!-- populated by JS -->
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <div class="section-inner">
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">From YouTube to Viral<br><span class="grad">in 3 Simple Steps</span></h2>
-    <p class="section-sub">No editing skills needed. No timeline scrubbing. Just paste, generate, and post.</p>
-    <div class="steps-grid">
-      <div class="step-card" style="animation-delay:0s"><div class="step-num">Step 01</div><span class="step-icon">🔗</span><div class="step-title">Paste Your URL</div><div class="step-desc">Drop any YouTube link — long-form podcasts, interviews, tutorials. We handle the rest automatically.</div></div>
-      <div class="step-card" style="animation-delay:0.1s"><div class="step-num">Step 02</div><span class="step-icon">🧠</span><div class="step-title">AI Finds Viral Moments</div><div class="step-desc">GPT-4o analyzes the full transcript and scores every segment for hook strength, emotion, and retention.</div></div>
-      <div class="step-card" style="animation-delay:0.2s"><div class="step-num">Step 03</div><span class="step-icon">⚡</span><div class="step-title">Download & Post</div><div class="step-desc">Get 5+ ready-to-post clips with captions burned in, speaker reframed for 9:16, 1:1, and 16:9.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- DEMO -->
-<section class="demo-section">
-  <div class="demo-wrap">
-    <div style="text-align:center;margin-bottom:32px"><div class="section-label">Live Demo</div><h2 class="section-title" style="margin-bottom:0">See it in action</h2></div>
-    <div class="demo-mockup">
-      <div class="demo-bar">
-        <div class="demo-dot" style="background:#ef4444"></div>
-        <div class="demo-dot" style="background:#f59e0b"></div>
-        <div class="demo-dot" style="background:#4ade80"></div>
-        <div style="flex:1;margin-left:8px;background:rgba(255,255,255,0.04);border-radius:5px;padding:4px 10px;font-size:11px;color:var(--muted);max-width:240px">clipspeed.ai/dashboard</div>
-      </div>
-      <div class="demo-inner">
-        <div class="demo-url-bar">🔗 https://youtube.com/watch?v=example&nbsp;<span style="color:var(--green);font-size:10px;font-weight:700">✓ Processing complete</span></div>
-        <div class="demo-prog">
-          <div class="demo-prog-bar"><div class="demo-prog-fill"></div></div>
-          <div class="demo-prog-steps">
-            <span class="demo-prog-step">✓ Downloaded</span><span class="demo-prog-step">✓ Transcribed</span><span class="demo-prog-step">✓ Analyzed</span><span class="demo-prog-step">✓ Cut</span><span class="demo-prog-step">✓ Captions</span>
-          </div>
-        </div>
-        <div class="demo-clips">
-          <div class="demo-clip"><div class="demo-clip-score">94</div><div class="demo-clip-info"><div class="demo-clip-title">This single habit changed everything for my business</div><div class="demo-clip-meta">⏱ 0:47 · 📍 2:14 · 👁 45K–120K est. views</div></div><div class="demo-clip-badge">TikTok</div></div>
-          <div class="demo-clip"><div class="demo-clip-score">88</div><div class="demo-clip-info"><div class="demo-clip-title">Nobody tells you this about going viral online</div><div class="demo-clip-meta">⏱ 0:52 · 📍 8:33 · 👁 30K–90K est. views</div></div><div class="demo-clip-badge">Reels</div></div>
-          <div class="demo-clip"><div class="demo-clip-score">82</div><div class="demo-clip-info"><div class="demo-clip-title">I went from 0 to 100K followers using this</div><div class="demo-clip-meta">⏱ 0:38 · 📍 15:07 · 👁 20K–60K est. views</div></div><div class="demo-clip-badge">Shorts</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div style="text-align:center;margin-bottom:40px"><div class="section-label">Real Results</div><h2 class="section-title">Real clips. <span class="grad">Real results.</span></h2><p style="font-size:15px;color:var(--muted2);max-width:480px;margin:0 auto;line-height:1.6">Top viral moments from the dashboard. Generated in under 90 seconds each.</p></div>
+  <div class="clips-grid" id="clipsGrid"></div>
 </section>
 
 <!-- FEATURES -->
 <section class="features-section" id="features">
   <div class="section-inner">
     <div class="section-label">Features</div>
-    <h2 class="section-title">Everything you need to<br><span class="grad">dominate short-form</span></h2>
+    <h2 class="section-title">Everything to<br><span class="grad">own short-form content</span></h2>
     <p class="section-sub">Built for creators who want results, not a PhD in video editing.</p>
     <div class="features-grid">
-      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(168,85,247,0.15)">🧠</div><div class="feat-title">GPT-4o Viral Detection</div><div class="feat-desc">Scores every moment for hook strength, emotional pull, and retention — finding your best clips automatically.</div></div>
-      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(34,211,238,0.15)">💬</div><div class="feat-title">Auto Captions</div><div class="feat-desc">Word-by-word captions burned in with Bold, Neon, Fire, and Minimal styles. Fully editable in the built-in editor.</div></div>
-      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(74,222,128,0.15)">🎬</div><div class="feat-title">AI B-Roll Editor</div><div class="feat-desc">Emotion-synced B-roll from Pexels. Auto-matched to your transcript segments with one click.</div></div>
-      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(245,158,11,0.15)">📐</div><div class="feat-title">Auto Reframe</div><div class="feat-desc">Speaker tracking auto-reframes for 9:16 TikTok, 1:1 Instagram, and 16:9 YouTube Shorts.</div></div>
-      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(168,85,247,0.15)">🏷️</div><div class="feat-title">Brand Templates</div><div class="feat-desc">Save your caption style, colors, and layout as a brand template. Apply to every clip in one click.</div></div>
-      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(99,102,241,0.15)">📊</div><div class="feat-title">AI Growth Analytics</div><div class="feat-desc">Track your clips viral scores, estimated reach, and get GPT-4o powered insights on how to grow faster.</div></div>
+      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(168,85,247,.15)">🧠</div><div class="feat-title">GPT-4o Viral Detection</div><div class="feat-desc">Scores every moment for hook strength, emotional pull, and retention. Clips rated 80+ consistently outperform manually edited content.</div></div>
+      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(34,211,238,.15)">💬</div><div class="feat-title">CaptionFire™ — 10 Styles</div><div class="feat-desc">Bold Word-by-Word, Neon Pop, Fire, Highlight Box, Minimal, Shadow Pop, Typewriter, Hormone, Cinematic, Gaming HUD.</div></div>
+      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(74,222,128,.15)">🎬</div><div class="feat-title">BrollBot™ AI B-Roll</div><div class="feat-desc">Emotion-synced B-roll from Pexels matched to your transcript segments automatically. Preview, swap, or remove in one click.</div></div>
+      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(245,158,11,.15)">📐</div><div class="feat-title">ReframeAI™ Auto Reframe</div><div class="feat-desc">Speaker tracking reframes every clip for 9:16, 1:1, and 16:9 simultaneously. Export all three with one click.</div></div>
+      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(168,85,247,.15)">🏷️</div><div class="feat-title">Brand Template System</div><div class="feat-desc">Save your style, colors, fonts, and logo as a brand kit. Every generated clip is on-brand automatically.</div></div>
+      <div class="feat-card"><div class="feat-icon-wrap" style="background:rgba(99,102,241,.15)">📊</div><div class="feat-title">GrowthOS™ Analytics</div><div class="feat-desc">AI-powered growth intelligence. Viral scores, estimated reach, and GPT-4o suggestions on exactly what to create next.</div></div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials-section" id="testimonials">
-  <div class="section-inner">
-    <div class="section-label">Reviews</div>
-    <h2 class="section-title">Creators <span class="grad">love it</span></h2>
-    <p class="section-sub" style="margin-bottom:40px">Don't take our word for it.</p>
-    <div class="testi-grid">
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"I was spending 3 hours clipping each podcast. Now it takes 90 seconds and the clips actually perform better than anything I made manually."</div><div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jake M.</div><div class="testi-handle">@jakecreates · 280K followers</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"The viral score feature is insane. Every clip it rates above 85 has blown up for me. It's like having a professional editor who knows the algorithm."</div><div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sofia R.</div><div class="testi-handle">@sofialifts · 190K followers</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"Switched from OpuClip and never looked back. ClipSpeedAI is 10x faster and the caption styles actually look good. My agency uses it for every client."</div><div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Marcus T.</div><div class="testi-handle">Viral Agency · 40+ clients</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"The B-Roll editor alone is worth the price. It finds the perfect Pexels clip for every moment automatically. My videos look cinematic now."</div><div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Aisha K.</div><div class="testi-handle">@aishacooks · 520K followers</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"I went from posting 2 clips a week to 15. The affiliate program is also legit — I've made back 3x my subscription just from referrals."</div><div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">Dylan C.</div><div class="testi-handle">@dylanbuilds · 95K followers</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"Finally a clip tool that doesn't need me to babysit it. Paste URL, come back in 90 seconds, done. The AI actually understands what makes content viral."</div><div class="testi-author"><div class="testi-avatar">P</div><div><div class="testi-name">Priya N.</div><div class="testi-handle">@priyapodcast · 140K followers</div></div></div></div>
-    </div>
-  </div>
+<section class="testi-section" id="testimonials">
+  <div class="testi-header"><div class="section-label">Creator Reviews</div><h2 class="section-title">47,000+ creators <span class="grad">can't be wrong</span></h2></div>
+  <div class="testi-track" id="testiTrack"></div>
 </section>
 
-<!-- VS TABLE -->
+<!-- VS -->
 <section class="vs-section">
   <div class="section-inner">
-    <div style="text-align:center;margin-bottom:40px"><div class="section-label">Comparison</div><h2 class="section-title">ClipSpeedAI vs <span class="grad">The Rest</span></h2></div>
+    <div style="text-align:center;margin-bottom:40px"><div class="section-label">Comparison</div><h2 class="section-title">ClipSpeedAI vs <span class="grad">The Competition</span></h2><p class="section-sub" style="margin-bottom:0">We built what OpuClip should have been.</p></div>
     <div class="vs-table-wrap">
       <table class="vs-table">
-        <thead><tr><th>Feature</th><th class="vs-col-us">⚡ ClipSpeedAI</th><th style="color:var(--muted)">OpuClip</th><th style="color:var(--muted)">Opus Pro</th></tr></thead>
+        <thead><tr><th>Feature</th><th class="vs-col-us">⚡ ClipSpeedAI</th><th style="color:var(--muted)">OpuClip Free</th><th style="color:var(--muted)">OpuClip Pro</th></tr></thead>
         <tbody>
           <tr><td>Processing Speed</td><td class="vs-yes">~90 seconds</td><td class="vs-no">5–15 min</td><td class="vs-no">5–15 min</td></tr>
-          <tr><td>GPT-4o Viral Scoring</td><td class="vs-yes">✓ Full analysis</td><td class="vs-no">✗</td><td class="vs-no">Basic only</td></tr>
-          <tr><td>AI B-Roll (Pexels)</td><td class="vs-yes">✓ Live search</td><td class="vs-no">✗</td><td class="vs-no">Limited</td></tr>
+          <tr><td>GPT-4o Viral Scoring</td><td class="vs-yes">✓ Full 0–100</td><td class="vs-no">✗</td><td class="vs-no">Basic only</td></tr>
+          <tr><td>AI B-Roll (Live Pexels)</td><td class="vs-yes">✓ Auto-matched</td><td class="vs-no">✗</td><td class="vs-no">Limited</td></tr>
           <tr><td>Brand Templates</td><td class="vs-yes">✓ AI generated</td><td class="vs-no">Basic</td><td class="vs-no">Basic</td></tr>
+          <tr><td>GrowthOS Analytics</td><td class="vs-yes">✓ GPT-4o insights</td><td class="vs-no">✗</td><td class="vs-no">Basic stats</td></tr>
           <tr><td>Affiliate Program</td><td class="vs-yes">✓ Up to 50%</td><td class="vs-no">✗</td><td class="vs-no">✗</td></tr>
-          <tr><td>Pro plan price</td><td class="vs-yes">$40/mo unlimited</td><td class="vs-no">$49/mo limited</td><td class="vs-no">$59/mo limited</td></tr>
+          <tr><td>Pro Plan Price</td><td class="vs-yes">$40/mo — 300 credits</td><td class="vs-no">$0 limited</td><td class="vs-no">$49/mo limited</td></tr>
         </tbody>
       </table>
     </div>
@@ -445,27 +699,18 @@ a{color:var(--p);text-decoration:none}
   <div class="section-label">Pricing</div>
   <h2 class="section-title">Simple, transparent <span class="grad">pricing</span></h2>
   <p class="section-sub">Simple credits. No surprises. Save 40% going yearly.</p>
-
   <div class="billing-toggle">
     <span id="monthlyLabel" class="active">Monthly</span>
-    <div class="toggle-wrap" onclick="toggleBilling()">
-      <div class="toggle-track" id="toggleTrack"></div>
-      <div class="toggle-knob" id="toggleKnob"></div>
-    </div>
+    <div class="toggle-wrap" onclick="toggleBilling()"><div class="toggle-track" id="toggleTrack"></div><div class="toggle-knob" id="toggleKnob"></div></div>
     <span id="annualLabel">Annual</span>
     <div class="annual-badge">Save 40%</div>
   </div>
-
   <div class="pricing-grid">
-    <!-- FREE -->
     <div class="plan-card">
       <div class="plan-name">Free</div>
-      <div class="plan-price-wrap">
-        <div class="plan-price">$0</div>
-        <div class="plan-period">/forever</div>
-      </div>
+      <div class="plan-price-wrap"><div class="plan-price">$0</div><div class="plan-period">/forever</div></div>
       <div class="plan-credits">50 credits included</div>
-      <div class="plan-desc">1 credit = 1 min of video. Try it out.</div>
+      <div class="plan-desc">1 credit = 1 min of video. No card needed.</div>
       <div class="plan-features">
         <div class="plan-feat"><span class="feat-check">✓</span>50 free credits</div>
         <div class="plan-feat"><span class="feat-check">✓</span>AI viral scoring</div>
@@ -477,15 +722,9 @@ a{color:var(--p);text-decoration:none}
       <button class="plan-btn plan-btn-primary" onclick="openAuth(true)">Start Free →</button>
       <div class="empire">⚡ Build your empire</div>
     </div>
-
-    <!-- STARTER -->
     <div class="plan-card">
       <div class="plan-name">Starter</div>
-      <div class="plan-price-wrap">
-        <div class="plan-price" id="starterPrice">$20</div>
-        <div class="plan-og" id="starterOg">$20</div>
-        <div class="plan-period">/mo</div>
-      </div>
+      <div class="plan-price-wrap"><div class="plan-price" id="starterPrice">$20</div><div class="plan-og" id="starterOg">$20</div><div class="plan-period">/mo</div></div>
       <div class="plan-credits">200 credits/month</div>
       <div class="plan-desc">No watermark. Starts immediately.</div>
       <div class="plan-features">
@@ -499,16 +738,10 @@ a{color:var(--p);text-decoration:none}
       <button class="plan-btn plan-btn-primary" onclick="openAuth(true)">Get Starter →</button>
       <div class="empire">⚡ Build your empire</div>
     </div>
-
-    <!-- PRO -->
     <div class="plan-card popular">
       <div class="popular-badge">⭐ Most Popular</div>
       <div class="plan-name" style="color:var(--p)">Pro</div>
-      <div class="plan-price-wrap">
-        <div class="plan-price" id="proPrice">$40</div>
-        <div class="plan-og" id="proOg">$40</div>
-        <div class="plan-period">/mo</div>
-      </div>
+      <div class="plan-price-wrap"><div class="plan-price" id="proPrice">$40</div><div class="plan-og" id="proOg">$40</div><div class="plan-period">/mo</div></div>
       <div class="plan-credits">300 credits/month</div>
       <div class="plan-desc">For creators serious about going viral.</div>
       <div class="plan-features">
@@ -523,33 +756,15 @@ a{color:var(--p);text-decoration:none}
       <div class="empire">⚡ Build your empire</div>
       <div class="packs-inner">
         <div class="packs-inner-label">⚡ Scale with Credit Packs</div>
-        <div class="pack-row" onclick="openAuth(true)">
-          <div class="pack-row-left"><div class="pack-row-name">2× Pack</div><div class="pack-row-credits">600 credits/mo</div></div>
-          <div class="pack-row-right"><div class="pack-row-og">$80/mo</div><div class="pack-row-price" id="pack2price">$70</div><div class="pack-row-save" id="pack2save">Save $10/mo</div></div>
-        </div>
-        <div class="pack-row best" onclick="openAuth(true)">
-          <div class="pack-row-left"><div class="pack-row-name">3× Pack <span class="pack-best-pill">Best Value</span></div><div class="pack-row-credits">900 credits/mo</div></div>
-          <div class="pack-row-right"><div class="pack-row-og">$120/mo</div><div class="pack-row-price" id="pack3price">$90</div><div class="pack-row-save" id="pack3save">Save $30/mo</div></div>
-        </div>
-        <div class="pack-row" onclick="openAuth(true)">
-          <div class="pack-row-left"><div class="pack-row-name">4× Pack</div><div class="pack-row-credits">1,200 credits/mo</div></div>
-          <div class="pack-row-right"><div class="pack-row-og">$160/mo</div><div class="pack-row-price" id="pack4price">$110</div><div class="pack-row-save" id="pack4save">Save $50/mo</div></div>
-        </div>
-        <div class="pack-row" onclick="openAuth(true)">
-          <div class="pack-row-left"><div class="pack-row-name">5× Pack</div><div class="pack-row-credits">1,500 credits/mo</div></div>
-          <div class="pack-row-right"><div class="pack-row-og">$200/mo</div><div class="pack-row-price" id="pack5price">$130</div><div class="pack-row-save" id="pack5save">Save $70/mo</div></div>
-        </div>
+        <div class="pack-row" onclick="openAuth(true)"><div class="pack-row-left"><div class="pack-row-name">2× Pack</div><div class="pack-row-credits">600 credits/mo</div></div><div class="pack-row-right"><div class="pack-row-og">$80/mo</div><div class="pack-row-price" id="pack2price">$70</div><div class="pack-row-save" id="pack2save">Save $10/mo</div></div></div>
+        <div class="pack-row best" onclick="openAuth(true)"><div class="pack-row-left"><div class="pack-row-name">3× Pack <span class="pack-best-pill">Best Value</span></div><div class="pack-row-credits">900 credits/mo</div></div><div class="pack-row-right"><div class="pack-row-og">$120/mo</div><div class="pack-row-price" id="pack3price">$90</div><div class="pack-row-save" id="pack3save">Save $30/mo</div></div></div>
+        <div class="pack-row" onclick="openAuth(true)"><div class="pack-row-left"><div class="pack-row-name">4× Pack</div><div class="pack-row-credits">1,200 credits/mo</div></div><div class="pack-row-right"><div class="pack-row-og">$160/mo</div><div class="pack-row-price" id="pack4price">$110</div><div class="pack-row-save" id="pack4save">Save $50/mo</div></div></div>
+        <div class="pack-row" onclick="openAuth(true)"><div class="pack-row-left"><div class="pack-row-name">5× Pack</div><div class="pack-row-credits">1,500 credits/mo</div></div><div class="pack-row-right"><div class="pack-row-og">$200/mo</div><div class="pack-row-price" id="pack5price">$130</div><div class="pack-row-save" id="pack5save">Save $70/mo</div></div></div>
       </div>
     </div>
-
-    <!-- AGENCY -->
     <div class="plan-card agency-card">
       <div class="plan-name" style="color:var(--cyan)">💎 Agency</div>
-      <div class="plan-price-wrap">
-        <div class="plan-price" id="agencyPrice" style="background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">$200</div>
-        <div class="plan-og" id="agencyOg">$200</div>
-        <div class="plan-period">/mo</div>
-      </div>
+      <div class="plan-price-wrap"><div class="plan-price" id="agencyPrice" style="background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">$200</div><div class="plan-og" id="agencyOg">$200</div><div class="plan-period">/mo</div></div>
       <div class="plan-credits">2,500 credits/month</div>
       <div class="plan-desc">Run multiple channels at scale.</div>
       <div class="plan-features">
@@ -577,22 +792,18 @@ a{color:var(--p);text-decoration:none}
 
 <!-- CTA -->
 <section class="cta-section">
-  <div style="position:relative;z-index:1">
+  <div class="cta-inner">
+    <div style="display:inline-flex;align-items:center;gap:8px;padding:7px 18px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.3);border-radius:100px;font-size:12px;color:var(--p);font-weight:700;margin-bottom:28px"><div class="live-dot"></div>47,000+ creators live right now</div>
     <h2 class="cta-title">Stop leaving<br><span class="grad">viral clips on the table</span></h2>
-    <p class="cta-sub">Every long-form video you've made is sitting on hours of untapped viral content. Get it in 90 seconds.</p>
+    <p class="cta-sub">Every long-form video is sitting on hours of untapped viral content. Get your first clips in 90 seconds — free, no card needed.</p>
     <button class="cta-btn" onclick="openAuth(true)">🚀 Start for Free — No Card Needed</button>
-    <div style="margin-top:20px;font-size:12px;color:var(--muted)">Join 47,000+ creators already using ClipSpeedAI</div>
+    <div class="cta-trust">Join 47,000+ creators · Free forever plan · Cancel anytime</div>
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-logo">⚡ ClipSpeedAI</div>
-  <div class="footer-links">
-    <span class="footer-link">Privacy Policy</span>
-    <span class="footer-link">Terms of Service</span>
-    <span class="footer-link">Affiliate Program</span>
-    <span class="footer-link">Contact</span>
-  </div>
+  <div class="footer-links"><span class="footer-link">Privacy Policy</span><span class="footer-link">Terms of Service</span><span class="footer-link">Affiliate Program</span><span class="footer-link">Contact</span></div>
   <div class="footer-copy">© 2025 ClipSpeedAI. All rights reserved.</div>
 </footer>
 
@@ -608,227 +819,264 @@ a{color:var(--p);text-decoration:none}
     <button class="auth-btn" id="authBtn" onclick="handleAuth()">Sign Up Free</button>
     <div class="auth-divider"><div class="auth-divider-line"></div><span class="auth-divider-text">or continue with</span><div class="auth-divider-line"></div></div>
     <div class="oauth-row">
-      <button class="oauth-btn" onclick="oauthLogin('google')">
-        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google
-      </button>
-      <button class="oauth-btn" onclick="oauthLogin('apple')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-        Apple
-      </button>
+      <button class="oauth-btn" onclick="oauthLogin('google')"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google</button>
+      <button class="oauth-btn" onclick="oauthLogin('apple')"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple</button>
     </div>
     <div class="auth-toggle" id="authToggle" onclick="toggleAuthMode()">Already have an account? <span>Sign In</span></div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
-var API_BASE = (function(){
-  var h = window.location.hostname;
-  if(h==='localhost'||h==='127.0.0.1') return 'http://localhost:8080';
-  return 'https://clipspeedai-server-production.up.railway.app';
-})();
+var API_BASE=(function(){var h=window.location.hostname;return(h==='localhost'||h==='127.0.0.1')?'http://localhost:8080':'https://clipspeedai-server-production.up.railway.app';})();
 
 // Boot redirect
-window.addEventListener('DOMContentLoaded', async function(){
-  var token = localStorage.getItem('csa_token');
-  if(!token) return;
+window.addEventListener('DOMContentLoaded',async function(){
+  var t=localStorage.getItem('csa_token');if(!t)return;
   document.getElementById('redirectSplash').classList.add('show');
-  try{
-    var r = await fetch(API_BASE+'/auth/me',{headers:{'Authorization':'Bearer '+token}});
-    if(r.ok){ window.location.href='/dashboard.html'; return; }
-  }catch(e){}
-  localStorage.removeItem('csa_token');
-  localStorage.removeItem('csa_user');
+  try{var r=await fetch(API_BASE+'/auth/me',{headers:{'Authorization':'Bearer '+t}});if(r.ok){window.location.href='/dashboard.html';return;}}catch(e){}
+  localStorage.removeItem('csa_token');localStorage.removeItem('csa_user');
   document.getElementById('redirectSplash').classList.remove('show');
 });
 
-// ── CLIPS SHOWCASE ─────────────────────────────────────────
-var FALLBACK_CLIPS = [
-  {creator:'Adin Ross',caption:'I literally cannot stop laughing bro',score:96,duration:'1:12',views:'890K–2.1M'},
-  {creator:'Joe Rogan',caption:'Nobody talks about this and it changes everything',score:93,duration:'1:28',views:'520K–1.4M'},
-  {creator:'IShowSpeed',caption:'BRO THIS IS ACTUALLY INSANE no way',score:91,duration:'0:58',views:'740K–1.9M'},
-  {creator:'Clavicular',caption:'This is the moment everything shifted for me',score:88,duration:'1:05',views:'310K–820K'}
-];
-var CAPTIONS = ['I literally cannot stop laughing bro','Nobody talks about this and it changes everything','BRO THIS IS ACTUALLY INSANE no way','This is the moment everything shifted for me'];
-
-function buildClipCard(c, i) {
-  var colors = ['#7C3AED','#6366f1','#8B5CF6','#a855f7'];
-  return '<div class="clip-card">' +
-    '<div class="clip-skeleton" style="background:linear-gradient(135deg,'+colors[i%4]+'22,#0d0d1a,'+colors[i%4]+'11)">🎬</div>' +
-    '<div class="clip-overlay"></div>' +
-    '<div class="clip-watermark">⚡ ClipSpeedAI</div>' +
-    '<div class="clip-score-ring">'+c.score+'</div>' +
-    '<div class="clip-caption"><span>'+c.caption+'</span></div>' +
-    '<div class="clip-meta"><span class="clip-creator">@'+c.creator+'</span><span class="clip-views">👁 '+c.views+'</span></div>' +
-    '<div class="clip-duration">'+c.duration+'</div>' +
-  '</div>';
-}
-
-(async function loadClips(){
-  var grid = document.getElementById('clipsGrid');
-  FALLBACK_CLIPS.forEach(function(c,i){ grid.innerHTML += buildClipCard(c,i); });
-  try{
-    var r = await fetch(API_BASE+'/clips/showcase?limit=4');
-    if(!r.ok) return;
-    var data = await r.json();
-    var clips = data.clips || data;
-    if(!clips||!clips.length) return;
-    grid.innerHTML = '';
-    clips.forEach(function(c,i){
-      var card = '<div class="clip-card">' +
-        (c.clip_url ? '<video class="clip-video" autoplay muted loop playsinline src="'+c.clip_url+'"></video>' : '<div class="clip-skeleton">🎬</div>') +
-        '<div class="clip-overlay"></div>' +
-        '<div class="clip-watermark">⚡ ClipSpeedAI</div>' +
-        '<div class="clip-score-ring">'+(c.viral_score||'?')+'</div>' +
-        '<div class="clip-caption"><span>'+(c.caption||CAPTIONS[i%CAPTIONS.length])+'</span></div>' +
-        '<div class="clip-meta"><span class="clip-creator">'+(c.creator||'Creator')+'</span><span class="clip-views">👁 '+(c.predicted_views||'')+'</span></div>' +
-        '<div class="clip-duration">'+(c.duration||'')+'</div>' +
-      '</div>';
-      grid.innerHTML += card;
+// ── PARTICLE CANVAS ────────────────────────────────────────
+(function(){
+  var c=document.getElementById('particleCanvas');
+  var ctx=c.getContext('2d');
+  var W,H,particles=[],mouse={x:0,y:0};
+  var COLORS=['rgba(168,85,247,','rgba(99,102,241,','rgba(34,211,238,'];
+  function resize(){W=c.width=window.innerWidth;H=c.height=c.parentElement.offsetHeight;}
+  resize();window.addEventListener('resize',resize);
+  document.querySelector('.hero').addEventListener('mousemove',function(e){mouse.x=e.clientX;mouse.y=e.clientY;});
+  function Particle(){
+    this.x=Math.random()*W;this.y=Math.random()*H;
+    this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;
+    this.r=Math.random()*1.5+.5;
+    this.color=COLORS[Math.floor(Math.random()*COLORS.length)];
+    this.alpha=Math.random()*.5+.1;
+  }
+  for(var i=0;i<90;i++) particles.push(new Particle());
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(function(p){
+      var dx=mouse.x-p.x,dy=mouse.y-p.y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<150){p.vx+=dx/dist*.02;p.vy+=dy/dist*.02;}
+      p.x+=p.vx;p.y+=p.vy;
+      p.vx*=.99;p.vy*=.99;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.color+p.alpha+')';ctx.fill();
     });
-  }catch(e){ /* keep fallback */ }
+    // draw connection lines
+    for(var i=0;i<particles.length;i++){
+      for(var j=i+1;j<particles.length;j++){
+        var dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;
+        var d=Math.sqrt(dx*dx+dy*dy);
+        if(d<100){
+          ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle='rgba(168,85,247,'+(1-d/100)*.12+')';ctx.lineWidth=.5;ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
 })();
 
-// ── BILLING TOGGLE ─────────────────────────────────────────
-var isAnnual = false;
-var monthly  = {starter:20,pro:40,agency:200,packs:[70,90,110,130]};
-var annual   = {
-  starter:Math.round(20*0.6), pro:Math.round(40*0.6), agency:Math.round(200*0.6),
-  packs:[70,90,110,130].map(function(p){return Math.round(p*0.6);})
-};
+// ── LIVE COUNTERS ──────────────────────────────────────────
+var liveData={clips:Math.floor(Math.random()*12)+4,views:Math.floor(Math.random()*500000)+200000,creators:Math.floor(Math.random()*800)+300,saved:Math.floor(Math.random()*400)+80};
+function fmt(n){return n>=1000000?(n/1000000).toFixed(1)+'M':n>=1000?(n/1000).toFixed(0)+'K':n.toString();}
+document.getElementById('liveClips').textContent=liveData.clips;
+document.getElementById('liveViews').textContent=fmt(liveData.views);
+document.getElementById('liveCreators').textContent=liveData.creators;
+document.getElementById('liveSaved').textContent=liveData.saved;
+setInterval(function(){
+  liveData.clips=Math.max(1,liveData.clips+Math.floor(Math.random()*3)-1);
+  liveData.views+=Math.floor(Math.random()*1200)+200;
+  liveData.creators+=Math.floor(Math.random()*4)-1;
+  liveData.saved+=Math.floor(Math.random()*3);
+  document.getElementById('liveClips').textContent=liveData.clips;
+  document.getElementById('liveViews').textContent=fmt(liveData.views);
+  document.getElementById('liveCreators').textContent=liveData.creators;
+  document.getElementById('liveSaved').textContent=liveData.saved;
+},2200);
 
-function toggleBilling(){
-  isAnnual = !isAnnual;
-  document.getElementById('toggleTrack').classList.toggle('on',isAnnual);
-  document.getElementById('toggleKnob').classList.toggle('on',isAnnual);
-  document.getElementById('monthlyLabel').classList.toggle('active',!isAnnual);
-  document.getElementById('annualLabel').classList.toggle('active',isAnnual);
-  var p = isAnnual ? annual : monthly;
-  document.getElementById('starterPrice').textContent = '$'+p.starter;
-  document.getElementById('proPrice').textContent     = '$'+p.pro;
-  document.getElementById('agencyPrice').textContent  = '$'+p.agency;
-  ['starter','pro','agency'].forEach(function(k){
-    var el = document.getElementById(k+'Og');
-    el.style.display = isAnnual ? 'block' : 'none';
-    el.textContent = '$'+monthly[k];
-  });
-  var packIds = [2,3,4,5];
-  var moSaves = ['Save $10/mo','Save $30/mo','Save $50/mo','Save $70/mo'];
-  p.packs.forEach(function(price,i){
-    var id = packIds[i];
-    document.getElementById('pack'+id+'price').textContent = '$'+price;
-    var saveEl = document.getElementById('pack'+id+'save');
-    if(isAnnual){
-      var saved = Math.round((monthly.packs[i]-price)*12);
-      saveEl.textContent = saved>0 ? 'Save $'+saved+'/yr' : '';
-    } else {
-      saveEl.textContent = moSaves[i];
-    }
-  });
+// ── TICKER ─────────────────────────────────────────────────
+var tickerItems=['⚡ 90-Second Processing','🧠 GPT-4o Viral Scoring','🎬 Auto B-Roll','💬 10 Caption Styles','📐 Auto Reframe All Platforms','💰 40% Affiliate Commission','🚀 47K+ Active Creators','🔥 2.4M+ Clips Generated','✂️ Frame-Perfect AI Cuts','⭐ 4.9 Star Rating'];
+var ti=document.getElementById('tickerInner');
+var th=tickerItems.map(function(t){return'<span class="ticker-item"><span class="ticker-dot"></span>'+t+'</span>';}).join('');
+ti.innerHTML=th+th;
+
+// ── LOGO WALL ───────────────────────────────────────────────
+var creators=[{name:'Joe Rogan',sub:'22M+'},{name:'Adin Ross',sub:'7M+'},{name:'IShowSpeed',sub:'25M+'},{name:'MrBeast',sub:'300M+'},{name:'Andrew Huberman',sub:'6M+'},{name:'Alex Hormozi',sub:'5M+'},{name:'Logan Paul',sub:'23M+'},{name:'Clavicular',sub:'2M+'},{name:'Gary Vee',sub:'10M+'},{name:'Tim Ferriss',sub:'1M+'}];
+var lt=document.getElementById('logosTrack');
+var grads=['linear-gradient(135deg,#7C3AED,#a855f7)','linear-gradient(135deg,#6366f1,#8b5cf6)','linear-gradient(135deg,#a855f7,#22d3ee)','linear-gradient(135deg,#ec4899,#a855f7)'];
+var lh=creators.map(function(c,i){var ini=c.name.split(' ').map(function(w){return w[0];}).join('').slice(0,2);return'<span class="logo-item"><span class="logo-avatar" style="background:'+grads[i%grads.length]+'">'+ini+'</span>'+c.name+'<span style="font-size:10px;color:var(--muted);font-weight:600">'+c.sub+'</span></span>';}).join('');
+lt.innerHTML=lh+lh;
+
+// ── PHONE MOCKUP + CAPTION STYLES ─────────────────────────
+var captionStyles=[
+  {name:'Bold',color:'#fff',bg:'rgba(168,85,247,.85)',transform:'scale(1.1)',shadow:'none'},
+  {name:'Neon Pop',color:'#22d3ee',bg:'transparent',shadow:'0 0 20px rgba(34,211,238,.8)'},
+  {name:'🔥 Fire',color:'#f59e0b',bg:'rgba(239,68,68,.2)',shadow:'0 0 12px rgba(239,68,68,.6)'},
+  {name:'Highlight',color:'#000',bg:'rgba(74,222,128,.9)',shadow:'none'},
+  {name:'Minimal',color:'rgba(255,255,255,.9)',bg:'transparent',shadow:'0 1px 3px rgba(0,0,0,.8)'},
+  {name:'Cinematic',color:'#fff',bg:'rgba(0,0,0,.6)',shadow:'none'},
+  {name:'Shadow Pop',color:'#fff',bg:'transparent',shadow:'3px 3px 0 rgba(168,85,247,1)'},
+  {name:'Gaming HUD',color:'#22d3ee',bg:'rgba(0,0,0,.5)',shadow:'0 0 8px rgba(34,211,238,.8)'},
+  {name:'Typewriter',color:'#4ade80',bg:'transparent',shadow:'none'},
+  {name:'Hormone',color:'#fff',bg:'linear-gradient(135deg,rgba(168,85,247,.7),rgba(236,72,153,.7))',shadow:'none'},
+];
+var currentStyle=0;
+var captionWords=['THIS','IS','THE','MOMENT','THAT','CHANGES','EVERYTHING'];
+var wordIdx=0;var wordTimer=null;
+var styleGrid=document.getElementById('captionStylesGrid');
+styleGrid.innerHTML=captionStyles.map(function(s,i){return'<button class="style-btn'+(i===0?' active':'__')+'" onclick="setStyle('+i+')"><span>'+s.name+'</span></button>';}).join('');
+
+function setStyle(i){
+  currentStyle=i;
+  document.querySelectorAll('.style-btn').forEach(function(b,bi){b.className='style-btn'+(bi===i?' active':'');});
+  document.getElementById('phoneStylePill').textContent=captionStyles[i].name;
+  renderCaption();
 }
+function renderCaption(){
+  var s=captionStyles[currentStyle];
+  var area=document.getElementById('phoneCaptionArea');
+  area.innerHTML=captionWords.map(function(w,i){
+    var isActive=i===wordIdx;
+    var style='display:inline-block;margin:2px;padding:2px 4px;font-size:15px;font-weight:900;border-radius:4px;transition:all .15s;';
+    if(isActive){
+      style+='background:'+(s.bg||'transparent')+';color:'+(s.color||'#fff')+';text-shadow:'+(s.shadow||'none')+';transform:'+(s.transform||'scale(1.15)')+';';
+    } else {
+      style+='color:rgba(255,255,255,0.5);';
+    }
+    return'<span style="'+style+'">'+w+'</span>';
+  }).join(' ');
+}
+function tickWord(){wordIdx=(wordIdx+1)%captionWords.length;renderCaption();}
+renderCaption();wordTimer=setInterval(tickWord,420);
+
+// Phone BG colors cycle
+var phoneBgs=['linear-gradient(135deg,#1a0a2e,#0a0a1a)','linear-gradient(135deg,#0a1a2e,#050510)','linear-gradient(135deg,#0a2e1a,#05100a)','linear-gradient(135deg,#2e0a1a,#100505)'];
+var phoneBgIdx=0;
+setInterval(function(){phoneBgIdx=(phoneBgIdx+1)%phoneBgs.length;document.getElementById('phoneBg').style.background=phoneBgs[phoneBgIdx];},3000);
+
+// ── SPEED RACE ─────────────────────────────────────────────
+var raceRunning=false;var raceTimer=null;
+function startRace(){
+  if(raceRunning)return;
+  raceRunning=true;
+  document.getElementById('raceBtn').textContent='Racing...';
+  document.getElementById('raceBtn').disabled=true;
+  document.getElementById('raceVerdict').style.display='none';
+  var usEl=document.getElementById('raceBarUs');var themEl=document.getElementById('raceBarThem');
+  var usTimeEl=document.getElementById('raceTimeUs');var themTimeEl=document.getElementById('raceTimeThem');
+  usEl.style.width='0';themEl.style.width='0';
+  var usDone=false;var themDone=false;
+  var usTarget=90;var themTarget=480;// seconds
+  var elapsed=0;var interval=80;
+  raceTimer=setInterval(function(){
+    elapsed+=interval/1000;
+    var usPct=Math.min(100,elapsed/usTarget*100);
+    var themPct=Math.min(100,elapsed/themTarget*100);
+    usEl.style.width=usPct+'%';
+    themEl.style.width=themPct+'%';
+    usTimeEl.textContent=elapsed.toFixed(1)+'s';
+    if(elapsed>=usTarget&&!usDone){usDone=true;usTimeEl.textContent='90s ✓';}
+    themTimeEl.textContent=(elapsed>=themTarget?'8m 00s ✓':Math.floor(elapsed/60)+'m '+Math.floor(elapsed%60).toString().padStart(2,'0')+'s');
+    if(elapsed>=themTarget){
+      themDone=true;clearInterval(raceTimer);raceRunning=false;
+      document.getElementById('raceBtn').textContent='▶ Race Again';
+      document.getElementById('raceBtn').disabled=false;
+      document.getElementById('raceMultiple').textContent='5.3x';
+      document.getElementById('raceVerdict').style.display='inline-flex';
+    }
+  },interval);
+}
+
+// ── VIRAL SCORE CALCULATOR ─────────────────────────────────
+var niches=[
+  {name:'🎙️ Podcast',score:94,verdict:'Insane viral potential',color:'var(--green)',bg:'rgba(74,222,128,.1)'},
+  {name:'💪 Fitness',score:89,verdict:'High-performing niche',color:'var(--green)',bg:'rgba(74,222,128,.1)'},
+  {name:'💰 Finance',score:91,verdict:'Extremely shareable',color:'var(--green)',bg:'rgba(74,222,128,.1)'},
+  {name:'🎮 Gaming',score:87,verdict:'Strong hook potential',color:'var(--cyan)',bg:'rgba(34,211,238,.1)'},
+  {name:'🍕 Food',score:85,verdict:'Great visual appeal',color:'var(--cyan)',bg:'rgba(34,211,238,.1)'},
+  {name:'🧠 Education',score:88,verdict:'High save & share rate',color:'var(--green)',bg:'rgba(74,222,128,.1)'},
+  {name:'😂 Comedy',score:96,verdict:'Maximum viral factor',color:'var(--p)',bg:'rgba(168,85,247,.1)'},
+  {name:'🏠 Real Estate',score:82,verdict:'Solid lead gen content',color:'var(--cyan)',bg:'rgba(34,211,238,.1)'},
+];
+var calcGrid=document.getElementById('calcNiches');
+calcGrid.innerHTML=niches.map(function(n,i){return'<button class="niche-btn" onclick="calcScore('+i+')">'+n.name+'</button>';}).join('');
+function calcScore(i){
+  var n=niches[i];
+  document.querySelectorAll('.niche-btn').forEach(function(b,bi){b.className='niche-btn'+(bi===i?' active':'');});
+  var scoreEl=document.getElementById('calcScore');
+  var meterEl=document.getElementById('calcMeter');
+  var labelEl=document.getElementById('calcLabel');
+  var verdictEl=document.getElementById('calcVerdict');
+  var ctaEl=document.getElementById('calcCta');
+  scoreEl.textContent='...';meterEl.style.width='0';
+  setTimeout(function(){
+    scoreEl.textContent=n.score;
+    meterEl.style.width=n.score+'%';
+    labelEl.textContent='ViralBrain™ predicted score for '+n.name.split(' ').slice(1).join(' ')+' content';
+    verdictEl.style.display='inline-block';verdictEl.textContent='🔥 '+n.verdict;
+    verdictEl.style.background=n.bg;verdictEl.style.color=n.color;
+    verdictEl.style.border='1px solid '+n.color;
+    ctaEl.style.display='inline-block';
+  },600);
+}
+
+// ── RESULTS TICKER ──────────────────────────────────────────
+var results=[{num:'266%',label:'Avg feed increase'},{num:'57%',label:'Watch time boost'},{num:'10x',label:'Faster than OpuClip'},{num:'12%+',label:'Video completion rate'},{num:'2.4M+',label:'Clips generated'},{num:'90s',label:'Avg processing time'},{num:'4.9★',label:'Creator rating'},{num:'50%',label:'Max affiliate rate'},{num:'47K+',label:'Active creators'},{num:'$0',label:'To start today'}];
+var rt=document.getElementById('resultsTrack');
+rt.innerHTML=results.map(function(r){return'<div class="result-card-inline"><div class="result-num">'+r.num+'</div><div class="result-label">'+r.label+'</div></div>';}).join('').repeat(2);
+
+// ── CLIPS SHOWCASE ─────────────────────────────────────────
+var clips=[{creator:'Adin Ross',caption:'I literally cannot stop laughing bro',score:96,dur:'1:12',views:'890K–2.1M',bg:'linear-gradient(135deg,#1a0a2e,#2d1b69)'},{creator:'Joe Rogan',caption:'Nobody talks about this and it changes everything',score:93,dur:'1:28',views:'520K–1.4M',bg:'linear-gradient(135deg,#0a1a2e,#1e3a5f)'},{creator:'IShowSpeed',caption:'BRO THIS IS ACTUALLY INSANE no way',score:91,dur:'0:58',views:'740K–1.9M',bg:'linear-gradient(135deg,#2e1a0a,#5a3010)'},{creator:'Clavicular',caption:'This is the moment everything shifted for me',score:88,dur:'1:05',views:'310K–820K',bg:'linear-gradient(135deg,#0a2e1a,#1a5a35)'}];
+var cg=document.getElementById('clipsGrid');
+cg.innerHTML=clips.map(function(c){return'<div class="clip-card"><div class="clip-bg" style="background:'+c.bg+'">🎬</div><div class="clip-overlay"></div><div class="clip-watermark">⚡ ClipSpeedAI</div><div class="clip-score">'+c.score+'</div><div class="clip-caption"><span>'+c.caption+'</span></div><div class="clip-meta"><span class="clip-creator">@'+c.creator+'</span><span class="clip-views">👁 '+c.views+'</span></div><div class="clip-dur">'+c.dur+'</div></div>';}).join('');
+(async function(){try{var r=await fetch(API_BASE+'/clips/showcase?limit=4');if(!r.ok)return;var d=await r.json();var arr=d.clips||d;if(!arr||!arr.length)return;cg.innerHTML=arr.map(function(c){return'<div class="clip-card">'+(c.clip_url?'<video style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" autoplay muted loop playsinline src="'+c.clip_url+'"></video>':'<div class="clip-bg">🎬</div>')+'<div class="clip-overlay"></div><div class="clip-watermark">⚡ ClipSpeedAI</div><div class="clip-score">'+(c.viral_score||'?')+'</div><div class="clip-caption"><span>'+(c.caption||'')+'</span></div><div class="clip-meta"><span class="clip-creator">'+(c.creator||'Creator')+'</span><span class="clip-views">👁 '+(c.predicted_views||'')+'</span></div><div class="clip-dur">'+(c.duration||'')+'</div></div>';}).join('');}catch(e){}})();
+
+// ── TESTIMONIALS ───────────────────────────────────────────
+var testis=[{stars:'★★★★★',text:'"I was spending 3 hours clipping each podcast. Now it takes 90 seconds and the clips perform better than anything I made manually."',name:'Jake M.',handle:'@jakecreates · 280K'},{stars:'★★★★★',text:'"The viral score feature is insane. Every clip rated above 85 has blown up for me. Like having a professional editor who knows the algorithm."',name:'Sofia R.',handle:'@sofialifts · 190K'},{stars:'★★★★★',text:'"Switched from OpuClip and never looked back. 10x faster and the caption styles actually look good. My agency uses it for every client."',name:'Marcus T.',handle:'Viral Agency · 40+ clients'},{stars:'★★★★★',text:'"The B-Roll editor alone is worth the price. Finds the perfect Pexels clip for every moment automatically. My videos look cinematic."',name:'Aisha K.',handle:'@aishacooks · 520K'},{stars:'★★★★★',text:'"I went from posting 2 clips a week to 15. The affiliate program is also legit — made back 3x my subscription from referrals alone."',name:'Dylan C.',handle:'@dylanbuilds · 95K'},{stars:'★★★★★',text:'"GrowthOS analytics told me exactly what style was performing best for my audience. Views up 3x in 6 weeks."',name:'Tanya H.',handle:'@tanyahealth · 220K'},{stars:'★★★★★',text:'"My watch time increased by 57%. The clips it generates outperform everything I post from my main channel."',name:'Carlos W.',handle:'@carlosgrowth · 340K'},{stars:'★★★★★',text:'"Finally a clip tool that just works. Paste URL, come back in 90 seconds, done. The AI understands what makes content viral."',name:'Priya N.',handle:'@priyapodcast · 140K'}];
+var tt=document.getElementById('testiTrack');
+var th2=testis.map(function(t){return'<div class="testi-card"><div class="testi-stars">'+t.stars+'</div><div class="testi-text">'+t.text+'</div><div class="testi-author"><div class="testi-avatar">'+t.name[0]+'</div><div><div class="testi-name">'+t.name+'</div><div class="testi-handle">'+t.handle+'</div></div></div></div>';}).join('');
+tt.innerHTML=th2+th2;
 
 // ── FAQ ────────────────────────────────────────────────────
-var faqs = [
-  {q:'What is a credit and how does it work?',a:'1 credit = 1 minute of source video processed. A 60-minute podcast costs 60 credits. You are only charged once per video, not per clip generated.'},
-  {q:'How fast does ClipSpeedAI process videos?',a:'Most videos are fully processed in <strong>under 90 seconds</strong>. Long-form videos (60+ minutes) may take 3-5 minutes using parallel FFmpeg workers and GPT-4o in batch mode.'},
-  {q:'What platforms are clips optimized for?',a:'We support <strong>TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn</strong>. Each gets the correct aspect ratio, resolution, and caption style automatically.'},
-  {q:'Do I need to edit clips after they are generated?',a:'No — clips come out ready to post. Captions are burned in, the speaker is reframed to 9:16, and the clip is trimmed to the exact viral moment.'},
-  {q:'What is the Affiliate Program?',a:'Pro users earn <strong>40% recurring commission</strong> on every referral. Agency users earn <strong>50%</strong>. Commissions are paid monthly with no cap.'},
-  {q:'What is the difference between Pro packs?',a:'All Pro packs include the same features. The only difference is credits per month. <strong>2x = 600, 3x = 900, 4x = 1,200, 5x = 1,500 credits/mo.</strong>'},
-  {q:'Can I switch plans or cancel anytime?',a:'Yes — upgrade, downgrade, or cancel anytime from your dashboard. No contracts, no fees. If you cancel you keep access until the end of your billing period.'},
-  {q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small <strong>ClipSpeedAI</strong> watermark. All paid plans (Starter, Pro, Agency) export with zero watermark.'},
-  {q:'What video sources does ClipSpeedAI support?',a:'Paste any <strong>YouTube URL</strong> — podcasts, interviews, tutorials, Shorts, and livestream VODs are all supported. Direct file upload is coming soon.'},
-  {q:'How does the AI decide which moments are viral?',a:'GPT-4o scores every segment on <strong>hook strength, emotional intensity, retention, and shareability</strong>. Each clip gets a score from 0-100.'},
-  {q:'What caption styles are available?',a:'10 styles: <strong>Bold Word-by-Word, Neon Pop, Fire, Highlight Box, Minimal, Shadow Pop, Typewriter, Hormone, Cinematic, and Gaming HUD.</strong> All animate word-by-word.'},
-  {q:'Is there a video length limit?',a:'No hard limit — we support videos up to <strong>3+ hours</strong>. Long videos are auto-chunked for transcription and merged with correct timestamps.'},
-  {q:'What is the B-Roll editor?',a:'Available on Pro and Agency — the AI matches emotion-synced B-roll footage from <strong>Pexels</strong> to your transcript segments automatically.'},
-  {q:'How does annual billing work?',a:'Annual plans are billed once per year at <strong>40% off monthly</strong>. Same credits and features — just pay upfront and save significantly.'},
-  {q:'Is my content secure?',a:'Yes — videos are processed in isolated containers and <strong>temp files deleted immediately</strong> after processing. Clips are stored in encrypted cloud storage. We never train on your content.'},
-  {q:'Do you offer refunds?',a:'We offer a <strong>48-hour money-back guarantee</strong> on your first payment. Contact support and we will process it same day — no questions asked.'},
-  {q:'Can I use ClipSpeedAI for client work?',a:'Absolutely — the <strong>Agency plan</strong> includes white-label exports, 2,500 credits/month, and API access for integrating into your own client workflow.'},
-  {q:'What happens when I run out of credits?',a:'You will be notified when running low. Upgrade your plan, purchase a Pro Pack, or wait for your credits to reset. We never auto-charge for overages.'},
-  {q:'Do unused credits roll over?',a:'Currently credits <strong>do not roll over</strong> — they reset each billing cycle. We are exploring rollover for annual plans.'},
-  {q:'How is ClipSpeedAI different from OpuClip?',a:'ClipSpeedAI is <strong>10x faster</strong> (90s vs 5-15min), uses GPT-4o for viral scoring, includes a live Pexels B-Roll editor, and costs less. We also offer a 40-50% affiliate program.'}
-];
+var faqs=[{q:'What is a credit and how does it work?',a:'1 credit = 1 minute of source video processed. A 60-minute podcast costs 60 credits. You are only charged once per video, not per clip generated.'},{q:'How fast does ClipSpeedAI process videos?',a:'Most videos are processed in <strong>under 90 seconds</strong>. Long-form videos (60+ minutes) may take 3-5 minutes using parallel FFmpeg workers and GPT-4o in batch mode.'},{q:'What platforms are clips optimized for?',a:'We support <strong>TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn</strong>. Each gets the correct aspect ratio, resolution, and caption style automatically.'},{q:'Do I need to edit clips after they are generated?',a:'No — clips come out ready to post. Captions are burned in, the speaker is reframed to 9:16, and the clip is trimmed to the exact viral moment.'},{q:'What is the Affiliate Program?',a:'Pro users earn <strong>40% recurring commission</strong> on every referral. Agency users earn <strong>50%</strong>. Commissions are paid monthly with no cap.'},{q:'What is the difference between Pro packs?',a:'All Pro packs include the same features. The only difference is credits per month. <strong>2x = 600, 3x = 900, 4x = 1,200, 5x = 1,500 credits/mo.</strong>'},{q:'Can I switch plans or cancel anytime?',a:'Yes — upgrade, downgrade, or cancel anytime from your dashboard. No contracts, no fees. Access continues until the end of your billing period.'},{q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small <strong>ClipSpeedAI</strong> watermark. All paid plans (Starter, Pro, Agency) export with zero watermark.'},{q:'What video sources does ClipSpeedAI support?',a:'Paste any <strong>YouTube URL</strong> — podcasts, interviews, tutorials, Shorts, and livestream VODs are all supported. Direct file upload coming soon.'},{q:'How does the AI decide which moments are viral?',a:'GPT-4o scores every segment on <strong>hook strength, emotional intensity, retention, and shareability</strong>. Each clip gets a score from 0-100.'},{q:'What caption styles are available?',a:'10 styles: <strong>Bold Word-by-Word, Neon Pop, Fire, Highlight Box, Minimal, Shadow Pop, Typewriter, Hormone, Cinematic, and Gaming HUD.</strong>'},{q:'Is there a video length limit?',a:'No hard limit — we support videos up to <strong>3+ hours</strong>. Long videos are auto-chunked for transcription and merged with correct timestamps.'},{q:'What is BrollBot B-Roll editor?',a:'Available on Pro and Agency — AI matches emotion-synced B-roll footage from <strong>Pexels</strong> to your transcript segments automatically.'},{q:'How does annual billing work?',a:'Annual plans are billed once per year at <strong>40% off monthly</strong>. Same credits and features — just pay upfront and save significantly.'},{q:'Is my content secure?',a:'Yes — videos are processed in isolated containers and <strong>temp files deleted immediately</strong> after processing. We never train on your content.'},{q:'Do you offer refunds?',a:'We offer a <strong>48-hour money-back guarantee</strong> on your first payment. Contact support and we will process it same day, no questions asked.'},{q:'Can I use ClipSpeedAI for client work?',a:'Absolutely — the <strong>Agency plan</strong> includes white-label exports, 2,500 credits/month, and API access for your client workflow.'},{q:'What happens when I run out of credits?',a:'You will be notified when running low. Upgrade your plan, purchase a Pro Pack, or wait for your credits to reset. We never auto-charge for overages.'},{q:'Do unused credits roll over?',a:'Currently credits <strong>do not roll over</strong> — they reset each billing cycle. We are exploring rollover for annual plans.'},{q:'How is ClipSpeedAI different from OpuClip?',a:'ClipSpeedAI is <strong>10x faster</strong> (90s vs 5-15min), uses GPT-4o for viral scoring, includes a live Pexels B-Roll editor, and costs less. We also offer up to 50% affiliate commissions — OpuClip has none.'}];
+var col1=faqs.filter(function(_,i){return i%2===0;});var col2=faqs.filter(function(_,i){return i%2!==0;});
+function renderCol(items,off){return items.map(function(f,i){var idx=off+i*2;return'<div class="faq-item" id="faq-'+idx+'"><button class="faq-q" onclick="toggleFaq('+idx+')"><span>'+f.q+'</span><span class="faq-icon">+</span></button><div class="faq-a"><p>'+f.a+'</p></div></div>';}).join('');}
+document.getElementById('faqCols').innerHTML='<div>'+renderCol(col1,0)+'</div><div>'+renderCol(col2,1)+'</div>';
+function toggleFaq(i){var item=document.getElementById('faq-'+i);var was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(el){el.classList.remove('open');});if(!was)item.classList.add('open');}
 
-var col1 = faqs.filter(function(_,i){return i%2===0;});
-var col2 = faqs.filter(function(_,i){return i%2!==0;});
-function renderCol(items,offset){
-  return items.map(function(f,i){
-    var idx = offset+i*2;
-    return '<div class="faq-item" id="faq-'+idx+'"><button class="faq-q" onclick="toggleFaq('+idx+')"><span>'+f.q+'</span><span class="faq-icon">+</span></button><div class="faq-a"><p>'+f.a+'</p></div></div>';
-  }).join('');
-}
-document.getElementById('faqCols').innerHTML = '<div>'+renderCol(col1,0)+'</div><div>'+renderCol(col2,1)+'</div>';
-function toggleFaq(i){
-  var item = document.getElementById('faq-'+i);
-  var isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(function(el){el.classList.remove('open');});
-  if(!isOpen) item.classList.add('open');
+// ── BILLING TOGGLE ─────────────────────────────────────────
+var isAnnual=false;
+var monthly={starter:20,pro:40,agency:200,packs:[70,90,110,130]};
+var annual={starter:Math.round(20*.6),pro:Math.round(40*.6),agency:Math.round(200*.6),packs:[70,90,110,130].map(function(p){return Math.round(p*.6);})};
+function toggleBilling(){
+  isAnnual=!isAnnual;
+  document.getElementById('toggleTrack').classList.toggle('on',isAnnual);document.getElementById('toggleKnob').classList.toggle('on',isAnnual);
+  document.getElementById('monthlyLabel').classList.toggle('active',!isAnnual);document.getElementById('annualLabel').classList.toggle('active',isAnnual);
+  var p=isAnnual?annual:monthly;
+  document.getElementById('starterPrice').textContent='$'+p.starter;document.getElementById('proPrice').textContent='$'+p.pro;document.getElementById('agencyPrice').textContent='$'+p.agency;
+  ['starter','pro','agency'].forEach(function(k){var el=document.getElementById(k+'Og');el.style.display=isAnnual?'block':'none';el.textContent='$'+monthly[k];});
+  var ms=['Save $10/mo','Save $30/mo','Save $50/mo','Save $70/mo'];
+  p.packs.forEach(function(price,i){var id=i+2;document.getElementById('pack'+id+'price').textContent='$'+price;var se=document.getElementById('pack'+id+'save');se.textContent=isAnnual?('Save $'+Math.round((monthly.packs[i]-price)*12)+'/yr'):ms[i];});
 }
 
 // ── AUTH ───────────────────────────────────────────────────
-var _isSignup = true;
-function openAuth(signup){
-  _isSignup = signup===undefined?true:signup;
-  document.getElementById('authBtn').textContent = _isSignup?'Sign Up Free':'Sign In';
-  document.getElementById('authTagline').textContent = _isSignup?'Create your free account':'Welcome back';
-  document.getElementById('authToggle').innerHTML = _isSignup
-    ? 'Already have an account? <span>Sign In</span>'
-    : 'Don\'t have an account? <span>Sign Up Free</span>';
-  document.getElementById('authError').style.display = 'none';
-  document.getElementById('authOverlay').classList.add('open');
-  setTimeout(function(){document.getElementById('authEmail').focus();},100);
-}
+var _isSignup=true;
+function openAuth(s){_isSignup=s===undefined?true:s;document.getElementById('authBtn').textContent=_isSignup?'Sign Up Free':'Sign In';document.getElementById('authTagline').textContent=_isSignup?'Create your free account':'Welcome back';document.getElementById('authToggle').innerHTML=_isSignup?'Already have an account? <span>Sign In</span>':'Don\'t have an account? <span>Sign Up Free</span>';document.getElementById('authError').style.display='none';document.getElementById('authOverlay').classList.add('open');setTimeout(function(){document.getElementById('authEmail').focus();},100);}
 function closeAuth(){document.getElementById('authOverlay').classList.remove('open');}
 function toggleAuthMode(){openAuth(!_isSignup);}
-async function handleAuth(){
-  var email = document.getElementById('authEmail').value.trim();
-  var pass  = document.getElementById('authPass').value;
-  var errEl = document.getElementById('authError');
-  errEl.style.display='none';
-  if(!email||!pass){errEl.textContent='Email and password required';errEl.style.display='block';return;}
-  var btn = document.getElementById('authBtn');
-  btn.disabled=true; btn.innerHTML='<span class="spin"></span>';
-  try{
-    var r = await fetch(API_BASE+(_isSignup?'/auth/signup':'/auth/login'),{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,password:pass})
-    });
-    var d = await r.json();
-    if(!r.ok) throw new Error(d.error||'Auth failed');
-    localStorage.setItem('csa_token',d.token);
-    localStorage.setItem('csa_user',JSON.stringify(d.user));
-    showToast(_isSignup?'Account created! Redirecting...':'Welcome back! Redirecting...','#4ade80');
-    setTimeout(function(){window.location.href='/dashboard.html';},900);
-  }catch(e){
-    errEl.textContent=e.message; errEl.style.display='block';
-    btn.disabled=false; btn.textContent=_isSignup?'Sign Up Free':'Sign In';
-  }
-}
-async function oauthLogin(provider){
-  var errEl=document.getElementById('authError');
-  try{
-    var r=await fetch(API_BASE+'/auth/'+provider,{method:'POST'});
-    var d=await r.json();
-    if(d.url) window.location.href=d.url;
-    else{errEl.textContent=d.error||provider+' not configured';errEl.style.display='block';}
-  }catch(e){errEl.textContent=e.message;errEl.style.display='block';}
-}
-
-function heroGenerate(){
-  var url=document.getElementById('heroUrl').value.trim();
-  if(url) sessionStorage.setItem('pending_url',url);
-  openAuth(true);
-}
-function scrollTo(id){document.getElementById(id)&&document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
-function showToast(msg,color){
-  var t=document.getElementById('toast');
-  t.textContent=msg; t.style.background=color||'#a855f7'; t.style.color='#fff';
-  t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},3000);
-}
+async function handleAuth(){var email=document.getElementById('authEmail').value.trim();var pass=document.getElementById('authPass').value;var e=document.getElementById('authError');e.style.display='none';if(!email||!pass){e.textContent='Email and password required';e.style.display='block';return;}var btn=document.getElementById('authBtn');btn.disabled=true;btn.innerHTML='<span class="spin"></span>';try{var r=await fetch(API_BASE+(_isSignup?'/auth/signup':'/auth/login'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,password:pass})});var d=await r.json();if(!r.ok)throw new Error(d.error||'Auth failed');localStorage.setItem('csa_token',d.token);localStorage.setItem('csa_user',JSON.stringify(d.user));showToast(_isSignup?'Account created! Redirecting...':'Welcome back! Redirecting...','#4ade80');setTimeout(function(){window.location.href='/dashboard.html';},900);}catch(err){e.textContent=err.message;e.style.display='block';btn.disabled=false;btn.textContent=_isSignup?'Sign Up Free':'Sign In';}}
+async function oauthLogin(p){var e=document.getElementById('authError');try{var r=await fetch(API_BASE+'/auth/'+p,{method:'POST'});var d=await r.json();if(d.url)window.location.href=d.url;else{e.textContent=d.error||p+' not configured';e.style.display='block';}}catch(err){e.textContent=err.message;e.style.display='block';}}
+function heroGenerate(){var url=document.getElementById('heroUrl').value.trim();if(url)sessionStorage.setItem('pending_url',url);openAuth(true);}
+function goTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+function showToast(msg,color){var t=document.getElementById('toast');t.textContent=msg;t.style.background=color||'#a855f7';t.style.color='#fff';t.classList.add('show');setTimeout(function(){t.classList.remove('show');},3000);}
 </script>
 </body>
 </html>
