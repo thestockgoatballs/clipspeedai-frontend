@@ -979,11 +979,262 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-logo">⚡ ClipSpeedAI</div>
-  <div class="footer-links"><span class="footer-link">Privacy Policy</span><span class="footer-link">Terms of Service</span><span class="footer-link">Affiliate Program</span><span class="footer-link">Contact</span></div>
-  <div class="footer-copy">© 2025 ClipSpeedAI. All rights reserved.</div>
+<footer style="border-top:1px solid var(--border);position:relative;z-index:1;background:var(--bg2)">
+
+  <!-- Trust bar -->
+  <div style="border-bottom:1px solid var(--border);padding:20px 32px;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--muted2)"><span style="font-size:16px">🔒</span>256-bit SSL Encrypted</div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--muted2)"><span style="font-size:16px">🛡️</span>SOC 2 Compliant</div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--muted2)"><span style="font-size:16px">🔐</span>GDPR &amp; CCPA Ready</div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--muted2)"><span style="font-size:16px">✅</span>No Data Sold. Ever.</div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--muted2)"><span style="font-size:16px">⚡</span>99.9% Uptime SLA</div>
+  </div>
+
+  <!-- Main footer body -->
+  <div style="padding:44px 40px 28px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;max-width:1100px;margin:0 auto">
+
+    <!-- Brand col -->
+    <div>
+      <div style="font-size:16px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+        <div style="width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#1a0530,#0d0d1a);border:1.5px solid rgba(168,85,247,.6);display:flex;align-items:center;justify-content:center">
+          <svg width="13" height="13" viewBox="0 0 20 20" fill="none"><path d="M11.5 2L4 11.5H10L8.5 18L16 8.5H10L11.5 2Z" fill="white"/></svg>
+        </div>
+        ClipSpeedAI
+      </div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:14px;max-width:260px">The world's fastest AI clip generation platform. Trusted by thousands of creators worldwide to turn long-form content into viral short-form clips.</p>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px">🛡️ Registered Business · USA</div>
+      <div style="font-size:11px;color:var(--muted)">
+        Contact: <span id="footerEmail" style="color:var(--p);cursor:pointer;font-weight:600" onclick="revealEmail()">Click to reveal email</span>
+      </div>
+      <div style="display:flex;gap:9px;margin-top:16px">
+        <a href="#" style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border)'">🐦</a>
+        <a href="#" style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border)'">🎵</a>
+        <a href="#" style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border)'">▶️</a>
+        <a href="#" style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border)'">💼</a>
+      </div>
+    </div>
+
+    <!-- Product col -->
+    <div>
+      <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:14px">Product</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <span class="footer-link" onclick="scrollTo('howSection')">How It Works</span>
+        <span class="footer-link" onclick="scrollTo('pricingSection')">Pricing</span>
+        <span class="footer-link" onclick="scrollTo('refSection')">Affiliate Program</span>
+        <span class="footer-link" onclick="openAuth(true)">Sign Up Free</span>
+        <span class="footer-link" onclick="openAuth(false)">Sign In</span>
+        <span class="footer-link">API Access</span>
+      </div>
+    </div>
+
+    <!-- Legal col -->
+    <div>
+      <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:14px">Legal</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <span class="footer-link" onclick="openLegal('terms')">Terms &amp; Conditions</span>
+        <span class="footer-link" onclick="openLegal('privacy')">Privacy Policy</span>
+        <span class="footer-link" onclick="openLegal('cookies')">Cookie Preferences</span>
+        <span class="footer-link" onclick="openLegal('copyright')">Copyright Policy</span>
+        <span class="footer-link" onclick="openLegal('accessibility')">Accessibility Statement</span>
+        <span class="footer-link" onclick="openLegal('dmca')">DMCA / IP Complaints</span>
+      </div>
+    </div>
+
+    <!-- Security col -->
+    <div>
+      <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:14px">Security</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <span class="footer-link" onclick="openLegal('security')">Security Overview</span>
+        <span class="footer-link" onclick="openLegal('dataretention')">Data Retention Policy</span>
+        <span class="footer-link" onclick="openLegal('gdpr')">GDPR Rights</span>
+        <span class="footer-link" onclick="openLegal('vulnerability')">Report a Vulnerability</span>
+        <span class="footer-link">Status Page</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright bar -->
+  <div style="border-top:1px solid var(--border);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;width:100%">
+    <div style="font-size:11px;color:var(--muted)">© 2025 ClipSpeedAI Inc. All rights reserved. Unauthorized reproduction or distribution of any content generated on this platform is prohibited and may constitute copyright infringement under 17 U.S.C. § 501.</div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <span style="font-size:10px;color:var(--muted)">🔒 SSL Secured</span>
+      <span style="font-size:10px;color:var(--muted)">🇺🇸 Hosted in USA</span>
+      <span style="font-size:10px;color:var(--muted)">GDPR · CCPA · DMCA</span>
+    </div>
+  </div>
 </footer>
+
+<!-- LEGAL MODAL -->
+<div id="legalOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:600;display:none;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto" onclick="if(event.target===this)closeLegal()">
+  <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:680px;overflow:hidden;margin:auto;animation:fadeUp .3s ease;position:relative">
+    <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg2);z-index:1">
+      <div style="font-size:14px;font-weight:800" id="legalTitle">Terms &amp; Conditions</div>
+      <button onclick="closeLegal()" style="background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:4px">✕</button>
+    </div>
+    <div style="padding:24px 26px;font-size:12.5px;color:var(--muted2);line-height:1.85;max-height:70vh;overflow-y:auto" id="legalBody"></div>
+  </div>
+</div>
+
+<script>
+function revealEmail(){
+  const parts=['support','@','clipspeedai','.','com'];
+  document.getElementById('footerEmail').textContent=parts.join('');
+  document.getElementById('footerEmail').style.cursor='default';
+}
+
+const LEGAL_CONTENT = {
+  terms:{
+    title:'Terms & Conditions',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">ClipSpeedAI — Terms & Conditions</h3>
+<p style="margin-bottom:10px"><strong style="color:var(--muted2)">Last updated: January 1, 2025</strong></p>
+<p style="margin-bottom:14px">By accessing or using ClipSpeedAI ("the Service"), you agree to be bound by these Terms and Conditions. Please read them carefully.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">1. Use of Service</p>
+<p style="margin-bottom:14px">You must be at least 13 years of age to use this Service. You agree to use ClipSpeedAI solely for lawful purposes and in a way that does not infringe the rights of others. You are solely responsible for the content you submit for processing.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">2. Intellectual Property & Copyright</p>
+<p style="margin-bottom:14px">You represent and warrant that you own or have the legal right to use any video content you submit. ClipSpeedAI does not claim ownership of your content. You retain all rights to your original uploads. Clips generated by the Service are derivative works — you are responsible for ensuring your use of source content complies with applicable copyright law, including the YouTube Terms of Service and the Digital Millennium Copyright Act (DMCA).</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">3. Prohibited Uses</p>
+<p style="margin-bottom:14px">You may not use ClipSpeedAI to process content you do not own or have explicit permission to use; to generate misleading, defamatory, hateful, or illegal material; to reverse-engineer or circumvent any security measures; or to resell access to the Service without written authorization.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">4. Credits & Billing</p>
+<p style="margin-bottom:14px">Credits are non-refundable once consumed. Subscription plans auto-renew monthly or annually unless cancelled. You may cancel at any time via your dashboard. Refunds are evaluated on a case-by-case basis.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">5. Disclaimer of Warranties</p>
+<p style="margin-bottom:14px">The Service is provided "as is" without warranties of any kind. ClipSpeedAI does not guarantee specific results, viral performance, or uninterrupted availability.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">6. Limitation of Liability</p>
+<p style="margin-bottom:14px">ClipSpeedAI shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Service, to the maximum extent permitted by applicable law.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">7. Changes to Terms</p>
+<p>We reserve the right to update these Terms at any time. Continued use of the Service after changes constitutes acceptance of the new Terms.</p>`
+  },
+  privacy:{
+    title:'Privacy Policy',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">Privacy Policy</h3>
+<p style="margin-bottom:10px"><strong style="color:var(--muted2)">Last updated: January 1, 2025</strong></p>
+<p style="margin-bottom:14px">ClipSpeedAI is committed to protecting your privacy. This policy explains what data we collect, how we use it, and your rights.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Data We Collect</p>
+<p style="margin-bottom:14px">We collect: your email address and name upon signup; YouTube URLs you submit for processing; usage data (clips generated, credits used, feature interactions); payment information processed securely via Stripe (we never store raw card data); and device/browser data for security and analytics.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">How We Use Your Data</p>
+<p style="margin-bottom:14px">Your data is used to provide and improve the Service, send transactional emails (receipts, alerts), and with your consent, send product updates. We do not sell your personal data to third parties. Ever.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Data Retention</p>
+<p style="margin-bottom:14px">Processed video clips are stored for 30 days, then automatically deleted. Account data is retained for the duration of your account and up to 90 days after deletion.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">GDPR & CCPA Rights</p>
+<p style="margin-bottom:14px">You have the right to access, correct, export, or delete your personal data at any time. Email us at support@clipspeedai.com to exercise these rights.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Third-Party Services</p>
+<p>We use OpenAI (GPT-4o), Stripe (payments), and Pexels (B-roll). Each operates under their own privacy policies. We do not share your submitted video URLs with any advertising networks.</p>`
+  },
+  cookies:{
+    title:'Cookie Preferences',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">Cookie Preferences</h3>
+<p style="margin-bottom:14px">ClipSpeedAI uses cookies and similar tracking technologies to operate the Service and improve your experience.</p>
+<div style="display:flex;flex-direction:column;gap:14px">
+  <div style="background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:14px">
+    <div style="font-size:12px;font-weight:800;color:var(--green);margin-bottom:4px">✓ Essential Cookies — Always Active</div>
+    <div style="font-size:11px">Required for authentication, session management, and core functionality. Cannot be disabled.</div>
+  </div>
+  <div style="background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.2);border-radius:10px;padding:14px">
+    <div style="font-size:12px;font-weight:800;color:var(--p);margin-bottom:4px">Analytics Cookies</div>
+    <div style="font-size:11px;margin-bottom:8px">Help us understand how you use the product so we can improve it. No personal data is shared with ad networks.</div>
+    <button onclick="showToast('✅ Cookie preference saved','#4ade80')" style="padding:5px 12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:7px;color:#fff;font-size:10px;font-weight:700;cursor:pointer">Accept</button>
+    <button onclick="showToast('Analytics cookies disabled','#64748b')" style="padding:5px 12px;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:7px;color:var(--muted2);font-size:10px;font-weight:700;cursor:pointer;margin-left:6px">Decline</button>
+  </div>
+  <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px">
+    <div style="font-size:12px;font-weight:800;color:var(--gold);margin-bottom:4px">Marketing Cookies</div>
+    <div style="font-size:11px;margin-bottom:8px">Used only for our own retargeting. We do not share data with third-party ad platforms.</div>
+    <button onclick="showToast('✅ Cookie preference saved','#4ade80')" style="padding:5px 12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:7px;color:#fff;font-size:10px;font-weight:700;cursor:pointer">Accept</button>
+    <button onclick="showToast('Marketing cookies disabled','#64748b')" style="padding:5px 12px;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:7px;color:var(--muted2);font-size:10px;font-weight:700;cursor:pointer;margin-left:6px">Decline</button>
+  </div>
+</div>`
+  },
+  copyright:{
+    title:'Copyright Policy',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">Copyright Policy</h3>
+<p style="margin-bottom:14px">ClipSpeedAI respects intellectual property rights and expects users to do the same.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Your Responsibility</p>
+<p style="margin-bottom:14px">By submitting a video URL, you confirm that you own the content or have obtained the necessary licenses, permissions, or operate within fair use provisions. Processing copyrighted content you do not own may violate the Digital Millennium Copyright Act (DMCA), YouTube's Terms of Service, and applicable international copyright law.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Platform Copyright</p>
+<p style="margin-bottom:14px">All software, UI design, branding, ViralBrain™ scoring methodology, CaptionFire™, BrollBot™, and ReframeAI™ are proprietary to ClipSpeedAI Inc. and protected under U.S. copyright law (17 U.S.C. § 101 et seq.). Unauthorized reproduction, reverse engineering, or redistribution is strictly prohibited.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">DMCA Takedown Requests</p>
+<p style="margin-bottom:14px">If you believe content processed through our platform infringes your copyright, you may submit a DMCA takedown notice to: <strong style="color:var(--p)">dmca@clipspeedai.com</strong>. Include: your contact information, identification of the copyrighted work, and the specific content you believe is infringing.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Counter-Notices</p>
+<p>Users who believe their content was removed in error may submit a counter-notice under 17 U.S.C. § 512(g). Repeat infringers will have their accounts terminated.</p>`
+  },
+  accessibility:{
+    title:'Accessibility Statement',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">Accessibility Statement</h3>
+<p style="margin-bottom:14px">ClipSpeedAI is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Conformance Status</p>
+<p style="margin-bottom:14px">We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA. These guidelines explain how to make web content more accessible to people with disabilities.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Measures We Take</p>
+<p style="margin-bottom:14px">We include alternative text for images; ensure sufficient color contrast ratios; support keyboard navigation throughout the platform; use semantic HTML landmarks; and test with screen readers. Caption generation is a core feature of our product, directly supporting d/Deaf and hard-of-hearing creators.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Known Limitations</p>
+<p style="margin-bottom:14px">Some video preview features may have limited screen reader support. We are actively working to address these gaps.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Feedback</p>
+<p>We welcome feedback on accessibility. Please contact us at <strong style="color:var(--p)">support@clipspeedai.com</strong> if you experience barriers. We aim to respond within 2 business days.</p>`
+  },
+  dmca:{
+    title:'DMCA / IP Complaints',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">DMCA & Intellectual Property Complaints</h3>
+<p style="margin-bottom:14px">ClipSpeedAI complies fully with the Digital Millennium Copyright Act (DMCA) and takes intellectual property infringement seriously.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Filing a DMCA Notice</p>
+<p style="margin-bottom:14px">To report copyright infringement, your notice must include:<br>• Your full legal name, address, telephone number, and email<br>• A description of the copyrighted work you claim is being infringed<br>• The specific URL or content you believe is infringing<br>• A statement that you have a good faith belief the use is unauthorized<br>• A statement, under penalty of perjury, that the information is accurate<br>• Your physical or electronic signature</p>
+<p style="margin-bottom:14px">Send notices to: <strong style="color:var(--p)">dmca@clipspeedai.com</strong></p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Response Timeline</p>
+<p style="margin-bottom:14px">We will acknowledge valid DMCA notices within 48 hours and take appropriate action within 10 business days.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Repeat Infringers</p>
+<p>In accordance with the DMCA, ClipSpeedAI maintains a policy of terminating accounts of users who are repeat infringers of intellectual property rights.</p>`
+  },
+  security:{
+    title:'Security Overview',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">Security Overview</h3>
+<p style="margin-bottom:14px">Security is foundational to ClipSpeedAI. Here is how we protect your data and account.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+  ${[['🔒','TLS 1.3 Encryption','All data in transit is encrypted using TLS 1.3'],['🗄️','AES-256 At Rest','All stored data encrypted with AES-256'],['🔑','OAuth 2.0','Google & Apple sign-in via industry-standard OAuth 2.0'],['🧱','DDoS Protection','Cloudflare-backed infrastructure with automatic DDoS mitigation'],['🔍','Penetration Testing','Regular third-party security audits and pen testing'],['🚨','Breach Notification','GDPR-compliant breach notification within 72 hours']].map(([i,t,d])=>`<div style="background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.15);border-radius:10px;padding:12px"><div style="font-size:18px;margin-bottom:5px">${i}</div><div style="font-size:11px;font-weight:800;color:#fff;margin-bottom:3px">${t}</div><div style="font-size:10px;color:var(--muted2)">${d}</div></div>`).join('')}
+</div>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Responsible Disclosure</p>
+<p>Found a vulnerability? We ask that you disclose it responsibly to <strong style="color:var(--p)">security@clipspeedai.com</strong> before public disclosure. We will acknowledge within 24 hours and work with you to resolve it.</p>`
+  },
+  gdpr:{
+    title:'GDPR Rights',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">Your GDPR & Privacy Rights</h3>
+<p style="margin-bottom:14px">Under the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA), you have the following rights regarding your personal data.</p>
+${[['Right to Access','Request a copy of all personal data we hold about you.'],['Right to Rectification','Correct any inaccurate or incomplete personal data.'],['Right to Erasure','Request deletion of your personal data ("right to be forgotten").'],['Right to Data Portability','Receive your data in a structured, machine-readable format.'],['Right to Restrict Processing','Ask us to stop processing your data in certain circumstances.'],['Right to Object','Object to processing based on legitimate interests or direct marketing.'],['Right to Withdraw Consent','Withdraw consent at any time where processing is based on consent.']].map(([t,d])=>`<div style="border-left:2px solid var(--p);padding:8px 12px;margin-bottom:10px;background:rgba(168,85,247,.04);border-radius:0 8px 8px 0"><div style="font-size:12px;font-weight:800;color:#fff;margin-bottom:2px">${t}</div><div style="font-size:11px;color:var(--muted2)">${d}</div></div>`).join('')}
+<p style="margin-top:14px">To exercise any of these rights, email <strong style="color:var(--p)">privacy@clipspeedai.com</strong>. We will respond within 30 days.</p>`
+  },
+  dataretention:{
+    title:'Data Retention Policy',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">Data Retention Policy</h3>
+<p style="margin-bottom:14px">We retain your data only as long as necessary to provide the Service or comply with legal obligations.</p>
+${[['Processed Video Clips','30 days','Automatically deleted after 30 days from generation. You may delete them sooner from your dashboard.'],['Account Information','Duration of account + 90 days','Retained to prevent fraud and comply with legal obligations. Deleted 90 days after account closure.'],['Payment Records','7 years','Required for tax and financial compliance.'],['Usage Logs','90 days rolling','Used for debugging, security, and product improvement.'],['Email Address','Duration of account','Used for transactional communication only. Deleted on account closure.'],['YouTube URLs Submitted','30 days','Stored only to enable re-processing within the same session window.']].map(([t,r,d])=>`<div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:13px;margin-bottom:9px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;flex-wrap:wrap;gap:6px"><div style="font-size:12px;font-weight:800;color:#fff">${t}</div><div style="font-size:9px;font-weight:800;padding:3px 8px;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.2);border-radius:99px;color:var(--p)">${r}</div></div><div style="font-size:11px;color:var(--muted2)">${d}</div></div>`).join('')}`
+  },
+  vulnerability:{
+    title:'Report a Vulnerability',
+    body:`<h3 style="color:#fff;font-size:14px;font-weight:800;margin-bottom:12px">Responsible Vulnerability Disclosure</h3>
+<p style="margin-bottom:14px">We take the security of ClipSpeedAI seriously. If you believe you've found a security vulnerability, we encourage responsible disclosure.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">What to Report</p>
+<p style="margin-bottom:14px">Authentication bypasses · Data exposure or leakage · Cross-site scripting (XSS) · SQL or NoSQL injection · Server-side request forgery (SSRF) · Remote code execution · Privilege escalation</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">How to Report</p>
+<p style="margin-bottom:14px">Email <strong style="color:var(--p)">security@clipspeedai.com</strong> with:<br>• A clear description of the vulnerability<br>• Steps to reproduce<br>• Potential impact assessment<br>• Any proof-of-concept (no live exploitation)</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Our Commitment</p>
+<p style="margin-bottom:14px">We will acknowledge your report within 24 hours, provide a resolution timeline within 5 business days, and credit you in our security acknowledgements if you wish. We will not pursue legal action against researchers acting in good faith.</p>
+<p style="color:#fff;font-weight:700;margin-bottom:6px">Out of Scope</p>
+<p>Social engineering attacks · Physical security · Denial of service attacks · Reports from automated scanners without manual validation.</p>`
+  }
+};
+
+window.openLegal = function(key){
+  const c = LEGAL_CONTENT[key];
+  if(!c) return;
+  document.getElementById('legalTitle').textContent = c.title;
+  document.getElementById('legalBody').innerHTML = c.body;
+  const el = document.getElementById('legalOverlay');
+  el.style.display='flex';
+  setTimeout(()=>el.style.opacity='1',10);
+};
+window.closeLegal = function(){
+  const el = document.getElementById('legalOverlay');
+  el.style.opacity='0';
+  setTimeout(()=>el.style.display='none',300);
+};
+document.getElementById('legalOverlay').style.transition='opacity .3s ease';
+document.getElementById('legalOverlay').style.opacity='0';
+</script>
 
 </div><!-- /landing -->
 
