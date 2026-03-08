@@ -94,7 +94,6 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25);border-radius:99px;font-size:11px;color:#c084fc;font-weight:700;margin-bottom:26px;animation:badgePop .6s ease both}
 .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:livePulse 1.4s ease-in-out infinite;flex-shrink:0}
 
-/* ── FIX 1: HERO TITLE MOBILE ── */
 .hero-title{font-size:clamp(40px,7.5vw,86px);font-weight:900;letter-spacing:-3.5px;line-height:.94;margin-bottom:20px}
 @media(max-width:600px){.hero-title{font-size:clamp(32px,9vw,48px);letter-spacing:-1.5px;line-height:1.08}}
 
@@ -194,14 +193,12 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 
 .vs-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
 
-/* ── FIX 2: PRICING GRID MOBILE ── */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1060px;margin:0 auto;padding:0 24px}
 @media(max-width:860px){
   .pricing-grid{grid-template-columns:1fr;max-width:460px;gap:24px;padding:0 16px}
   .pro-card-outer{transform:none!important;box-shadow:0 12px 48px rgba(168,85,247,.25)!important}
 }
 
-/* ── FIX 3: COMPETITOR TABLE MOBILE ── */
 @media(max-width:768px){
   #scoreCards{grid-template-columns:repeat(2,1fr)!important;gap:8px!important}
   .vs-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:20px}
@@ -247,14 +244,107 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .cta-btn{padding:18px 42px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:15px;color:#fff;font-size:16px;font-weight:800;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:9px}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 20px 60px rgba(168,85,247,.4);opacity:.92}
 .cta-trust{margin-top:20px;font-size:12px;color:var(--muted)}
-.footer-link{font-size:11px;color:var(--muted);cursor:pointer;transition:color .2s}
-.footer-link:hover{color:var(--p)}
 
 .inline-cta-bar{display:flex;flex-direction:column;align-items:center;gap:10px;padding:44px 24px;position:relative;z-index:1}
 .inline-cta-btn{display:inline-flex;align-items:center;gap:9px;padding:16px 36px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:14px;color:#fff;font-size:15px;font-weight:900;cursor:pointer;letter-spacing:-.3px;transition:all .25s;box-shadow:0 8px 32px rgba(168,85,247,.35);animation:ctaPulse 2.5s ease-in-out infinite}
 .inline-cta-btn:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(168,85,247,.5)!important;animation:none}
 .inline-cta-sub{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:10px}
 
+/* ── TRUST STRIP ── */
+.trust-strip{background:rgba(168,85,247,.04);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.trust-strip-inner{max-width:1200px;margin:0 auto;padding:20px 48px;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap}
+@media(max-width:640px){.trust-strip-inner{padding:18px 20px;gap:16px}}
+.ts-item{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--muted2)}
+.ts-icon{font-size:18px}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--bg2);border-top:1px solid var(--border);position:relative;z-index:1}
+.footer-top{padding:56px 48px 40px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px}
+@media(max-width:960px){.footer-top{grid-template-columns:1fr 1fr;gap:32px;padding:40px 28px 28px}}
+@media(max-width:560px){.footer-top{grid-template-columns:1fr;gap:28px;padding:32px 20px 20px}}
+.footer-brand{}
+.fb-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.fb-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#1a0530,#0d0d1a);border:1.5px solid rgba(168,85,247,.6);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fb-name{font-size:17px;font-weight:900;background:linear-gradient(90deg,#fff 60%,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.fb-desc{font-size:12px;color:var(--muted2);line-height:1.7;margin-bottom:16px;max-width:280px}
+.fb-email{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.2);border-radius:9px;font-size:11.5px;color:var(--p);font-weight:600;text-decoration:none;transition:all .2s}
+.fb-email:hover{background:rgba(168,85,247,.14);border-color:var(--p)}
+.fb-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.fb-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 9px;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:6px;font-size:9px;font-weight:700;color:var(--muted2)}
+.footer-col{}
+.fc-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:14px}
+.fc-link{display:block;font-size:12px;color:var(--muted2);text-decoration:none;margin-bottom:9px;transition:color .2s;cursor:pointer;background:none;border:none;padding:0;text-align:left;width:100%}
+.fc-link:hover{color:var(--p)}
+.footer-divider{height:1px;background:var(--border);max-width:1200px;margin:0 auto}
+.footer-trust{max-width:1200px;margin:0 auto;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+@media(max-width:768px){.footer-trust{padding:16px 20px;justify-content:center;text-align:center}}
+.ft-left{font-size:11px;color:var(--muted);line-height:1.6}
+.ft-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
+.ft-legal-link{font-size:11px;color:var(--muted);cursor:pointer;transition:all .2s;background:none;border:none;text-decoration:underline;text-decoration-color:transparent}
+.ft-legal-link:hover{color:var(--p);text-decoration-color:var(--p)}
+
+/* ── COOKIE BANNER ── */
+.cookie-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);max-width:640px;width:calc(100% - 32px);background:rgba(13,13,26,.97);border:1px solid rgba(168,85,247,.3);border-radius:16px;padding:16px 20px;z-index:9000;display:flex;align-items:center;gap:16px;flex-wrap:wrap;backdrop-filter:blur(20px);box-shadow:0 8px 40px rgba(0,0,0,.5);animation:fadeUp .4s ease}
+@media(max-width:600px){.cookie-banner{flex-direction:column;text-align:center}}
+.cb-text{flex:1;font-size:11.5px;color:var(--muted2);line-height:1.6}
+.cb-text a{color:var(--p);cursor:pointer}
+.cb-btns{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap;justify-content:center}
+.cb-accept{padding:8px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:8px;color:#fff;font-size:11.5px;font-weight:700;cursor:pointer;transition:opacity .2s}
+.cb-accept:hover{opacity:.88}
+.cb-manage{padding:8px 14px;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:8px;color:var(--muted2);font-size:11.5px;font-weight:600;cursor:pointer;transition:all .2s}
+.cb-manage:hover{border-color:var(--p);color:#fff}
+.cb-decline{padding:8px 12px;background:none;border:none;color:var(--muted);font-size:11px;cursor:pointer;transition:color .2s}
+.cb-decline:hover{color:var(--muted2)}
+
+/* ── LEGAL MODAL ── */
+.legal-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);z-index:8000;display:none;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto}
+.legal-modal-overlay.open{display:flex}
+.legal-modal-box{background:var(--bg2);border:1px solid var(--border2);border-radius:22px;width:100%;max-width:760px;margin:auto;position:relative;animation:fadeUp .3s ease;overflow:hidden}
+.legal-modal-header{padding:22px 28px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:14px;position:sticky;top:0;background:var(--bg2);z-index:1}
+.legal-modal-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25);border-radius:99px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--p);margin-bottom:6px}
+.legal-modal-title{font-size:20px;font-weight:900;letter-spacing:-.5px}
+.legal-modal-meta{font-size:10px;color:var(--muted);margin-top:3px}
+.legal-modal-close{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);cursor:pointer;color:var(--muted2);font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.legal-modal-close:hover{border-color:#ef4444;color:#ef4444}
+.legal-modal-body{padding:24px 28px 32px;max-height:72vh;overflow-y:auto}
+.legal-modal-body::-webkit-scrollbar{width:4px}
+.legal-modal-body::-webkit-scrollbar-thumb{background:rgba(168,85,247,.3);border-radius:2px}
+.legal-modal-body h3{font-size:14px;font-weight:800;color:#fff;margin:22px 0 7px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.legal-modal-body h3:first-child{margin-top:0}
+.legal-modal-body p{font-size:12.5px;color:var(--muted2);line-height:1.75;margin-bottom:10px}
+.legal-modal-body ul{padding-left:18px;margin-bottom:12px}
+.legal-modal-body ul li{font-size:12.5px;color:var(--muted2);line-height:1.75;margin-bottom:5px}
+.legal-modal-body a{color:var(--cyan);text-decoration:none}
+.legal-modal-body a:hover{text-decoration:underline}
+.legal-highlight{display:block;padding:12px 16px;background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.2);border-radius:10px;font-size:12px;color:var(--muted2);line-height:1.7;margin:12px 0}
+.legal-highlight strong{color:#fff}
+.legal-contact-row{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(34,211,238,.05);border:1px solid rgba(34,211,238,.15);border-radius:9px;margin:8px 0}
+.legal-contact-row a{color:var(--cyan);font-size:12.5px;font-weight:600}
+.legal-table-wrap{overflow-x:auto;margin:12px 0}
+.legal-table{width:100%;border-collapse:collapse;font-size:11.5px}
+.legal-table th{background:var(--bg3);padding:9px 12px;text-align:left;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);border:1px solid var(--border)}
+.legal-table td{padding:9px 12px;border:1px solid var(--border);color:var(--muted2);vertical-align:top;line-height:1.5}
+.legal-table tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.cookie-pref-row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;gap:12px}
+.cp-info{flex:1}
+.cp-name{font-size:13px;font-weight:700;margin-bottom:2px;color:var(--text)}
+.cp-desc{font-size:11px;color:var(--muted2);line-height:1.5}
+.cp-toggle{position:relative;width:42px;height:22px;flex-shrink:0}
+.cp-toggle input{opacity:0;width:0;height:0;position:absolute}
+.cp-slider{position:absolute;inset:0;background:rgba(255,255,255,.1);border-radius:22px;cursor:pointer;transition:.3s;border:1px solid var(--border2)}
+.cp-slider.required{background:rgba(16,185,129,.25);border-color:rgba(16,185,129,.4);cursor:not-allowed}
+.cp-slider::before{content:'';position:absolute;width:16px;height:16px;left:2px;bottom:2px;background:#fff;border-radius:50%;transition:.3s;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.cp-toggle input:checked+.cp-slider{background:linear-gradient(135deg,var(--p),var(--p2));border-color:var(--p)}
+.cp-toggle input:checked+.cp-slider::before{left:22px}
+.cp-slider.required::before{left:22px;background:#4ade80}
+.a11y-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+@media(max-width:480px){.a11y-grid{grid-template-columns:1fr}}
+.a11y-card{padding:12px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:10px}
+.a11y-card-icon{font-size:20px;margin-bottom:5px}
+.a11y-card-title{font-size:11px;font-weight:800;margin-bottom:3px;color:var(--text)}
+.a11y-card-desc{font-size:10.5px;color:var(--muted2);line-height:1.5}
+
+/* ── DASHBOARD ── */
 #dashboard{display:none;position:relative;z-index:1;min-height:100vh}
 .topbar{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 18px 0 14px;position:sticky;top:0;z-index:200;background:rgba(3,7,18,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(168,85,247,.1)}
 .topbar-logo{display:flex;align-items:center;gap:9px;cursor:pointer}
@@ -576,7 +666,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </defs>
 </svg>
 
-<!-- LANDING PAGE -->
+<!-- ═══════════ LANDING PAGE ═══════════ -->
 <div id="landing">
 
 <div class="ticker-bar"><div class="ticker-inner" id="tickerInner"></div></div>
@@ -632,18 +722,13 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 <div class="hero-cta-banner">
   <div class="hero-cta-card">
     <div class="hero-cta-left">
-      <div class="hero-cta-eyebrow">
-        <div class="hero-cta-dot"></div>
-        <span class="hero-cta-eyebrow-txt">Free Forever · No Card Required</span>
-      </div>
+      <div class="hero-cta-eyebrow"><div class="hero-cta-dot"></div><span class="hero-cta-eyebrow-txt">Free Forever · No Card Required</span></div>
       <div class="hero-cta-headline">Start Free — <span class="grad">50 Credits,</span><br>No Card Ever</div>
       <div class="hero-cta-sub">Get <strong>50 free credits</strong> the moment you sign up.<br>That's 50 minutes of video turned into viral clips — on us.</div>
     </div>
     <div class="hero-cta-right">
       <button class="hero-cta-btn" onclick="openAuth(true)">🚀 Claim My 50 Free Credits</button>
-      <div class="hero-cta-guarantee">
-        <span class="check">✓</span> No credit card &nbsp;·&nbsp; <span class="check">✓</span> Free forever plan &nbsp;·&nbsp; <span class="check">✓</span> Cancel anytime
-      </div>
+      <div class="hero-cta-guarantee"><span class="check">✓</span> No credit card &nbsp;·&nbsp; <span class="check">✓</span> Free forever plan &nbsp;·&nbsp; <span class="check">✓</span> Cancel anytime</div>
     </div>
   </div>
 </div>
@@ -733,7 +818,6 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     </div>
     <div style="display:grid;gap:12px;max-width:1080px;margin:0 auto 36px" id="scoreCards"></div>
     <div style="max-width:1080px;margin:0 auto">
-      <!-- FIX 3: wrapper enables horizontal scroll on mobile -->
       <div class="vs-table-wrap">
         <div class="vs-table-inner" style="border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--bg2)">
           <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;background:var(--bg3);border-bottom:1px solid var(--border)">
@@ -753,7 +837,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </section>
 
-<!-- PRICING SECTION -->
+<!-- PRICING -->
 <section class="pricing-section" id="pricingSection">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(168,85,247,.08),transparent 65%);pointer-events:none"></div>
   <div style="position:relative;z-index:1">
@@ -771,10 +855,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
       <span id="annualLbl">Annual</span>
       <div class="annual-badge">Save 40%</div>
     </div>
-
-    <!-- FIX 2: pricing-grid class handles mobile stacking -->
     <div class="pricing-grid">
-
       <!-- FREE -->
       <div style="background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:38px 36px;display:flex;flex-direction:column;gap:12px;transition:all .3s" onmouseover="this.style.borderColor='rgba(168,85,247,.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted2)">Free</div>
@@ -791,7 +872,6 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
         </div>
         <button onclick="openAuth(true)" style="width:100%;padding:16px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:14px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:8px" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border2)'">Start Free →</button>
       </div>
-
       <!-- STARTER -->
       <div style="background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:38px 36px;display:flex;flex-direction:column;gap:12px;transition:all .3s" onmouseover="this.style.borderColor='rgba(168,85,247,.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted2)">Starter</div>
@@ -808,7 +888,6 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
         </div>
         <button onclick="openAuth(true)" style="width:100%;padding:16px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:14px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:8px" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border2)'">Get Starter →</button>
       </div>
-
       <!-- PRO -->
       <div class="pro-card-outer" style="position:relative;background:linear-gradient(160deg,rgba(168,85,247,.12),rgba(99,102,241,.08),rgba(34,211,238,.06));border-radius:24px;padding:3px;animation:borderGlow 3s ease-in-out infinite;transform:scale(1.045);z-index:2;box-shadow:0 20px 80px rgba(168,85,247,.25)">
         <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:5px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:99px;font-size:11px;font-weight:900;color:#fff;box-shadow:0 4px 20px rgba(168,85,247,.4)">⭐ Most Popular · Best Value</div>
@@ -830,8 +909,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
           <div style="text-align:center;font-size:10px;color:var(--muted2)">84% of paying users choose Pro</div>
         </div>
       </div>
-
-    </div><!-- /pricing-grid -->
+    </div>
   </div>
 </section>
 
@@ -860,13 +938,96 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </section>
 
-<footer style="border-top:1px solid var(--border);position:relative;z-index:1;background:var(--bg2);padding:32px 40px;text-align:center">
-  <div style="font-size:10.5px;color:var(--muted)">© 2025 ClipSpeedAI Inc. All rights reserved.</div>
+<!-- ═══════════ TRUST STRIP + FOOTER ═══════════ -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="ts-item"><span class="ts-icon">🔒</span>256-bit SSL Encryption</div>
+    <div class="ts-item"><span class="ts-icon">🛡️</span>GDPR Compliant</div>
+    <div class="ts-item"><span class="ts-icon">🇺🇸</span>CCPA Compliant</div>
+    <div class="ts-item"><span class="ts-icon">⚖️</span>DMCA Protected</div>
+    <div class="ts-item"><span class="ts-icon">♿</span>WCAG 2.1 AA</div>
+    <div class="ts-item"><span class="ts-icon">✅</span>No Data Selling</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fb-logo">
+        <div class="fb-mark">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <path d="M11.5 2L4 11.5H10L8.5 18L16 8.5H10L11.5 2Z" fill="white" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="fb-name">ClipSpeedAI</span>
+      </div>
+      <p class="fb-desc">The world's fastest AI clip platform. GPT-4o powered viral scoring, auto captions, and multi-platform export — all in under 90 seconds.</p>
+      <a class="fb-email" href="mailto:clipspeedaisupport@gmail.com">✉️ clipspeedaisupport@gmail.com</a>
+      <div class="fb-badges">
+        <span class="fb-badge">🔒 SSL Secured</span>
+        <span class="fb-badge">🛡️ GDPR Ready</span>
+        <span class="fb-badge">🤖 GPT-4o</span>
+        <span class="fb-badge">⚡ 90s Results</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="fc-title">Product</div>
+      <button class="fc-link" onclick="scrollTo('howSection')">How It Works</button>
+      <button class="fc-link" onclick="scrollTo('pricingSection')">Pricing</button>
+      <button class="fc-link" onclick="scrollTo('featuresSection')">Features</button>
+      <button class="fc-link" onclick="scrollTo('refSection')">Affiliate Program</button>
+      <button class="fc-link" onclick="openAuth(true)">Brand Templates</button>
+      <button class="fc-link" onclick="showToast('API docs coming soon!','#6366f1')">API Access</button>
+    </div>
+    <div class="footer-col">
+      <div class="fc-title">Support</div>
+      <a class="fc-link" href="mailto:clipspeedaisupport@gmail.com">Help Center</a>
+      <a class="fc-link" href="mailto:clipspeedaisupport@gmail.com">Contact Support</a>
+      <button class="fc-link" onclick="openLegalModal('dmca')">Report Infringement</button>
+      <button class="fc-link" onclick="openLegalModal('security')">Security</button>
+      <a class="fc-link" href="mailto:clipspeedaisupport@gmail.com?subject=Billing%20Issue">Billing Issues</a>
+      <button class="fc-link" onclick="openLegalModal('accessibility')">Accessibility</button>
+    </div>
+    <div class="footer-col">
+      <div class="fc-title">Legal</div>
+      <button class="fc-link" onclick="openLegalModal('terms')">Terms of Service</button>
+      <button class="fc-link" onclick="openLegalModal('privacy')">Privacy Policy</button>
+      <button class="fc-link" onclick="openLegalModal('cookies')">Cookie Policy</button>
+      <button class="fc-link" onclick="openLegalModal('dmca')">DMCA / Copyright</button>
+      <button class="fc-link" onclick="openLegalModal('security')">Security Policy</button>
+      <button class="fc-link" onclick="openCookiePrefs()">Cookie Preferences</button>
+    </div>
+    <div class="footer-col">
+      <div class="fc-title">Company</div>
+      <button class="fc-link" onclick="showToast('About page coming soon!','#6366f1')">About Us</button>
+      <button class="fc-link" onclick="showToast('Blog coming soon!','#6366f1')">Blog</button>
+      <button class="fc-link" onclick="showToast('Creator Stories coming soon!','#6366f1')">Creator Stories</button>
+      <a class="fc-link" href="mailto:clipspeedaisupport@gmail.com?subject=Press%20Inquiry">Press & Media</a>
+      <a class="fc-link" href="mailto:clipspeedaisupport@gmail.com?subject=Partnership">Partnerships</a>
+      <a class="fc-link" href="mailto:clipspeedaisupport@gmail.com?subject=Careers">Careers</a>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-trust">
+    <div class="ft-left">
+      © 2025 ClipSpeedAI Inc. All rights reserved. &nbsp;·&nbsp; Made for creators, by creators.<br>
+      <span style="font-size:10px">ClipSpeedAI processes publicly accessible video URLs. All trademarks are property of their respective owners.</span>
+    </div>
+    <div class="ft-right">
+      <button class="ft-legal-link" onclick="openLegalModal('terms')">Terms</button>
+      <button class="ft-legal-link" onclick="openLegalModal('privacy')">Privacy</button>
+      <button class="ft-legal-link" onclick="openLegalModal('cookies')">Cookies</button>
+      <button class="ft-legal-link" onclick="openLegalModal('dmca')">DMCA</button>
+      <button class="ft-legal-link" onclick="openLegalModal('security')">Security</button>
+      <button class="ft-legal-link" onclick="openLegalModal('accessibility')">Accessibility</button>
+      <button class="ft-legal-link" onclick="openCookiePrefs()">Cookie Preferences</button>
+    </div>
+  </div>
 </footer>
 
 </div><!-- /landing -->
 
-<!-- DASHBOARD -->
+<!-- ═══════════ DASHBOARD ═══════════ -->
 <div id="dashboard">
 <header class="topbar">
   <div class="topbar-logo" onclick="switchPage('home')">
@@ -1005,7 +1166,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 </div>
 </div><!-- /dashboard -->
 
-<!-- PROCESSING OVERLAY -->
+<!-- ═══════════ PROCESSING OVERLAY ═══════════ -->
 <div id="procOverlay">
   <div class="proc-card">
     <div class="proc-top-bar"></div>
@@ -1045,7 +1206,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </div>
 
-<!-- HERO DEMO OVERLAY -->
+<!-- ═══════════ HERO DEMO OVERLAY ═══════════ -->
 <div id="heroDemoOverlay">
   <button id="hdCloseBtn" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:var(--muted2);font-size:14px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:1">✕</button>
   <div style="width:100%;max-width:660px;position:relative;z-index:1">
@@ -1105,7 +1266,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </div>
 
-<!-- WIZARD -->
+<!-- ═══════════ WIZARD ═══════════ -->
 <div class="wizard-overlay" id="wizardOverlay">
   <div class="wizard-box">
     <div class="wizard-dots" id="wizDots"><div class="wdot active"></div><div class="wdot"></div><div class="wdot"></div></div>
@@ -1134,7 +1295,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </div>
 
-<!-- EDITOR -->
+<!-- ═══════════ EDITOR ═══════════ -->
 <div class="editor-overlay" id="editorOverlay" onclick="closeEditor()"></div>
 <div class="editor-panel" id="editorPanel">
   <div class="editor-head"><div class="editor-head-title" id="editorTitle">✏️ Edit Clip</div><button class="editor-close" onclick="closeEditor()">✕</button></div>
@@ -1164,7 +1325,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </div>
 
-<!-- SHARE MODAL -->
+<!-- ═══════════ SHARE MODAL ═══════════ -->
 <div class="modal-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
   <div class="modal-box">
     <button class="modal-close" onclick="closeShare()">✕</button>
@@ -1180,7 +1341,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </div>
 
-<!-- AUTH MODAL -->
+<!-- ═══════════ AUTH MODAL ═══════════ -->
 <div class="auth-overlay" id="authOverlay" onclick="if(event.target===this)closeAuth()">
   <div class="auth-box">
     <button class="auth-close" onclick="closeAuth()">✕</button>
@@ -1207,7 +1368,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </div>
 
-<!-- UPGRADE MODAL -->
+<!-- ═══════════ UPGRADE MODAL ═══════════ -->
 <div class="modal-overlay" id="upgradeOverlay" onclick="if(event.target===this)closeUpgrade()">
   <div class="modal-box" style="max-width:760px">
     <button class="modal-close" onclick="closeUpgrade()">✕</button>
@@ -1233,7 +1394,35 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </div>
 
-<!-- AI CHAT -->
+<!-- ═══════════ LEGAL MODAL ═══════════ -->
+<div class="legal-modal-overlay" id="legalModalOverlay" onclick="if(event.target===this)closeLegalModal()">
+  <div class="legal-modal-box">
+    <div class="legal-modal-header">
+      <div>
+        <div class="legal-modal-badge" id="legalBadge">Legal</div>
+        <div class="legal-modal-title" id="legalTitle">Document</div>
+        <div class="legal-modal-meta" id="legalMeta">Last updated: January 1, 2025</div>
+      </div>
+      <button class="legal-modal-close" onclick="closeLegalModal()">✕</button>
+    </div>
+    <div class="legal-modal-body" id="legalBody"></div>
+  </div>
+</div>
+
+<!-- ═══════════ COOKIE BANNER ═══════════ -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cb-text">
+    🍪 We use cookies to improve your experience and analyze traffic. By clicking <strong>Accept All</strong>, you consent to our use of cookies.
+    <a onclick="openLegalModal('cookies')" style="cursor:pointer"> Learn more</a>
+  </div>
+  <div class="cb-btns">
+    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
+    <button class="cb-manage" onclick="openCookiePrefs()">Manage</button>
+    <button class="cb-decline" onclick="declineCookies()">Decline</button>
+  </div>
+</div>
+
+<!-- ═══════════ AI CHAT ═══════════ -->
 <div class="chat-bubble" id="chatBubble" style="display:none">
   <div class="chat-panel" id="chatPanel">
     <div class="chat-head">
@@ -1259,7 +1448,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 
 <div class="toast" id="toast"></div>
 
-<!-- EXIT INTENT POPUP -->
+<!-- ═══════════ EXIT INTENT ═══════════ -->
 <div id="exitPopup" style="position:fixed;inset:0;z-index:800;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.75);backdrop-filter:blur(10px)">
   <div style="max-width:480px;width:100%;background:var(--bg2);border:1.5px solid rgba(168,85,247,.45);border-radius:24px;padding:36px 32px;text-align:center;position:relative;overflow:hidden;animation:fadeUp .35s ease">
     <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan),var(--p))"></div>
@@ -1278,45 +1467,177 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 <script>
 const SUPABASE_URL  = 'https://okmatrgwapmvqvftphfz.supabase.co';
 const SUPABASE_ANON = 'sb_publishable_bwUYM5rcoHeEsoyNoDHPkQ_M7SiPDzq';
+const CONTACT_EMAIL = 'clipspeedaisupport@gmail.com';
+
 const SB = {
   headers: { 'Content-Type':'application/json', apikey: SUPABASE_ANON, Authorization: 'Bearer '+SUPABASE_ANON },
-  async signUp(email, pass) { const r = await fetch(SUPABASE_URL+'/auth/v1/signup', { method:'POST', headers: this.headers, body: JSON.stringify({email,password:pass}) }); return r.json(); },
-  async signIn(email, pass) { const r = await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=password', { method:'POST', headers: this.headers, body: JSON.stringify({email,password:pass}) }); return r.json(); },
-  async signOut(token) { await fetch(SUPABASE_URL+'/auth/v1/logout', { method:'POST', headers: {...this.headers, Authorization:'Bearer '+token} }); },
-  async getProfile(userId, token) { const r = await fetch(SUPABASE_URL+'/rest/v1/profiles?id=eq.'+userId+'&select=*', { headers: {...this.headers, Authorization:'Bearer '+token} }); const d = await r.json(); return d[0]; },
-  oauthUrl(provider) { return SUPABASE_URL+'/auth/v1/authorize?provider='+provider+'&redirect_to='+encodeURIComponent(window.location.origin); }
+  async signUp(email,pass){const r=await fetch(SUPABASE_URL+'/auth/v1/signup',{method:'POST',headers:this.headers,body:JSON.stringify({email,password:pass})});return r.json()},
+  async signIn(email,pass){const r=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=password',{method:'POST',headers:this.headers,body:JSON.stringify({email,password:pass})});return r.json()},
+  async signOut(token){await fetch(SUPABASE_URL+'/auth/v1/logout',{method:'POST',headers:{...this.headers,Authorization:'Bearer '+token}})},
+  async getProfile(userId,token){const r=await fetch(SUPABASE_URL+'/rest/v1/profiles?id=eq.'+userId+'&select=*',{headers:{...this.headers,Authorization:'Bearer '+token}});const d=await r.json();return d[0]},
+  oauthUrl(provider){return SUPABASE_URL+'/auth/v1/authorize?provider='+provider+'&redirect_to='+encodeURIComponent(window.location.origin)}
 };
 
-const DEMO_CLIPS = [
+const DEMO_CLIPS=[
   {id:'d1',clip_title:'The Moment That Changed Everything 🔥',viral_score:94,hook_score:91,retention_score:88,emotion_score:85,hook:'Wait — you have to see what happens next...',hashtags:'#viral #mindblowing #trending',platform:'TikTok',duration_seconds:47,views:'2.4M est.',transcript_excerpt:'This is the part nobody talks about — the exact moment when everything shifted.',broll:null,date:Date.now()},
   {id:'d2',clip_title:'Nobody Expected This Plot Twist 😱',viral_score:89,hook_score:86,retention_score:90,emotion_score:83,hook:'Everyone thought they knew the answer...',hashtags:'#plottwist #shocked #mustwatch',platform:'Instagram Reels',duration_seconds:52,views:'1.8M est.',transcript_excerpt:"Everyone assumed it was going one direction, then the data came in and completely flipped the narrative.",broll:null,date:Date.now()-86400000},
-  {id:'d3',clip_title:'3 Facts That Break Your Brain 🧠',viral_score:91,hook_score:94,retention_score:87,emotion_score:80,hook:'These 3 facts literally broke the internet...',hashtags:'#facts #mindblown #learnontiktok',platform:'YouTube Shorts',duration_seconds:38,views:'3.1M est.',transcript_excerpt:'Fact one: this exists and nobody told you. Fact two: the implications are enormous.',broll:'🌆 Urban',date:Date.now()-172800000},
+  {id:'d3',clip_title:'3 Facts That Break Your Brain 🧠',viral_score:91,hook_score:94,retention_score:87,emotion_score:80,hook:'These 3 facts literally broke the internet...',hashtags:'#facts #mindblown #learnontiktok',platform:'YouTube Shorts',duration_seconds:38,views:'3.1M est.',transcript_excerpt:'Fact one: this exists and nobody told you. Fact two: the implications are enormous.',broll:'🌆 Urban',date:Date.now()-172800000}
 ];
-const TEMPLATES = [{id:'dark',name:'Dark Viral',emoji:'⚡',bg:'linear-gradient(135deg,#0a0a1a,#1a0530)',desc:'High-contrast purple'},{id:'neon',name:'Neon Glow',emoji:'🌟',bg:'linear-gradient(135deg,#001a1a,#003333)',desc:'Cyan neon glow'},{id:'fire',name:'Fire Mode',emoji:'🔥',bg:'linear-gradient(135deg,#1a0500,#2d0f00)',desc:'Orange fire gradient'},{id:'minimal',name:'Minimal Pro',emoji:'🎯',bg:'linear-gradient(135deg,#0a0a0a,#1a1a1a)',desc:'Clean minimal white'}];
-const FACTS = [{tag:'💰 CLIPPING EMPIRE',text:'Top agencies process 500+ videos/month using one AI editor.',num:'500+/month'},{tag:'📈 FACELESS GROWTH',text:'Faceless channels using AI clipping grew 400% faster in 2024.',num:'400% faster'},{tag:'🎙 PODCAST GOLD',text:'Short clips from long-form podcasts get 10× more views than the full episode.',num:'10× reach'},{tag:'⚡ SPEED = REVENUE',text:'Clippers who post within 2h of a livestream capture 80% of the viral engagement window.',num:'80% virality'},{tag:'🤖 AI ADVANTAGE',text:'Manual clipping takes 4+ hours. ClipSpeedAI processes the same in under 90 seconds.',num:'80× faster'}];
-const STAGE_STEPS = [{min:0,max:14,dot:0,label:'Downloading video via yt-dlp...',eta:'~90s'},{min:14,max:30,dot:1,label:'Whisper AI transcribing audio...',eta:'~70s'},{min:30,max:50,dot:2,label:'GPT-4o detecting viral moments...',eta:'~50s'},{min:50,max:66,dot:3,label:'FFmpeg precision cutting clips...',eta:'~30s'},{min:66,max:80,dot:4,label:'Burning animated captions...',eta:'~18s'},{min:80,max:90,dot:5,label:'Reframing to 9:16 format...',eta:'~8s'},{min:90,max:100,dot:6,label:'Uploading to your dashboard...',eta:'~3s'}];
-const HD_STAGES = ['Fetch','Transcribe','Analyze','Cut','Captions','Reframe','Ready'];
-const HD_ICONS  = ['⬇','🎙','🧠','✂️','💬','📱','☁️'];
-const FAQS = [{q:'What is a credit and how does it work?',a:'1 credit = 1 minute of source video processed. A 60-minute podcast costs 60 credits. You are charged once per video, not per clip.'},{q:'How fast does ClipSpeedAI process videos?',a:'Most videos are processed in <strong>under 90 seconds</strong>. Long-form videos (60+ min) may take 3–5 minutes.'},{q:'What platforms are clips optimized for?',a:'<strong>TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn</strong>. Each gets the correct aspect ratio automatically.'},{q:'Do I need to edit clips after generation?',a:'No — clips come out ready to post. Captions are burned in, speaker is reframed, clip is trimmed to the exact viral moment.'},{q:'How does the Referral Program work?',a:'Earn <strong>25–50% recurring commission</strong> on every referral. The more referrals, the higher your tier and rate.'},{q:'Can I cancel anytime?',a:'Yes — upgrade, downgrade, or cancel anytime from your dashboard. No contracts, no fees.'},{q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small <strong>ClipSpeedAI</strong> watermark. All paid plans export with zero watermark.'},{q:'How does the AI decide what is viral?',a:'GPT-4o scores every segment on <strong>hook strength, emotional intensity, retention, and shareability</strong>. Each clip gets 0–100.'}];
+const TEMPLATES=[{id:'dark',name:'Dark Viral',emoji:'⚡',bg:'linear-gradient(135deg,#0a0a1a,#1a0530)',desc:'High-contrast purple'},{id:'neon',name:'Neon Glow',emoji:'🌟',bg:'linear-gradient(135deg,#001a1a,#003333)',desc:'Cyan neon glow'},{id:'fire',name:'Fire Mode',emoji:'🔥',bg:'linear-gradient(135deg,#1a0500,#2d0f00)',desc:'Orange fire gradient'},{id:'minimal',name:'Minimal Pro',emoji:'🎯',bg:'linear-gradient(135deg,#0a0a0a,#1a1a1a)',desc:'Clean minimal white'}];
+const FACTS=[{tag:'💰 CLIPPING EMPIRE',text:'Top agencies process 500+ videos/month using one AI editor.',num:'500+/month'},{tag:'📈 FACELESS GROWTH',text:'Faceless channels using AI clipping grew 400% faster in 2024.',num:'400% faster'},{tag:'🎙 PODCAST GOLD',text:'Short clips from long-form podcasts get 10× more views than the full episode.',num:'10× reach'},{tag:'⚡ SPEED = REVENUE',text:'Clippers who post within 2h of a livestream capture 80% of the viral engagement window.',num:'80% virality'},{tag:'🤖 AI ADVANTAGE',text:'Manual clipping takes 4+ hours. ClipSpeedAI processes the same in under 90 seconds.',num:'80× faster'}];
+const STAGE_STEPS=[{min:0,max:14,dot:0,label:'Downloading video via yt-dlp...',eta:'~90s'},{min:14,max:30,dot:1,label:'Whisper AI transcribing audio...',eta:'~70s'},{min:30,max:50,dot:2,label:'GPT-4o detecting viral moments...',eta:'~50s'},{min:50,max:66,dot:3,label:'FFmpeg precision cutting clips...',eta:'~30s'},{min:66,max:80,dot:4,label:'Burning animated captions...',eta:'~18s'},{min:80,max:90,dot:5,label:'Reframing to 9:16 format...',eta:'~8s'},{min:90,max:100,dot:6,label:'Uploading to your dashboard...',eta:'~3s'}];
+const HD_STAGES=['Fetch','Transcribe','Analyze','Cut','Captions','Reframe','Ready'];
+const HD_ICONS=['⬇','🎙','🧠','✂️','💬','📱','☁️'];
+const FAQS=[{q:'What is a credit and how does it work?',a:'1 credit = 1 minute of source video processed. A 60-minute podcast costs 60 credits. You are charged once per video, not per clip.'},{q:'How fast does ClipSpeedAI process videos?',a:'Most videos are processed in <strong>under 90 seconds</strong>. Long-form videos (60+ min) may take 3–5 minutes.'},{q:'What platforms are clips optimized for?',a:'<strong>TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn</strong>. Each gets the correct aspect ratio automatically.'},{q:'Do I need to edit clips after generation?',a:'No — clips come out ready to post. Captions are burned in, speaker is reframed, clip is trimmed to the exact viral moment.'},{q:'How does the Referral Program work?',a:'Earn <strong>25–50% recurring commission</strong> on every referral. The more referrals, the higher your tier and rate.'},{q:'Can I cancel anytime?',a:'Yes — upgrade, downgrade, or cancel anytime from your dashboard. No contracts, no fees.'},{q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small <strong>ClipSpeedAI</strong> watermark. All paid plans export with zero watermark.'},{q:'How does the AI decide what is viral?',a:'GPT-4o scores every segment on <strong>hook strength, emotional intensity, retention, and shareability</strong>. Each clip gets 0–100.'}];
 
 let isLoggedIn=false,isSignup=true,pendingUrl='',currentClips=[],activeFilter='all',wizStep=1;
 let procPct=0,procReady=0,factIdx=0,factTimer=null,editorClip=null,isAnnual=false,appliedTemplate=null;
 let userCredits=50,refCode='',currentUser=null,authToken=null;
 
+// ── LEGAL MODAL DATA ──
+const LEGAL_DOCS={
+  terms:{badge:'⚖️ Legal',title:'Terms of Service',meta:'Last updated: January 1, 2025 · Effective upon account creation',body:`
+    <span class="legal-highlight"><strong>Summary:</strong> By using ClipSpeedAI, you agree to these terms. We provide an AI-powered video clipping service. You own your content. We own our platform. Don't misuse the service.</span>
+    <h3>1. Acceptance of Terms</h3><p>By accessing or using ClipSpeedAI ("Service"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Service. These Terms apply to all users, including visitors, registered users, and paying subscribers.</p>
+    <h3>2. Eligibility</h3><p>You must be at least <strong>13 years old</strong> to use ClipSpeedAI. If you are under 18, a parent or guardian must review and agree to these Terms on your behalf.</p>
+    <h3>3. Account Registration</h3><p>To access core features, you must create an account with accurate information. You are responsible for all activity under your account. Notify us immediately at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a> of any unauthorized use.</p>
+    <h3>4. Permitted Use</h3><p>ClipSpeedAI grants you a limited, non-exclusive, non-transferable license to use the Service for personal or commercial content creation in accordance with these Terms. You may not sublicense, resell, or transfer your rights.</p>
+    <h3>5. Prohibited Conduct</h3><p>You agree not to: process content you don't own or lack authorization to use; distribute copyrighted material without proper rights; reverse engineer the platform's AI; use bots or scrapers; upload illegal or harmful content; create multiple accounts to abuse free credits.</p>
+    <h3>6. Content Ownership</h3><p>You retain full ownership of all content you submit. By using the Service, you grant ClipSpeedAI a limited license to process and display your content solely for providing the Service. We do not sell or share your content with third parties for advertising.</p>
+    <h3>7. Credits, Billing & Refunds</h3><p>1 credit = 1 minute of video processed. Paid plans auto-renew unless cancelled. Refund requests must be submitted within <strong>7 days</strong> of charge to <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.</p>
+    <h3>8. Intellectual Property</h3><p>ClipSpeedAI, ViralBrain™, and all platform technology are the exclusive property of ClipSpeedAI Inc. Nothing in these Terms transfers ownership of our intellectual property to you.</p>
+    <h3>9. Disclaimer of Warranties</h3><p>THE SERVICE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. We do not warrant that the Service will be uninterrupted, error-free, or free of viruses.</p>
+    <h3>10. Limitation of Liability</h3><p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, CLIPSPEEDAI SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE PRIOR 3 MONTHS.</p>
+    <h3>11. Termination</h3><p>We may suspend or terminate your account at any time for violations of these Terms. Unused credits are non-refundable upon termination for cause.</p>
+    <h3>12. Governing Law</h3><p>These Terms are governed by the laws of the <strong>State of Delaware, United States</strong>. Disputes shall be resolved through binding arbitration in Delaware.</p>
+    <h3>13. Changes to Terms</h3><p>We may update these Terms at any time. We will notify you of material changes at least <strong>14 days</strong> before they take effect. Continued use constitutes acceptance.</p>
+    <h3>14. Contact</h3><div class="legal-contact-row">📧 Legal inquiries: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></div>`},
+  privacy:{badge:'🔒 Privacy',title:'Privacy Policy',meta:'Last updated: January 1, 2025 · GDPR & CCPA Compliant',body:`
+    <span class="legal-highlight"><strong>Summary:</strong> We collect only what we need to run the service. We never sell your data. You can request deletion at any time. We use industry-standard security to protect your information.</span>
+    <h3>1. Who We Are</h3><p>ClipSpeedAI Inc. operates the AI-powered video clipping platform. For privacy questions, contact us at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.</p>
+    <h3>2. Information We Collect</h3>
+    <div class="legal-table-wrap"><table class="legal-table"><tr><th>Data Type</th><th>Examples</th><th>Purpose</th></tr><tr><td>Account Data</td><td>Email, name, password hash</td><td>Authentication</td></tr><tr><td>Usage Data</td><td>Videos processed, credits used</td><td>Service delivery</td></tr><tr><td>Device & Log Data</td><td>IP address, browser, timestamps</td><td>Security</td></tr><tr><td>Payment Data</td><td>Billing address (Stripe handles cards)</td><td>Payment processing</td></tr><tr><td>Content Data</td><td>YouTube URLs, clip metadata</td><td>AI processing</td></tr></table></div>
+    <h3>3. How We Use Your Information</h3><p>To provide and improve the platform, authenticate your account, process payments, send transactional emails, detect fraud, and comply with legal obligations. We send marketing communications only with your consent — opt out anytime.</p>
+    <h3>4. Legal Basis (GDPR)</h3><p>We process data under: <strong>Contract performance</strong> (to deliver the Service), <strong>Legitimate interests</strong> (security, analytics), <strong>Consent</strong> (marketing, non-essential cookies), and <strong>Legal obligation</strong> (tax, regulatory compliance).</p>
+    <h3>5. Data Sharing</h3><p>We <strong>do not sell your personal data</strong>. We share data only with: <strong>Supabase</strong> (database & auth), <strong>Stripe</strong> (payments, PCI-DSS Level 1), <strong>OpenAI</strong> (AI processing — data not retained for training), <strong>Railway/AWS</strong> (cloud infrastructure).</p>
+    <h3>6. Data Retention</h3><p>Account data is retained while your account is active. Processed video metadata is retained for <strong>90 days</strong>. Upon account deletion, personal data is removed within <strong>30 days</strong>.</p>
+    <h3>7. Your Rights</h3><p>You have the right to: access your data, correct inaccuracies, request deletion, receive your data in portable format, opt out of marketing, and (for California residents) opt out of data sharing under CCPA.</p>
+    <div class="legal-contact-row">📧 Data requests: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></div>
+    <h3>8. Security</h3><p>We implement 256-bit SSL/TLS encryption, AES-256 encryption at rest, bcrypt password hashing, role-based access controls, and regular penetration testing.</p>
+    <h3>9. Children's Privacy</h3><p>ClipSpeedAI is not directed to children under 13. If we become aware of data collected from a child under 13, we will delete it immediately.</p>
+    <h3>10. Contact</h3><div class="legal-contact-row">📧 Privacy questions: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></div>`},
+  cookies:{badge:'🍪 Cookies',title:'Cookie Policy',meta:'Last updated: January 1, 2025 · Manage preferences below',body:`
+    <span class="legal-highlight"><strong>Summary:</strong> We use essential cookies to run the site, and optional cookies for analytics and personalization. You can manage your preferences at any time.</span>
+    <h3>What Are Cookies?</h3><p>Cookies are small text files placed on your device when you visit a website. They help us keep you logged in, remember your preferences, and understand how the site is used.</p>
+    <h3>Types of Cookies We Use</h3>
+    <div class="legal-table-wrap"><table class="legal-table"><tr><th>Category</th><th>Purpose</th><th>Duration</th></tr><tr><td><strong>Strictly Necessary</strong></td><td>Authentication, security, session management. Cannot be disabled.</td><td>Session / 30 days</td></tr><tr><td><strong>Functional</strong></td><td>Remember your preferences and UI settings.</td><td>1 year</td></tr><tr><td><strong>Analytics</strong></td><td>Understand how users interact with the platform (anonymized).</td><td>90 days</td></tr><tr><td><strong>Marketing</strong></td><td>Show relevant ads and measure campaign effectiveness (consent required).</td><td>90 days</td></tr></table></div>
+    <h3>Third-Party Cookies</h3><p>Some cookies are set by: <strong>Stripe</strong> (payment fraud prevention), <strong>Google Analytics</strong> (usage analytics with IP anonymization), <strong>Supabase</strong> (authentication).</p>
+    <h3>Managing Your Preferences</h3><p>Click <strong>"Cookie Preferences"</strong> in the footer at any time to manage your choices. You can also control cookies through your browser settings — note that disabling essential cookies may affect functionality.</p>
+    <h3>Contact</h3><div class="legal-contact-row">📧 Cookie questions: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></div>`},
+  dmca:{badge:'⚖️ DMCA',title:'Copyright & DMCA Policy',meta:'Last updated: January 1, 2025 · Pursuant to 17 U.S.C. § 512',body:`
+    <span class="legal-highlight"><strong>Summary:</strong> ClipSpeedAI respects intellectual property rights. We only process content users have rights to. If you believe your copyright has been infringed, submit a DMCA takedown notice below.</span>
+    <h3>Our Commitment</h3><p>ClipSpeedAI does not host, distribute, or monetize third-party copyrighted content. We are committed to respecting the intellectual property rights of all content creators and rights holders.</p>
+    <h3>User Responsibility</h3><p>By using ClipSpeedAI, users represent that they own the content they submit, or have explicit written permission from the rights holder. Users who process unauthorized content are solely responsible for any resulting infringement claims.</p>
+    <h3>DMCA Takedown Procedure</h3><p>To submit a valid DMCA notice under 17 U.S.C. § 512(c)(3), your notice must include:</p>
+    <ul><li>Your physical or electronic signature (or authorized agent's)</li><li>Identification of the copyrighted work claimed as infringed</li><li>Identification of the infringing material with sufficient detail to locate it</li><li>Your contact information (name, address, telephone, email)</li><li>A good faith belief statement that use is not authorized by the copyright owner</li><li>A statement under penalty of perjury that the information is accurate</li></ul>
+    <div class="legal-contact-row">📧 Submit DMCA notices to: <a href="mailto:${CONTACT_EMAIL}?subject=DMCA%20Takedown%20Request">${CONTACT_EMAIL}</a> — Subject: "DMCA Takedown Request"</div>
+    <h3>Counter-Notice Procedure</h3><p>If you believe your content was removed by mistake, submit a counter-notice under 17 U.S.C. § 512(g)(3) including your signature, identification of removed material, a statement under penalty of perjury, and your contact information.</p>
+    <div class="legal-contact-row">📧 Counter-notices: <a href="mailto:${CONTACT_EMAIL}?subject=DMCA%20Counter-Notice">${CONTACT_EMAIL}</a> — Subject: "DMCA Counter-Notice"</div>
+    <h3>Repeat Infringer Policy</h3><p>Users who receive multiple valid DMCA takedown notices will have their accounts terminated in accordance with our Terms of Service and the DMCA.</p>`},
+  security:{badge:'🔐 Security',title:'Security Policy',meta:'Last updated: January 1, 2025 · Responsible Disclosure Program Active',body:`
+    <span class="legal-highlight"><strong>Summary:</strong> We take platform security seriously. We use encryption at every layer, monitor for threats continuously, and welcome responsible disclosure. Good-faith security researchers will not face legal action.</span>
+    <h3>Technical Security Measures</h3>
+    <ul><li><strong>Encryption in Transit:</strong> TLS 1.2/1.3 with 256-bit encryption. HTTPS enforced sitewide with HSTS.</li><li><strong>Encryption at Rest:</strong> All database records encrypted with AES-256.</li><li><strong>Password Security:</strong> Passwords hashed with bcrypt. 2FA supported.</li><li><strong>Authentication:</strong> JWT tokens with short expiry and secure refresh token rotation via Supabase Auth.</li><li><strong>Infrastructure:</strong> Private VPCs, network segmentation, strict firewall rules, principle of least privilege.</li><li><strong>Monitoring:</strong> 24/7 automated anomaly detection and intrusion detection systems.</li><li><strong>API Security:</strong> All endpoints rate-limited, authenticated, and protected against SQLi, XSS, CSRF.</li></ul>
+    <h3>Payment Security</h3><p>ClipSpeedAI does not store or process credit card numbers. All payments are handled by <strong>Stripe</strong>, a PCI-DSS Level 1 certified processor.</p>
+    <h3>Responsible Disclosure</h3><p>If you discover a security vulnerability, please report it responsibly:</p>
+    <div class="legal-contact-row">📧 Security reports: <a href="mailto:${CONTACT_EMAIL}?subject=Security%20Vulnerability%20Report">${CONTACT_EMAIL}</a></div>
+    <p style="margin-top:10px"><strong>Our commitment:</strong> We acknowledge receipt within <strong>48 hours</strong>, provide updates within <strong>7 business days</strong>, will not pursue legal action against good-faith researchers, and request <strong>90 days</strong> for remediation before public disclosure.</p>
+    <h3>Data Breach Response</h3><p>In the event of a confirmed breach, we will notify affected users within <strong>72 hours</strong>, notify relevant supervisory authorities where required, and take immediate containment and remediation steps.</p>
+    <div class="legal-contact-row">📧 Security team: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></div>`},
+  accessibility:{badge:'♿ Accessibility',title:'Accessibility Statement',meta:'Last updated: January 1, 2025 · WCAG 2.1 Level AA Target',body:`
+    <span class="legal-highlight"><strong>Summary:</strong> ClipSpeedAI is committed to making our platform accessible to everyone. We follow WCAG 2.1 AA guidelines and actively work to improve accessibility for all users.</span>
+    <h3>Our Commitment</h3><p>We believe accessibility is a fundamental right. We continually improve the user experience for everyone and apply relevant accessibility standards across our platform.</p>
+    <h3>Conformance Status</h3><p>ClipSpeedAI targets conformance with <strong>WCAG 2.1 Level AA</strong>. We are in active development toward full conformance.</p>
+    <h3>Accessibility Features</h3>
+    <div class="a11y-grid">
+      <div class="a11y-card"><div class="a11y-card-icon">⌨️</div><div class="a11y-card-title">Keyboard Navigation</div><div class="a11y-card-desc">Full keyboard accessibility — navigate all features without a mouse using Tab, Enter, and arrow keys.</div></div>
+      <div class="a11y-card"><div class="a11y-card-icon">🔊</div><div class="a11y-card-title">Screen Reader Support</div><div class="a11y-card-desc">Semantic HTML and ARIA labels for compatibility with JAWS, NVDA, and VoiceOver.</div></div>
+      <div class="a11y-card"><div class="a11y-card-icon">🎨</div><div class="a11y-card-title">Color Contrast</div><div class="a11y-card-desc">Text and UI elements meet WCAG 2.1 AA contrast ratios of at least 4.5:1.</div></div>
+      <div class="a11y-card"><div class="a11y-card-icon">📏</div><div class="a11y-card-title">Resizable Text</div><div class="a11y-card-desc">All text can be resized up to 200% without loss of content or functionality.</div></div>
+      <div class="a11y-card"><div class="a11y-card-icon">⏸️</div><div class="a11y-card-title">Reduced Motion</div><div class="a11y-card-desc">We respect the prefers-reduced-motion media query to limit animations for sensitive users.</div></div>
+      <div class="a11y-card"><div class="a11y-card-icon">🖱️</div><div class="a11y-card-title">No Color-Only Info</div><div class="a11y-card-desc">Information conveyed by color is also communicated through text labels or icons.</div></div>
+    </div>
+    <h3>Assistive Technology Tested</h3><p>NVDA + Chrome (Windows), VoiceOver + Safari (macOS & iOS), TalkBack + Chrome (Android), JAWS + Chrome/Edge (Windows).</p>
+    <h3>Feedback</h3><p>If you experience any accessibility barriers, please contact us:</p>
+    <div class="legal-contact-row">📧 Accessibility: <a href="mailto:${CONTACT_EMAIL}?subject=Accessibility%20Feedback">${CONTACT_EMAIL}</a></div>
+    <p style="margin-top:8px">We aim to respond to accessibility inquiries within <strong>3 business days</strong>.</p>`}
+};
+
+function openLegalModal(id){
+  const doc=LEGAL_DOCS[id];if(!doc)return;
+  document.getElementById('legalBadge').textContent=doc.badge;
+  document.getElementById('legalTitle').textContent=doc.title;
+  document.getElementById('legalMeta').textContent=doc.meta;
+  document.getElementById('legalBody').innerHTML=doc.body;
+  document.getElementById('legalModalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLegalModal(){
+  document.getElementById('legalModalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function openCookiePrefs(){
+  const prefs=JSON.parse(localStorage.getItem('csai_cookie_prefs')||'{"analytics":true,"functional":true,"marketing":false}');
+  document.getElementById('legalBadge').textContent='🍪 Cookies';
+  document.getElementById('legalTitle').textContent='Cookie Preferences';
+  document.getElementById('legalMeta').textContent='Choose which cookies you allow · Changes take effect immediately';
+  document.getElementById('legalBody').innerHTML=`
+    <p style="margin-bottom:18px;font-size:12.5px;color:var(--muted2)">Manage your cookie preferences below. Essential cookies are always required.</p>
+    <div class="cookie-pref-row"><div class="cp-info"><div class="cp-name">🔒 Strictly Necessary</div><div class="cp-desc">Authentication, security, and session management. Always active.</div></div><label class="cp-toggle"><input type="checkbox" checked disabled><div class="cp-slider required"></div></label></div>
+    <div class="cookie-pref-row"><div class="cp-info"><div class="cp-name">⚙️ Functional</div><div class="cp-desc">Remember your preferences and UI settings.</div></div><label class="cp-toggle"><input type="checkbox" id="cpFunctional" ${prefs.functional?'checked':''}><div class="cp-slider"></div></label></div>
+    <div class="cookie-pref-row"><div class="cp-info"><div class="cp-name">📊 Analytics</div><div class="cp-desc">Help us improve the platform. Data is aggregated and anonymized.</div></div><label class="cp-toggle"><input type="checkbox" id="cpAnalytics" ${prefs.analytics?'checked':''}><div class="cp-slider"></div></label></div>
+    <div class="cookie-pref-row"><div class="cp-info"><div class="cp-name">📣 Marketing</div><div class="cp-desc">Used to show relevant ads and measure campaign effectiveness.</div></div><label class="cp-toggle"><input type="checkbox" id="cpMarketing" ${prefs.marketing?'checked':''}><div class="cp-slider"></div></label></div>
+    <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
+      <button onclick="saveCookiePrefs()" style="padding:11px 24px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;flex:1">Save Preferences</button>
+      <button onclick="acceptAllCookiesModal()" style="padding:11px 20px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:10px;color:#4ade80;font-size:12px;font-weight:700;cursor:pointer">Accept All</button>
+      <button onclick="rejectAllCookiesModal()" style="padding:11px 20px;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:10px;color:var(--muted2);font-size:12px;font-weight:600;cursor:pointer">Reject Optional</button>
+    </div>
+    <p style="margin-top:14px;font-size:10.5px;color:var(--muted)">Your choices are saved for 12 months. Email <a href="mailto:${CONTACT_EMAIL}" style="color:var(--cyan)">${CONTACT_EMAIL}</a> for questions.</p>`;
+  document.getElementById('legalModalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function saveCookiePrefs(){
+  const prefs={functional:document.getElementById('cpFunctional')?.checked??true,analytics:document.getElementById('cpAnalytics')?.checked??true,marketing:document.getElementById('cpMarketing')?.checked??false};
+  localStorage.setItem('csai_cookie_prefs',JSON.stringify(prefs));
+  localStorage.setItem('csai_cookie_consent','custom');
+  closeLegalModal();hideCookieBanner();showToast('✅ Cookie preferences saved!','#10b981');
+}
+function acceptAllCookiesModal(){localStorage.setItem('csai_cookie_prefs',JSON.stringify({functional:true,analytics:true,marketing:true}));localStorage.setItem('csai_cookie_consent','accepted');closeLegalModal();hideCookieBanner();showToast('✅ All cookies accepted!','#10b981');}
+function rejectAllCookiesModal(){localStorage.setItem('csai_cookie_prefs',JSON.stringify({functional:false,analytics:false,marketing:false}));localStorage.setItem('csai_cookie_consent','rejected');closeLegalModal();hideCookieBanner();showToast('👍 Optional cookies rejected','#6366f1');}
+function acceptCookies(){localStorage.setItem('csai_cookie_prefs',JSON.stringify({functional:true,analytics:true,marketing:true}));localStorage.setItem('csai_cookie_consent','accepted');hideCookieBanner();showToast('✅ Cookies accepted!','#10b981');}
+function declineCookies(){localStorage.setItem('csai_cookie_prefs',JSON.stringify({functional:false,analytics:false,marketing:false}));localStorage.setItem('csai_cookie_consent','rejected');hideCookieBanner();}
+function hideCookieBanner(){const b=document.getElementById('cookieBanner');if(b){b.style.transition='opacity .4s ease,transform .4s ease';b.style.opacity='0';b.style.transform='translateX(-50%) translateY(20px)';setTimeout(()=>b.style.display='none',420);}}
+
+(function initCookieBanner(){if(localStorage.getItem('csai_cookie_consent'))document.getElementById('cookieBanner').style.display='none';})();
+
+// ── SESSION RESTORE ──
 (function restoreSession(){
   const tok=localStorage.getItem('csai_token'),usr=localStorage.getItem('csai_user');
   if(tok&&usr){authToken=tok;currentUser=JSON.parse(usr);SB.getProfile(currentUser.id,tok).then(p=>{if(p){userCredits=p.credits||50;refCode=p.ref_code||'';document.getElementById('planBadge').textContent=p.plan||'Free';}}).catch(()=>{});goToDashboard(false);}
 })();
 
+// ── PROC STAGE DOTS ──
 (function buildProcStageDots(){
   const labels=['Fetch','Transcribe','Analyze','Cut','Captions','Reframe','Ready'],icons=['⬇','🎙','🧠','✂️','💬','📱','☁️'];
   const c=document.getElementById('procStages');if(!c)return;
-  c.innerHTML=labels.map((l,i)=>`<div class="stage"><div class="sd" id="sd${i}">${icons[i]}</div><div class="stage-lbl">${l}</div></div>`).join('');
+  c.innerHTML=labels.map((l,i)=>`<div class="stage"><div class="sd" id="sd${i}">${icons[i]}</div></div>`).join('');
 })();
 
 function buildHDStageDots(){const c=document.getElementById('hdStageDots');if(!c)return;c.innerHTML=HD_STAGES.map((l,i)=>`<div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div class="hd-sd" id="hd-sd${i}">${HD_ICONS[i]}</div><div style="font-size:6px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px">${l}</div></div>`).join('');}
-function buildHDClipPreviews(){const c=document.getElementById('hdPreviews');if(!c)return;c.innerHTML=[1,2,3].map(n=>`<div id="hdPreview${n}" style="background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden;transition:all .5s"><div style="height:34px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border)">🎬</div><div style="padding:6px"><div style="font-size:7px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)">Clip 0${n}</div><div id="hdPreviewTxt${n}" style="font-size:9px;font-weight:700;color:var(--muted);margin-top:2px;line-height:1.3">Processing...</div></div></div>`).join('');}
+function buildHDClipPreviews(){const c=document.getElementById('hdPreviews');if(!c)return;c.innerHTML=[1,2,3].map(n=>`<div id="hdPreview${n}" style="background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden"><div style="height:34px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border)">🎬</div><div style="padding:6px"><div style="font-size:7px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)">Clip 0${n}</div><div id="hdPreviewTxt${n}" style="font-size:9px;font-weight:700;color:var(--muted);margin-top:2px;line-height:1.3">Processing...</div></div></div>`).join('');}
 
+// ── LANDING INIT ──
 (function initLanding(){
   const items=['⚡ 90-Second Processing','🧠 GPT-4o Viral Scoring','🎬 Auto B-Roll','💬 10 Caption Styles','📐 Auto Reframe','💰 Up to 50% Affiliate','🔥 AI-Powered Virality','🤖 GPT-4o Engine'];
   const ti=document.getElementById('tickerInner');const h=items.map(t=>`<span class="ticker-item"><span class="ticker-dot"></span>${t}</span>`).join('');ti.innerHTML=h+h;
@@ -1331,21 +1652,13 @@ function buildHDClipPreviews(){const c=document.getElementById('hdPreviews');if(
   const rt=document.getElementById('resultsTrack');rt.innerHTML=results.map(r=>`<div class="result-card-inline"><div class="result-num">${r.num}</div><div class="result-lbl">${r.lbl}</div></div>`).join('').repeat(2);
   const testis=[{s:'★★★★★',t:'"I was spending 3 hours clipping each podcast. Now it takes 90 seconds and the clips perform better than anything I made manually."',n:'Jake M.',h:'@jakecreates · 280K'},{s:'★★★★★',t:'"I only had 12K followers when I started using this. Two months later I\'m at 38K. The viral scoring actually works."',n:'Bree L.',h:'@breelifts · 38K'},{s:'★★★★★',t:'"Switched from OpusClip and never looked back. 10x faster and the caption styles actually look good."',n:'Marcus T.',h:'Viral Agency · 40+ clients'},{s:'★★★★★',t:'"I went from posting 2 clips a week to 15. The affiliate program is also legit."',n:'Dylan C.',h:'@dylanbuilds · 95K'},{s:'★★★★★',t:'"I\'m a small creator with 22K followers and this tool makes me feel like I have a full editing team behind me."',n:'Cam R.',h:'@camtalkstech · 22K'},{s:'★★★★★',t:'"Finally a clip tool that just works. Paste URL, come back in 90 seconds, done."',n:'Priya N.',h:'@priyapodcast · 140K'}];
   const tt=document.getElementById('testiTrack');const th=testis.map(t=>`<div class="testi-card"><div class="testi-stars">${t.s}</div><div class="testi-text">${t.t}</div><div class="testi-author"><div class="testi-av">${t.n[0]}</div><div><div class="testi-name">${t.n}</div><div class="testi-handle">${t.h}</div></div></div></div>`).join('');tt.innerHTML=th+th;
-
-  // Score cards — inline style uses grid-template-columns set by JS so mobile CSS can override via #scoreCards
   const sc=document.getElementById('scoreCards');
-  if(sc){
-    sc.style.gridTemplateColumns='repeat(4,1fr)';
-    const cards=[{icon:'⚡',name:'ClipSpeedAI',score:98,winner:true},{icon:'🎬',name:'OpusClip',score:74,winner:false},{icon:'🎞️',name:'Pictory',score:54,winner:false},{icon:'✂️',name:'Descript',score:57,winner:false}];
-    sc.innerHTML=cards.map(c=>`<div style="background:${c.winner?'linear-gradient(135deg,rgba(168,85,247,.18),rgba(99,102,241,.1))':'var(--bg2)'};border:${c.winner?'1.5px solid rgba(168,85,247,.55)':'1px solid var(--border)'};border-radius:20px;padding:22px 16px;text-align:center;position:relative;overflow:hidden">${c.winner?'<div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan))"></div><div style="position:absolute;top:10px;right:10px;padding:3px 8px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:99px;font-size:8px;font-weight:800;color:#fff">WINNER</div>':''}<div style="font-size:26px;margin-bottom:8px">${c.icon}</div><div style="font-size:13px;font-weight:900;color:${c.winner?'#fff':'var(--muted2)'};margin-bottom:4px">${c.name}</div><div style="font-size:44px;font-weight:900;${c.winner?'background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent':'color:var(--muted2)'};line-height:1">${c.score}</div><div style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Overall Score</div></div>`).join('');
-  }
-
+  if(sc){sc.style.gridTemplateColumns='repeat(4,1fr)';const cards=[{icon:'⚡',name:'ClipSpeedAI',score:98,winner:true},{icon:'🎬',name:'OpusClip',score:74,winner:false},{icon:'🎞️',name:'Pictory',score:54,winner:false},{icon:'✂️',name:'Descript',score:57,winner:false}];sc.innerHTML=cards.map(c=>`<div style="background:${c.winner?'linear-gradient(135deg,rgba(168,85,247,.18),rgba(99,102,241,.1))':'var(--bg2)'};border:${c.winner?'1.5px solid rgba(168,85,247,.55)':'1px solid var(--border)'};border-radius:20px;padding:22px 16px;text-align:center;position:relative;overflow:hidden">${c.winner?'<div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan))"></div><div style="position:absolute;top:10px;right:10px;padding:3px 8px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:99px;font-size:8px;font-weight:800;color:#fff">WINNER</div>':''}<div style="font-size:26px;margin-bottom:8px">${c.icon}</div><div style="font-size:13px;font-weight:900;color:${c.winner?'#fff':'var(--muted2)'};margin-bottom:4px">${c.name}</div><div style="font-size:44px;font-weight:900;${c.winner?'background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent':'color:var(--muted2)'};line-height:1">${c.score}</div><div style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Overall Score</div></div>`).join('');}
   const rows=[{label:'Processing Speed',us:'~90 seconds',op:'5–15 min',pi:'10–20 min',de:'Manual'},{label:'GPT-4o Viral Scoring',us:'✓ Full 0–100',op:'Basic only',pi:'✗',de:'✗'},{label:'Auto Caption Styles',us:'✓ 10 styles',op:'✓ 3 styles',pi:'✓ 2 styles',de:'✓ Basic'},{label:'AI B-Roll Matching',us:'✓ Live Pexels',op:'Limited',pi:'✓ Stock only',de:'✗'},{label:'Speaker Auto-Reframe',us:'✓ All ratios',op:'✓ 9:16 only',pi:'✗',de:'✗'},{label:'Affiliate Program',us:'✓ Up to 50%',op:'✗',pi:'✗',de:'✗'},{label:'Free Credits on Signup',us:'✓ 50 credits',op:'3 clips/mo',pi:'7-day trial',de:'1hr free'},{label:'Pricing (Pro)',us:'$40/mo',op:'$49/mo',pi:'$47/mo',de:'$24/mo*'}];
   const isGood=v=>v.startsWith('✓')||v.includes('90 sec')||v.includes('50 cr')||v.includes('10 styles')||v.includes('50%')||v.includes('All ratio')||v.includes('$40');
   const isBad=v=>v==='✗'||v==='Manual';
   const vr=document.getElementById('vsRows');
   if(vr){vr.innerHTML=rows.map(r=>`<div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;border-bottom:1px solid var(--border)"><div style="padding:13px 20px;font-size:12px;font-weight:700">${r.label}</div><div style="padding:13px 12px;text-align:center;background:rgba(168,85,247,.04)"><span style="display:inline-flex;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:800;background:${isGood(r.us)?'rgba(16,185,129,.12)':'rgba(255,255,255,.04)'};color:${isGood(r.us)?'var(--green)':'var(--muted2)'}">${r.us}</span></div><div style="padding:13px 12px;text-align:center"><span style="display:inline-flex;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.op)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.op)?'#f87171':'var(--muted2)'}">${r.op}</span></div><div style="padding:13px 12px;text-align:center"><span style="display:inline-flex;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.pi)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.pi)?'#f87171':'var(--muted2)'}">${r.pi}</span></div><div style="padding:13px 12px;text-align:center"><span style="display:inline-flex;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.de)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.de)?'#f87171':'var(--muted2)'}">${r.de}</span></div></div>`).join('')+'<div style="padding:8px 20px;font-size:9px;color:var(--muted)">* Pricing as of 2025.</div>';}
-
   const col1=FAQS.filter((_,i)=>i%2===0),col2=FAQS.filter((_,i)=>i%2!==0);
   function renderFaqCol(items,offset){return items.map((f,i)=>{const idx=offset+i*2;return`<div class="faq-item" id="faq-${idx}"><button class="faq-q" onclick="toggleFaq(${idx})"><span>${f.q}</span><span class="faq-icon">+</span></button><div class="faq-a"><p>${f.a}</p></div></div>`;}).join('');}
   const fc=document.getElementById('faqCols');if(fc)fc.innerHTML=`<div>${renderFaqCol(col1,0)}</div><div>${renderFaqCol(col2,1)}</div>`;
@@ -1361,204 +1674,4 @@ function startHeroDemo(url){
   buildHDStageDots();buildHDClipPreviews();
   document.getElementById('hdBar').style.width='0%';document.getElementById('hdPct').textContent='0%';document.getElementById('hdRing').style.strokeDashoffset='145';document.getElementById('hdStep').textContent='Initializing AI engine...';
   const demoClips=[{title:'The Moment That Changes Everything 🔥',score:94,hook:'"You\'ve never seen this explained like this..."',dur:'0:47'},{title:'Nobody Talks About This Part 😱',score:89,hook:'"Everyone gets this completely wrong..."',dur:'0:52'},{title:'3 Things That Blow Your Mind 🧠',score:91,hook:'"These facts hit different every time..."',dur:'0:38'}];
-  const stages=[{to:14,ms:700,txt:'Downloading video...'},{to:30,ms:1000,txt:'Whisper AI transcribing audio...'},{to:50,ms:1400,txt:'GPT-4o detecting viral moments...'},{to:66,ms:1100,txt:'Precision cutting clips...'},{to:80,ms:900,txt:'Burning animated captions...'},{to:90,ms:700,txt:'Reframing to 9:16...'},{to:100,ms:500,txt:'Finalising your clips...'}];
-  let pct=0;
-  const bar=document.getElementById('hdBar'),pctEl=document.getElementById('hdPct'),stepEl=document.getElementById('hdStep'),ringEl=document.getElementById('hdRing');
-  function applyPct(v){bar.style.width=v+'%';pctEl.textContent=Math.round(v)+'%';ringEl.style.strokeDashoffset=145-(145*v/100);}
-  function animTo(target,done){const go=()=>{pct+=(target-pct)*0.14;if(Math.abs(pct-target)<0.4){pct=target;applyPct(pct);done&&done();return;}applyPct(pct);requestAnimationFrame(go);};requestAnimationFrame(go);}
-  function updateHDDots(activeIdx){for(let i=0;i<7;i++){const d=document.getElementById('hd-sd'+i);if(!d)continue;d.className='hd-sd'+(i<activeIdx?' hd-done':i===activeIdx?' hd-active':'');}}
-  let si=0;
-  function runStage(){if(si>=stages.length){showDemoClips(demoClips);return;}const s=stages[si++];if(stepEl)stepEl.textContent=s.txt;updateHDDots(si-1);animTo(s.to,()=>setTimeout(runStage,s.ms));}
-  setTimeout(runStage,300);
-}
-function showDemoClips(clips){
-  document.getElementById('hdProcessing').style.display='none';const clipsEl=document.getElementById('hdClips');clipsEl.style.display='block';
-  const list=document.getElementById('hdClipsList');
-  list.innerHTML=clips.map((c,i)=>`<div class="hd-clip" style="animation-delay:${i*.25}s"><div class="hd-clip-score" style="color:${c.score>=90?'#4ade80':'#a855f7'}">${c.score}</div><div class="hd-clip-mid"><div class="hd-clip-title">${c.title}</div><div class="hd-clip-hook">${c.hook}</div><div style="font-size:9px;color:var(--muted);margin-top:4px">⏱ ${c.dur} &nbsp;·&nbsp; ${c.score>=90?'🔥 VIRAL':'⚡ HIGH'}</div></div><div class="hd-clip-play">▶</div></div>`).join('');
-  setTimeout(()=>{const gate=document.getElementById('hdBlurGate');gate.style.display='flex';setTimeout(()=>gate.style.opacity='1',20);},5000);
-}
-function closeHeroDemo(){const o=document.getElementById('heroDemoOverlay');o.style.opacity='0';setTimeout(()=>{o.style.display='none';},350);}
-function toggleFaq(i){const item=document.getElementById('faq-'+i);const was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));if(!was)item.classList.add('open');}
-
-function initParticles(){
-  const c=document.getElementById('particleCanvas');if(!c)return;
-  const ctx=c.getContext('2d');let W,H,particles=[];const mouse={x:0,y:0};
-  const COLORS=['rgba(168,85,247,','rgba(99,102,241,','rgba(34,211,238,'];
-  function resize(){W=c.width=window.innerWidth;H=c.height=c.parentElement.offsetHeight;}
-  resize();window.addEventListener('resize',resize);
-  document.querySelector('.hero').addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
-  function P(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5;this.color=COLORS[Math.floor(Math.random()*COLORS.length)];this.alpha=Math.random()*.5+.1;}
-  for(let i=0;i<80;i++)particles.push(new P());
-  function draw(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{const dx=mouse.x-p.x,dy=mouse.y-p.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){p.vx+=dx/dist*.02;p.vy+=dy/dist*.02;}p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.vy*=.99;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.color+p.alpha+')';ctx.fill();});for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(168,85,247,'+(1-d/100)*.1+')';ctx.lineWidth=.5;ctx.stroke();}}requestAnimationFrame(draw);}
-  draw();
-}
-
-function toggleBilling(){isAnnual=!isAnnual;document.getElementById('togTrack').classList.toggle('on',isAnnual);document.getElementById('togKnob').classList.toggle('on',isAnnual);document.getElementById('monthlyLbl').classList.toggle('active',!isAnnual);document.getElementById('annualLbl').classList.toggle('active',isAnnual);const prices=isAnnual?{s:'$12',p:'$24'}:{s:'$20',p:'$40'};document.getElementById('starterP').textContent=prices.s;document.getElementById('proP').textContent=prices.p;const dayEl=document.getElementById('proDayPrice');if(dayEl)dayEl.textContent=isAnnual?'$0.80/day · 40% off annual':'$1.33/day · Cheaper than a coffee';}
-function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
-function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
-
-function openAuth(signup){
-  isSignup=signup!==false;
-  document.getElementById('authBtn').textContent=isSignup?'Sign Up Free — Get 50 Credits':'Sign In';
-  document.getElementById('authTagline').textContent=isSignup?'Create your free account':'Welcome back';
-  document.getElementById('authToggle').innerHTML=isSignup?'Already have an account? <span>Sign In</span>':"Don't have an account? <span>Sign Up Free</span>";
-  document.getElementById('authBonus').style.display=isSignup?'inline-flex':'none';
-  const hint=document.getElementById('pendingHint');
-  if(pendingUrl&&isSignup){hint.textContent='🔗 We\'ll start processing: '+pendingUrl;hint.classList.add('show');}else hint.classList.remove('show');
-  document.getElementById('authErr').style.display='none';
-  document.getElementById('authOverlay').classList.add('open');
-  setTimeout(()=>document.getElementById('authEmail').focus(),100);
-}
-function closeAuth(){document.getElementById('authOverlay').classList.remove('open');}
-function toggleAuthMode(){openAuth(!isSignup);}
-
-async function handleAuth(){
-  const email=document.getElementById('authEmail').value.trim(),pass=document.getElementById('authPass').value;
-  const errEl=document.getElementById('authErr');errEl.style.display='none';
-  if(!email||!pass){errEl.textContent='Email and password required';errEl.style.display='block';return;}
-  const btn=document.getElementById('authBtn');btn.disabled=true;btn.innerHTML='<span class="spin"></span>';
-  try{
-    const data=isSignup?await SB.signUp(email,pass):await SB.signIn(email,pass);
-    if(data.error||data.msg){errEl.textContent=data.error_description||data.msg||'Auth error — check credentials';errEl.style.display='block';btn.disabled=false;btn.textContent=isSignup?'Sign Up Free — Get 50 Credits':'Sign In';return;}
-    const token=data.access_token||data.session?.access_token,user=data.user||data.session?.user;
-    if(!token||!user){if(isSignup){errEl.textContent='Check your email to confirm your account!';errEl.style.display='block';}btn.disabled=false;btn.textContent=isSignup?'Sign Up Free — Get 50 Credits':'Sign In';return;}
-    authToken=token;currentUser=user;localStorage.setItem('csai_token',token);localStorage.setItem('csai_user',JSON.stringify(user));
-    const profile=await SB.getProfile(user.id,token);if(profile){userCredits=profile.credits||50;refCode=profile.ref_code||'';}
-    closeAuth();goToDashboard(true);
-  }catch(e){errEl.textContent='Network error — please try again';errEl.style.display='block';btn.disabled=false;btn.textContent=isSignup?'Sign Up Free — Get 50 Credits':'Sign In';}
-}
-async function oauthLogin(provider){window.location.href=SB.oauthUrl(provider);}
-async function signOut(){
-  if(authToken)await SB.signOut(authToken).catch(()=>{});
-  localStorage.removeItem('csai_token');localStorage.removeItem('csai_user');
-  authToken=null;currentUser=null;isLoggedIn=false;
-  document.getElementById('dashboard').style.display='none';document.getElementById('landing').style.display='block';document.getElementById('chatBubble').style.display='none';
-  showToast('👋 Signed out successfully','#6366f1');
-}
-function goToDashboard(showWizard=true){
-  isLoggedIn=true;document.getElementById('landing').style.display='none';document.getElementById('dashboard').style.display='block';document.getElementById('chatBubble').style.display='block';
-  const rc=refCode||'ref_loading';document.getElementById('refLinkDisplay').textContent='clipspeed.ai/ref/'+rc;document.getElementById('wizRefLink').textContent='clipspeed.ai/ref/'+rc;document.getElementById('creditsDisplay').textContent=userCredits;renderTemplates();
-  if(showWizard){setTimeout(()=>{if(pendingUrl)document.getElementById('wizUrl').value=pendingUrl;document.getElementById('wizardOverlay').classList.add('open');},400);}
-}
-
-function updateWizDots(){const dots=document.querySelectorAll('.wdot');dots.forEach((d,i)=>{d.classList.remove('active','done');if(i+1===wizStep)d.classList.add('active');else if(i+1<wizStep)d.classList.add('done');});}
-function nextWizard(){document.getElementById('wiz'+wizStep).classList.remove('active');wizStep++;if(wizStep>3){closeWizard();return;}document.getElementById('wiz'+wizStep).classList.add('active');updateWizDots();}
-function closeWizard(){document.getElementById('wizardOverlay').classList.remove('open');wizStep=1;if(pendingUrl){document.getElementById('urlInput').value=pendingUrl;pendingUrl='';setTimeout(()=>startGenerate(),400);}}
-function wizardGenerate(){const url=document.getElementById('wizUrl').value.trim();if(!url){showToast('⚠️ Please enter a YouTube URL','#ef4444');return;}nextWizard();document.getElementById('urlInput').value=url;setTimeout(()=>startGenerate(),600);}
-
-function switchPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const pg=document.getElementById('page-'+id);if(!pg)return;pg.classList.add('active');document.querySelectorAll('.nav-pill,.mob-btn').forEach(b=>b.classList.remove('active'));['nb-','mnb-'].forEach(pre=>{const el=document.getElementById(pre+id);if(el)el.classList.add('active');});if(id==='analytics')renderAnalytics();if(id==='brand')renderTemplates();if(id==='clips')renderClipsTab();document.documentElement.scrollTo({top:0,behavior:'smooth'});}
-function setSource(src,el){document.querySelectorAll('.source-tabs .src-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');const icons={youtube:'▶️',vimeo:'🎞',tiktok:'🎵',upload:'📁'};const phs={youtube:'https://youtube.com/watch?v=...',vimeo:'https://vimeo.com/...',tiktok:'https://tiktok.com/@user/video/...',upload:'Drag & drop or click to select file...'};document.getElementById('srcIcon').textContent=icons[src]||'🔗';document.getElementById('urlInput').placeholder=phs[src]||'Paste URL...';}
-
-function startGenerate(){
-  const url=document.getElementById('urlInput').value.trim(),err=document.getElementById('urlErr');
-  if(!url){err.textContent='⚠️ Please enter a valid URL';err.classList.add('show');return;}
-  err.classList.remove('show');
-  if(userCredits<=0){openUpgradeModal();showToast('⚠️ You need credits to generate clips!','#f59e0b');return;}
-  document.getElementById('procTitle').textContent=url.length>55?url.slice(0,55)+'...':url;document.getElementById('procMeta').textContent='⏱ Detecting duration · 📊 Scanning...';
-  resetProc();document.getElementById('procOverlay').classList.add('show');document.getElementById('genBtn').disabled=true;
-  rotateFact(0);factTimer=setInterval(()=>{factIdx++;rotateFact(factIdx);},7000);runSim();
-}
-function resetProc(){procPct=0;procReady=0;updateRing(0);document.getElementById('procPct').textContent='0%';document.getElementById('procBar').style.width='0%';document.getElementById('psReady').textContent='0';document.getElementById('psScore').textContent='--';document.getElementById('psETA').textContent='~90s';document.getElementById('procStep').textContent='Initializing AI engine...';[0,1,2,3,4,5,6].forEach(i=>{const d=document.getElementById('sd'+i);if(d)d.className='sd';});const sd0=document.getElementById('sd0');if(sd0)sd0.className='sd active';[0,1,2].forEach(i=>{const c=document.getElementById('pcc'+i);if(!c)return;c.className='pcc';const t=document.getElementById('pct'+i);if(t)t.textContent='Queued...';const th=c.querySelector('.pcc-thumb');if(th)th.textContent='🎬';});}
-function runSim(){const steps=[{to:13,ms:700},{to:29,ms:1100},{to:49,ms:1500},{to:65,ms:1200},{to:78,ms:1000},{to:88,ms:800},{to:100,ms:600}];let i=0;function next(){if(i>=steps.length){finishProc();return;}const s=steps[i++];animProcTo(s.to);updateStage(s.to);if(s.to===29)document.getElementById('procMeta').textContent='⏱ 12:34 detected · 📊 Scanning transcript...';if(s.to===49)document.getElementById('procMeta').textContent='⏱ 12:34 · 📊 3 viral moments detected!';if(s.to===65&&procReady===0)revealPreview(0);if(s.to===88&&procReady===1)revealPreview(1);setTimeout(next,s.ms);}setTimeout(next,300);}
-function animProcTo(target){const go=()=>{procPct+=(target-procPct)*0.13;if(Math.abs(procPct-target)<0.3){procPct=target;setPct(procPct);return;}setPct(procPct);requestAnimationFrame(go);};requestAnimationFrame(go);}
-function setPct(v){const r=Math.round(v);document.getElementById('procPct').textContent=r+'%';document.getElementById('procBar').style.width=v+'%';updateRing(v);}
-function updateRing(pct){const da=176,offset=da-(da*pct/100);const el=document.getElementById('prf');if(el)el.style.strokeDashoffset=offset;}
-function updateStage(pct){const s=STAGE_STEPS.find(x=>pct>=x.min&&pct<x.max)||STAGE_STEPS[STAGE_STEPS.length-1];document.getElementById('procStep').textContent=s.label;document.getElementById('psETA').textContent=s.eta;[0,1,2,3,4,5,6].forEach(i=>{const d=document.getElementById('sd'+i);if(!d)return;d.className=i<s.dot?'sd done':i===s.dot?'sd active':'sd';});}
-function revealPreview(n){const c=DEMO_CLIPS[n],card=document.getElementById('pcc'+n);if(!card)return;card.classList.add('ready');const th=card.querySelector('.pcc-thumb');if(th)th.textContent='✅';const t=document.getElementById('pct'+n);if(t)t.textContent=c.clip_title;procReady++;document.getElementById('psReady').textContent=procReady;document.getElementById('psScore').textContent=c.viral_score;}
-function finishProc(){clearInterval(factTimer);revealPreview(2);setTimeout(()=>{document.getElementById('procOverlay').classList.remove('show');document.getElementById('genBtn').disabled=false;currentClips=JSON.parse(JSON.stringify(DEMO_CLIPS));userCredits=Math.max(0,userCredits-3);document.getElementById('creditsDisplay').textContent=userCredits;renderHomeFeed();renderClipsTab();showToast('🔥 3 Viral Clips Ready — Start Posting!','#4ade80');setTimeout(()=>document.getElementById('homeFeed').scrollIntoView({behavior:'smooth',block:'start'}),400);},600);}
-function rotateFact(idx){const el=document.getElementById('factTxt');if(!el)return;el.classList.add('fade');setTimeout(()=>{const f=FACTS[idx%FACTS.length];document.getElementById('factTag').textContent=f.tag;el.textContent=f.text;document.getElementById('factNum').textContent=f.num;el.classList.remove('fade');},380);}
-
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function buildClipCard(c,idx){
-  const sc=c.viral_score||80,h=c.hook_score||80,ret=c.retention_score||75,emo=c.emotion_score||70;
-  const gc=sc>=90?'sg-fire':'sg-high',gt=sc>=90?'🔥 VIRAL':'⚡ HIGH',sA=sc>=90?'#4ade80':'#a855f7';
-  const dur=c.duration_seconds?`${Math.floor(c.duration_seconds/60)}:${String(c.duration_seconds%60).padStart(2,'0')}`:'--';
-  const pm={'TikTok':'🎵','Instagram Reels':'📸','YouTube Shorts':'▶️','Twitter/X':'🐦'};
-  return`<div class="clip-card" style="animation-delay:${idx*.1}s" id="card-${c.id}">
-    <div class="cc-score"><div class="score-num" style="background:linear-gradient(135deg,${sA},#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${sc}</div><div class="score-lbl">Viral Score</div><div class="score-grade ${gc}">${gt}</div>
-      <div style="width:100%;display:flex;flex-direction:column;gap:3px;margin-top:5px">${[['Hook',h,'#a855f7'],['Retain',ret,'#22d3ee'],['Emotion',emo,'#4ade80']].map(([n,v,col])=>`<div><div style="display:flex;justify-content:space-between;margin-bottom:1px"><span style="font-size:6.5px;color:var(--muted)">${n}</span><span style="font-size:6.5px;font-weight:800;color:${col}">${v}%</span></div><div style="height:2px;background:rgba(255,255,255,.06);border-radius:1px;overflow:hidden"><div style="height:100%;width:${v}%;background:${col};border-radius:1px"></div></div></div>`).join('')}</div>
-    </div>
-    <div class="cc-vid"><div class="vid-mock" onclick="showToast('▶ Preview coming in Pro!','#6366f1')">🎥<div class="vid-play">▶</div><div class="vid-num">Clip ${idx+1}</div><div class="vid-plat">${pm[c.platform]||'📱'} ${esc(c.platform||'TikTok')}</div><div class="vid-dur">${dur}</div>${sc>=90?'<div style="position:absolute;bottom:7px;left:50%;transform:translateX(-50%);font-size:16px;animation:float 1.5s ease-in-out infinite">🔥</div>':''}</div></div>
-    <div class="cc-info"><div class="cc-title">${esc(c.clip_title)}</div>${c.hook?`<div class="cc-hook">"${esc(c.hook)}"</div>`:''}<div class="cc-meta"><div class="cc-mi">🔥 <strong>${sc}/100</strong></div><div class="cc-mi">⏱ ${dur}</div><div class="cc-views">👁 ${esc(c.views||'—')}</div></div>${c.hashtags?`<div class="cc-tags">${esc(c.hashtags)}</div>`:''}${c.transcript_excerpt?`<div class="cc-transcript-lbl">📝 Transcript</div><div class="cc-transcript">${esc(c.transcript_excerpt)}</div>`:''}
-      <div class="cc-actions"><button class="cc-btn cb-dl" onclick="downloadClip(${idx})">⬇ Download</button><button class="cc-btn cb-edit" onclick="openEditor(currentClips[${idx}])">✏️ Edit</button><button class="cc-btn cb-copy" onclick="copyCaption(${idx})">📋 Caption</button><button class="cc-btn cb-share" onclick="openShare()">🔗 Share</button><button class="cc-btn cb-del" onclick="deleteClip('${c.id}')">🗑</button></div>
-    </div>
-  </div>`;
-}
-function renderHomeFeed(){const empty=document.getElementById('emptyFeed'),list=document.getElementById('homeClipsList'),con=document.getElementById('homeClipsContainer'),badge=document.getElementById('clipBadge');if(!currentClips.length){empty.style.display='block';list.style.display='none';return;}empty.style.display='none';list.style.display='block';badge.textContent=currentClips.length;con.innerHTML=currentClips.map((c,i)=>buildClipCard(c,i)).join('');}
-function renderClipsTab(){const con=document.getElementById('clipsTabContainer');let clips=currentClips.filter(c=>{if(activeFilter==='fire')return c.viral_score>=90;if(activeFilter==='high')return c.viral_score>=80;if(activeFilter==='tiktok')return c.platform==='TikTok';if(activeFilter==='reels')return c.platform==='Instagram Reels';return true;});con.innerHTML=clips.length?clips.map((c,i)=>buildClipCard(c,i)).join(''):`<div class="empty-feed"><div class="empty-feed-icon">✂️</div><div class="empty-feed-title">${currentClips.length?'No clips match this filter':'No clips yet'}</div><div class="empty-feed-sub">${currentClips.length?'Try a different filter':'Head to Generate and paste a YouTube URL'}</div></div>`;}
-function filterClips(f,el){activeFilter=f;document.querySelectorAll('#page-clips .src-tab').forEach(c=>c.classList.remove('active'));el.classList.add('active');renderClipsTab();}
-function clearClips(){if(!currentClips.length)return;currentClips=[];renderHomeFeed();renderClipsTab();showToast('🗑 All clips cleared','#ef4444');}
-function deleteClip(id){currentClips=currentClips.filter(c=>c.id!==id);renderHomeFeed();renderClipsTab();showToast('🗑 Clip deleted','#ef4444');}
-function downloadClip(idx){showToast('⬇ Downloading Clip '+(idx+1)+'...','#6366f1');setTimeout(()=>showToast('✅ Download complete!','#4ade80'),1800);}
-function copyCaption(i){const c=currentClips[i];if(!c)return;const txt=[c.hook,c.transcript_excerpt,c.hashtags].filter(Boolean).join('\n\n');navigator.clipboard?.writeText(txt).catch(()=>{});showToast('📋 Caption + hashtags copied!','#22d3ee');}
-function bulkDownload(){if(!currentClips.length){showToast('No clips yet!','#ef4444');return;}showToast('📦 Downloading all '+currentClips.length+' clips...','#22d3ee');setTimeout(()=>showToast('✅ All clips downloaded!','#4ade80'),2500);}
-
-function renderAnalytics(){
-  const el=document.getElementById('analyticsContent');
-  if(!currentClips.length){el.innerHTML='<div style="color:var(--muted);text-align:center;padding:50px"><div style="font-size:32px;margin-bottom:10px">📊</div>Generate clips first to see analytics</div>';return;}
-  const avg=Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||80),0)/currentClips.length);const best=Math.max(...currentClips.map(c=>c.viral_score||80));
-  const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];const bd=days.map(()=>Math.floor(Math.random()*80+20));const mx=Math.max(...bd);
-  el.innerHTML=`<div class="stat-grid"><div class="stat-card"><div class="stat-lbl">Total Clips</div><div class="stat-val" style="color:var(--p)">${currentClips.length}</div></div><div class="stat-card"><div class="stat-lbl">Avg Score</div><div class="stat-val" style="color:var(--cyan)">${avg}</div></div><div class="stat-card"><div class="stat-lbl">Best Score</div><div class="stat-val" style="color:#4ade80">${best}</div></div><div class="stat-card"><div class="stat-lbl">Est. Views</div><div class="stat-val" style="color:var(--gold)">7.3M</div></div></div><div class="chart-card"><div class="chart-title">📈 Clips Generated — Last 7 Days</div><div class="bar-chart">${days.map((d,i)=>`<div class="bar-wrap"><div class="bar-inner"><div class="bar-fill" style="height:${(bd[i]/mx*100).toFixed(0)}%;background:linear-gradient(180deg,var(--p),var(--p2))"></div></div><div class="bar-lbl">${d}</div></div>`).join('')}</div></div><div class="chart-card"><div class="chart-title">🏆 Top Performing Clips</div>${currentClips.slice().sort((a,b)=>(b.viral_score||0)-(a.viral_score||0)).map((c,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:9px;background:var(--bg3);border-radius:9px;border:1px solid var(--border);margin-bottom:7px"><div style="font-size:16px;width:26px;text-align:center">${['🥇','🥈','🥉'][i]||i+1}</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(c.clip_title)}</div></div><div style="font-size:20px;font-weight:900;color:${c.viral_score>=90?'#4ade80':'#a855f7'}">${c.viral_score}</div></div>`).join('')}</div>`;
-}
-
-function renderTemplates(){const el=document.getElementById('templatesGrid');if(!el)return;el.innerHTML=TEMPLATES.map(t=>`<div class="tmpl-card ${appliedTemplate===t.id?'applied':''}" onclick="applyTemplate('${t.id}')"><div class="tmpl-preview" style="background:${t.bg}">${t.emoji}</div><div class="tmpl-name">${t.name}</div><div class="tmpl-desc">${t.desc}</div><button style="width:100%;padding:6px;margin-top:8px;background:${appliedTemplate===t.id?'rgba(16,185,129,.15)':'linear-gradient(135deg,var(--p),var(--p2))'};border:${appliedTemplate===t.id?'1px solid rgba(16,185,129,.3)':'none'};border-radius:7px;color:${appliedTemplate===t.id?'var(--green)':'#fff'};font-size:10px;font-weight:700;cursor:pointer">${appliedTemplate===t.id?'✓ Applied':'Apply'}</button></div>`).join('');}
-function applyTemplate(id){appliedTemplate=id;renderTemplates();showToast('✅ Template applied!','#4ade80');}
-
-function openEditor(clip){if(!clip&&currentClips.length)clip=currentClips[0];if(!clip){showToast('Generate clips first!','#ef4444');return;}editorClip=clip;document.getElementById('editorTitle').textContent='✏️ '+(clip.clip_title||'Edit Clip');document.getElementById('captionText').value=clip.hook||'';document.getElementById('edCapPrev').textContent=clip.hook||'CAPTION PREVIEW';document.getElementById('editorOverlay').classList.add('open');document.getElementById('editorPanel').classList.add('open');document.getElementById('exportMenu').classList.remove('open');}
-function closeEditor(){document.getElementById('editorOverlay').classList.remove('open');document.getElementById('editorPanel').classList.remove('open');}
-function onCaptionInput(){const v=document.getElementById('captionText').value;document.getElementById('edCapPrev').textContent=v||'CAPTION PREVIEW';}
-function setRatio(r,el){document.querySelectorAll('.ratio-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.getElementById('edRatioLbl').textContent=r;const rm={'9:16':'9/16','1:1':'1/1','16:9':'16/9'};document.getElementById('editorMock').style.aspectRatio=rm[r]||'9/16';}
-function setCapStyle(s,el){document.querySelectorAll('.cap-style').forEach(b=>b.classList.remove('active'));el.classList.add('active');const p=document.getElementById('edCapPrev');const styles={bold:'font-weight:900;color:#fff;background:rgba(0,0,0,.85)',neon:'color:#22d3ee;text-shadow:0 0 12px #22d3ee;background:transparent',fire:'background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900',minimal:'color:rgba(255,255,255,.9);font-weight:400;background:transparent'};p.style.cssText=styles[s]||styles.bold;}
-function setFontSize(v){document.getElementById('eFontVal').textContent=v+'px';document.getElementById('edCapPrev').style.fontSize=v+'px';}
-function toggleCaps(el){el.classList.toggle('on');document.getElementById('edCapPrev').style.opacity=el.classList.contains('on')?'1':'0';}
-function toggleExportMenu(){document.getElementById('exportMenu').classList.toggle('open');}
-function exportTo(plat){const nm={tiktok:'TikTok',reels:'Instagram Reels',shorts:'YouTube Shorts',download:'your device'};showToast('⬇ Exporting to '+(nm[plat]||plat)+'...','#a855f7');closeEditor();document.getElementById('exportMenu').classList.remove('open');setTimeout(()=>showToast('✅ Export complete!','#4ade80'),2000);}
-document.addEventListener('click',e=>{const m=document.getElementById('exportMenu');if(m&&m.classList.contains('open')&&!e.target.closest('.editor-footer'))m.classList.remove('open');});
-
-function openShare(){document.getElementById('shareOverlay').classList.add('open');}
-function closeShare(){document.getElementById('shareOverlay').classList.remove('open');}
-function shareClipTo(plat){const m={tiktok:'Opening TikTok...',instagram:'Opening Instagram...',youtube:'Opening YouTube Studio...',twitter:'Opening X...',linkedin:'Opening LinkedIn...',link:'🔗 Link copied!'};showToast(m[plat]||'Sharing...','#a855f7');closeShare();}
-function openUpgradeModal(){document.getElementById('upgradeOverlay').classList.add('open');}
-function closeUpgrade(){document.getElementById('upgradeOverlay').classList.remove('open');}
-function selectPlan(name){
-  const planMap={Starter:'starter',Pro:'pro',Agency:'agency'};
-  const plan=planMap[name]||'pro';
-  window.location.href='https://clipspeedai-server-production.up.railway.app/api/stripe/checkout?plan='+plan+'&user_id='+(currentUser?.id||'');
-}
-function copyRefLink(){navigator.clipboard?.writeText('https://clipspeed.ai/ref/'+refCode).catch(()=>{});showToast('📋 Referral link copied!','#22d3ee');}
-function copyRefLinkWiz(){navigator.clipboard?.writeText('https://clipspeed.ai/ref/'+refCode).catch(()=>{});showToast('📋 Referral link copied!','#22d3ee');}
-
-function toggleChat(){document.getElementById('chatPanel').classList.toggle('open');}
-function quickChat(msg){document.getElementById('chatInput').value=msg;sendChat();}
-async function sendChat(){
-  const inp=document.getElementById('chatInput');const msg=inp.value.trim();if(!msg)return;
-  inp.value='';const msgs=document.getElementById('chatMessages');
-  msgs.innerHTML+=`<div class="chat-msg msg-user">${esc(msg)}</div>`;
-  const t=document.createElement('div');t.className='ai-thinking';t.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(t);msgs.scrollTop=msgs.scrollHeight;
-  try{
-    const ctx=currentClips.length?`User has ${currentClips.length} clips with avg viral score ${Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||80),0)/currentClips.length)}.`:'No clips yet.';
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`You are ClipSpeed AI — an expert viral short-form content strategist. Be energetic, concise, actionable. Max 60 words. No markdown. Context: ${ctx}\n\nUser: ${msg}`}]})});
-    const data=await res.json();t.remove();
-    const reply=data.content?.[0]?.text||"Hook in first 0.5s, pattern interrupt at 3s, CTA at end. You're on the right path! 🔥";
-    msgs.innerHTML+=`<div class="chat-msg msg-bot">${esc(reply)}</div>`;
-  }catch(e){t.remove();const fb=["Hook in first 0.5s, pattern interrupt at 3s, strong CTA at end. Your clips are primed! 🔥","Post between 6–9pm for 2–3× more reach. Consistency beats perfection! ⚡","Captions increase watch time by 40%. ClipSpeedAI does it automatically! 💬"];msgs.innerHTML+=`<div class="chat-msg msg-bot">${fb[Math.floor(Math.random()*fb.length)]}</div>`;}
-  msgs.scrollTop=msgs.scrollHeight;
-}
-
-function showToast(msg,color='#a855f7'){const t=document.getElementById('toast');t.textContent=msg;t.style.background=color;t.style.color='#fff';t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),3200);}
-
-(function(){
-  let shown=false,countdownVal=60,countdownTimer=null,ctaClicked=false,mouseLeaveReady=false;
-  function showExitPopup(){if(shown||isLoggedIn)return;shown=true;const popup=document.getElementById('exitPopup');popup.style.display='flex';countdownTimer=setInterval(()=>{countdownVal--;const el=document.getElementById('exitCountdown');if(el)el.textContent=countdownVal+'s';if(countdownVal<=0)closeExitPopup();},1000);}
-  window.closeExitPopup=function(){document.getElementById('exitPopup').style.display='none';clearInterval(countdownTimer);};
-  document.addEventListener('mouseleave',e=>{if(mouseLeaveReady&&e.clientY<=10)showExitPopup();});
-  document.querySelectorAll('.hero-gen-btn,.btn-primary,.hero-cta-btn').forEach(btn=>btn.addEventListener('click',()=>{ctaClicked=true;}));
-  setTimeout(()=>{if(!ctaClicked&&!isLoggedIn)showExitPopup();},15000);
-  setTimeout(()=>{mouseLeaveReady=true;},5000);
-  document.getElementById('exitPopup').addEventListener('click',e=>{if(e.target===document.getElementById('exitPopup'))closeExitPopup();});
-})();
-
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeEditor();closeUpgrade();closeShare();document.getElementById('wizardOverlay').classList.remove('open');closeHeroDemo();}});
-</script>
-</body>
-</html>
+  const stages=[{to:14,ms:700,txt:'Downloading video...'},{to:30,ms:1000,txt:'Whisper AI transcribing audio...'},{to:50,ms:1400,txt:'GPT-4o detecting viral moments...'},{to:66,ms:1100,txt:'Precision cutting clips...'},{to:80,ms:900,txt:'Burning animated captions...'},{to:90,ms:700,txt:'Reframing to 9:16...'},{to:100,ms:500,
