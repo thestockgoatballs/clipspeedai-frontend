@@ -31,6 +31,8 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 @keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(168,85,247,.5),0 8px 40px rgba(168,85,247,.35)}50%{box-shadow:0 0 0 10px rgba(168,85,247,0),0 8px 40px rgba(168,85,247,.5)}}
 @keyframes heroCTAFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes thinkDot{0%,80%,100%{transform:scale(.7);opacity:.5}40%{transform:scale(1);opacity:1}}
+
+/* ⚡ LOGO MARK GLOW — enhanced */
 @keyframes logoGlow{
   0%{box-shadow:0 0 0 0 rgba(168,85,247,0),0 0 12px rgba(168,85,247,.4),inset 0 0 8px rgba(168,85,247,.2)}
   50%{box-shadow:0 0 0 4px rgba(168,85,247,.25),0 0 32px rgba(168,85,247,.8),inset 0 0 14px rgba(168,85,247,.35)}
@@ -40,6 +42,10 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   0%,100%{filter:drop-shadow(0 0 3px rgba(255,255,255,.6)) drop-shadow(0 0 8px rgba(168,85,247,.9))}
   50%{filter:drop-shadow(0 0 6px rgba(255,255,255,1)) drop-shadow(0 0 16px rgba(168,85,247,1)) drop-shadow(0 0 24px rgba(99,102,241,.8))}
 }
+
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(168,85,247,.5),0 8px 40px rgba(168,85,247,.35)}50%{box-shadow:0 0 0 10px rgba(168,85,247,0),0 8px 40px rgba(168,85,247,.5)}}
+@keyframes heroCTAFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes thinkDot{0%,80%,100%{transform:scale(.7);opacity:.5}40%{transform:scale(1);opacity:1}}
 
 .orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
 .o1{width:700px;height:700px;background:rgba(168,85,247,.1);top:-200px;left:-150px;animation:drift1 13s ease-in-out infinite}
@@ -54,9 +60,19 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .ticker-dot{width:4px;height:4px;background:rgba(255,255,255,.5);border-radius:50%}
 
 .nav{position:sticky;top:0;z-index:200;background:rgba(3,7,18,.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(168,85,247,.1);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
+
+/* ══ LOGO MARK — lightning bolt SVG with purple outline glow ══ */
 .nav-logo{font-size:17px;font-weight:900;background:linear-gradient(90deg,#fff 60%,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;display:flex;align-items:center;gap:10px}
-.lm{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#1a0530,#0d0d1a);border:1.5px solid rgba(168,85,247,.7);display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;animation:logoGlow 2.5s ease-in-out infinite}
-.lm svg{animation:boltPop 2.5s ease-in-out infinite}
+.lm{
+  width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,#1a0530,#0d0d1a);
+  border:1.5px solid rgba(168,85,247,.7);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;flex-shrink:0;
+  animation:logoGlow 2.5s ease-in-out infinite;
+}
+.lm svg{animation:boltPop 2.5s ease-in-out infinite;}
+
 .nav-links{display:flex;gap:2px}
 .nav-link{padding:7px 13px;font-size:12.5px;font-weight:600;color:var(--muted2);cursor:pointer;border-radius:8px;background:none;border:none;transition:all .2s}
 .nav-link:hover{color:#fff;background:rgba(255,255,255,.05)}
@@ -66,6 +82,31 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .btn-primary{padding:9px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:9px;color:#fff;font-size:12.5px;font-weight:700;cursor:pointer;transition:all .2s}
 .btn-primary:hover{opacity:.88;transform:translateY(-1px)}
 @media(max-width:768px){.nav-links{display:none}.nav{padding:0 16px}}
+
+.hero-cta-banner{position:relative;z-index:4;margin:0 auto;max-width:720px;width:calc(100% - 48px);margin-top:-1px}
+.hero-cta-card{background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(99,102,241,.14),rgba(34,211,238,.1));border:1.5px solid rgba(168,85,247,.45);border-radius:22px;padding:28px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;backdrop-filter:blur(20px);position:relative;overflow:hidden;animation:fadeUp .8s ease .3s both}
+.hero-cta-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -20%,rgba(168,85,247,.2),transparent 60%);pointer-events:none}
+.hero-cta-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(168,85,247,.8),rgba(34,211,238,.8),transparent)}
+.hero-cta-left{position:relative;z-index:1}
+.hero-cta-eyebrow{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.hero-cta-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:livePulse 1.4s ease-in-out infinite;flex-shrink:0}
+.hero-cta-eyebrow-txt{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--green)}
+.hero-cta-headline{font-size:clamp(22px,3.5vw,34px);font-weight:900;letter-spacing:-1.5px;line-height:1;color:#fff;white-space:nowrap}
+.hero-cta-headline .grad{background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-cta-sub{font-size:13px;color:var(--muted2);margin-top:7px;line-height:1.5}
+.hero-cta-sub strong{color:#fff}
+.hero-cta-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0}
+.hero-cta-btn{padding:17px 32px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:900;cursor:pointer;white-space:nowrap;transition:all .25s;animation:ctaPulse 2.5s ease-in-out infinite,heroCTAFloat 3s ease-in-out infinite;letter-spacing:-.3px;position:relative;overflow:hidden}
+.hero-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);pointer-events:none}
+.hero-cta-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 60px rgba(168,85,247,.5)!important;animation:none}
+.hero-cta-guarantee{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted2);font-weight:600}
+.hero-cta-guarantee .check{color:var(--green);font-weight:800}
+@media(max-width:600px){
+  .hero-cta-card{flex-direction:column;text-align:center;padding:22px 20px}
+  .hero-cta-eyebrow{justify-content:center}
+  .hero-cta-headline{font-size:22px;white-space:normal}
+  .hero-cta-btn{width:100%;font-size:15px}
+}
 
 .hero{min-height:94vh;display:flex;align-items:center;justify-content:center;padding:60px 24px 80px;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--bg),transparent);pointer-events:none;z-index:2}
@@ -91,22 +132,9 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .hero-stat-num{font-size:25px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .hero-stat-lbl{font-size:9px;color:var(--muted);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
 
-.hero-cta-banner{position:relative;z-index:4;margin:0 auto;max-width:720px;width:calc(100% - 48px);margin-top:-1px}
-.hero-cta-card{background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(99,102,241,.14),rgba(34,211,238,.1));border:1.5px solid rgba(168,85,247,.45);border-radius:22px;padding:28px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;backdrop-filter:blur(20px);position:relative;overflow:hidden;animation:fadeUp .8s ease .3s both}
-.hero-cta-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(168,85,247,.8),rgba(34,211,238,.8),transparent)}
-.hero-cta-eyebrow{display:flex;align-items:center;gap:7px;margin-bottom:8px}
-.hero-cta-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:livePulse 1.4s ease-in-out infinite;flex-shrink:0}
-.hero-cta-eyebrow-txt{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--green)}
-.hero-cta-headline{font-size:clamp(22px,3.5vw,34px);font-weight:900;letter-spacing:-1.5px;line-height:1;color:#fff;white-space:nowrap}
-.hero-cta-sub{font-size:13px;color:var(--muted2);margin-top:7px;line-height:1.5}
-.hero-cta-btn{padding:17px 32px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:900;cursor:pointer;white-space:nowrap;transition:all .25s;animation:ctaPulse 2.5s ease-in-out infinite,heroCTAFloat 3s ease-in-out infinite;letter-spacing:-.3px;position:relative;overflow:hidden}
-.hero-cta-btn:hover{transform:translateY(-3px) scale(1.02);animation:none}
-.hero-cta-guarantee{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted2);font-weight:600}
-@media(max-width:600px){.hero-cta-card{flex-direction:column;text-align:center;padding:22px 20px}.hero-cta-eyebrow{justify-content:center}.hero-cta-headline{font-size:22px;white-space:normal}.hero-cta-btn{width:100%}}
-
 .live-strip{background:rgba(16,185,129,.04);border-top:1px solid rgba(16,185,129,.1);border-bottom:1px solid rgba(16,185,129,.1);padding:20px 32px;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;position:relative;z-index:1}
 .lc{text-align:center}
-.lc-num{font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--green),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.lc-num{font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--green),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;font-variant-numeric:tabular-nums}
 .lc-lbl{font-size:10px;font-weight:700;color:rgba(16,185,129,.7);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
 .lc-ind{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:var(--green);margin-bottom:3px}
 
@@ -135,6 +163,16 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .step-icon{font-size:36px;margin-bottom:12px;display:block;animation:float 5s ease-in-out infinite}
 .step-title{font-size:16px;font-weight:800;margin-bottom:7px}
 .step-desc{font-size:12.5px;color:var(--muted2);line-height:1.6}
+@media(min-width:700px){.step-card:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--p);z-index:2}}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;max-width:1080px;margin:0 auto}
+.feat-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .25s;position:relative;overflow:hidden}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan));opacity:0;transition:opacity .3s}
+.feat-card:hover{border-color:rgba(168,85,247,.3);transform:translateY(-3px)}
+.feat-card:hover::before{opacity:1}
+.feat-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:14px}
+.feat-title{font-size:14px;font-weight:800;margin-bottom:5px}
+.feat-desc{font-size:12px;color:var(--muted2);line-height:1.6}
 
 .results-section{padding:50px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;position:relative;z-index:1}
 .results-section::before,.results-section::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
@@ -173,6 +211,16 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .ref-tier-desc{font-size:10px;color:var(--muted2);margin-top:4px}
 
 .vs-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
+.vs-wrap{max-width:800px;margin:0 auto;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.vs-table{width:100%;border-collapse:collapse}
+.vs-table th{padding:14px 18px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;background:var(--bg3);border-bottom:1px solid var(--border)}
+.vs-table td{padding:12px 18px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--muted2)}
+.vs-table tr:last-child td{border-bottom:none}
+.vs-table tr:hover td{background:rgba(168,85,247,.02)}
+.vs-yes{color:var(--green);font-weight:700}
+.vs-no{color:var(--muted);font-weight:600}
+.vs-col-us{color:var(--p);font-weight:700}
+
 .pricing-section{padding:80px 24px;border-top:1px solid var(--border);position:relative;z-index:1}
 .billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:36px}
 .billing-toggle span{font-size:12px;font-weight:700;color:var(--muted2);transition:color .2s}
@@ -183,8 +231,9 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .tog-knob{position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform .3s;box-shadow:0 2px 6px rgba(0,0,0,.4)}
 .tog-knob.on{transform:translateX(22px)}
 .annual-badge{display:inline-flex;align-items:center;padding:3px 9px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:99px;font-size:10px;font-weight:800;color:var(--green)}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:760px;margin:0 auto}
-@media(max-width:700px){.pricing-grid{grid-template-columns:1fr}}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1080px;margin:0 auto}
+@media(max-width:900px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.pricing-grid{grid-template-columns:1fr}}
 .plan-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;position:relative;transition:all .25s}
 .plan-card:hover{transform:translateY(-3px)}
 .plan-card.popular{border-color:var(--p);background:rgba(168,85,247,.04)}
@@ -193,6 +242,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .plan-price{font-size:38px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .plan-period{font-size:12px;color:var(--muted)}
 .plan-credits{font-size:11px;font-weight:700;color:var(--p)}
+.plan-desc{font-size:11px;color:var(--muted2);line-height:1.5}
 .plan-feats{display:flex;flex-direction:column;gap:6px}
 .pf{display:flex;align-items:flex-start;gap:7px;font-size:11px;color:var(--muted2);line-height:1.4}
 .pf-check{color:var(--green);flex-shrink:0}
@@ -222,12 +272,237 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 20px 60px rgba(168,85,247,.4);opacity:.92}
 .cta-trust{margin-top:20px;font-size:12px;color:var(--muted)}
 
-.inline-cta-bar{display:flex;flex-direction:column;align-items:center;gap:10px;padding:44px 24px;position:relative;z-index:1}
-.inline-cta-btn{display:inline-flex;align-items:center;gap:9px;padding:16px 36px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:14px;color:#fff;font-size:15px;font-weight:900;cursor:pointer;letter-spacing:-.3px;transition:all .25s;box-shadow:0 8px 32px rgba(168,85,247,.35);animation:ctaPulse 2.5s ease-in-out infinite}
-.inline-cta-btn:hover{transform:translateY(-2px);animation:none}
-.inline-cta-sub{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.footer{border-top:1px solid var(--border);padding:36px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;position:relative;z-index:1}
+.footer-logo{font-size:14px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-link{font-size:11px;color:var(--muted);cursor:pointer;transition:color .2s}
+.footer-link:hover{color:var(--p)}
+.footer-copy{font-size:11px;color:var(--muted)}
 
-/* AUTH */
+/* DASHBOARD */
+#dashboard{display:none;position:relative;z-index:1;min-height:100vh}
+.topbar{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 18px 0 14px;position:sticky;top:0;z-index:200;background:rgba(3,7,18,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(168,85,247,.1)}
+.topbar-logo{display:flex;align-items:center;gap:9px;cursor:pointer}
+/* Dashboard logo mark — same treatment */
+.logo-mark{
+  width:32px;height:32px;border-radius:9px;
+  background:linear-gradient(135deg,#1a0530,#0d0d1a);
+  border:1.5px solid rgba(168,85,247,.7);
+  display:flex;align-items:center;justify-content:center;
+  animation:logoGlow 2.5s ease-in-out infinite;
+  flex-shrink:0;
+}
+.logo-mark svg{animation:boltPop 2.5s ease-in-out infinite;}
+.logo-txt{font-size:15px;font-weight:900;background:linear-gradient(90deg,#fff 60%,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.topbar-nav{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none}
+.topbar-nav::-webkit-scrollbar{display:none}
+.nav-pill{padding:7px 11px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;border-radius:9px;transition:all .2s;background:none;border:none;white-space:nowrap}
+.nav-pill:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nav-pill.active{color:var(--p);background:rgba(168,85,247,.12)}
+.topbar-right{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.live-ind{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:800;color:var(--green);letter-spacing:.5px}
+.credits-chip{display:flex;align-items:center;gap:5px;padding:5px 11px;background:rgba(168,85,247,.09);border:1px solid rgba(168,85,247,.2);border-radius:99px;font-size:11px;font-weight:800;color:var(--p);cursor:pointer;transition:all .2s}
+.credits-chip:hover{background:rgba(168,85,247,.18);border-color:var(--p)}
+.plan-badge{padding:3px 9px;border-radius:99px;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:1px;background:rgba(255,255,255,.05);color:var(--muted2);border:1px solid var(--border)}
+.page{display:none;animation:fadeUp .3s ease both}
+.page.active{display:block}
+.home-wrap{display:flex;flex-direction:column;align-items:center;padding:40px 22px 56px}
+.dash-hero{max-width:680px;width:100%;text-align:center;margin-bottom:36px}
+.dash-title{font-size:clamp(30px,5vw,58px);font-weight:900;letter-spacing:-2.5px;line-height:.96;margin-bottom:14px}
+.dash-sub{font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:24px}
+.source-tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;justify-content:center}
+.src-tab{padding:6px 13px;border-radius:99px;font-size:10.5px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--muted2);transition:all .2s}
+.src-tab.active{border-color:var(--p);color:var(--p);background:rgba(168,85,247,.1)}
+.url-zone{width:100%;max-width:640px;margin-bottom:12px}
+.url-box{padding:4px;background:linear-gradient(135deg,var(--p),var(--cyan),var(--p2));border-radius:16px;animation:borderGlow 3s ease-in-out infinite}
+.url-inner{background:var(--bg);border-radius:12px;display:flex;align-items:center;padding:4px 4px 4px 16px;gap:8px}
+.url-input{flex:1;background:none;border:none;color:#fff;font-size:14px;outline:none;padding:12px 0;min-width:0}
+.url-input::placeholder{color:var(--muted)}
+.gen-btn{padding:12px 20px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+.gen-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 28px rgba(168,85,247,.5)}
+.gen-btn:disabled{opacity:.45;cursor:not-allowed}
+.url-err{font-size:10px;color:#ef4444;text-align:center;margin-top:-6px;margin-bottom:6px;display:none}
+.url-err.show{display:block}
+.dash-trust{display:flex;align-items:center;gap:7px;justify-content:center;font-size:10px;color:var(--muted);flex-wrap:wrap}
+.plat-row{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.plat-pill{display:flex;align-items:center;gap:5px;padding:5px 11px;background:var(--card);border:1px solid var(--border);border-radius:99px;font-size:10px;font-weight:700;color:var(--muted2)}
+.clips-feed{width:100%;max-width:900px}
+.feed-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.feed-title{font-size:16px;font-weight:900;display:flex;align-items:center;gap:7px}
+.feed-badge{padding:2px 9px;background:linear-gradient(135deg,var(--p),var(--cyan));border-radius:99px;font-size:9px;font-weight:800;color:#fff}
+.feed-actions{display:flex;gap:6px;flex-wrap:wrap}
+.feed-btn{padding:7px 13px;border-radius:8px;font-size:10.5px;font-weight:700;cursor:pointer;border:none;transition:all .2s;display:flex;align-items:center;gap:4px}
+.fb-p{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff}
+.fb-p:hover{opacity:.88;transform:translateY(-1px)}
+.fb-s{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--muted2)}
+.fb-s:hover{border-color:var(--p);color:#fff}
+.fb-c{background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);color:var(--cyan)}
+.fb-r{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);color:#ef4444}
+.clip-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:88px 190px 1fr;transition:all .3s;animation:cardIn .4s ease both;position:relative;margin-bottom:12px}
+.clip-card:hover{border-color:rgba(168,85,247,.3);box-shadow:0 8px 36px rgba(168,85,247,.1)}
+.cc-score{padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:4px;border-right:1px solid var(--border);background:rgba(168,85,247,.02);flex-shrink:0}
+.score-num{font-size:34px;font-weight:900;line-height:1}
+.score-lbl{font-size:7px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.score-grade{font-size:8px;font-weight:800;padding:2px 6px;border-radius:99px;margin-top:2px}
+.sg-fire{background:rgba(239,68,68,.15);color:#f87171}
+.sg-high{background:rgba(168,85,247,.15);color:#c084fc}
+.cc-vid{border-right:1px solid var(--border);background:#000;position:relative;overflow:hidden;min-height:160px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.vid-mock{width:100%;height:100%;min-height:160px;background:linear-gradient(180deg,#0a0a1a,#1a0530);display:flex;align-items:center;justify-content:center;font-size:26px;position:relative;cursor:pointer}
+.vid-play{position:absolute;width:34px;height:34px;border-radius:50%;background:rgba(168,85,247,.8);display:flex;align-items:center;justify-content:center;font-size:13px;transition:transform .2s}
+.vid-mock:hover .vid-play{transform:scale(1.12);background:var(--p)}
+.vid-num{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);border-radius:4px;padding:2px 6px;font-size:8px;font-weight:700;color:#fff}
+.vid-plat{position:absolute;top:6px;right:6px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:4px;padding:2px 6px;font-size:8px;font-weight:700;color:#fff}
+.vid-dur{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.75);border-radius:4px;padding:2px 5px;font-size:8px;font-weight:700;color:#fff}
+.cc-info{padding:13px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.cc-title{font-size:13px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cc-hook{font-size:10.5px;color:var(--muted2);font-style:italic;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cc-meta{display:flex;gap:9px;flex-wrap:wrap}
+.cc-mi{font-size:9.5px;color:var(--muted);display:flex;align-items:center;gap:3px}
+.cc-mi strong{color:var(--green)}
+.cc-views{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:99px;font-size:8.5px;font-weight:700;color:var(--green)}
+.cc-tags{font-size:9.5px;color:var(--cyan);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cc-transcript{font-size:10.5px;color:var(--muted2);line-height:1.6;max-height:44px;overflow-y:auto}
+.cc-transcript-lbl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:3px}
+.cc-actions{display:flex;gap:4px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
+.cc-btn{padding:5px 10px;border-radius:7px;font-size:9.5px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.cb-dl{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff}
+.cb-dl:hover{opacity:.85;transform:translateY(-1px)}
+.cb-edit{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--muted2)}
+.cb-edit:hover{border-color:var(--p);color:#fff}
+.cb-copy{background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);color:var(--cyan)}
+.cb-share{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:var(--green)}
+.cb-del{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);color:#ef4444}
+.empty-feed{text-align:center;padding:44px 20px;border:1px dashed rgba(168,85,247,.2);border-radius:16px;background:rgba(168,85,247,.02)}
+.empty-feed-icon{font-size:40px;margin-bottom:10px}
+.empty-feed-title{font-size:14px;font-weight:700;color:var(--muted2);margin-bottom:4px}
+.empty-feed-sub{font-size:11px;color:var(--muted)}
+#procOverlay{position:fixed;inset:0;z-index:500;background:rgba(3,7,18,.97);backdrop-filter:blur(20px);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+#procOverlay.show{display:flex}
+.proc-card{width:100%;max-width:660px;background:var(--bg2);border:1px solid rgba(168,85,247,.2);border-radius:24px;overflow:hidden;box-shadow:0 0 80px rgba(168,85,247,.2),0 40px 80px rgba(0,0,0,.6)}
+.proc-top-bar{height:3px;background:linear-gradient(90deg,var(--p2),var(--p),var(--cyan));animation:shimmer 2s linear infinite;background-size:200%}
+.proc-body{padding:26px 28px}
+.proc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.proc-vid-info{display:flex;align-items:center;gap:12px}
+.proc-thumb{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,rgba(168,85,247,.3),rgba(34,211,238,.2));display:flex;align-items:center;justify-content:center;font-size:20px;border:1px solid rgba(168,85,247,.2);flex-shrink:0}
+.proc-title-txt{font-size:13px;font-weight:800;margin-bottom:3px}
+.proc-meta-txt{font-size:10px;color:var(--muted)}
+.proc-ring{position:relative;width:64px;height:64px;flex-shrink:0}
+.proc-ring-svg{transform:rotate(-90deg)}
+.prb{fill:none;stroke:rgba(255,255,255,.06);stroke-width:5}
+.prf{fill:none;stroke:url(#rg);stroke-width:5;stroke-linecap:round;stroke-dasharray:188;stroke-dashoffset:188;transition:stroke-dashoffset .7s ease}
+.proc-pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.proc-stages{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:16px}
+.stage{display:flex;flex-direction:column;align-items:center;gap:3px;position:relative}
+.stage::after{content:'';position:absolute;top:12px;left:calc(50% + 12px);right:calc(-50% + 12px);height:1px;background:rgba(255,255,255,.05);z-index:0}
+.stage:last-child::after{display:none}
+.sd{width:24px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,.08);background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--muted);transition:all .5s;position:relative;z-index:1}
+.sd.done{border-color:var(--green);color:var(--green);background:rgba(16,185,129,.1)}
+.sd.active{border-color:var(--p);color:#fff;background:rgba(168,85,247,.2);box-shadow:0 0 16px rgba(168,85,247,.7);animation:livePulse .9s ease-in-out infinite}
+.stage-lbl{font-size:6.5px;color:var(--muted);font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.proc-bar-track{height:8px;background:rgba(255,255,255,.05);border-radius:99px;overflow:hidden;border:1px solid rgba(168,85,247,.1)}
+.proc-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p2),var(--p),var(--cyan));background-size:300%;transition:width .7s ease;animation:barShift 2s linear infinite}
+.proc-step-name{font-size:12px;font-weight:700;color:var(--muted2);margin-top:7px;min-height:18px}
+.proc-clips-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
+.pcc{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .5s}
+.pcc.ready{border-color:rgba(168,85,247,.4);background:rgba(168,85,247,.07);box-shadow:0 0 18px rgba(168,85,247,.15);animation:cardIn .5s ease}
+.pcc-thumb{height:38px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);border-bottom:1px solid var(--border)}
+.pcc.ready .pcc-thumb{color:var(--p);background:rgba(168,85,247,.08)}
+.pcc-body{padding:7px}
+.pcc-lbl{font-size:7px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.pcc.ready .pcc-lbl{color:var(--cyan)}
+.pcc-txt{font-size:9px;font-weight:700;color:var(--muted);margin-top:2px;line-height:1.3}
+.pcc.ready .pcc-txt{color:var(--text)}
+.proc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.ps{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:9px;text-align:center}
+.ps-val{font-size:17px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ps-lbl{font-size:7px;color:var(--muted);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:2px}
+.fact-ticker{margin-top:12px;padding:12px 14px;background:linear-gradient(135deg,rgba(168,85,247,.07),rgba(34,211,238,.04));border:1px solid rgba(168,85,247,.15);border-radius:10px;min-height:64px}
+.fact-tag{font-size:7px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:3px}
+.fact-txt{font-size:10px;color:var(--muted2);line-height:1.6;transition:opacity .4s}
+.fact-txt.fade{opacity:0}
+.fact-num{font-size:18px;font-weight:900;background:linear-gradient(90deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:2px}
+.aff-wrap{padding:24px}
+.aff-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:11px;margin-bottom:18px}
+.aff-stat{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:15px;text-align:center}
+.aff-val{font-size:26px;font-weight:900;margin-top:3px;line-height:1}
+.aff-lbl{font-size:8.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.aff-tier{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;align-items:center;gap:12px;transition:border .2s}
+.aff-tier:hover{border-color:rgba(168,85,247,.25)}
+.aff-tier.current{border-color:var(--p);background:rgba(168,85,247,.03)}
+.aff-tier-rate{font-size:20px;font-weight:900;color:var(--gold);flex-shrink:0}
+.aff-ref-box{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px}
+.aff-link{flex:1;padding:9px 13px;background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.2);border-radius:8px;font-size:11px;color:var(--p);font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.analytics-wrap{padding:24px}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:18px}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;transition:border .2s}
+.stat-card:hover{border-color:rgba(168,85,247,.25)}
+.stat-val{font-size:24px;font-weight:900;margin-top:3px;line-height:1}
+.stat-lbl{font-size:8.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.stat-change{font-size:9.5px;margin-top:3px;font-weight:700}
+.chart-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:14px}
+.chart-title{font-size:12px;font-weight:700;margin-bottom:14px}
+.bar-chart{display:flex;align-items:flex-end;gap:5px;height:90px}
+.bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;height:100%}
+.bar-inner{flex:1;width:100%;display:flex;align-items:flex-end}
+.bar-fill{width:100%;border-radius:3px 3px 0 0;min-height:4px;transition:height .6s ease}
+.bar-lbl{font-size:8px;color:var(--muted);white-space:nowrap}
+.brand-wrap{padding:24px}
+.tmpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:11px;margin-bottom:24px}
+.tmpl-card{background:var(--bg2);border:1px solid var(--border);border-radius:13px;padding:14px;cursor:pointer;transition:all .25s;position:relative}
+.tmpl-card:hover{border-color:rgba(168,85,247,.4);transform:translateY(-2px)}
+.tmpl-card.applied{border-color:var(--green)}
+.tmpl-preview{height:48px;border-radius:8px;margin-bottom:9px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.tmpl-name{font-size:12px;font-weight:700;margin-bottom:2px}
+.tmpl-desc{font-size:10px;color:var(--muted)}
+.editor-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);z-index:300;opacity:0;pointer-events:none;transition:opacity .3s}
+.editor-overlay.open{opacity:1;pointer-events:all}
+.editor-panel{position:fixed;right:0;top:0;bottom:0;width:min(660px,100vw);background:var(--bg2);border-left:1px solid var(--border2);z-index:301;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column}
+.editor-panel.open{transform:translateX(0)}
+.editor-head{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.editor-head-title{font-size:13px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.editor-close{width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.05);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:14px;transition:all .2s}
+.editor-close:hover{border-color:#ef4444;color:#ef4444}
+.editor-body{flex:1;display:grid;grid-template-columns:1fr 220px;overflow:hidden}
+.editor-preview{background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.editor-mock{background:linear-gradient(180deg,#0a0a1a,#1a0530);aspect-ratio:9/16;max-height:100%;display:flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(255,255,255,.06);width:100%;max-width:180px}
+.editor-cap{position:absolute;bottom:20%;left:0;right:0;text-align:center;padding:0 8px}
+.editor-cap span{display:inline-block;padding:3px 9px;border-radius:5px;font-size:12px;font-weight:900;background:rgba(0,0,0,.85);color:#fff;transition:all .3s;line-height:1.4;word-break:break-word}
+.editor-controls{border-left:1px solid var(--border);overflow-y:auto;padding-bottom:16px}
+.editor-controls::-webkit-scrollbar{width:3px}
+.editor-controls::-webkit-scrollbar-thumb{background:rgba(168,85,247,.3);border-radius:2px}
+.e-sec{padding:11px 11px 9px;border-bottom:1px solid var(--border)}
+.e-sec-title{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
+.ratio-btns{display:flex;gap:4px}
+.ratio-btn{flex:1;padding:6px 3px;border-radius:6px;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--muted2);font-size:8px;font-weight:700;cursor:pointer;text-align:center;transition:all .2s}
+.ratio-btn.active{border-color:var(--p);color:var(--p);background:rgba(168,85,247,.08)}
+.cap-styles{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.cap-style{padding:6px;border-radius:6px;border:1px solid var(--border);cursor:pointer;text-align:center;font-size:7.5px;font-weight:700;transition:all .2s;background:rgba(255,255,255,.02)}
+.cap-style.active{border-color:var(--p);background:rgba(168,85,247,.08)}
+.e-slider{width:100%;-webkit-appearance:none;height:3px;border-radius:99px;background:rgba(255,255,255,.1);outline:none;cursor:pointer}
+.e-slider::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--p);cursor:pointer}
+.toggle-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.toggle-lbl{font-size:10.5px;color:var(--muted2)}
+.tog2{width:34px;height:17px;background:rgba(255,255,255,.1);border-radius:99px;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
+.tog2.on{background:var(--p)}
+.tok2{position:absolute;top:2px;left:2px;width:13px;height:13px;background:#fff;border-radius:50%;transition:left .2s;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.tog2.on .tok2{left:19px}
+.editor-footer{padding:11px 13px;border-top:1px solid var(--border);display:flex;gap:7px;flex-shrink:0;position:relative}
+.export-menu{position:absolute;bottom:100%;left:0;right:0;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;margin-bottom:5px;overflow:hidden;display:none;box-shadow:0 -8px 24px rgba(0,0,0,.4)}
+.export-menu.open{display:block}
+.export-opt{padding:9px 13px;font-size:10.5px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .15s}
+.export-opt:hover{background:rgba(168,85,247,.1)}
+.editor-export{flex:1;padding:9px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:8px;color:#fff;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s}
+.editor-export:hover{opacity:.9}
+.editor-cancel{padding:9px 13px;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:8px;color:var(--muted2);font-size:11px;cursor:pointer;transition:all .2s}
+.editor-cancel:hover{border-color:#ef4444;color:#ef4444}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);z-index:400;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex;animation:fadeUp .2s ease}
+.modal-box{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:420px;padding:22px;position:relative}
+.modal-close{position:absolute;top:11px;right:11px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:17px}
+.share-platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}
+.share-plat{padding:11px 7px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;text-align:center;transition:all .2s;font-size:10px;font-weight:700;color:var(--muted2)}
+.share-plat:hover{border-color:var(--p);color:#fff;background:rgba(168,85,247,.08)}
+.share-plat-icon{font-size:20px;margin-bottom:3px}
 .auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
 .auth-overlay.open{display:flex}
 .auth-box{background:var(--bg2);border:1px solid var(--border2);border-radius:22px;padding:36px;max-width:400px;width:100%;text-align:center;animation:fadeUp .3s ease;position:relative}
@@ -253,116 +528,85 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
 .pending-url-hint{background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.2);border-radius:8px;padding:8px 12px;margin-bottom:14px;font-size:10.5px;color:#c084fc;display:none;word-break:break-all;text-align:left}
 .pending-url-hint.show{display:block}
-
-/* TOAST */
+.mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(3,7,18,.97);backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:8px 0 max(8px,env(safe-area-inset-bottom));flex-direction:row;justify-content:space-around}
+.mob-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 8px;border:none;background:none;cursor:pointer;color:var(--muted);font-size:8px;font-weight:700;border-radius:8px;min-width:44px;transition:color .2s}
+.mob-btn .mi{font-size:17px;line-height:1}
+.mob-btn.active{color:var(--p)}
+@media(max-width:640px){.topbar-nav{display:none}.mobile-nav{display:flex}#dashboard{padding-bottom:66px}.clip-card{grid-template-columns:1fr;grid-template-rows:auto auto auto}.cc-score{flex-direction:row;flex-wrap:wrap;padding:10px 13px;border-right:none;border-bottom:1px solid var(--border);gap:9px;justify-content:flex-start}.cc-vid{min-height:120px;height:120px}.editor-body{grid-template-columns:1fr}.editor-preview{height:180px}}
+.wizard-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(14px);z-index:600;display:none;align-items:center;justify-content:center;padding:20px}
+.wizard-overlay.open{display:flex}
+.wizard-box{background:var(--bg2);border:1px solid rgba(168,85,247,.25);border-radius:24px;max-width:500px;width:100%;padding:36px;text-align:center;animation:fadeUp .4s ease}
+.wizard-step{display:none}
+.wizard-step.active{display:block}
+.wizard-icon{font-size:52px;margin-bottom:14px;animation:float 3s ease-in-out infinite}
+.wizard-title{font-size:22px;font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+.wizard-sub{font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:22px}
+.wizard-dots{display:flex;justify-content:center;gap:6px;margin-bottom:20px}
+.wdot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.12);transition:all .3s}
+.wdot.active{background:var(--p);width:18px;border-radius:4px}
+.wdot.done{background:var(--green)}
+.wizard-cta{width:100%;padding:13px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:11px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;transition:all .2s}
+.wizard-cta:hover{opacity:.9;transform:translateY(-1px)}
+.wizard-skip{margin-top:10px;font-size:11px;color:var(--muted);cursor:pointer;transition:color .2s}
+.wizard-skip:hover{color:var(--p)}
+.wiz-url-box{padding:3px;background:linear-gradient(135deg,var(--p),var(--cyan),var(--p2));border-radius:14px;margin:16px 0}
+.wiz-url-inner{background:var(--bg3);border-radius:11px;display:flex;align-items:center;padding:3px 3px 3px 14px;gap:7px}
+.wiz-url-input{flex:1;background:none;border:none;color:#fff;font-size:13px;outline:none;padding:11px 0;min-width:0}
+.wiz-url-input::placeholder{color:var(--muted)}
+.wiz-gen-btn{padding:11px 16px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:9px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s;flex-shrink:0}
+.wiz-gen-btn:hover{opacity:.9}
+.credits-bonus{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:12px;font-size:13px;font-weight:800;color:var(--green);margin:8px 0 18px}
+.ref-code-box{display:flex;align-items:center;gap:7px;background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.2);border-radius:10px;padding:10px 14px;margin:12px 0;text-align:left}
+.ref-code-val{flex:1;font-size:12px;color:var(--p);font-family:monospace}
 .toast{position:fixed;bottom:76px;left:50%;transform:translateX(-50%) translateY(16px);padding:10px 18px;border-radius:11px;font-size:12px;font-weight:700;z-index:9999;pointer-events:none;transition:all .35s ease;box-shadow:0 4px 24px rgba(0,0,0,.5);opacity:0;max-width:calc(100vw - 40px);text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* ══ HERO DEMO OVERLAY ══ */
-#heroDemoOverlay{
-  display:none;opacity:0;position:fixed;inset:0;z-index:700;
-  background:rgba(3,7,18,.97);backdrop-filter:blur(18px);
-  flex-direction:column;align-items:center;justify-content:center;
-  padding:20px;transition:opacity .35s ease;overflow-y:auto;
-}
-#heroDemoOverlay .demo-inner{width:100%;max-width:660px;margin:auto}
-#heroDemoOverlay .demo-close-btn{
-  position:fixed;top:16px;right:16px;background:rgba(255,255,255,.05);
-  border:1px solid var(--border);border-radius:8px;color:var(--muted2);
-  font-size:14px;width:32px;height:32px;cursor:pointer;display:flex;
-  align-items:center;justify-content:center;transition:all .2s;z-index:1;
-}
-#heroDemoOverlay .demo-close-btn:hover{border-color:#ef4444;color:#ef4444}
-
-/* Processing panel */
-.demo-proc-card{background:var(--bg2);border:1px solid rgba(168,85,247,.2);border-radius:22px;overflow:hidden;box-shadow:0 0 60px rgba(168,85,247,.15)}
-.demo-proc-topbar{height:3px;background:linear-gradient(90deg,var(--p2),var(--p),var(--cyan));animation:shimmer 2s linear infinite;background-size:200%}
-.demo-proc-body{padding:24px 26px}
-.demo-proc-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
-.demo-proc-thumb{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,rgba(168,85,247,.3),rgba(34,211,238,.2));display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid rgba(168,85,247,.2);flex-shrink:0}
-.demo-proc-meta{flex:1;min-width:0}
-.demo-proc-title{font-size:13px;font-weight:800;margin-bottom:3px}
-.demo-proc-step{font-size:10px;color:var(--muted)}
-.demo-ring-wrap{position:relative;width:56px;height:56px;flex-shrink:0}
-.demo-ring-svg{transform:rotate(-90deg)}
-.demo-ring-bg{fill:none;stroke:rgba(255,255,255,.06);stroke-width:5}
-.demo-ring-fill{fill:none;stroke:url(#demGrad);stroke-width:5;stroke-linecap:round;stroke-dasharray:145;stroke-dashoffset:145;transition:stroke-dashoffset .7s ease}
-.demo-pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-
-/* Stage dots */
-.demo-stages{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:14px}
-.demo-stage{display:flex;flex-direction:column;align-items:center;gap:3px}
-.demo-sd{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.08);background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--muted);transition:all .5s}
-.demo-sd.done{border-color:var(--green);color:var(--green);background:rgba(16,185,129,.1)}
-.demo-sd.active{border-color:var(--p);color:#fff;background:rgba(168,85,247,.2);box-shadow:0 0 14px rgba(168,85,247,.7);animation:livePulse .9s ease-in-out infinite}
-.demo-stage-lbl{font-size:6px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center}
-
-/* Bar */
-.demo-bar-track{height:7px;background:rgba(255,255,255,.05);border-radius:99px;overflow:hidden;margin-bottom:6px}
-.demo-bar-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--p2),var(--p),var(--cyan));background-size:300%;animation:barShift 2s linear infinite;transition:width .7s ease}
-
-/* Clip previews */
-.demo-clips-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
-.demo-pcc{background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden;transition:all .5s}
-.demo-pcc.ready{border-color:rgba(168,85,247,.4);background:rgba(168,85,247,.07);box-shadow:0 0 18px rgba(168,85,247,.15);animation:cardIn .5s ease}
-.demo-pcc-thumb{height:34px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);border-bottom:1px solid var(--border)}
-.demo-pcc.ready .demo-pcc-thumb{color:var(--p);background:rgba(168,85,247,.08)}
-.demo-pcc-body{padding:7px}
-.demo-pcc-lbl{font-size:7px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-.demo-pcc.ready .demo-pcc-lbl{color:var(--cyan)}
-.demo-pcc-txt{font-size:9px;font-weight:700;color:var(--muted);margin-top:2px;line-height:1.3}
-.demo-pcc.ready .demo-pcc-txt{color:var(--text)}
-
-/* Clips revealed panel */
-#hdClips{display:none}
-.hd-clip{display:flex;align-items:center;gap:12px;background:var(--bg2);border:1px solid rgba(168,85,247,.3);border-radius:14px;padding:14px 16px;margin-bottom:10px;animation:cardIn .5s ease both}
-.hd-clip-score{font-size:36px;font-weight:900;flex-shrink:0;width:48px;text-align:center}
-.hd-clip-mid{flex:1;min-width:0}
-.hd-clip-title{font-size:13px;font-weight:800;margin-bottom:3px}
-.hd-clip-hook{font-size:11px;color:var(--muted2);font-style:italic}
-.hd-clip-play{width:36px;height:36px;border-radius:50%;background:rgba(168,85,247,.2);border:1px solid rgba(168,85,247,.4);display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;flex-shrink:0;transition:all .2s}
-.hd-clip-play:hover{background:var(--p);transform:scale(1.1)}
-
-/* Blur gate */
-#hdBlurGate{
-  display:none;opacity:0;position:absolute;inset:0;z-index:10;
-  backdrop-filter:blur(10px);
-  background:linear-gradient(to bottom,rgba(3,7,18,.1) 0%,rgba(3,7,18,.97) 55%);
-  border-radius:16px;flex-direction:column;align-items:center;
-  justify-content:flex-end;padding-bottom:10px;transition:opacity .6s ease;
-}
-.blur-gate-card{background:linear-gradient(135deg,rgba(168,85,247,.2),rgba(99,102,241,.15));border:1.5px solid rgba(168,85,247,.5);border-radius:20px;padding:26px 28px;text-align:center;width:100%;max-width:420px;position:relative;overflow:hidden;backdrop-filter:blur(20px)}
-.blur-gate-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--p),var(--cyan),transparent)}
+.chat-bubble{position:fixed;bottom:20px;right:18px;z-index:500}
+.chat-btn-fab{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));border:none;cursor:pointer;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(168,85,247,.45);transition:transform .2s}
+.chat-btn-fab:hover{transform:scale(1.1)}
+.chat-panel{position:fixed;bottom:80px;right:18px;width:300px;background:var(--bg2);border:1px solid var(--border2);border-radius:16px;z-index:500;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:fadeUp .2s ease}
+.chat-panel.open{display:flex}
+.chat-head{padding:12px 13px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.chat-messages{flex:1;overflow-y:auto;padding:11px;display:flex;flex-direction:column;gap:8px;max-height:260px;min-height:140px}
+.chat-messages::-webkit-scrollbar{width:3px}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(168,85,247,.3);border-radius:99px}
+.chat-msg{padding:8px 10px;border-radius:10px;font-size:11px;line-height:1.5;max-width:88%}
+.msg-bot{background:rgba(168,85,247,.09);border:1px solid rgba(168,85,247,.18);color:var(--muted2);align-self:flex-start}
+.msg-user{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;align-self:flex-end}
+.chat-input-row{padding:8px;border-top:1px solid var(--border);display:flex;gap:6px}
+.chat-input{flex:1;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:8px;padding:7px 10px;color:#fff;font-size:11px;outline:none;transition:border .2s}
+.chat-input:focus{border-color:var(--p)}
+.chat-send{padding:7px 12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:7px;color:#fff;font-size:11px;cursor:pointer;transition:opacity .2s}
+.ai-thinking{display:flex;gap:3px;align-items:center;padding:8px 10px;background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.2);border-radius:10px;align-self:flex-start}
+.ai-thinking span{width:4px;height:4px;border-radius:50%;background:var(--p);animation:thinkDot 1.2s ease-in-out infinite}
+.ai-thinking span:nth-child(2){animation-delay:.2s}
+.ai-thinking span:nth-child(3){animation-delay:.4s}
 </style>
 </head>
 <body>
 
-<div class="orb o1"></div>
-<div class="orb o2"></div>
-<div class="grid-bg"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="grid-bg"></div>
 
-<!-- Gradient defs for demo ring -->
 <svg width="0" height="0" style="position:absolute">
   <defs>
-    <linearGradient id="demGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#22d3ee"/>
-    </linearGradient>
     <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#22d3ee"/>
+      <stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#22d3ee"/>
     </linearGradient>
   </defs>
 </svg>
 
+<!-- BOLT SVG TEMPLATE (reusable) -->
+<svg style="display:none">
+  <symbol id="bolt-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11.5 2L4 11.5H10L8.5 18L16 8.5H10L11.5 2Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
 <div id="landing">
 
-<!-- Ticker -->
 <div class="ticker-bar"><div class="ticker-inner" id="tickerInner"></div></div>
 
-<!-- Nav -->
 <nav class="nav">
-  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <div class="nav-logo" onclick="scrollTop()">
     <div class="lm">
       <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
         <path d="M11.5 2L4 11.5H10L8.5 18L16 8.5H10L11.5 2Z" fill="white" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" stroke-linejoin="round"/>
@@ -371,9 +615,10 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     ClipSpeedAI
   </div>
   <div class="nav-links">
-    <button class="nav-link" onclick="document.getElementById('howSection').scrollIntoView({behavior:'smooth'})">How It Works</button>
-    <button class="nav-link" onclick="document.getElementById('pricingSection').scrollIntoView({behavior:'smooth'})">Pricing</button>
-    <button class="nav-link" onclick="document.getElementById('refSection').scrollIntoView({behavior:'smooth'})">Referral</button>
+    <button class="nav-link" onclick="scrollTo('howSection')">How It Works</button>
+    <button class="nav-link" onclick="scrollTo('featuresSection')">Features</button>
+    <button class="nav-link" onclick="scrollTo('refSection')">Referral</button>
+    <button class="nav-link" onclick="scrollTo('pricingSection')">Pricing</button>
   </div>
   <div class="nav-ctas">
     <button class="btn-ghost" onclick="openAuth(false)">Sign In</button>
@@ -381,24 +626,24 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="hero">
   <canvas id="particleCanvas"></canvas>
   <div class="hero-inner">
-    <div class="hero-badge"><div class="live-dot"></div>⚡ GPT-4o Powered · 47K+ Creators</div>
+    <div class="hero-badge"><div class="live-dot"></div>⚡ 10× Faster Than OpuClip · GPT-4o Powered · 47K+ Creators</div>
     <h1 class="hero-title">The World's Fastest<br><span class="grad">AI Clip Super App</span></h1>
     <p class="hero-sub">Paste any YouTube URL. GPT-4o finds your viral moments, burns in captions, reframes for every platform — delivering ready-to-post clips in under 90 seconds.</p>
     <div class="hero-url-wrap">
       <div class="hero-url-box">
         <div class="hero-url-inner">
           <span style="font-size:18px;flex-shrink:0">🔗</span>
-          <input class="hero-url-input" id="heroUrl" type="text" placeholder="Paste any YouTube URL to see magic happen..." onkeydown="if(event.key==='Enter')heroGenerate()">
+          <input class="hero-url-input" id="heroUrl" type="text" placeholder="Paste any YouTube URL to see magic happen...">
           <button class="hero-gen-btn" onclick="heroGenerate()">Generate Clips ⚡</button>
         </div>
       </div>
     </div>
     <div class="hero-trust">
-      <span>✓ No credit card</span><span>·</span><span>✓ 90 second results</span><span>·</span><span>✓ 50 free credits</span><span>·</span><span>✓ Free forever plan</span>
+      <span>✓ No credit card</span><span>·</span><span>✓ 90 second results</span><span>·</span><span>✓ 50 free credits on signup</span><span>·</span><span>✓ Free forever plan</span>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="hero-stat-num">Millions</div><div class="hero-stat-lbl">Clips Generated</div></div>
@@ -409,27 +654,32 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </section>
 
-<!-- Hero CTA Banner -->
+<!-- HERO CTA BANNER -->
 <div class="hero-cta-banner">
   <div class="hero-cta-card">
-    <div>
-      <div class="hero-cta-eyebrow"><div class="hero-cta-dot"></div><span class="hero-cta-eyebrow-txt">Free Forever · No Card Required</span></div>
-      <div class="hero-cta-headline">Start Free — <span class="grad">50 Credits,</span> No Card Ever</div>
+    <div class="hero-cta-left">
+      <div class="hero-cta-eyebrow">
+        <div class="hero-cta-dot"></div>
+        <span class="hero-cta-eyebrow-txt">Free Forever · No Card Required</span>
+      </div>
+      <div class="hero-cta-headline">Start Free — <span class="grad">50 Credits,</span><br>No Card Ever</div>
       <div class="hero-cta-sub">Get <strong>50 free credits</strong> the moment you sign up.<br>That's 50 minutes of video turned into viral clips — on us.</div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0">
+    <div class="hero-cta-right">
       <button class="hero-cta-btn" onclick="openAuth(true)">🚀 Claim My 50 Free Credits</button>
-      <div class="hero-cta-guarantee"><span style="color:var(--green)">✓</span> No credit card &nbsp;·&nbsp; <span style="color:var(--green)">✓</span> Free forever</div>
+      <div class="hero-cta-guarantee">
+        <span class="check">✓</span> No credit card &nbsp;·&nbsp; <span class="check">✓</span> Free forever plan &nbsp;·&nbsp; <span class="check">✓</span> Cancel anytime
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Live Strip -->
+<!-- LIVE STRIP -->
 <div class="live-strip" style="margin-top:40px">
-  <div class="lc"><div class="lc-ind"><div class="live-dot"></div>LIVE</div><div class="lc-num" id="lc1">0</div><div class="lc-lbl">Clips Processing</div></div>
+  <div class="lc"><div class="lc-ind"><div class="live-dot"></div>LIVE RIGHT NOW</div><div class="lc-num" id="lc1">0</div><div class="lc-lbl">Clips Processing</div></div>
   <div class="lc"><div class="lc-num" id="lc2">0</div><div class="lc-lbl">Views Earned Today</div></div>
   <div class="lc"><div class="lc-num" id="lc3">0</div><div class="lc-lbl">Creators Online</div></div>
-  <div class="lc"><div class="lc-num" id="lc4">0</div><div class="lc-lbl">Hours Saved</div></div>
+  <div class="lc"><div class="lc-num" id="lc4">0</div><div class="lc-lbl">Hours Saved Today</div></div>
 </div>
 
 <div class="proof-strip">
@@ -439,9 +689,11 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   <div class="proof-item"><span>𝕏</span>Twitter/X</div>
   <div class="proof-item"><span>💼</span>LinkedIn</div>
   <div class="proof-item"><span>🤖</span>GPT-4o Powered</div>
+  <div class="proof-item"><span>🎥</span>B-Roll Auto Match</div>
 </div>
 
-<div class="inline-cta-bar">
+<!-- CTA 1 — right after hero stats -->
+<div class="inline-cta-bar" style="padding:32px 24px 40px">
   <button class="inline-cta-btn" onclick="openAuth(true)">Start Free ⚡ — Paste Your First Video</button>
   <div class="inline-cta-sub"><span>✓ No card</span><span>·</span><span>✓ 50 free credits</span><span>·</span><span>✓ Results in 90s</span></div>
 </div>
@@ -454,16 +706,19 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 <section class="section" id="howSection">
   <div class="section-inner">
     <div class="sec-label">How It Works</div>
-    <h2 class="sec-title">From long video to <span class="grad">viral clips in 3 steps</span></h2>
+    <h2 class="sec-title">From long video to<br><span class="grad">viral clips in 3 steps</span></h2>
     <p class="sec-sub">No editing skills. No timeline scrubbing. Just paste, generate, and dominate every platform.</p>
     <div class="steps-grid">
-      <div class="step-card"><div class="step-num">Step 01</div><span class="step-icon">🔗</span><div class="step-title">Paste Your URL</div><div class="step-desc">Drop any YouTube link — podcasts, interviews, vlogs, tutorials, gaming streams. Transcription starts instantly.</div></div>
+      <div class="step-card"><div class="step-num">Step 01</div><span class="step-icon">🔗</span><div class="step-title">Paste Your URL</div><div class="step-desc">Drop any YouTube link — podcasts, interviews, vlogs, tutorials, gaming streams. Transcription and analysis start instantly.</div></div>
       <div class="step-card"><div class="step-num">Step 02</div><span class="step-icon">🧠</span><div class="step-title">ViralBrain™ Scores Everything</div><div class="step-desc">GPT-4o reads your entire transcript and scores every window for hook strength, emotion, pacing, and retention power — 0 to 100.</div></div>
       <div class="step-card"><div class="step-num">Step 03</div><span class="step-icon">🚀</span><div class="step-title">Post. Go Viral. Repeat.</div><div class="step-desc">Get 5–10 ready-to-post clips with burned-in captions, speaker auto-reframed for 9:16, formatted for every platform. In 90 seconds.</div></div>
     </div>
   </div>
 </section>
 
+
+
+<!-- CTA 2 — after How It Works -->
 <div class="inline-cta-bar">
   <button class="inline-cta-btn" onclick="openAuth(true)">Start Free ⚡ — Paste Your First Video</button>
   <div class="inline-cta-sub"><span>✓ No card</span><span>·</span><span>✓ 50 free credits</span><span>·</span><span>✓ Results in 90s</span></div>
@@ -471,23 +726,22 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 
 <div class="results-section"><div class="results-track" id="resultsTrack"></div></div>
 
-<!-- Referral -->
-<section class="ref-section" id="refSection">
+<section class="section" id="refSection" style="border-top:1px solid var(--border)">
   <div class="ref-card">
     <div style="position:relative;z-index:1">
       <div class="sec-label">Referral Program</div>
-      <h2 class="sec-title" style="margin-bottom:10px">Earn <span class="grad">real money</span> sharing what you love</h2>
+      <h2 class="sec-title" style="margin-bottom:10px">Earn <span class="grad">real money</span><br>sharing what you love</h2>
+      <p style="font-size:13px;color:var(--muted2);margin-bottom:4px">The most generous recurring affiliate program in the creator tool industry.</p>
       <div class="ref-tiers">
-        <div class="ref-tier current"><div class="ref-tier-icon">🥉</div><div class="ref-tier-name">Starter</div><div class="ref-tier-req">0–5 referrals</div><div class="ref-tier-rate">25%</div><div class="ref-tier-desc">Lifetime recurring</div></div>
-        <div class="ref-tier"><div class="ref-tier-icon">🥈</div><div class="ref-tier-name">Silver</div><div class="ref-tier-req">5–20 referrals</div><div class="ref-tier-rate">40%</div><div class="ref-tier-desc">Lifetime recurring</div></div>
-        <div class="ref-tier"><div class="ref-tier-icon">🥇</div><div class="ref-tier-name">Gold</div><div class="ref-tier-req">20+ referrals</div><div class="ref-tier-rate">50%</div><div class="ref-tier-desc">Lifetime recurring</div></div>
+        <div class="ref-tier current"><div class="ref-tier-icon">🥉</div><div class="ref-tier-name">Starter</div><div class="ref-tier-req">0–5 active referrals</div><div class="ref-tier-rate">25%</div><div class="ref-tier-desc">Lifetime recurring monthly</div></div>
+        <div class="ref-tier"><div class="ref-tier-icon">🥈</div><div class="ref-tier-name">Silver</div><div class="ref-tier-req">5–20 active referrals</div><div class="ref-tier-rate">40%</div><div class="ref-tier-desc">Lifetime recurring monthly</div></div>
+        <div class="ref-tier"><div class="ref-tier-icon">🥇</div><div class="ref-tier-name">Gold</div><div class="ref-tier-req">20+ active referrals</div><div class="ref-tier-rate">50%</div><div class="ref-tier-desc">Lifetime recurring monthly</div></div>
       </div>
       <button class="cta-btn" onclick="openAuth(true)" style="padding:14px 36px;font-size:14px">🚀 Get Your Free Referral Link</button>
     </div>
   </div>
 </section>
 
-<!-- Testimonials -->
 <section class="testi-section">
   <div style="text-align:center;padding:0 24px 40px;position:relative;z-index:3">
     <div class="sec-label">Creator Reviews</div>
@@ -496,23 +750,166 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   <div class="testi-track" id="testiTrack"></div>
 </section>
 
+<!-- CTA 3 — after testimonials -->
 <div class="inline-cta-bar">
   <button class="inline-cta-btn" onclick="openAuth(true)">Start Free ⚡ — Paste Your First Video</button>
   <div class="inline-cta-sub"><span>✓ No card</span><span>·</span><span>✓ 50 free credits</span><span>·</span><span>✓ Results in 90s</span></div>
 </div>
 
-<!-- Pricing -->
+<section class="vs-section">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="sec-label">Comparison</div>
+      <h2 class="sec-title">ClipSpeedAI vs <span class="grad">The Competition</span></h2>
+      <p class="sec-sub">We ran the numbers. The results aren't close.</p>
+    </div>
+
+    <!-- Score Cards -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1080px;margin:0 auto 36px">
+      <!-- ClipSpeedAI -->
+      <div style="background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(99,102,241,.1));border:1.5px solid rgba(168,85,247,.55);border-radius:20px;padding:22px 16px;text-align:center;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan))"></div>
+        <div style="position:absolute;top:10px;right:10px;padding:3px 8px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:99px;font-size:8px;font-weight:800;color:#fff">WINNER</div>
+        <div style="font-size:26px;margin-bottom:8px">⚡</div>
+        <div style="font-size:13px;font-weight:900;color:#fff;margin-bottom:4px">ClipSpeedAI</div>
+        <div style="font-size:44px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">98</div>
+        <div style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Overall Score</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px">
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">Speed</span><span style="color:var(--green);font-weight:800">100</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:100%;background:linear-gradient(90deg,var(--p),var(--cyan));border-radius:99px"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">AI Power</span><span style="color:var(--green);font-weight:800">98</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:98%;background:linear-gradient(90deg,var(--p),var(--cyan));border-radius:99px"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">Value</span><span style="color:var(--green);font-weight:800">97</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:97%;background:linear-gradient(90deg,var(--p),var(--cyan));border-radius:99px"></div></div>
+        </div>
+      </div>
+      <!-- OpuClip -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:22px 16px;text-align:center;position:relative;overflow:hidden">
+        <div style="font-size:26px;margin-bottom:8px">🎬</div>
+        <div style="font-size:13px;font-weight:900;color:var(--muted2);margin-bottom:4px">OpusClip</div>
+        <div style="font-size:44px;font-weight:900;color:var(--muted2);line-height:1">74</div>
+        <div style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Overall Score</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px">
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">Speed</span><span style="color:var(--muted2);font-weight:800">58</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:58%;background:var(--muted);border-radius:99px"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">AI Power</span><span style="color:var(--muted2);font-weight:800">78</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:78%;background:var(--muted);border-radius:99px"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">Value</span><span style="color:var(--muted2);font-weight:800">70</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:70%;background:var(--muted);border-radius:99px"></div></div>
+        </div>
+      </div>
+      <!-- Pictory -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:22px 16px;text-align:center;position:relative;overflow:hidden">
+        <div style="font-size:26px;margin-bottom:8px">🎞️</div>
+        <div style="font-size:13px;font-weight:900;color:var(--muted2);margin-bottom:4px">Pictory</div>
+        <div style="font-size:44px;font-weight:900;color:var(--muted2);line-height:1">54</div>
+        <div style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Overall Score</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px">
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">Speed</span><span style="color:var(--muted2);font-weight:800">38</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:38%;background:var(--muted);border-radius:99px"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">AI Power</span><span style="color:var(--muted2);font-weight:800">58</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:58%;background:var(--muted);border-radius:99px"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">Value</span><span style="color:var(--muted2);font-weight:800">50</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:50%;background:var(--muted);border-radius:99px"></div></div>
+        </div>
+      </div>
+      <!-- Descript -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:22px 16px;text-align:center;position:relative;overflow:hidden">
+        <div style="font-size:26px;margin-bottom:8px">✂️</div>
+        <div style="font-size:13px;font-weight:900;color:var(--muted2);margin-bottom:4px">Descript</div>
+        <div style="font-size:44px;font-weight:900;color:var(--muted2);line-height:1">57</div>
+        <div style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Overall Score</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px">
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">Speed</span><span style="color:var(--muted2);font-weight:800">45</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:45%;background:var(--muted);border-radius:99px"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">AI Power</span><span style="color:var(--muted2);font-weight:800">60</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:60%;background:var(--muted);border-radius:99px"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:var(--muted)">Value</span><span style="color:var(--muted2);font-weight:800">52</span></div>
+          <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px"><div style="height:100%;width:52%;background:var(--muted);border-radius:99px"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature comparison table -->
+    <div style="max-width:1080px;margin:0 auto;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--bg2)">
+      <!-- Header -->
+      <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;background:var(--bg3);border-bottom:1px solid var(--border)">
+        <div style="padding:14px 20px;font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Feature</div>
+        <div style="padding:14px 12px;text-align:center;position:relative">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan))"></div>
+          <div style="font-size:11px;font-weight:900;color:var(--p)">⚡ ClipSpeedAI</div>
+        </div>
+        <div style="padding:14px 12px;text-align:center;font-size:11px;font-weight:700;color:var(--muted)">🎬 OpusClip</div>
+        <div style="padding:14px 12px;text-align:center;font-size:11px;font-weight:700;color:var(--muted)">🎞️ Pictory</div>
+        <div style="padding:14px 12px;text-align:center;font-size:11px;font-weight:700;color:var(--muted)">✂️ Descript</div>
+      </div>
+
+      <!-- Rows -->
+      <div id="vsRows"></div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div style="text-align:center;margin-top:32px">
+      <button class="cta-btn" onclick="openAuth(true)" style="padding:14px 36px;font-size:14px">⚡ Try ClipSpeedAI Free — No Card Needed</button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const rows=[
+    {label:'Processing Speed',       us:'~90 seconds',      op:'5–15 min',       pi:'10–20 min',     de:'Manual'},
+    {label:'GPT-4o Viral Scoring',   us:'✓ Full 0–100',     op:'Basic only',     pi:'✗',             de:'✗'},
+    {label:'Auto Caption Styles',    us:'✓ 10 styles',      op:'✓ 3 styles',     pi:'✓ 2 styles',    de:'✓ Basic'},
+    {label:'AI B-Roll Matching',     us:'✓ Live Pexels',    op:'Limited',        pi:'✓ Stock only',  de:'✗'},
+    {label:'Speaker Auto-Reframe',   us:'✓ All ratios',     op:'✓ 9:16 only',    pi:'✗',             de:'✗'},
+    {label:'Affiliate Program',      us:'✓ Up to 50%',      op:'✗',              pi:'✗',             de:'✗'},
+    {label:'Free Credits on Signup', us:'✓ 50 credits',     op:'3 clips/mo',     pi:'7-day trial',   de:'1hr free'},
+    {label:'White-label / API',      us:'✓ Agency plan',    op:'✗',              pi:'✓ Extra cost',  de:'✓ Extra cost'},
+    {label:'Pricing (Pro)',          us:'$40/mo',            op:'$49/mo',         pi:'$47/mo',        de:'$24/mo*'},
+  ];
+
+  const isGood = v => v.startsWith('✓') || v.includes('90 sec') || v.includes('50 cr') || v.includes('10 styles') || v.includes('50%') || v.includes('All ratio') || v.includes('Live') || v.includes('$40');
+  const isBad  = v => v === '✗' || v === 'Manual' || v === '✗';
+
+  const container = document.getElementById('vsRows');
+  container.innerHTML = rows.map((r, i) => `
+    <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;border-bottom:1px solid var(--border);transition:background .2s" onmouseover="this.style.background='rgba(168,85,247,.03)'" onmouseout="this.style.background='transparent'">
+      <div style="padding:13px 20px;font-size:12px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px">
+        ${r.label}
+      </div>
+      <div style="padding:13px 12px;text-align:center;background:rgba(168,85,247,.04)">
+        <span style="display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:800;background:${isGood(r.us)?'rgba(16,185,129,.12)':'rgba(255,255,255,.04)'};color:${isGood(r.us)?'var(--green)':'var(--muted2)'};border:1px solid ${isGood(r.us)?'rgba(16,185,129,.25)':'var(--border)'}">${r.us}</span>
+      </div>
+      <div style="padding:13px 12px;text-align:center">
+        <span style="display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.op)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.op)?'#f87171':'var(--muted2)'};border:1px solid ${isBad(r.op)?'rgba(239,68,68,.15)':'var(--border)'}">${r.op}</span>
+      </div>
+      <div style="padding:13px 12px;text-align:center">
+        <span style="display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.pi)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.pi)?'#f87171':'var(--muted2)'};border:1px solid ${isBad(r.pi)?'rgba(239,68,68,.15)':'var(--border)'}">${r.pi}</span>
+      </div>
+      <div style="padding:13px 12px;text-align:center">
+        <span style="display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.de)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.de)?'#f87171':'var(--muted2)'};border:1px solid ${isBad(r.de)?'rgba(239,68,68,.15)':'var(--border)'}">${r.de}</span>
+      </div>
+    </div>
+  `).join('') + `<div style="padding:8px 20px;font-size:9px;color:var(--muted)">* Descript AI Clips feature requires add-on. Pricing as of 2025.</div>`;
+})();
+</script>
+
 <section class="pricing-section" id="pricingSection">
   <div class="sec-label">Pricing</div>
   <h2 class="sec-title">Simple, transparent <span class="grad">pricing</span></h2>
   <p class="sec-sub">Simple credits. No surprises. Save 40% going yearly.</p>
+  <div style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(34,211,238,.06));border:1px solid rgba(168,85,247,.25);border-radius:8px;margin-bottom:20px;font-size:10.5px;color:#e2e8f0;font-weight:600">
+    <span style="font-size:12px">💡</span>
+    <span>If you post <strong style="color:#fff">3×/week</strong>, Pro pays for itself with just <strong style="color:var(--green)">1 viral clip</strong>.</span>
+  </div>
   <div class="billing-toggle">
     <span id="monthlyLbl" class="active">Monthly</span>
     <div class="tog-wrap" onclick="toggleBilling()"><div class="tog-track" id="togTrack"></div><div class="tog-knob" id="togKnob"></div></div>
     <span id="annualLbl">Annual</span>
     <div class="annual-badge">Save 40%</div>
   </div>
-  <div class="pricing-grid">
+  <div class="pricing-grid" style="max-width:760px;margin-left:auto;margin-right:auto;grid-template-columns:repeat(3,1fr)">
     <div class="plan-card">
       <div class="plan-name">Free</div>
       <div class="plan-price">$0</div><div class="plan-period">/forever</div>
@@ -550,22 +947,28 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
       </div>
       <button class="plan-btn pb-primary" onclick="openAuth(true)">Get Pro ⚡</button>
     </div>
+
   </div>
 </section>
 
+<!-- CTA 5 — after pricing -->
 <div class="inline-cta-bar">
   <button class="inline-cta-btn" onclick="openAuth(true)">Start Free ⚡ — Paste Your First Video</button>
   <div class="inline-cta-sub"><span>✓ No card</span><span>·</span><span>✓ 50 free credits</span><span>·</span><span>✓ Results in 90s</span></div>
 </div>
 
-<!-- FAQ -->
 <section class="faq-section">
   <div class="sec-label">FAQ</div>
   <h2 class="sec-title" style="margin-bottom:36px">Everything you <span class="grad">need to know</span></h2>
   <div class="faq-cols" id="faqCols"></div>
 </section>
 
-<!-- Final CTA -->
+<!-- CTA 6 — after FAQ, before final CTA section -->
+<div class="inline-cta-bar">
+  <button class="inline-cta-btn" onclick="openAuth(true)">Start Free ⚡ — Paste Your First Video</button>
+  <div class="inline-cta-sub"><span>✓ No card</span><span>·</span><span>✓ 50 free credits</span><span>·</span><span>✓ Results in 90s</span></div>
+</div>
+
 <section class="cta-section">
   <div class="cta-inner">
     <div style="display:inline-flex;align-items:center;gap:7px;padding:7px 16px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.3);border-radius:99px;font-size:11px;color:var(--p);font-weight:700;margin-bottom:24px"><div class="live-dot"></div>47,000+ creators live right now</div>
@@ -576,90 +979,274 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </section>
 
-<footer style="border-top:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;position:relative;z-index:1;background:var(--bg2)">
-  <div style="font-size:14px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent">⚡ ClipSpeedAI</div>
-  <div style="font-size:11px;color:var(--muted)">© 2025 ClipSpeedAI Inc. All rights reserved.</div>
-  <div style="display:flex;gap:18px;flex-wrap:wrap">
-    <span style="font-size:11px;color:var(--muted);cursor:pointer">Terms</span>
-    <span style="font-size:11px;color:var(--muted);cursor:pointer">Privacy</span>
-    <span style="font-size:11px;color:var(--muted);cursor:pointer">Contact</span>
-  </div>
+<footer class="footer">
+  <div class="footer-logo">⚡ ClipSpeedAI</div>
+  <div class="footer-links"><span class="footer-link">Privacy Policy</span><span class="footer-link">Terms of Service</span><span class="footer-link">Affiliate Program</span><span class="footer-link">Contact</span></div>
+  <div class="footer-copy">© 2025 ClipSpeedAI. All rights reserved.</div>
 </footer>
 
 </div><!-- /landing -->
 
-<!-- ══ HERO DEMO OVERLAY — fully rebuilt, no template literals in HTML ══ -->
-<div id="heroDemoOverlay">
-  <button class="demo-close-btn" onclick="closeHeroDemo()">✕</button>
-  <div class="demo-inner">
+<style>
+.inline-cta-bar{display:flex;flex-direction:column;align-items:center;gap:10px;padding:44px 24px;position:relative;z-index:1}
+.inline-cta-btn{display:inline-flex;align-items:center;gap:9px;padding:16px 36px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:14px;color:#fff;font-size:15px;font-weight:900;cursor:pointer;letter-spacing:-.3px;transition:all .25s;box-shadow:0 8px 32px rgba(168,85,247,.35);animation:ctaPulse 2.5s ease-in-out infinite}
+.inline-cta-btn:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(168,85,247,.5)!important;animation:none}
+.inline-cta-sub{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:10px}
+</style>
 
-    <!-- Processing panel -->
-    <div id="hdProcessing">
-      <div style="text-align:center;margin-bottom:22px">
-        <div class="hero-badge" style="display:inline-flex;margin-bottom:10px"><div class="live-dot"></div>⚡ ViralBrain™ is analyzing your video</div>
-        <div id="hdUrlLabel" style="font-size:11px;color:var(--muted);word-break:break-all"></div>
+<!-- DASHBOARD -->
+<div id="dashboard">
+<header class="topbar">
+  <div class="topbar-logo" onclick="switchPage('home')">
+    <div class="logo-mark">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+        <path d="M11.5 2L4 11.5H10L8.5 18L16 8.5H10L11.5 2Z" fill="white" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="logo-txt">ClipSpeedAI</span>
+  </div>
+  <nav class="topbar-nav">
+    <button class="nav-pill active" id="nb-home" onclick="switchPage('home')">🏠 Generate</button>
+    <button class="nav-pill" id="nb-clips" onclick="switchPage('clips')">⚡ My Clips</button>
+    <button class="nav-pill" id="nb-analytics" onclick="switchPage('analytics')">📊 Analytics</button>
+    <button class="nav-pill" id="nb-brand" onclick="switchPage('brand')">🏷️ Brand</button>
+    <button class="nav-pill" id="nb-affiliate" onclick="switchPage('affiliate')">💰 Affiliate</button>
+  </nav>
+  <div class="topbar-right">
+    <div class="live-ind"><div class="live-dot"></div>AI LIVE</div>
+    <span class="plan-badge" id="planBadge">Free</span>
+    <div class="credits-chip" onclick="openUpgradeModal()" id="creditsChip">⚡ <span id="creditsDisplay">50</span> credits</div>
+  </div>
+</header>
+
+<div class="page active" id="page-home">
+  <div class="home-wrap">
+    <div class="dash-hero">
+      <div class="hero-badge" style="margin-bottom:16px"><div class="live-dot"></div>GPT-4o Powered · 90s Processing</div>
+      <h1 class="dash-title"><span class="grad">Viral Clips.<br>90 Seconds.</span></h1>
+      <p class="dash-sub">Paste any YouTube URL. ViralBrain™ finds your best moments and delivers ready-to-post clips with animated captions — faster than you finish reading this.</p>
+      <div class="source-tabs">
+        <div class="src-tab active" onclick="setSource('youtube',this)">▶️ YouTube</div>
+        <div class="src-tab" onclick="setSource('upload',this)">📁 Upload</div>
+        <div class="src-tab" onclick="setSource('vimeo',this)">🎞 Vimeo</div>
+        <div class="src-tab" onclick="setSource('tiktok',this)">🎵 TikTok</div>
       </div>
-      <div class="demo-proc-card">
-        <div class="demo-proc-topbar"></div>
-        <div class="demo-proc-body">
-          <!-- Header row -->
-          <div class="demo-proc-header">
-            <div class="demo-proc-thumb">🎬</div>
-            <div class="demo-proc-meta">
-              <div class="demo-proc-title">Analyzing your video...</div>
-              <div class="demo-proc-step" id="hdStep">Initializing AI engine...</div>
-            </div>
-            <div class="demo-ring-wrap">
-              <svg class="demo-ring-svg" width="56" height="56" viewBox="0 0 56 56">
-                <circle class="demo-ring-bg" cx="28" cy="28" r="23"/>
-                <circle class="demo-ring-fill" id="hdRing" cx="28" cy="28" r="23"/>
-              </svg>
-              <div class="demo-pct" id="hdPct">0%</div>
-            </div>
+      <div class="url-zone">
+        <div class="url-box"><div class="url-inner">
+          <span style="font-size:16px;flex-shrink:0" id="srcIcon">🔗</span>
+          <input class="url-input" id="urlInput" type="text" placeholder="https://youtube.com/watch?v=..." onkeydown="if(event.key==='Enter')startGenerate()">
+          <button class="gen-btn" id="genBtn" onclick="startGenerate()">Generate ⚡</button>
+        </div></div>
+        <div class="url-err" id="urlErr">⚠️ Please enter a valid URL</div>
+      </div>
+      <div class="dash-trust"><span>⚡ ~90s processing</span><span style="color:var(--muted)">·</span><span>🧠 GPT-4o viral detection</span><span style="color:var(--muted)">·</span><span>💬 10 caption styles</span></div>
+      <div class="plat-row"><div class="plat-pill">🎵 TikTok</div><div class="plat-pill">📸 Instagram</div><div class="plat-pill">▶️ YT Shorts</div><div class="plat-pill">🐦 X</div><div class="plat-pill">💼 LinkedIn</div></div>
+    </div>
+    <div class="clips-feed" id="homeFeed">
+      <div class="empty-feed" id="emptyFeed"><div class="empty-feed-icon">✂️</div><div class="empty-feed-title">Your viral clips appear here</div><div class="empty-feed-sub">Paste a YouTube URL above and hit Generate — clips appear instantly</div></div>
+      <div id="homeClipsList" style="display:none">
+        <div class="feed-header">
+          <div class="feed-title">Your Clips <span class="feed-badge" id="clipBadge">0</span></div>
+          <div class="feed-actions">
+            <button class="feed-btn fb-p" onclick="openEditor(currentClips[0])">✏️ Editor</button>
+            <button class="feed-btn fb-c" onclick="bulkDownload()">📦 All</button>
+            <button class="feed-btn fb-s" onclick="switchPage('analytics')">📊 Stats</button>
+            <button class="feed-btn fb-r" onclick="clearClips()">🗑 Clear</button>
           </div>
-          <!-- Stage dots — built by JS -->
-          <div class="demo-stages" id="hdStageDots"></div>
-          <!-- Progress bar -->
-          <div class="demo-bar-track">
-            <div class="demo-bar-fill" id="hdBar"></div>
-          </div>
-          <!-- Clip preview cards — built by JS -->
-          <div class="demo-clips-row" id="hdClipPreviews"></div>
         </div>
+        <div id="homeClipsContainer"></div>
       </div>
     </div>
-
-    <!-- Clips revealed panel -->
-    <div id="hdClips" style="position:relative">
-      <div style="text-align:center;margin-bottom:16px">
-        <div class="hero-badge" style="display:inline-flex;margin-bottom:8px"><div class="live-dot"></div>🔥 3 Viral Clips Detected!</div>
-        <div style="font-size:13px;color:var(--muted2)">Your top moments are ready — see them below</div>
-      </div>
-      <div id="hdClipsList"></div>
-      <!-- Blur gate -->
-      <div id="hdBlurGate">
-        <div class="blur-gate-card">
-          <div style="font-size:28px;margin-bottom:8px">🔥</div>
-          <h3 style="font-size:clamp(17px,3vw,22px);font-weight:900;letter-spacing:-.8px;margin-bottom:6px">Your 3 clips are ready!</h3>
-          <p style="font-size:12px;color:var(--muted2);margin-bottom:18px;line-height:1.6">Sign up free to download them — takes 10 seconds.<br><strong style="color:#fff">50 bonus credits included.</strong></p>
-          <div style="display:flex;flex-direction:column;gap:9px">
-            <button onclick="closeHeroDemo();oauthLogin('google')" style="width:100%;padding:12px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s">
-              <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-              Continue with Google
-            </button>
-            <button onclick="closeHeroDemo();openAuth(true)" style="width:100%;padding:12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:800;cursor:pointer;transition:opacity .2s">
-              🚀 Sign up with Email — Free
-            </button>
-          </div>
-          <div style="margin-top:10px;font-size:10px;color:var(--muted)">✓ No credit card &nbsp;·&nbsp; ✓ 50 credits included</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<!-- AUTH -->
+<div class="page" id="page-clips">
+  <div style="padding:22px 26px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <div style="font-size:18px;font-weight:900">⚡ My Clips</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="feed-btn fb-p" onclick="openEditor(currentClips[0])">✏️ Editor</button>
+        <button class="feed-btn fb-c" onclick="bulkDownload()">📦 Download All</button>
+        <button class="feed-btn fb-s" onclick="openShare()">🔗 Share</button>
+      </div>
+    </div>
+    <div style="display:flex;gap:7px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none;padding-bottom:3px">
+      <div class="src-tab active" onclick="filterClips('all',this)">All</div>
+      <div class="src-tab" onclick="filterClips('fire',this)">🔥 Viral 90+</div>
+      <div class="src-tab" onclick="filterClips('high',this)">⚡ High 80+</div>
+      <div class="src-tab" onclick="filterClips('tiktok',this)">🎵 TikTok</div>
+      <div class="src-tab" onclick="filterClips('reels',this)">📸 Reels</div>
+    </div>
+    <div id="clipsTabContainer"><div class="empty-feed"><div class="empty-feed-icon">✂️</div><div class="empty-feed-title">No clips yet</div><div class="empty-feed-sub">Head to Generate and paste a YouTube URL</div></div></div>
+  </div>
+</div>
+
+<div class="page" id="page-analytics">
+  <div class="analytics-wrap">
+    <div style="font-size:18px;font-weight:900;margin-bottom:18px">📊 Performance Analytics</div>
+    <div id="analyticsContent"><div style="color:var(--muted);text-align:center;padding:50px"><div style="font-size:32px;margin-bottom:10px">📊</div>Generate clips first to see analytics</div></div>
+  </div>
+</div>
+
+<div class="page" id="page-brand">
+  <div class="brand-wrap">
+    <div style="font-size:18px;font-weight:900;margin-bottom:18px">🏷️ Brand & Templates</div>
+    <div class="tmpl-grid" id="templatesGrid"></div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;max-width:500px">
+      <div style="font-size:13px;font-weight:800;margin-bottom:14px">🎨 Brand Customizer</div>
+      <input style="width:100%;padding:10px 12px;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:8px;color:#fff;font-size:12px;outline:none;margin-bottom:12px" placeholder="Your Brand" id="brandName">
+      <button onclick="showToast('💾 Brand kit saved!','#4ade80')" style="padding:10px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:8px;color:#fff;font-size:11px;font-weight:800;cursor:pointer">💾 Save Brand Kit</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-affiliate">
+  <div class="aff-wrap">
+    <div style="font-size:18px;font-weight:900;margin-bottom:4px">💰 Affiliate Dashboard</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:18px">Earn recurring commissions · Paid monthly · No cap</div>
+    <div class="aff-stats">
+      <div class="aff-stat"><div class="aff-lbl">Total Earned</div><div class="aff-val" style="color:var(--green)">$0.00</div></div>
+      <div class="aff-stat"><div class="aff-lbl">Referrals</div><div class="aff-val">0</div></div>
+      <div class="aff-stat"><div class="aff-lbl">Commission</div><div class="aff-val" style="color:var(--gold)">25%</div></div>
+      <div class="aff-stat"><div class="aff-lbl">Pending</div><div class="aff-val" style="color:var(--cyan)">$0</div></div>
+    </div>
+    <div class="aff-tier current"><div style="font-size:22px;width:40px;text-align:center">🥉</div><div style="flex:1"><div style="font-size:13px;font-weight:800">Starter — Current</div><div style="font-size:10px;color:var(--muted);margin-top:2px">0–5 active referrals · 25% lifetime recurring</div></div><div class="aff-tier-rate">25%</div></div>
+    <div class="aff-tier"><div style="font-size:22px;width:40px;text-align:center">🥈</div><div style="flex:1"><div style="font-size:13px;font-weight:800">Silver</div><div style="font-size:10px;color:var(--muted);margin-top:2px">5–20 active referrals · 40%</div></div><div class="aff-tier-rate">40%</div></div>
+    <div class="aff-tier"><div style="font-size:22px;width:40px;text-align:center">🥇</div><div style="flex:1"><div style="font-size:13px;font-weight:800">Gold</div><div style="font-size:10px;color:var(--muted);margin-top:2px">20+ active referrals · 50%</div></div><div class="aff-tier-rate">50%</div></div>
+    <div class="aff-ref-box" style="margin-top:16px">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:7px">Your Referral Link</div>
+      <div style="display:flex;gap:7px;align-items:center">
+        <div class="aff-link" id="refLinkDisplay">clipspeed.ai/ref/loading...</div>
+        <button onclick="copyRefLink()" style="padding:9px 14px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:8px;color:#fff;font-size:11px;font-weight:700;cursor:pointer;flex-shrink:0">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-nav">
+  <button class="mob-btn active" id="mnb-home" onclick="switchPage('home')"><span class="mi">🏠</span>Generate</button>
+  <button class="mob-btn" id="mnb-clips" onclick="switchPage('clips')"><span class="mi">⚡</span>Clips</button>
+  <button class="mob-btn" id="mnb-analytics" onclick="switchPage('analytics')"><span class="mi">📊</span>Stats</button>
+  <button class="mob-btn" id="mnb-brand" onclick="switchPage('brand')"><span class="mi">🏷️</span>Brand</button>
+  <button class="mob-btn" onclick="switchPage('affiliate')"><span class="mi">💰</span>Earn</button>
+</div>
+</div><!-- /dashboard -->
+
+<!-- PROCESSING OVERLAY -->
+<div id="procOverlay">
+  <div class="proc-card">
+    <div class="proc-top-bar"></div>
+    <div class="proc-body">
+      <div class="proc-header">
+        <div class="proc-vid-info"><div class="proc-thumb">🎬</div><div><div class="proc-title-txt" id="procTitle">Analyzing your video...</div><div class="proc-meta-txt" id="procMeta">⏱ Detecting duration · 📊 Scanning...</div></div></div>
+        <div class="proc-ring"><svg class="proc-ring-svg" width="64" height="64" viewBox="0 0 64 64"><circle class="prb" cx="32" cy="32" r="28"/><circle class="prf" id="prf" cx="32" cy="32" r="28"/></svg><div class="proc-pct" id="procPct">0%</div></div>
+      </div>
+      <div class="proc-stages">
+        <div class="stage"><div class="sd active" id="sd0">⬇</div><div class="stage-lbl">Fetch</div></div>
+        <div class="stage"><div class="sd" id="sd1">🎙</div><div class="stage-lbl">Transcribe</div></div>
+        <div class="stage"><div class="sd" id="sd2">🧠</div><div class="stage-lbl">Analyze</div></div>
+        <div class="stage"><div class="sd" id="sd3">✂️</div><div class="stage-lbl">Cut</div></div>
+        <div class="stage"><div class="sd" id="sd4">💬</div><div class="stage-lbl">Captions</div></div>
+        <div class="stage"><div class="sd" id="sd5">📱</div><div class="stage-lbl">Reframe</div></div>
+        <div class="stage"><div class="sd" id="sd6">☁️</div><div class="stage-lbl">Ready</div></div>
+      </div>
+      <div class="proc-bar-track"><div class="proc-bar-fill" id="procBar" style="width:0%"></div></div>
+      <div class="proc-step-name" id="procStep">Initializing AI engine...</div>
+      <div class="proc-clips-row">
+        <div class="pcc" id="pcc0"><div class="pcc-thumb">🎬</div><div class="pcc-body"><div class="pcc-lbl">Clip 01</div><div class="pcc-txt" id="pct0">Queued...</div></div></div>
+        <div class="pcc" id="pcc1"><div class="pcc-thumb">🎬</div><div class="pcc-body"><div class="pcc-lbl">Clip 02</div><div class="pcc-txt" id="pct1">Queued...</div></div></div>
+        <div class="pcc" id="pcc2"><div class="pcc-thumb">🎬</div><div class="pcc-body"><div class="pcc-lbl">Clip 03</div><div class="pcc-txt" id="pct2">Queued...</div></div></div>
+      </div>
+      <div class="proc-stats">
+        <div class="ps"><div class="ps-val" id="psETA">~90s</div><div class="ps-lbl">Est. Time</div></div>
+        <div class="ps"><div class="ps-val" id="psReady">0</div><div class="ps-lbl">Clips Ready</div></div>
+        <div class="ps"><div class="ps-val" id="psScore">--</div><div class="ps-lbl">Viral Score</div></div>
+      </div>
+      <div class="fact-ticker">
+        <div class="fact-tag" id="factTag">⚡ CLIPPING EMPIRE</div>
+        <div class="fact-txt" id="factTxt">Loading AI insight...</div>
+        <div class="fact-num" id="factNum"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WIZARD -->
+<div class="wizard-overlay" id="wizardOverlay">
+  <div class="wizard-box">
+    <div class="wizard-dots" id="wizDots"><div class="wdot active"></div><div class="wdot"></div><div class="wdot"></div></div>
+    <div class="wizard-step active" id="wiz1">
+      <div class="wizard-icon">🎁</div>
+      <h3 class="wizard-title">50 Free Credits!</h3>
+      <p class="wizard-sub">Welcome! You just unlocked <strong style="color:var(--green)">50 free credits</strong> — enough to process 50 minutes of video.</p>
+      <div class="credits-bonus">🎁 50 Credits Added to Your Account</div>
+      <button class="wizard-cta" onclick="nextWizard()">Let's See It in Action →</button>
+      <div class="wizard-skip" onclick="closeWizard()">Skip intro</div>
+    </div>
+    <div class="wizard-step" id="wiz2">
+      <div class="wizard-icon">🔗</div>
+      <h3 class="wizard-title">Paste your first URL</h3>
+      <p class="wizard-sub">Drop any YouTube video. ViralBrain™ will find your most viral moments in under 90 seconds.</p>
+      <div class="wiz-url-box"><div class="wiz-url-inner"><span style="font-size:15px;flex-shrink:0">🔗</span><input class="wiz-url-input" id="wizUrl" placeholder="https://youtube.com/watch?v=..."><button class="wiz-gen-btn" onclick="wizardGenerate()">Generate ⚡</button></div></div>
+      <button class="wizard-cta" style="background:rgba(255,255,255,.06);border:1px solid var(--border2);margin-top:8px" onclick="nextWizard()">I'll paste a URL later →</button>
+    </div>
+    <div class="wizard-step" id="wiz3">
+      <div class="wizard-icon">💰</div>
+      <h3 class="wizard-title">Earn while you clip</h3>
+      <p class="wizard-sub">Earn <strong style="color:var(--gold)">25–50% recurring commission</strong> on every referral — forever.</p>
+      <div class="ref-code-box"><span style="font-size:16px">🔗</span><div class="ref-code-val" id="wizRefLink">clipspeed.ai/ref/loading...</div><button onclick="copyRefLinkWiz()" style="padding:6px 12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:7px;color:#fff;font-size:10px;font-weight:700;cursor:pointer">Copy</button></div>
+      <button class="wizard-cta" onclick="closeWizard()">🚀 Go to My Dashboard</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDITOR -->
+<div class="editor-overlay" id="editorOverlay" onclick="closeEditor()"></div>
+<div class="editor-panel" id="editorPanel">
+  <div class="editor-head"><div class="editor-head-title" id="editorTitle">✏️ Edit Clip</div><button class="editor-close" onclick="closeEditor()">✕</button></div>
+  <div class="editor-body">
+    <div class="editor-preview"><div class="editor-mock" id="editorMock"><div style="font-size:28px;position:relative;z-index:1">🎥</div><div style="position:absolute;top:6px;left:6px;font-size:8px;color:rgba(255,255,255,.35)" id="edRatioLbl">9:16</div><div class="editor-cap"><span id="edCapPrev">CAPTION PREVIEW</span></div></div></div>
+    <div class="editor-controls">
+      <div class="e-sec"><div class="e-sec-title">Aspect Ratio</div><div class="ratio-btns"><div class="ratio-btn active" onclick="setRatio('9:16',this)">9:16<br><span style="font-size:6px;color:var(--muted)">TikTok</span></div><div class="ratio-btn" onclick="setRatio('1:1',this)">1:1<br><span style="font-size:6px;color:var(--muted)">IG</span></div><div class="ratio-btn" onclick="setRatio('16:9',this)">16:9<br><span style="font-size:6px;color:var(--muted)">YT</span></div></div></div>
+      <div class="e-sec"><div class="e-sec-title">Caption Style</div><div class="cap-styles"><div class="cap-style active" onclick="setCapStyle('bold',this)"><div style="font-size:10px;font-weight:900">Bold</div></div><div class="cap-style" onclick="setCapStyle('neon',this)"><div style="font-size:10px;color:#22d3ee">Neon</div></div><div class="cap-style" onclick="setCapStyle('fire',this)"><div style="font-size:10px">🔥 Fire</div></div><div class="cap-style" onclick="setCapStyle('minimal',this)"><div style="font-size:10px;font-weight:400">Minimal</div></div></div></div>
+      <div class="e-sec"><div class="e-sec-title">Font Size <span id="eFontVal" style="color:var(--muted2);font-weight:400;text-transform:none;letter-spacing:0">14px</span></div><input type="range" class="e-slider" min="10" max="26" value="14" oninput="setFontSize(this.value)"></div>
+      <div class="e-sec"><div class="e-sec-title">Caption Text</div><textarea id="captionText" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:7px;padding:8px;color:#fff;font-size:10.5px;outline:none;resize:vertical;min-height:60px;font-family:inherit;line-height:1.5;transition:border .2s" oninput="onCaptionInput()" onfocus="this.style.borderColor='var(--p)'" onblur="this.style.borderColor='var(--border2)'" placeholder="Edit caption..."></textarea></div>
+      <div class="e-sec"><div class="e-sec-title">AI Features</div>
+        <div class="toggle-row"><span class="toggle-lbl">Speaker Reframe</span><div class="tog2 on" onclick="this.classList.toggle('on')"><div class="tok2"></div></div></div>
+        <div class="toggle-row"><span class="toggle-lbl">AI B-Roll</span><div class="tog2 on" onclick="this.classList.toggle('on')"><div class="tok2"></div></div></div>
+        <div class="toggle-row"><span class="toggle-lbl">Show Captions</span><div class="tog2 on" id="t-caps" onclick="toggleCaps(this)"><div class="tok2"></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="editor-footer" style="position:relative">
+    <div class="export-menu" id="exportMenu">
+      <div class="export-opt" onclick="exportTo('tiktok')">🎵 Export to TikTok</div>
+      <div class="export-opt" onclick="exportTo('reels')">📸 Export to Instagram Reels</div>
+      <div class="export-opt" onclick="exportTo('shorts')">▶️ Export to YouTube Shorts</div>
+      <div class="export-opt" onclick="exportTo('download')">⬇ Download MP4</div>
+    </div>
+    <button class="editor-export" onclick="toggleExportMenu()">⬇ Export ▾</button>
+    <button class="editor-cancel" onclick="closeEditor()">Cancel</button>
+  </div>
+</div>
+
+<!-- SHARE MODAL -->
+<div class="modal-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeShare()">✕</button>
+    <div style="font-size:15px;font-weight:800;margin-bottom:5px">🔗 Share Clip</div>
+    <div class="share-platforms">
+      <div class="share-plat" onclick="shareClipTo('tiktok')"><div class="share-plat-icon">🎵</div>TikTok</div>
+      <div class="share-plat" onclick="shareClipTo('instagram')"><div class="share-plat-icon">📸</div>Reels</div>
+      <div class="share-plat" onclick="shareClipTo('youtube')"><div class="share-plat-icon">▶️</div>Shorts</div>
+      <div class="share-plat" onclick="shareClipTo('twitter')"><div class="share-plat-icon">🐦</div>X</div>
+      <div class="share-plat" onclick="shareClipTo('linkedin')"><div class="share-plat-icon">💼</div>LinkedIn</div>
+      <div class="share-plat" onclick="shareClipTo('link')"><div class="share-plat-icon">🔗</div>Copy Link</div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
 <div class="auth-overlay" id="authOverlay" onclick="if(event.target===this)closeAuth()">
   <div class="auth-box">
     <button class="auth-close" onclick="closeAuth()">✕</button>
@@ -673,127 +1260,416 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     <button class="auth-btn" id="authBtn" onclick="handleAuth()">Sign Up Free — Get 50 Credits</button>
     <div class="auth-divider"><div class="auth-divider-line"></div><span class="auth-divider-text">or continue with</span><div class="auth-divider-line"></div></div>
     <div class="oauth-row">
-      <button class="oauth-btn" onclick="oauthLogin('google')">
-        <svg width="15" height="15" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google
-      </button>
-      <button class="oauth-btn" onclick="oauthLogin('apple')">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-        Apple
-      </button>
+      <button class="oauth-btn" onclick="oauthLogin('google')"><svg width="15" height="15" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google</button>
+      <button class="oauth-btn" onclick="oauthLogin('apple')"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple</button>
     </div>
     <div class="auth-toggle" id="authToggle" onclick="toggleAuthMode()">Already have an account? <span>Sign In</span></div>
   </div>
 </div>
 
+<!-- UPGRADE MODAL -->
+<div class="modal-overlay" id="upgradeOverlay" onclick="if(event.target===this)closeUpgrade()">
+  <div class="modal-box" style="max-width:760px">
+    <button class="modal-close" onclick="closeUpgrade()">✕</button>
+    <div style="text-align:center;margin-bottom:22px"><div style="font-size:clamp(18px,4vw,28px);font-weight:900;letter-spacing:-1px;margin-bottom:5px">Choose your <span class="grad">plan</span></div></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:9px">
+        <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted2)">Starter</div>
+        <div style="font-size:34px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">$20<span style="font-size:13px;color:var(--muted);font-weight:400">/mo</span></div>
+        <button onclick="selectPlan('Starter');closeUpgrade()" style="padding:10px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:9px;color:#fff;font-size:11px;font-weight:700;cursor:pointer">Get Starter</button>
+      </div>
+      <div style="background:rgba(168,85,247,.04);border:1px solid var(--p);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:9px;position:relative">
+        <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:3px 12px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:99px;font-size:9px;font-weight:800;color:#fff">⚡ Most Popular</div>
+        <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--p)">Pro</div>
+        <div style="font-size:34px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">$40<span style="font-size:13px;color:var(--muted);font-weight:400">/mo</span></div>
+        <button onclick="selectPlan('Pro');closeUpgrade()" style="padding:10px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:9px;color:#fff;font-size:11px;font-weight:800;cursor:pointer">Upgrade to Pro ⚡</button>
+      </div>
+      <div style="background:var(--bg3);border:1px solid rgba(34,211,238,.2);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:9px">
+        <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan)">💎 Agency</div>
+        <div style="font-size:34px;font-weight:900;background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">$200<span style="font-size:13px;color:var(--muted);font-weight:400">/mo</span></div>
+        <button onclick="selectPlan('Agency');closeUpgrade()" style="padding:10px;background:linear-gradient(135deg,#22d3ee,#6366f1);border:none;border-radius:9px;color:#fff;font-size:11px;font-weight:800;cursor:pointer">Get Agency →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI CHAT -->
+<div class="chat-bubble" id="chatBubble" style="display:none">
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-head">
+      <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">🤖</div>
+      <div><div style="font-size:11px;font-weight:700">ClipSpeed AI</div><div style="font-size:8px;color:var(--green)">● Online · GPT-4o</div></div>
+      <button onclick="toggleChat()" style="margin-left:auto;background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg msg-bot">Hey! 👋 I'm your AI clip strategist. Ask me anything about going viral, hooks, or growing your account!</div>
+    </div>
+    <div style="padding:5px 9px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--border)">
+      <button onclick="quickChat('Best hook formulas?')" style="padding:3px 9px;border-radius:99px;font-size:9px;font-weight:700;background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.2);color:var(--p);cursor:pointer;white-space:nowrap">Best hooks?</button>
+      <button onclick="quickChat('When should I post?')" style="padding:3px 9px;border-radius:99px;font-size:9px;font-weight:700;background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.2);color:var(--p);cursor:pointer;white-space:nowrap">Best time?</button>
+      <button onclick="quickChat('How to grow faster?')" style="padding:3px 9px;border-radius:99px;font-size:9px;font-weight:700;background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.2);color:var(--p);cursor:pointer;white-space:nowrap">Grow faster</button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()">➤</button>
+    </div>
+  </div>
+  <button class="chat-btn-fab" onclick="toggleChat()">🤖</button>
+</div>
+
 <div class="toast" id="toast"></div>
 
+<!-- ══ HERO DEMO OVERLAY — value before friction ══ -->
+<div id="heroDemoOverlay" style="display:none;opacity:0;position:fixed;inset:0;z-index:700;background:rgba(3,7,18,.97);backdrop-filter:blur(18px);flex-direction:column;align-items:center;justify-content:center;padding:20px;transition:opacity .35s ease">
+
+  <!-- Close -->
+  <button onclick="closeHeroDemo()" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;color:var(--muted2);font-size:14px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">✕</button>
+
+  <div style="width:100%;max-width:660px">
+
+    <!-- ── PROCESSING PANEL ── -->
+    <div id="hdProcessing">
+      <div style="text-align:center;margin-bottom:22px">
+        <div class="hero-badge" style="display:inline-flex;margin-bottom:10px"><div class="live-dot"></div>⚡ ViralBrain™ is analyzing your video</div>
+        <div id="hdUrlLabel" style="font-size:11px;color:var(--muted);word-break:break-all"></div>
+      </div>
+
+      <div style="background:var(--bg2);border:1px solid rgba(168,85,247,.2);border-radius:22px;overflow:hidden;box-shadow:0 0 60px rgba(168,85,247,.15)">
+        <div style="height:3px;background:linear-gradient(90deg,var(--p2),var(--p),var(--cyan));animation:shimmer 2s linear infinite;background-size:200%"></div>
+        <div style="padding:24px 26px">
+
+          <!-- ring + title -->
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+            <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,rgba(168,85,247,.3),rgba(34,211,238,.2));display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid rgba(168,85,247,.2);flex-shrink:0">🎬</div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:13px;font-weight:800;margin-bottom:3px">Analyzing your video...</div>
+              <div style="font-size:10px;color:var(--muted)" id="hdStep">Initializing AI engine...</div>
+            </div>
+            <!-- ring -->
+            <div style="position:relative;width:56px;height:56px;flex-shrink:0">
+              <svg style="transform:rotate(-90deg)" width="56" height="56" viewBox="0 0 56 56">
+                <circle fill="none" stroke="rgba(255,255,255,.06)" stroke-width="5" cx="28" cy="28" r="23"/>
+                <circle id="hdRing" fill="none" stroke="url(#rg)" stroke-width="5" stroke-linecap="round" cx="28" cy="28" r="23" stroke-dasharray="145" stroke-dashoffset="145" style="transition:stroke-dashoffset .7s ease"/>
+              </svg>
+              <div id="hdPct" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">0%</div>
+            </div>
+          </div>
+
+          <!-- stage dots -->
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:14px">
+            ${['Fetch','Transcribe','Analyze','Cut','Captions','Reframe','Ready'].map((l,i)=>`<div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div class="hd-sd" id="hd-sd${i}" style="width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.08);background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--muted);transition:all .5s">${['⬇','🎙','🧠','✂️','💬','📱','☁️'][i]}</div><div style="font-size:6px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px">${l}</div></div>`).join('')}
+          </div>
+
+          <!-- bar -->
+          <div style="height:7px;background:rgba(255,255,255,.05);border-radius:99px;overflow:hidden;margin-bottom:6px">
+            <div id="hdBar" style="height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--p2),var(--p),var(--cyan));background-size:300%;animation:barShift 2s linear infinite;transition:width .7s ease"></div>
+          </div>
+
+          <!-- 3 clip placeholders -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
+            ${[1,2,3].map(n=>`<div style="background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden"><div style="height:34px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border)">🎬</div><div style="padding:6px"><div style="font-size:7px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)">Clip 0${n}</div><div style="font-size:9px;font-weight:700;color:var(--muted);margin-top:2px">Processing...</div></div></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CLIPS REVEALED ── -->
+    <div id="hdClips" style="display:none;position:relative">
+      <div style="text-align:center;margin-bottom:16px">
+        <div class="hero-badge" style="display:inline-flex;margin-bottom:8px"><div class="live-dot"></div>🔥 3 Viral Clips Detected!</div>
+        <div style="font-size:13px;color:var(--muted2)">Your top moments are ready — see them below</div>
+      </div>
+      <!-- clips injected here via JS -->
+
+      <!-- BLUR GATE — slides over clips -->
+      <div id="hdBlurGate" style="display:none;opacity:0;position:absolute;inset:0;z-index:10;backdrop-filter:blur(10px);background:linear-gradient(to bottom,rgba(3,7,18,.1) 0%,rgba(3,7,18,.97) 55%);border-radius:16px;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:10px;transition:opacity .6s ease">
+        <div style="background:linear-gradient(135deg,rgba(168,85,247,.2),rgba(99,102,241,.15));border:1.5px solid rgba(168,85,247,.5);border-radius:20px;padding:26px 28px;text-align:center;width:100%;max-width:420px;position:relative;overflow:hidden;backdrop-filter:blur(20px)">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--p),var(--cyan),transparent)"></div>
+          <div style="font-size:28px;margin-bottom:8px">🔥</div>
+          <h3 style="font-size:clamp(17px,3vw,22px);font-weight:900;letter-spacing:-.8px;margin-bottom:6px">Your 3 clips are ready!</h3>
+          <p style="font-size:12px;color:var(--muted2);margin-bottom:18px;line-height:1.6">Sign up free to download them — takes 10 seconds.<br><strong style="color:#fff">50 bonus credits included.</strong></p>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <button onclick="closeHeroDemo();oauthLogin('google')" style="width:100%;padding:12px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border2)'"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Continue with Google</button>
+            <button onclick="closeHeroDemo();oauthLogin('apple')" style="width:100%;padding:12px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border2)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Continue with Apple</button>
+            <button onclick="closeHeroDemo();openAuth(true)" style="width:100%;padding:12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:800;cursor:pointer;transition:all .2s" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">🚀 Sign up with Email — Free</button>
+          </div>
+          <div style="margin-top:10px;font-size:10px;color:var(--muted)">✓ No credit card &nbsp;·&nbsp; ✓ 50 credits included &nbsp;·&nbsp; ✓ Cancel anytime</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+.hd-sd{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.08);background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--muted);transition:all .5s}
+.hd-done{border-color:var(--green)!important;color:var(--green)!important;background:rgba(16,185,129,.1)!important}
+.hd-active{border-color:var(--p)!important;color:#fff!important;background:rgba(168,85,247,.2)!important;box-shadow:0 0 14px rgba(168,85,247,.7);animation:livePulse .9s ease-in-out infinite}
+.hd-clip{display:flex;align-items:center;gap:12px;background:var(--bg2);border:1px solid rgba(168,85,247,.3);border-radius:14px;padding:14px 16px;margin-bottom:10px;animation:cardIn .5s ease both}
+.hd-clip-score{font-size:36px;font-weight:900;background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex-shrink:0;width:48px;text-align:center}
+.hd-clip-mid{flex:1;min-width:0}
+.hd-clip-title{font-size:13px;font-weight:800;margin-bottom:3px}
+.hd-clip-hook{font-size:11px;color:var(--muted2);font-style:italic}
+.hd-clip-play{width:36px;height:36px;border-radius:50%;background:rgba(168,85,247,.2);border:1px solid rgba(168,85,247,.4);display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;flex-shrink:0;transition:all .2s}
+.hd-clip-play:hover{background:var(--p);transform:scale(1.1)}
+</style>
+
+<!-- EXIT INTENT POPUP -->
+<div id="exitPopup" style="position:fixed;inset:0;z-index:800;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.75);backdrop-filter:blur(10px)">
+  <div style="max-width:480px;width:100%;background:var(--bg2);border:1.5px solid rgba(168,85,247,.45);border-radius:24px;padding:36px 32px;text-align:center;position:relative;overflow:hidden;animation:fadeUp .35s ease">
+    <!-- top glow bar -->
+    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan),var(--p))"></div>
+    <!-- radial bg -->
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(168,85,247,.14),transparent 60%);pointer-events:none"></div>
+    <!-- close -->
+    <button onclick="closeExitPopup()" style="position:absolute;top:13px;right:13px;width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid var(--border);cursor:pointer;color:var(--muted2);font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">✕</button>
+
+    <div style="position:relative;z-index:1">
+      <!-- bolt icon -->
+      <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#1a0530,#0d0d1a);border:1.5px solid rgba(168,85,247,.6);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 0 24px rgba(168,85,247,.4)">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M11.5 2L4 11.5H10L8.5 18L16 8.5H10L11.5 2Z" fill="white" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- live badge -->
+      <div style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);border-radius:99px;font-size:10px;font-weight:800;color:var(--green);margin-bottom:14px">
+        <div class="live-dot"></div> STILL AVAILABLE — FREE
+      </div>
+
+      <h2 style="font-size:clamp(20px,4vw,28px);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:10px">Wait — grab your <span style="background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">50 free credits</span><br>before you go</h2>
+      <p style="font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:20px">No credit card. No catch. Just 50 minutes of your best content turned into viral clips — on us.</p>
+
+      <!-- perks row -->
+      <div style="display:flex;justify-content:center;gap:18px;margin-bottom:22px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted2);font-weight:600"><span style="color:var(--green)">✓</span> No card ever</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted2);font-weight:600"><span style="color:var(--green)">✓</span> 90s results</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted2);font-weight:600"><span style="color:var(--green)">✓</span> Cancel anytime</div>
+      </div>
+
+      <!-- countdown -->
+      <div style="margin-bottom:18px;font-size:11px;color:var(--muted)">This offer disappears in <span id="exitCountdown" style="color:var(--p);font-weight:800">60s</span></div>
+
+      <button onclick="closeExitPopup();openAuth(true)" style="width:100%;padding:16px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:13px;color:#fff;font-size:15px;font-weight:900;cursor:pointer;letter-spacing:-.3px;transition:all .25s;box-shadow:0 8px 32px rgba(168,85,247,.4)" onmouseover="this.style.transform='translateY(-2px)';this.style.opacity='.9'" onmouseout="this.style.transform='translateY(0)';this.style.opacity='1'">
+        🚀 Claim My 50 Free Credits
+      </button>
+      <div onclick="closeExitPopup()" style="margin-top:12px;font-size:11px;color:var(--muted);cursor:pointer;transition:color .2s" onmouseover="this.style.color='var(--muted2)'" onmouseout="this.style.color='var(--muted)'">No thanks, I don't want free credits</div>
+    </div>
+  </div>
+</div>
+
 <script>
-// ── State ──
-let isSignup = true, pendingUrl = '', isAnnual = false;
-
-// ── Ticker ──
 (function(){
-  const items=['⚡ 90-Second Processing','🧠 GPT-4o Viral Scoring','🎬 Auto B-Roll','💬 10 Caption Styles','📐 Auto Reframe','💰 Up to 50% Affiliate','🚀 47K+ Active Creators','🔥 2.4M+ Clips'];
-  const ti = document.getElementById('tickerInner');
-  const h = items.map(t=>`<span class="ticker-item"><span class="ticker-dot"></span>${t}</span>`).join('');
-  ti.innerHTML = h + h;
-})();
+  let shown = false;
+  let countdownVal = 60;
+  let countdownTimer = null;
 
-// ── Live counters ──
-(function(){
-  const fmt = n => n>=1000000?(n/1000000).toFixed(1)+'M':n>=1000?(n/1000).toFixed(0)+'K':String(n);
-  let d = {clips:8,views:340000,creators:520,saved:140};
-  function update(){
-    document.getElementById('lc1').textContent=d.clips;
-    document.getElementById('lc2').textContent=fmt(d.views);
-    document.getElementById('lc3').textContent=d.creators;
-    document.getElementById('lc4').textContent=d.saved;
+  function showExitPopup(){
+    if(shown || isLoggedIn) return;
+    shown = true;
+    const popup = document.getElementById('exitPopup');
+    popup.style.display = 'flex';
+    // start countdown
+    countdownTimer = setInterval(()=>{
+      countdownVal--;
+      const el = document.getElementById('exitCountdown');
+      if(el) el.textContent = countdownVal + 's';
+      if(countdownVal <= 0){ closeExitPopup(); }
+    }, 1000);
   }
-  update();
-  setInterval(()=>{
-    d.clips=Math.max(1,d.clips+Math.floor(Math.random()*3)-1);
-    d.views+=Math.floor(Math.random()*1200)+200;
-    d.creators+=Math.floor(Math.random()*3)-1;
-    d.saved+=Math.floor(Math.random()*3);
-    update();
-  },2200);
-})();
 
-// ── Logos marquee ──
-(function(){
+  window.closeExitPopup = function(){
+    document.getElementById('exitPopup').style.display = 'none';
+    clearInterval(countdownTimer);
+  };
+
+  // Trigger 1: exit intent (mouse leaves viewport upward)
+  document.addEventListener('mouseleave', e => {
+    if(mouseLeaveReady && e.clientY <= 10) showExitPopup();
+  });
+
+  // Trigger 2: 15 seconds on page without interacting with CTA
+  let ctaClicked = false;
+  document.querySelectorAll('.hero-gen-btn, .btn-primary, .hero-cta-btn').forEach(btn => {
+    btn.addEventListener('click', () => { ctaClicked = true; });
+  });
+  setTimeout(()=>{ if(!ctaClicked) showExitPopup(); }, 15000);
+  // suppress early mouse-leave triggers for first 5s
+  let mouseLeaveReady = false;
+  setTimeout(()=>{ mouseLeaveReady = true; }, 5000);
+
+  // close on backdrop click
+  document.getElementById('exitPopup').addEventListener('click', e => {
+    if(e.target === document.getElementById('exitPopup')) closeExitPopup();
+  });
+})();
+</script>
+
+<script>
+let isLoggedIn=false,isSignup=true,pendingUrl='',currentClips=[],activeFilter='all',wizStep=1;
+let procPct=0,procReady=0,factIdx=0,factTimer=null,editorClip=null,isAnnual=false,appliedTemplate=null;
+let userCredits=50,refCode='abc'+Math.random().toString(36).slice(2,7);
+
+const DEMO_CLIPS=[
+  {id:'d1',clip_title:'The Moment That Changed Everything 🔥',viral_score:94,hook_score:91,retention_score:88,emotion_score:85,hook:'Wait — you have to see what happens next...',hashtags:'#viral #mindblowing #trending',platform:'TikTok',duration_seconds:47,views:'2.4M est.',transcript_excerpt:'This is the part nobody talks about — the exact moment when everything shifted.',broll:null,date:Date.now()},
+  {id:'d2',clip_title:'Nobody Expected This Plot Twist 😱',viral_score:89,hook_score:86,retention_score:90,emotion_score:83,hook:'Everyone thought they knew the answer...',hashtags:'#plottwist #shocked #mustwatch',platform:'Instagram Reels',duration_seconds:52,views:'1.8M est.',transcript_excerpt:"Everyone assumed it was going one direction, then the data came in and completely flipped the narrative.",broll:null,date:Date.now()-86400000},
+  {id:'d3',clip_title:'3 Facts That Break Your Brain 🧠',viral_score:91,hook_score:94,retention_score:87,emotion_score:80,hook:'These 3 facts literally broke the internet...',hashtags:'#facts #mindblown #learnontiktok',platform:'YouTube Shorts',duration_seconds:38,views:'3.1M est.',transcript_excerpt:'Fact one: this exists and nobody told you. Fact two: the implications are enormous.',broll:'🌆 Urban',date:Date.now()-172800000},
+];
+const TEMPLATES=[{id:'dark',name:'Dark Viral',emoji:'⚡',bg:'linear-gradient(135deg,#0a0a1a,#1a0530)',desc:'High-contrast purple'},{id:'neon',name:'Neon Glow',emoji:'🌟',bg:'linear-gradient(135deg,#001a1a,#003333)',desc:'Cyan neon glow'},{id:'fire',name:'Fire Mode',emoji:'🔥',bg:'linear-gradient(135deg,#1a0500,#2d0f00)',desc:'Orange fire gradient'},{id:'minimal',name:'Minimal Pro',emoji:'🎯',bg:'linear-gradient(135deg,#0a0a0a,#1a1a1a)',desc:'Clean minimal white'}];
+const FACTS=[{tag:'💰 CLIPPING EMPIRE',text:'Top agencies process 500+ videos/month using one AI editor.',num:'500+/month'},{tag:'📈 FACELESS GROWTH',text:'Faceless channels using AI clipping grew 400% faster in 2024.',num:'400% faster'},{tag:'🎙 PODCAST GOLD',text:'Short clips from long-form podcasts get 10× more views than the full episode.',num:'10× reach'},{tag:'⚡ SPEED = REVENUE',text:'Clippers who post within 2h of a livestream capture 80% of the viral engagement window.',num:'80% virality'},{tag:'🤖 AI ADVANTAGE',text:'Manual clipping takes 4+ hours. ClipSpeedAI processes the same in under 90 seconds.',num:'80× faster'}];
+const STAGE_STEPS=[{min:0,max:14,dot:0,label:'Downloading video via yt-dlp...',eta:'~90s'},{min:14,max:30,dot:1,label:'Whisper AI transcribing audio...',eta:'~70s'},{min:30,max:50,dot:2,label:'GPT-4o detecting viral moments...',eta:'~50s'},{min:50,max:66,dot:3,label:'FFmpeg precision cutting clips...',eta:'~30s'},{min:66,max:80,dot:4,label:'Burning animated captions...',eta:'~18s'},{min:80,max:90,dot:5,label:'Reframing to 9:16 format...',eta:'~8s'},{min:90,max:100,dot:6,label:'Uploading to your dashboard...',eta:'~3s'}];
+const FAQS=[{q:'What is a credit and how does it work?',a:'1 credit = 1 minute of source video processed. A 60-minute podcast costs 60 credits. You are charged once per video, not per clip.'},{q:'How fast does ClipSpeedAI process videos?',a:'Most videos are processed in <strong>under 90 seconds</strong>. Long-form videos (60+ min) may take 3–5 minutes.'},{q:'What platforms are clips optimized for?',a:'<strong>TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn</strong>. Each gets the correct aspect ratio automatically.'},{q:'Do I need to edit clips after generation?',a:'No — clips come out ready to post. Captions are burned in, speaker is reframed, clip is trimmed to the exact viral moment.'},{q:'How does the Referral Program work?',a:'Earn <strong>25–50% recurring commission</strong> on every referral. The more referrals, the higher your tier and rate.'},{q:'Can I cancel anytime?',a:'Yes — upgrade, downgrade, or cancel anytime from your dashboard. No contracts, no fees.'},{q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small <strong>ClipSpeedAI</strong> watermark. All paid plans export with zero watermark.'},{q:'How does the AI decide what is viral?',a:'GPT-4o scores every segment on <strong>hook strength, emotional intensity, retention, and shareability</strong>. Each clip gets 0–100.'}];
+
+(function initLanding(){
+  const items=['⚡ 90-Second Processing','🧠 GPT-4o Viral Scoring','🎬 Auto B-Roll','💬 10 Caption Styles','📐 Auto Reframe','💰 Up to 50% Affiliate','🚀 47K+ Active Creators','🔥 2.4M+ Clips','⭐ 4.9 Star Rating','🎁 50 Free Credits on Signup'];
+  const ti=document.getElementById('tickerInner');
+  const h=items.map(t=>`<span class="ticker-item"><span class="ticker-dot"></span>${t}</span>`).join('');
+  ti.innerHTML=h+h;
+  const ld={clips:Math.floor(Math.random()*12)+4,views:Math.floor(Math.random()*500000)+200000,creators:Math.floor(Math.random()*800)+300,saved:Math.floor(Math.random()*400)+80};
+  const fmt=n=>n>=1000000?(n/1000000).toFixed(1)+'M':n>=1000?(n/1000).toFixed(0)+'K':String(n);
+  document.getElementById('lc1').textContent=ld.clips;document.getElementById('lc2').textContent=fmt(ld.views);document.getElementById('lc3').textContent=ld.creators;document.getElementById('lc4').textContent=ld.saved;
+  setInterval(()=>{ld.clips=Math.max(1,ld.clips+Math.floor(Math.random()*3)-1);ld.views+=Math.floor(Math.random()*1200)+200;ld.creators+=Math.floor(Math.random()*3)-1;ld.saved+=Math.floor(Math.random()*3);document.getElementById('lc1').textContent=ld.clips;document.getElementById('lc2').textContent=fmt(ld.views);document.getElementById('lc3').textContent=ld.creators;document.getElementById('lc4').textContent=ld.saved;},2200);
   const creators=[{n:'Joe Rogan',s:'22M+'},{n:'MrBeast',s:'300M+'},{n:'Andrew Huberman',s:'6M+'},{n:'Alex Hormozi',s:'5M+'},{n:'IShowSpeed',s:'25M+'},{n:'Gary Vee',s:'10M+'}];
   const grads=['linear-gradient(135deg,#7C3AED,#a855f7)','linear-gradient(135deg,#6366f1,#8b5cf6)','linear-gradient(135deg,#a855f7,#22d3ee)'];
-  const lt = document.getElementById('logosTrack');
-  const h = creators.map((c,i)=>{const ini=c.n.split(' ').map(w=>w[0]).join('').slice(0,2);return`<span class="logo-item"><span class="logo-av" style="background:${grads[i%grads.length]}">${ini}</span>${c.n}<span style="font-size:9px;color:var(--muted)">${c.s}</span></span>`;}).join('');
-  lt.innerHTML = h + h;
+  const lt=document.getElementById('logosTrack');
+  const lh=creators.map((c,i)=>{const ini=c.n.split(' ').map(w=>w[0]).join('').slice(0,2);return`<span class="logo-item"><span class="logo-av" style="background:${grads[i%grads.length]}">${ini}</span>${c.n}<span style="font-size:9px;color:var(--muted)">${c.s}</span></span>`;}).join('');
+  lt.innerHTML=lh+lh;
+  const results=[{num:'266%',lbl:'Avg feed increase'},{num:'57%',lbl:'Watch time boost'},{num:'10x',lbl:'Faster than OpuClip'},{num:'2.4M+',lbl:'Clips generated'},{num:'90s',lbl:'Avg processing'},{num:'4.9★',lbl:'Creator rating'},{num:'50%',lbl:'Max affiliate rate'},{num:'47K+',lbl:'Active creators'}];
+  const rt=document.getElementById('resultsTrack');
+  rt.innerHTML=results.map(r=>`<div class="result-card-inline"><div class="result-num">${r.num}</div><div class="result-lbl">${r.lbl}</div></div>`).join('').repeat(2);
+  const testis=[{s:'★★★★★',t:'"I was spending 3 hours clipping each podcast. Now it takes 90 seconds and the clips perform better than anything I made manually."',n:'Jake M.',h:'@jakecreates · 280K'},{s:'★★★★★',t:'"I only had 12K followers when I started using this. Two months later I\'m at 38K. The viral scoring actually works."',n:'Bree L.',h:'@breelifts · 38K'},{s:'★★★★★',t:'"Switched from OpusClip and never looked back. 10x faster and the caption styles actually look good."',n:'Marcus T.',h:'Viral Agency · 40+ clients'},{s:'★★★★★',t:'"I went from posting 2 clips a week to 15. The affiliate program is also legit."',n:'Dylan C.',h:'@dylanbuilds · 95K'},{s:'★★★★★',t:'"I\'m a small creator with 22K followers and this tool makes me feel like I have a full editing team behind me."',n:'Cam R.',h:'@camtalkstech · 22K'},{s:'★★★★★',t:'"Finally a clip tool that just works. Paste URL, come back in 90 seconds, done."',n:'Priya N.',h:'@priyapodcast · 140K'}];
+  const tt=document.getElementById('testiTrack');
+  const th=testis.map(t=>`<div class="testi-card"><div class="testi-stars">${t.s}</div><div class="testi-text">${t.t}</div><div class="testi-author"><div class="testi-av">${t.n[0]}</div><div><div class="testi-name">${t.n}</div><div class="testi-handle">${t.h}</div></div></div></div>`).join('');
+  tt.innerHTML=th+th;
+  const col1=FAQS.filter((_,i)=>i%2===0),col2=FAQS.filter((_,i)=>i%2!==0);
+  function renderFaqCol(items,offset){return items.map((f,i)=>{const idx=offset+i*2;return`<div class="faq-item" id="faq-${idx}"><button class="faq-q" onclick="toggleFaq(${idx})"><span>${f.q}</span><span class="faq-icon">+</span></button><div class="faq-a"><p>${f.a}</p></div></div>`;}).join('');}
+  document.getElementById('faqCols').innerHTML=`<div>${renderFaqCol(col1,0)}</div><div>${renderFaqCol(col2,1)}</div>`;
+  initParticles();
 })();
 
-// ── Results marquee ──
-(function(){
-  const results=[{num:'266%',lbl:'Feed increase'},{num:'57%',lbl:'Watch time boost'},{num:'10x',lbl:'Faster than OpuClip'},{num:'2.4M+',lbl:'Clips generated'},{num:'90s',lbl:'Avg processing'},{num:'4.9★',lbl:'Creator rating'},{num:'50%',lbl:'Max affiliate rate'},{num:'47K+',lbl:'Active creators'}];
-  const rt = document.getElementById('resultsTrack');
-  rt.innerHTML = results.map(r=>`<div class="result-card-inline"><div class="result-num">${r.num}</div><div class="result-lbl">${r.lbl}</div></div>`).join('').repeat(2);
-})();
+/* ══ HERO DEMO — value-before-friction ══ */
+function startHeroDemo(url){
+  // Hide landing content below hero, show demo overlay
+  const overlay = document.getElementById('heroDemoOverlay');
+  overlay.style.display = 'flex';
+  setTimeout(()=>overlay.style.opacity='1', 20);
+  const lbl = document.getElementById('hdUrlLabel');
+  if(lbl) lbl.textContent = url.length > 60 ? url.slice(0,60)+'...' : url;
 
-// ── Testimonials ──
-(function(){
-  const testis=[
-    {s:'★★★★★',t:'"I was spending 3 hours clipping each podcast. Now it takes 90 seconds."',n:'Jake M.',h:'@jakecreates · 280K'},
-    {s:'★★★★★',t:'"I only had 12K followers. Two months later I\'m at 38K. The viral scoring works."',n:'Bree L.',h:'@breelifts · 38K'},
-    {s:'★★★★★',t:'"Switched from OpusClip and never looked back. 10x faster."',n:'Marcus T.',h:'Viral Agency · 40+ clients'},
-    {s:'★★★★★',t:'"I went from posting 2 clips a week to 15. The affiliate program is legit."',n:'Dylan C.',h:'@dylanbuilds · 95K'},
-    {s:'★★★★★',t:'"Finally a clip tool that just works. Paste URL, come back in 90 seconds, done."',n:'Priya N.',h:'@priyapodcast · 140K'},
+  // Seed clip titles/hooks from URL for realism
+  const slug = url.replace(/https?:\/\/(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)/,'').slice(0,18)||'your-video';
+  const demoClips = [
+    {title:'The Moment That Changes Everything 🔥', score:94, hook:'"You\'ve never seen this explained like this..."', dur:'0:47'},
+    {title:'Nobody Talks About This Part 😱',         score:89, hook:'"Everyone gets this completely wrong..."',       dur:'0:52'},
+    {title:'3 Things That Blow Your Mind 🧠',         score:91, hook:'"These facts hit different every time..."',      dur:'0:38'},
   ];
-  const tt = document.getElementById('testiTrack');
-  const h = testis.map(t=>`<div class="testi-card"><div class="testi-stars">${t.s}</div><div class="testi-text">${t.t}</div><div class="testi-author"><div class="testi-av">${t.n[0]}</div><div><div class="testi-name">${t.n}</div><div class="testi-handle">${t.h}</div></div></div></div>`).join('');
-  tt.innerHTML = h + h;
-})();
 
-// ── FAQ ──
-(function(){
-  const FAQS=[
-    {q:'What is a credit?',a:'1 credit = 1 minute of source video processed.'},
-    {q:'How fast is processing?',a:'Most videos process in under 90 seconds.'},
-    {q:'What platforms are supported?',a:'TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn.'},
-    {q:'Do I need to edit clips after?',a:'No — clips come out ready to post with captions burned in.'},
-    {q:'How does the referral program work?',a:'Earn 25–50% recurring commission on every referral.'},
-    {q:'Can I cancel anytime?',a:'Yes — upgrade, downgrade, or cancel from your dashboard at any time.'},
-    {q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small ClipSpeedAI watermark.'},
-    {q:'How does the AI decide what\'s viral?',a:'GPT-4o scores every segment on hook strength, emotion, retention, and shareability.'},
+  // Run the processing animation
+  let pct = 0;
+  const stages = [
+    {to:14, ms:700,  txt:'Downloading video...'},
+    {to:30, ms:1000, txt:'Whisper AI transcribing audio...'},
+    {to:50, ms:1400, txt:'GPT-4o detecting viral moments...'},
+    {to:66, ms:1100, txt:'Precision cutting clips...'},
+    {to:80, ms:900,  txt:'Burning animated captions...'},
+    {to:90, ms:700,  txt:'Reframing to 9:16...'},
+    {to:100,ms:500,  txt:'Finalising your clips...'},
   ];
-  const col1=FAQS.filter((_,i)=>i%2===0), col2=FAQS.filter((_,i)=>i%2!==0);
-  function renderCol(items,offset){return items.map((f,i)=>{const idx=offset+i*2;return`<div class="faq-item" id="faq-${idx}"><button class="faq-q" onclick="toggleFaq(${idx})"><span>${f.q}</span><span class="faq-icon">+</span></button><div class="faq-a"><p>${f.a}</p></div></div>`;}).join('');}
-  document.getElementById('faqCols').innerHTML=`<div>${renderCol(col1,0)}</div><div>${renderCol(col2,1)}</div>`;
-})();
-function toggleFaq(i){const item=document.getElementById('faq-'+i);const was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));if(!was)item.classList.add('open');}
+  const bar    = document.getElementById('hdBar');
+  const pctEl  = document.getElementById('hdPct');
+  const stepEl = document.getElementById('hdStep');
+  const ringEl = document.getElementById('hdRing');
 
-// ── Billing toggle ──
-function toggleBilling(){
-  isAnnual=!isAnnual;
-  document.getElementById('togTrack').classList.toggle('on',isAnnual);
-  document.getElementById('togKnob').classList.toggle('on',isAnnual);
-  document.getElementById('monthlyLbl').classList.toggle('active',!isAnnual);
-  document.getElementById('annualLbl').classList.toggle('active',isAnnual);
-  document.getElementById('starterP').textContent=isAnnual?'$12':'$20';
-  document.getElementById('proP').textContent=isAnnual?'$24':'$40';
+  function animTo(target, done){
+    const go = ()=>{
+      pct += (target - pct) * 0.14;
+      if(Math.abs(pct-target)<0.4){ pct=target; applyPct(pct); done&&done(); return; }
+      applyPct(pct); requestAnimationFrame(go);
+    };
+    requestAnimationFrame(go);
+  }
+  function applyPct(v){
+    const r=Math.round(v);
+    bar.style.width=v+'%';
+    pctEl.textContent=r+'%';
+    const da=176, off=da-(da*v/100);
+    ringEl.style.strokeDashoffset=off;
+  }
+
+  // Update stage dots
+  function updateDots(activeIdx){
+    for(let i=0;i<7;i++){
+      const d=document.getElementById('hd-sd'+i);
+      if(!d) continue;
+      d.className='hd-sd'+(i<activeIdx?' hd-done':i===activeIdx?' hd-active':'');
+    }
+  }
+
+  let si=0;
+  function runStage(){
+    if(si>=stages.length){ showDemoClips(demoClips); return; }
+    const s=stages[si++];
+    stepEl.textContent=s.txt;
+    updateDots(si-1);
+    animTo(s.to, ()=>setTimeout(runStage, s.ms));
+  }
+  setTimeout(runStage, 300);
 }
 
-// ── Particles ──
-(function(){
-  const c=document.getElementById('particleCanvas'),ctx=c.getContext('2d');
-  let W,H,particles=[],mouse={x:0,y:0};
+function showDemoClips(clips){
+  document.getElementById('hdProcessing').style.display='none';
+  const clipsEl = document.getElementById('hdClips');
+  clipsEl.style.display='block';
+  clipsEl.innerHTML = clips.map((c,i)=>`
+    <div class="hd-clip" style="animation-delay:${i*.25}s">
+      <div class="hd-clip-score" style="color:${c.score>=90?'#4ade80':'#a855f7'}">${c.score}</div>
+      <div class="hd-clip-mid">
+        <div class="hd-clip-title">${c.title}</div>
+        <div class="hd-clip-hook">${c.hook}</div>
+        <div style="font-size:9px;color:var(--muted);margin-top:4px">⏱ ${c.dur} &nbsp;·&nbsp; ${c.score>=90?'🔥 VIRAL':'⚡ HIGH'}</div>
+      </div>
+      <div class="hd-clip-play">▶</div>
+    </div>
+  `).join('');
+
+  // After 5 seconds of excitement → blur + CTA
+  setTimeout(()=>{
+    document.getElementById('hdBlurGate').style.display='flex';
+    setTimeout(()=>document.getElementById('hdBlurGate').style.opacity='1',20);
+  }, 5000);
+}
+
+function closeHeroDemo(){
+  const o=document.getElementById('heroDemoOverlay');
+  o.style.opacity='0';
+  setTimeout(()=>o.style.display='none',350);
+}
+/* ══ END HERO DEMO ══ */
+
+function toggleFaq(i){const item=document.getElementById('faq-'+i);const was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));if(!was)item.classList.add('open');}
+
+function initParticles(){
+  const c=document.getElementById('particleCanvas');const ctx=c.getContext('2d');let W,H,particles=[],mouse={x:0,y:0};
   const COLORS=['rgba(168,85,247,','rgba(99,102,241,','rgba(34,211,238,'];
   function resize(){W=c.width=window.innerWidth;H=c.height=c.parentElement.offsetHeight;}
   resize();window.addEventListener('resize',resize);
   document.querySelector('.hero').addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
   function P(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5;this.color=COLORS[Math.floor(Math.random()*COLORS.length)];this.alpha=Math.random()*.5+.1;}
   for(let i=0;i<80;i++)particles.push(new P());
-  function draw(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{const dx=mouse.x-p.x,dy=mouse.y-p.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){p.vx+=dx/dist*.02;p.vy+=dy/dist*.02;}p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.vy*=.99;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.color+p.alpha+')';ctx.fill();});requestAnimationFrame(draw);}
+  function draw(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{const dx=mouse.x-p.x,dy=mouse.y-p.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){p.vx+=dx/dist*.02;p.vy+=dy/dist*.02;}p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.vy*=.99;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.color+p.alpha+')';ctx.fill();});for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(168,85,247,'+(1-d/100)*.1+')';ctx.lineWidth=.5;ctx.stroke();}}requestAnimationFrame(draw);}
   draw();
-})();
+}
 
-// ── Auth ──
+function toggleBilling(){isAnnual=!isAnnual;document.getElementById('togTrack').classList.toggle('on',isAnnual);document.getElementById('togKnob').classList.toggle('on',isAnnual);document.getElementById('monthlyLbl').classList.toggle('active',!isAnnual);document.getElementById('annualLbl').classList.toggle('active',isAnnual);const prices=isAnnual?{s:'$12',p:'$24',a:'$120'}:{s:'$20',p:'$40',a:'$200'};document.getElementById('starterP').textContent=prices.s;document.getElementById('proP').textContent=prices.p;document.getElementById('agencyP').textContent=prices.a;}
+function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
+function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
+function heroGenerate(){
+  const url = document.getElementById('heroUrl').value.trim();
+  if(!url){ document.getElementById('heroUrl').focus(); return; }
+  pendingUrl = url;
+  startHeroDemo(url);
+}
+
 function openAuth(signup){
   isSignup=signup!==false;
   document.getElementById('authBtn').textContent=isSignup?'Sign Up Free — Get 50 Credits':'Sign In';
@@ -801,13 +1677,14 @@ function openAuth(signup){
   document.getElementById('authToggle').innerHTML=isSignup?'Already have an account? <span>Sign In</span>':"Don't have an account? <span>Sign Up Free</span>";
   document.getElementById('authBonus').style.display=isSignup?'inline-flex':'none';
   const hint=document.getElementById('pendingHint');
-  if(pendingUrl&&isSignup){hint.textContent='🔗 We\'ll process: '+pendingUrl;hint.classList.add('show');}else hint.classList.remove('show');
+  if(pendingUrl&&isSignup){hint.textContent='🔗 We\'ll start processing: '+pendingUrl;hint.classList.add('show');}else hint.classList.remove('show');
   document.getElementById('authErr').style.display='none';
   document.getElementById('authOverlay').classList.add('open');
   setTimeout(()=>document.getElementById('authEmail').focus(),100);
 }
 function closeAuth(){document.getElementById('authOverlay').classList.remove('open');}
 function toggleAuthMode(){openAuth(!isSignup);}
+
 async function handleAuth(){
   const email=document.getElementById('authEmail').value.trim(),pass=document.getElementById('authPass').value;
   const err=document.getElementById('authErr');err.style.display='none';
@@ -815,199 +1692,125 @@ async function handleAuth(){
   const btn=document.getElementById('authBtn');btn.disabled=true;btn.innerHTML='<span class="spin"></span>';
   await new Promise(r=>setTimeout(r,900));
   btn.disabled=false;btn.textContent=isSignup?'Sign Up Free — Get 50 Credits':'Sign In';
-  closeAuth();showToast('🎉 Welcome to ClipSpeedAI!','#10b981');
+  closeAuth();goToDashboard();
 }
-async function oauthLogin(p){showToast(`⚡ Signing in with ${p}...`,'#6366f1');closeAuth();}
+async function oauthLogin(p){showToast(`⚡ Signing in with ${p}...`,'#6366f1');await new Promise(r=>setTimeout(r,800));closeAuth();goToDashboard();}
 
-// ── Toast ──
-function showToast(msg,color='#a855f7'){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.style.background=color;t.style.color='#fff';
-  t.classList.add('show');clearTimeout(window._tt);
-  window._tt=setTimeout(()=>t.classList.remove('show'),3200);
-}
-
-// ══════════════════════════════════════════
-// HERO DEMO OVERLAY — fully JS-driven, clean
-// ══════════════════════════════════════════
-const HD_STAGES = [
-  {label:'Fetch',   icon:'⬇'},
-  {label:'Transcribe',icon:'🎙'},
-  {label:'Analyze', icon:'🧠'},
-  {label:'Cut',     icon:'✂️'},
-  {label:'Captions',icon:'💬'},
-  {label:'Reframe', icon:'📱'},
-  {label:'Ready',   icon:'☁️'},
-];
-const HD_STEPS = [
-  {to:14, txt:'Downloading video via yt-dlp...'},
-  {to:30, txt:'Whisper AI transcribing audio...'},
-  {to:50, txt:'GPT-4o detecting viral moments...'},
-  {to:66, txt:'FFmpeg precision cutting clips...'},
-  {to:80, txt:'Burning animated captions...'},
-  {to:90, txt:'Reframing to 9:16 format...'},
-  {to:100,txt:'Uploading to your dashboard...'},
-];
-const HD_DEMO_CLIPS = [
-  {title:'The Moment That Changed Everything 🔥', score:94, hook:'"You\'ve never seen this explained like this..."', dur:'0:47'},
-  {title:'Nobody Talks About This Part 😱',       score:89, hook:'"Everyone gets this completely wrong..."',       dur:'0:52'},
-  {title:'3 Things That Blow Your Mind 🧠',       score:91, hook:'"These facts hit different every time..."',      dur:'0:38'},
-];
-
-function buildDemoUI() {
-  // Build stage dots
-  const dotsEl = document.getElementById('hdStageDots');
-  dotsEl.innerHTML = '';
-  HD_STAGES.forEach((s, i) => {
-    const wrap = document.createElement('div');
-    wrap.className = 'demo-stage';
-    const dot = document.createElement('div');
-    dot.className = 'demo-sd';
-    dot.id = 'hd-sd' + i;
-    dot.textContent = s.icon;
-    const lbl = document.createElement('div');
-    lbl.className = 'demo-stage-lbl';
-    lbl.textContent = s.label;
-    wrap.appendChild(dot);
-    wrap.appendChild(lbl);
-    dotsEl.appendChild(wrap);
-  });
-
-  // Build clip preview cards
-  const previewEl = document.getElementById('hdClipPreviews');
-  previewEl.innerHTML = '';
-  for (let n = 1; n <= 3; n++) {
-    const card = document.createElement('div');
-    card.className = 'demo-pcc';
-    card.id = 'hdPCC' + (n-1);
-    card.innerHTML = `
-      <div class="demo-pcc-thumb" id="hdPCCThumb${n-1}">🎬</div>
-      <div class="demo-pcc-body">
-        <div class="demo-pcc-lbl">Clip 0${n}</div>
-        <div class="demo-pcc-txt" id="hdPCCTxt${n-1}">Processing...</div>
-      </div>`;
-    previewEl.appendChild(card);
-  }
+function goToDashboard(){
+  isLoggedIn=true;
+  document.getElementById('landing').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  document.getElementById('chatBubble').style.display='block';
+  document.getElementById('refLinkDisplay').textContent=`clipspeed.ai/ref/${refCode}`;
+  document.getElementById('wizRefLink').textContent=`clipspeed.ai/ref/${refCode}`;
+  document.getElementById('creditsDisplay').textContent=userCredits;
+  renderTemplates();
+  setTimeout(()=>{if(pendingUrl)document.getElementById('wizUrl').value=pendingUrl;document.getElementById('wizardOverlay').classList.add('open');},400);
 }
 
-function startHeroDemo(url) {
-  pendingUrl = url;
-  buildDemoUI();
+function updateWizDots(){const dots=document.querySelectorAll('.wdot');dots.forEach((d,i)=>{d.classList.remove('active','done');if(i+1===wizStep)d.classList.add('active');else if(i+1<wizStep)d.classList.add('done');});}
+function nextWizard(){document.getElementById('wiz'+wizStep).classList.remove('active');wizStep++;if(wizStep>3){closeWizard();return;}document.getElementById('wiz'+wizStep).classList.add('active');updateWizDots();}
+function closeWizard(){document.getElementById('wizardOverlay').classList.remove('open');wizStep=1;if(pendingUrl){document.getElementById('urlInput').value=pendingUrl;pendingUrl='';setTimeout(()=>startGenerate(),400);}}
+function wizardGenerate(){const url=document.getElementById('wizUrl').value.trim();if(!url){showToast('⚠️ Please enter a YouTube URL','#ef4444');return;}nextWizard();document.getElementById('urlInput').value=url;setTimeout(()=>startGenerate(),600);}
 
-  // Show the overlay
-  const overlay = document.getElementById('heroDemoOverlay');
-  overlay.style.display = 'flex';
-  setTimeout(() => overlay.style.opacity = '1', 20);
-
-  // Show URL label
-  const lbl = document.getElementById('hdUrlLabel');
-  lbl.textContent = url.length > 65 ? url.slice(0, 65) + '...' : url;
-
-  // Reset panels
-  document.getElementById('hdProcessing').style.display = 'block';
-  document.getElementById('hdClips').style.display = 'none';
-  document.getElementById('hdBlurGate').style.display = 'none';
-  document.getElementById('hdBlurGate').style.opacity = '0';
-
-  let pct = 0;
-  let si = 0;
-
-  function applyPct(v) {
-    document.getElementById('hdBar').style.width = v + '%';
-    document.getElementById('hdPct').textContent = Math.round(v) + '%';
-    const da = 145, off = da - (da * v / 100);
-    document.getElementById('hdRing').style.strokeDashoffset = off;
-  }
-
-  function updateDots(activeIdx) {
-    HD_STAGES.forEach((_, i) => {
-      const d = document.getElementById('hd-sd' + i);
-      if (!d) return;
-      d.className = 'demo-sd' + (i < activeIdx ? ' done' : i === activeIdx ? ' active' : '');
-    });
-  }
-
-  function revealPreviewCard(idx) {
-    const card = document.getElementById('hdPCC' + idx);
-    const thumb = document.getElementById('hdPCCThumb' + idx);
-    const txt = document.getElementById('hdPCCTxt' + idx);
-    if (!card) return;
-    card.classList.add('ready');
-    if (thumb) thumb.textContent = '✅';
-    if (txt) txt.textContent = HD_DEMO_CLIPS[idx].title;
-  }
-
-  function animTo(target, done) {
-    const go = () => {
-      pct += (target - pct) * 0.14;
-      if (Math.abs(pct - target) < 0.4) { pct = target; applyPct(pct); done && done(); return; }
-      applyPct(pct);
-      requestAnimationFrame(go);
-    };
-    requestAnimationFrame(go);
-  }
-
-  function runStage() {
-    if (si >= HD_STEPS.length) { showDemoClips(); return; }
-    const s = HD_STEPS[si++];
-    document.getElementById('hdStep').textContent = s.txt;
-    updateDots(si - 1);
-    // reveal preview cards at certain progress points
-    if (s.to >= 66 && si === 4) revealPreviewCard(0);
-    if (s.to >= 80 && si === 5) revealPreviewCard(1);
-    if (s.to >= 100) revealPreviewCard(2);
-    animTo(s.to, () => setTimeout(runStage, 700 + Math.random() * 400));
-  }
-
-  setTimeout(runStage, 300);
+function switchPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const pg=document.getElementById('page-'+id);if(!pg)return;pg.classList.add('active');
+  document.querySelectorAll('.nav-pill,.mob-btn').forEach(b=>b.classList.remove('active'));
+  ['nb-','mnb-'].forEach(pre=>{const el=document.getElementById(pre+id);if(el)el.classList.add('active');});
+  if(id==='analytics')renderAnalytics();if(id==='brand')renderTemplates();if(id==='clips')renderClipsTab();
+  document.documentElement.scrollTo({top:0,behavior:'smooth'});
 }
 
-function showDemoClips() {
-  document.getElementById('hdProcessing').style.display = 'none';
-  const clipsEl = document.getElementById('hdClips');
-  clipsEl.style.display = 'block';
-
-  // Build clip cards via JS (not template literals in HTML)
-  const listEl = document.getElementById('hdClipsList');
-  listEl.innerHTML = '';
-  HD_DEMO_CLIPS.forEach((c, i) => {
-    const div = document.createElement('div');
-    div.className = 'hd-clip';
-    div.style.animationDelay = (i * 0.25) + 's';
-    div.innerHTML = `
-      <div class="hd-clip-score" style="background:linear-gradient(135deg,${c.score>=90?'#4ade80':'#a855f7'},var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">${c.score}</div>
-      <div class="hd-clip-mid">
-        <div class="hd-clip-title">${c.title}</div>
-        <div class="hd-clip-hook">${c.hook}</div>
-        <div style="font-size:9px;color:var(--muted);margin-top:4px">⏱ ${c.dur} &nbsp;·&nbsp; ${c.score>=90?'🔥 VIRAL':'⚡ HIGH'}</div>
-      </div>
-      <div class="hd-clip-play">▶</div>`;
-    listEl.appendChild(div);
-  });
-
-  // Show blur gate after 5s
-  setTimeout(() => {
-    const gate = document.getElementById('hdBlurGate');
-    gate.style.display = 'flex';
-    setTimeout(() => gate.style.opacity = '1', 20);
-  }, 5000);
+function setSource(src,el){document.querySelectorAll('.source-tabs .src-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');const icons={youtube:'▶️',vimeo:'🎞',tiktok:'🎵',upload:'📁'};const phs={youtube:'https://youtube.com/watch?v=...',vimeo:'https://vimeo.com/...',tiktok:'https://tiktok.com/@user/video/...',upload:'Drag & drop or click to select file...'};document.getElementById('srcIcon').textContent=icons[src]||'🔗';document.getElementById('urlInput').placeholder=phs[src]||'Paste URL...';}
+function startGenerate(){
+  const url=document.getElementById('urlInput').value.trim(),err=document.getElementById('urlErr');
+  if(!url){err.textContent='⚠️ Please enter a valid URL';err.classList.add('show');return;}
+  err.classList.remove('show');
+  if(userCredits<=0){openUpgradeModal();showToast('⚠️ You need credits to generate clips!','#f59e0b');return;}
+  document.getElementById('procTitle').textContent=url.length>55?url.slice(0,55)+'...':url;
+  document.getElementById('procMeta').textContent='⏱ Detecting duration · 📊 Scanning...';
+  resetProc();document.getElementById('procOverlay').classList.add('show');document.getElementById('genBtn').disabled=true;
+  rotateFact(0);factTimer=setInterval(()=>{factIdx++;rotateFact(factIdx);},7000);runSim();
 }
+function resetProc(){procPct=0;procReady=0;updateRing(0);document.getElementById('procPct').textContent='0%';document.getElementById('procBar').style.width='0%';document.getElementById('psReady').textContent='0';document.getElementById('psScore').textContent='--';document.getElementById('psETA').textContent='~90s';document.getElementById('procStep').textContent='Initializing AI engine...';[0,1,2,3,4,5,6].forEach(i=>{const d=document.getElementById('sd'+i);if(d)d.className='sd';});document.getElementById('sd0').className='sd active';[0,1,2].forEach(i=>{const c=document.getElementById('pcc'+i);if(!c)return;c.className='pcc';const t=document.getElementById('pct'+i);if(t)t.textContent='Queued...';const th=c.querySelector('.pcc-thumb');if(th)th.textContent='🎬';});}
+function runSim(){const steps=[{to:13,ms:700},{to:29,ms:1100},{to:49,ms:1500},{to:65,ms:1200},{to:78,ms:1000},{to:88,ms:800},{to:100,ms:600}];let i=0;function next(){if(i>=steps.length){finishProc();return;}const s=steps[i++];animTo(s.to);updateStage(s.to);if(s.to===29)document.getElementById('procMeta').textContent='⏱ 12:34 detected · 📊 Scanning transcript...';if(s.to===49)document.getElementById('procMeta').textContent='⏱ 12:34 · 📊 3 viral moments detected!';if(s.to===65&&procReady===0)revealPreview(0);if(s.to===88&&procReady===1)revealPreview(1);setTimeout(next,s.ms);}setTimeout(next,300);}
+function animTo(target){const go=()=>{procPct+=(target-procPct)*0.13;if(Math.abs(procPct-target)<0.3){procPct=target;setPct(procPct);return;}setPct(procPct);requestAnimationFrame(go);};requestAnimationFrame(go);}
+function setPct(v){const r=Math.round(v);document.getElementById('procPct').textContent=r+'%';document.getElementById('procBar').style.width=v+'%';updateRing(v);}
+function updateRing(pct){const da=176,offset=da-(da*pct/100);document.getElementById('prf').style.strokeDashoffset=offset;}
+function updateStage(pct){const s=STAGE_STEPS.find(x=>pct>=x.min&&pct<x.max)||STAGE_STEPS[STAGE_STEPS.length-1];document.getElementById('procStep').textContent=s.label;document.getElementById('psETA').textContent=s.eta;[0,1,2,3,4,5,6].forEach(i=>{const d=document.getElementById('sd'+i);if(!d)return;d.className=i<s.dot?'sd done':i===s.dot?'sd active':'sd';});}
+function revealPreview(n){const c=DEMO_CLIPS[n],card=document.getElementById('pcc'+n);if(!card)return;card.classList.add('ready');const th=card.querySelector('.pcc-thumb');if(th)th.textContent='✅';const t=document.getElementById('pct'+n);if(t)t.textContent=c.clip_title;procReady++;document.getElementById('psReady').textContent=procReady;document.getElementById('psScore').textContent=c.viral_score;}
+function finishProc(){clearInterval(factTimer);revealPreview(2);setTimeout(()=>{document.getElementById('procOverlay').classList.remove('show');document.getElementById('genBtn').disabled=false;currentClips=JSON.parse(JSON.stringify(DEMO_CLIPS));userCredits=Math.max(0,userCredits-3);document.getElementById('creditsDisplay').textContent=userCredits;renderHomeFeed();renderClipsTab();showToast('🔥 3 Viral Clips Ready — Start Posting!','#4ade80');setTimeout(()=>document.getElementById('homeFeed').scrollIntoView({behavior:'smooth',block:'start'}),400);},600);}
+function rotateFact(idx){const el=document.getElementById('factTxt');if(!el)return;el.classList.add('fade');setTimeout(()=>{const f=FACTS[idx%FACTS.length];document.getElementById('factTag').textContent=f.tag;el.textContent=f.text;document.getElementById('factNum').textContent=f.num;el.classList.remove('fade');},380);}
 
-function closeHeroDemo() {
-  const o = document.getElementById('heroDemoOverlay');
-  o.style.opacity = '0';
-  setTimeout(() => { o.style.display = 'none'; }, 350);
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function buildClipCard(c,idx){
+  const sc=c.viral_score||80,h=c.hook_score||80,ret=c.retention_score||75,emo=c.emotion_score||70;
+  const gc=sc>=90?'sg-fire':'sg-high',gt=sc>=90?'🔥 VIRAL':'⚡ HIGH',sA=sc>=90?'#4ade80':'#a855f7';
+  const dur=c.duration_seconds?`${Math.floor(c.duration_seconds/60)}:${String(c.duration_seconds%60).padStart(2,'0')}`:'--';
+  const pm={'TikTok':'🎵','Instagram Reels':'📸','YouTube Shorts':'▶️','Twitter/X':'🐦'};
+  return`<div class="clip-card" style="animation-delay:${idx*.1}s" id="card-${c.id}">
+    <div class="cc-score"><div class="score-num" style="background:linear-gradient(135deg,${sA},#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${sc}</div><div class="score-lbl">Viral Score</div><div class="score-grade ${gc}">${gt}</div>
+      <div style="width:100%;display:flex;flex-direction:column;gap:3px;margin-top:5px">${[['Hook',h,'#a855f7'],['Retain',ret,'#22d3ee'],['Emotion',emo,'#4ade80']].map(([n,v,col])=>`<div><div style="display:flex;justify-content:space-between;margin-bottom:1px"><span style="font-size:6.5px;color:var(--muted)">${n}</span><span style="font-size:6.5px;font-weight:800;color:${col}">${v}%</span></div><div style="height:2px;background:rgba(255,255,255,.06);border-radius:1px;overflow:hidden"><div style="height:100%;width:${v}%;background:${col};border-radius:1px"></div></div></div>`).join('')}</div>
+    </div>
+    <div class="cc-vid"><div class="vid-mock" onclick="showToast('▶ Preview coming in Pro!','#6366f1')">🎥<div class="vid-play">▶</div><div class="vid-num">Clip ${idx+1}</div><div class="vid-plat">${pm[c.platform]||'📱'} ${esc(c.platform||'TikTok')}</div><div class="vid-dur">${dur}</div>${sc>=90?'<div style="position:absolute;bottom:7px;left:50%;transform:translateX(-50%);font-size:16px;animation:float 1.5s ease-in-out infinite">🔥</div>':''}</div></div>
+    <div class="cc-info"><div class="cc-title">${esc(c.clip_title)}</div>${c.hook?`<div class="cc-hook">"${esc(c.hook)}"</div>`:''}<div class="cc-meta"><div class="cc-mi">🔥 <strong>${sc}/100</strong></div><div class="cc-mi">⏱ ${dur}</div><div class="cc-views">👁 ${esc(c.views||'—')}</div></div>${c.hashtags?`<div class="cc-tags">${esc(c.hashtags)}</div>`:''}${c.transcript_excerpt?`<div class="cc-transcript-lbl">📝 Transcript</div><div class="cc-transcript">${esc(c.transcript_excerpt)}</div>`:''}
+      <div class="cc-actions"><button class="cc-btn cb-dl" onclick="downloadClip(${idx})">⬇ Download</button><button class="cc-btn cb-edit" onclick="openEditor(currentClips[${idx}])">✏️ Edit</button><button class="cc-btn cb-copy" onclick="copyCaption(${idx})">📋 Caption</button><button class="cc-btn cb-share" onclick="openShare()">🔗 Share</button><button class="cc-btn cb-del" onclick="deleteClip('${c.id}')">🗑</button></div>
+    </div>
+  </div>`;
 }
+function renderHomeFeed(){const empty=document.getElementById('emptyFeed'),list=document.getElementById('homeClipsList'),con=document.getElementById('homeClipsContainer'),badge=document.getElementById('clipBadge');if(!currentClips.length){empty.style.display='block';list.style.display='none';return;}empty.style.display='none';list.style.display='block';badge.textContent=currentClips.length;con.innerHTML=currentClips.map((c,i)=>buildClipCard(c,i)).join('');}
+function renderClipsTab(){const con=document.getElementById('clipsTabContainer');let clips=currentClips.filter(c=>{if(activeFilter==='fire')return c.viral_score>=90;if(activeFilter==='high')return c.viral_score>=80;if(activeFilter==='tiktok')return c.platform==='TikTok';if(activeFilter==='reels')return c.platform==='Instagram Reels';return true;});con.innerHTML=clips.length?clips.map((c,i)=>buildClipCard(c,i)).join(''):`<div class="empty-feed"><div class="empty-feed-icon">✂️</div><div class="empty-feed-title">${currentClips.length?'No clips match this filter':'No clips yet'}</div><div class="empty-feed-sub">${currentClips.length?'Try a different filter':'Head to Generate and paste a YouTube URL'}</div></div>`;}
+function filterClips(f,el){activeFilter=f;document.querySelectorAll('#page-clips .src-tab').forEach(c=>c.classList.remove('active'));el.classList.add('active');renderClipsTab();}
+function clearClips(){if(!currentClips.length)return;currentClips=[];renderHomeFeed();renderClipsTab();showToast('🗑 All clips cleared','#ef4444');}
+function deleteClip(id){currentClips=currentClips.filter(c=>c.id!==id);renderHomeFeed();renderClipsTab();showToast('🗑 Clip deleted','#ef4444');}
+function downloadClip(idx){showToast(`⬇ Downloading Clip ${idx+1}...`,'#6366f1');setTimeout(()=>showToast('✅ Download complete!','#4ade80'),1800);}
+function copyCaption(i){const c=currentClips[i];if(!c)return;const txt=[c.hook,c.transcript_excerpt,c.hashtags].filter(Boolean).join('\n\n');navigator.clipboard?.writeText(txt).catch(()=>{});showToast('📋 Caption + hashtags copied!','#22d3ee');}
+function bulkDownload(){if(!currentClips.length){showToast('No clips yet!','#ef4444');return;}showToast(`📦 Downloading all ${currentClips.length} clips...`,'#22d3ee');setTimeout(()=>showToast('✅ All clips downloaded!','#4ade80'),2500);}
 
-function heroGenerate() {
-  const url = document.getElementById('heroUrl').value.trim();
-  if (!url) { document.getElementById('heroUrl').focus(); return; }
-  startHeroDemo(url);
+function renderAnalytics(){const el=document.getElementById('analyticsContent');if(!currentClips.length){el.innerHTML='<div style="color:var(--muted);text-align:center;padding:50px"><div style="font-size:32px;margin-bottom:10px">📊</div>Generate clips first to see analytics</div>';return;}const avg=Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||80),0)/currentClips.length);const best=Math.max(...currentClips.map(c=>c.viral_score||80));const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];const bd=days.map(()=>Math.floor(Math.random()*80+20));const mx=Math.max(...bd);el.innerHTML=`<div class="stat-grid"><div class="stat-card"><div class="stat-lbl">Total Clips</div><div class="stat-val" style="color:var(--p)">${currentClips.length}</div></div><div class="stat-card"><div class="stat-lbl">Avg Score</div><div class="stat-val" style="color:var(--cyan)">${avg}</div></div><div class="stat-card"><div class="stat-lbl">Best Score</div><div class="stat-val" style="color:#4ade80">${best}</div></div><div class="stat-card"><div class="stat-lbl">Est. Views</div><div class="stat-val" style="color:var(--gold)">7.3M</div></div></div><div class="chart-card"><div class="chart-title">📈 Clips Generated — Last 7 Days</div><div class="bar-chart">${days.map((d,i)=>`<div class="bar-wrap"><div class="bar-inner"><div class="bar-fill" style="height:${(bd[i]/mx*100).toFixed(0)}%;background:linear-gradient(180deg,var(--p),var(--p2))"></div></div><div class="bar-lbl">${d}</div></div>`).join('')}</div></div><div class="chart-card"><div class="chart-title">🏆 Top Performing Clips</div>${currentClips.slice().sort((a,b)=>(b.viral_score||0)-(a.viral_score||0)).map((c,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:9px;background:var(--bg3);border-radius:9px;border:1px solid var(--border);margin-bottom:7px"><div style="font-size:16px;width:26px;text-align:center">${['🥇','🥈','🥉'][i]||i+1}</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(c.clip_title)}</div></div><div style="font-size:20px;font-weight:900;color:${c.viral_score>=90?'#4ade80':'#a855f7'}">${c.viral_score}</div></div>`).join('')}</div>`;}
+
+function renderTemplates(){const el=document.getElementById('templatesGrid');if(!el)return;el.innerHTML=TEMPLATES.map(t=>`<div class="tmpl-card ${appliedTemplate===t.id?'applied':''}" onclick="applyTemplate('${t.id}')"><div class="tmpl-preview" style="background:${t.bg}">${t.emoji}</div><div class="tmpl-name">${t.name}</div><div class="tmpl-desc">${t.desc}</div><button style="width:100%;padding:6px;margin-top:8px;background:${appliedTemplate===t.id?'rgba(16,185,129,.15)':'linear-gradient(135deg,var(--p),var(--p2))'};border:${appliedTemplate===t.id?'1px solid rgba(16,185,129,.3)':'none'};border-radius:7px;color:${appliedTemplate===t.id?'var(--green)':'#fff'};font-size:10px;font-weight:700;cursor:pointer">${appliedTemplate===t.id?'✓ Applied':'Apply'}</button></div>`).join('');}
+function applyTemplate(id){appliedTemplate=id;renderTemplates();showToast('✅ Template applied!','#4ade80');}
+
+function openEditor(clip){if(!clip&&currentClips.length)clip=currentClips[0];if(!clip){showToast('Generate clips first!','#ef4444');return;}editorClip=clip;document.getElementById('editorTitle').textContent=`✏️ ${clip.clip_title||'Edit Clip'}`;document.getElementById('captionText').value=clip.hook||'';document.getElementById('edCapPrev').textContent=clip.hook||'CAPTION PREVIEW';document.getElementById('editorOverlay').classList.add('open');document.getElementById('editorPanel').classList.add('open');document.getElementById('exportMenu').classList.remove('open');}
+function closeEditor(){document.getElementById('editorOverlay').classList.remove('open');document.getElementById('editorPanel').classList.remove('open');}
+function onCaptionInput(){const v=document.getElementById('captionText').value;document.getElementById('edCapPrev').textContent=v||'CAPTION PREVIEW';}
+function setRatio(r,el){document.querySelectorAll('.ratio-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.getElementById('edRatioLbl').textContent=r;const m=document.getElementById('editorMock');const rm={'9:16':'9/16','1:1':'1/1','16:9':'16/9'};m.style.aspectRatio=rm[r]||'9/16';}
+function setCapStyle(s,el){document.querySelectorAll('.cap-style').forEach(b=>b.classList.remove('active'));el.classList.add('active');const p=document.getElementById('edCapPrev');const styles={bold:'font-weight:900;color:#fff;background:rgba(0,0,0,.85)',neon:'color:#22d3ee;text-shadow:0 0 12px #22d3ee;background:transparent',fire:'background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900',minimal:'color:rgba(255,255,255,.9);font-weight:400;background:transparent'};p.style.cssText=styles[s]||styles.bold;}
+function setFontSize(v){document.getElementById('eFontVal').textContent=v+'px';document.getElementById('edCapPrev').style.fontSize=v+'px';}
+function toggleCaps(el){el.classList.toggle('on');document.getElementById('edCapPrev').style.opacity=el.classList.contains('on')?'1':'0';}
+function toggleExportMenu(){document.getElementById('exportMenu').classList.toggle('open');}
+function exportTo(plat){const nm={tiktok:'TikTok',reels:'Instagram Reels',shorts:'YouTube Shorts',download:'your device'};showToast(`⬇ Exporting to ${nm[plat]||plat}...`,'#a855f7');closeEditor();document.getElementById('exportMenu').classList.remove('open');setTimeout(()=>showToast('✅ Export complete!','#4ade80'),2000);}
+document.addEventListener('click',e=>{const m=document.getElementById('exportMenu');if(m.classList.contains('open')&&!e.target.closest('.editor-footer'))m.classList.remove('open');});
+
+function openShare(){document.getElementById('shareOverlay').classList.add('open');}
+function closeShare(){document.getElementById('shareOverlay').classList.remove('open');}
+function shareClipTo(plat){const m={tiktok:'Opening TikTok...',instagram:'Opening Instagram...',youtube:'Opening YouTube Studio...',twitter:'Opening X...',linkedin:'Opening LinkedIn...',link:'🔗 Link copied!'};showToast(m[plat]||'Sharing...','#a855f7');closeShare();}
+function openUpgradeModal(){document.getElementById('upgradeOverlay').classList.add('open');}
+function closeUpgrade(){document.getElementById('upgradeOverlay').classList.remove('open');}
+function selectPlan(name){document.getElementById('planBadge').textContent=name;showToast(`🎉 Upgrading to ${name}...`,'#4ade80');}
+function copyRefLink(){navigator.clipboard?.writeText(`https://clipspeed.ai/ref/${refCode}`).catch(()=>{});showToast('📋 Referral link copied!','#22d3ee');}
+function copyRefLinkWiz(){navigator.clipboard?.writeText(`https://clipspeed.ai/ref/${refCode}`).catch(()=>{});showToast('📋 Referral link copied!','#22d3ee');}
+function toggleChat(){document.getElementById('chatPanel').classList.toggle('open');}
+function quickChat(msg){document.getElementById('chatInput').value=msg;sendChat();}
+async function sendChat(){
+  const inp=document.getElementById('chatInput');const msg=inp.value.trim();if(!msg)return;
+  inp.value='';const msgs=document.getElementById('chatMessages');
+  msgs.innerHTML+=`<div class="chat-msg msg-user">${esc(msg)}</div>`;
+  const t=document.createElement('div');t.className='ai-thinking';t.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(t);msgs.scrollTop=msgs.scrollHeight;
+  try{
+    const ctx=currentClips.length?`User has ${currentClips.length} clips with avg viral score ${Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||80),0)/currentClips.length)}.`:'No clips yet.';
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`You are ClipSpeed AI — an expert viral short-form content strategist. Be energetic, concise, actionable. Max 60 words. No markdown. Context: ${ctx}\n\nUser: ${msg}`}]})});
+    const data=await res.json();t.remove();
+    const reply=data.content?.[0]?.text||"Let's crush it! Hook in first 0.5s, pattern interrupt at 3s, CTA at end. You're on the right path! 🔥";
+    msgs.innerHTML+=`<div class="chat-msg msg-bot">${esc(reply)}</div>`;
+  }catch(e){t.remove();const fb=["Hook in first 0.5s, pattern interrupt at 3s, strong CTA at end. Your clips are primed! 🔥","Post between 6–9pm for 2–3× more reach. Consistency beats perfection! ⚡","Captions increase watch time by 40%. ClipSpeedAI does it automatically! 💬"];msgs.innerHTML+=`<div class="chat-msg msg-bot">${fb[Math.floor(Math.random()*fb.length)]}</div>`;}
+  msgs.scrollTop=msgs.scrollHeight;
 }
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeHeroDemo(); closeAuth(); }
-});
+function showToast(msg,color='#a855f7'){const t=document.getElementById('toast');t.textContent=msg;t.style.background=color;t.style.color='#fff';t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),3200);}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeEditor();closeUpgrade();closeShare();document.getElementById('wizardOverlay').classList.remove('open');}});
+(function(){const ref=new URLSearchParams(window.location.search).get('ref');if(ref){document.getElementById('authBonus').textContent=`🎁 50 credits + referred by ${ref}`;document.getElementById('authBonus').style.display='inline-flex';}})();
 </script>
 </body>
 </html>
