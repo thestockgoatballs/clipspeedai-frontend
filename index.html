@@ -737,11 +737,6 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     <div class="sec-label">Pricing</div>
     <h2 class="sec-title" style="margin-bottom:6px">The only plan that <span class="grad">pays for itself</span><br>with one viral clip</h2>
     <p class="sec-sub">Simple credits. No surprises. Save 40% going yearly.</p>
-    <div style="display:flex;justify-content:center;margin-bottom:20px">
-      <div style="display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:8px;font-size:11px;color:var(--green);font-weight:700">
-        💡 If you post 3×/week, Pro pays for itself with just 1 viral clip
-      </div>
-    </div>
     <div class="billing-toggle">
       <span id="monthlyLbl" class="active">Monthly</span>
       <div class="tog-wrap" onclick="toggleBilling()"><div class="tog-track" id="togTrack"></div><div class="tog-knob" id="togKnob"></div></div>
@@ -749,58 +744,40 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
       <div class="annual-badge">Save 40%</div>
     </div>
     <div class="pricing-grid">
-      <!-- FREE -->
       <div style="background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:38px 36px;display:flex;flex-direction:column;gap:12px;transition:all .3s" onmouseover="this.style.borderColor='rgba(168,85,247,.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted2)">Free</div>
         <div style="display:flex;align-items:flex-end;gap:4px;line-height:1"><div style="font-size:64px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-3px">$0</div><div style="font-size:14px;color:var(--muted);padding-bottom:10px">/forever</div></div>
-        <div style="display:inline-flex;align-items:center;gap:5px;padding:5px 11px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:99px;font-size:11px;font-weight:800;color:var(--green);width:fit-content">🎁 50 credits on signup</div>
-        <div style="height:1px;background:var(--border)"></div>
         <div style="display:flex;flex-direction:column;gap:10px;flex:1">
           <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>50 free credits</div>
           <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>AI viral scoring</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>720p export</div>
           <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:#ef4444"><span style="color:#ef4444;font-size:15px;flex-shrink:0;margin-top:1px">✗</span>Has watermark</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:#ef4444"><span style="color:#ef4444;font-size:15px;flex-shrink:0;margin-top:1px">✗</span>No B-Roll editor</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:#ef4444"><span style="color:#ef4444;font-size:15px;flex-shrink:0;margin-top:1px">✗</span>No brand templates</div>
         </div>
-        <button onclick="openAuth(true)" style="width:100%;padding:16px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:14px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:8px" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border2)'">Start Free →</button>
+        <button onclick="openAuth(true)" style="width:100%;padding:16px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:14px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:8px">Start Free →</button>
       </div>
-      <!-- STARTER -->
-      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:38px 36px;display:flex;flex-direction:column;gap:12px;transition:all .3s" onmouseover="this.style.borderColor='rgba(168,85,247,.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted2)">Starter</div>
-        <div style="display:flex;align-items:flex-end;gap:4px;line-height:1"><div id="starterP" style="font-size:64px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-3px">$20</div><div style="font-size:14px;color:var(--muted);padding-bottom:10px">/mo</div></div>
-        <div style="display:inline-flex;align-items:center;gap:5px;padding:5px 11px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25);border-radius:99px;font-size:11px;font-weight:800;color:var(--p);width:fit-content">⚡ 200 credits/month</div>
-        <div style="height:1px;background:var(--border)"></div>
-        <div style="display:flex;flex-direction:column;gap:10px;flex:1">
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>200 credits/month</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>No watermark</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>1080p export</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>25% affiliate rate</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>All caption styles</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:#ef4444"><span style="color:#ef4444;font-size:15px;flex-shrink:0;margin-top:1px">✗</span>No B-Roll editor</div>
-        </div>
-        <button onclick="selectPlan('Starter')" style="width:100%;padding:16px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:14px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:8px" onmouseover="this.style.borderColor='var(--p)'" onmouseout="this.style.borderColor='var(--border2)'">Get Starter →</button>
-      </div>
-      <!-- PRO -->
       <div class="pro-card-outer" style="position:relative;background:linear-gradient(160deg,rgba(168,85,247,.12),rgba(99,102,241,.08),rgba(34,211,238,.06));border-radius:24px;padding:3px;animation:borderGlow 3s ease-in-out infinite;transform:scale(1.045);z-index:2;box-shadow:0 20px 80px rgba(168,85,247,.25)">
-        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:5px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:99px;font-size:11px;font-weight:900;color:#fff;box-shadow:0 4px 20px rgba(168,85,247,.4)">⭐ Most Popular · Best Value</div>
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:5px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:99px;font-size:11px;font-weight:900;color:#fff">⭐ Most Popular</div>
         <div style="background:linear-gradient(160deg,rgba(168,85,247,.15) 0%,var(--bg2) 60%);border-radius:22px;padding:38px 36px;display:flex;flex-direction:column;gap:12px;height:100%">
           <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--p)">Pro</div>
           <div style="display:flex;align-items:flex-end;gap:4px;line-height:1"><div id="proP" style="font-size:64px;font-weight:900;background:linear-gradient(135deg,#fff,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-3px">$40</div><div style="font-size:14px;color:var(--muted);padding-bottom:10px">/mo</div></div>
-          <div style="display:inline-flex;align-items:center;gap:5px;padding:5px 11px;background:rgba(168,85,247,.15);border:1px solid rgba(168,85,247,.4);border-radius:99px;font-size:11px;font-weight:800;color:#c084fc;width:fit-content">🔥 300 credits/month</div>
-          <div id="proDayPrice" style="font-size:11px;color:var(--muted2)">$1.33/day · Cheaper than a coffee</div>
-          <div style="height:1px;background:rgba(168,85,247,.2)"></div>
           <div style="display:flex;flex-direction:column;gap:10px;flex:1">
             <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>300 credits/month</div>
             <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>AI B-Roll editor</div>
-            <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>Brand templates</div>
+            <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>No watermark · 4K export</div>
             <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>40% affiliate rate</div>
-            <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>Priority processing</div>
-            <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>4K export</div>
           </div>
-          <button onclick="selectPlan('Pro')" style="width:100%;padding:18px;background:linear-gradient(135deg,var(--p),var(--p2),var(--cyan));background-size:200%;animation:gradShift 3s ease infinite;border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:900;cursor:pointer;transition:all .25s;margin-top:8px;letter-spacing:-.3px;box-shadow:0 8px 32px rgba(168,85,247,.4)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 16px 48px rgba(168,85,247,.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 32px rgba(168,85,247,.4)'">Get Pro ⚡ — Best Value</button>
-          <div style="text-align:center;font-size:10px;color:var(--muted2)">84% of paying users choose Pro</div>
+          <button onclick="selectPlan('Pro')" style="width:100%;padding:18px;background:linear-gradient(135deg,var(--p),var(--p2),var(--cyan));background-size:200%;animation:gradShift 3s ease infinite;border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:900;cursor:pointer;transition:all .25s;margin-top:8px;box-shadow:0 8px 32px rgba(168,85,247,.4)">Get Pro ⚡</button>
         </div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid rgba(34,211,238,.2);border-radius:24px;padding:38px 36px;display:flex;flex-direction:column;gap:12px;transition:all .3s" onmouseover="this.style.borderColor='rgba(34,211,238,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(34,211,238,.2)';this.style.transform='translateY(0)'">
+        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--cyan)">💎 Agency</div>
+        <div style="display:flex;align-items:flex-end;gap:4px;line-height:1"><div style="font-size:64px;font-weight:900;background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-3px">$200</div><div style="font-size:14px;color:var(--muted);padding-bottom:10px">/mo</div></div>
+        <div style="display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>Unlimited credits</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>White label exports</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>50% affiliate rate</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted2)"><span style="color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px">✓</span>Priority support</div>
+        </div>
+        <button onclick="selectPlan('Agency')" style="width:100%;padding:16px;background:linear-gradient(135deg,var(--cyan),var(--p2));border:none;border-radius:14px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:8px">Get Agency →</button>
       </div>
     </div>
   </div>
@@ -817,11 +794,6 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   <div class="faq-cols" id="faqCols"></div>
 </section>
 
-<div class="inline-cta-bar">
-  <button class="inline-cta-btn" onclick="openAuth(true)">Start Free ⚡ — Paste Your First Video</button>
-  <div class="inline-cta-sub"><span>✓ No card</span><span>·</span><span>✓ 50 free credits</span><span>·</span><span>✓ Results in 90s</span></div>
-</div>
-
 <section class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-title">Stop leaving<br><span class="grad">viral clips on the table</span></h2>
@@ -834,7 +806,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 <footer style="border-top:1px solid var(--border);position:relative;z-index:1;background:var(--bg2);padding:32px 40px;text-align:center">
   <div style="font-size:10.5px;color:var(--muted)">© 2025 ClipSpeedAI Inc. All rights reserved.</div>
 </footer>
-</div><!-- /landing -->
+</div>
 
 <!-- DASHBOARD -->
 <div id="dashboard">
@@ -863,7 +835,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     <div class="dash-hero">
       <div class="hero-badge" style="margin-bottom:16px"><div class="live-dot"></div>GPT-4o Powered · 90s Processing</div>
       <h1 class="dash-title"><span class="grad">Viral Clips.<br>90 Seconds.</span></h1>
-      <p class="dash-sub">Paste any YouTube URL. ViralBrain™ finds your best moments and delivers ready-to-post clips with animated captions — faster than you finish reading this.</p>
+      <p class="dash-sub">Paste any YouTube URL. ViralBrain™ finds your best moments and delivers ready-to-post clips with animated captions.</p>
       <div class="source-tabs">
         <div class="src-tab active" onclick="setSource('youtube',this)">▶️ YouTube</div>
         <div class="src-tab" onclick="setSource('upload',this)">📁 Upload</div>
@@ -878,18 +850,17 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
         </div></div>
         <div class="url-err" id="urlErr">⚠️ Please enter a valid URL</div>
       </div>
-      <div class="dash-trust"><span>⚡ ~90s processing</span><span style="color:var(--muted)">·</span><span>🧠 GPT-4o viral detection</span><span style="color:var(--muted)">·</span><span>💬 10 caption styles</span></div>
+      <div class="dash-trust"><span>⚡ ~90s processing</span><span style="color:var(--muted)">·</span><span>🧠 GPT-4o viral detection</span></div>
       <div class="plat-row"><div class="plat-pill">🎵 TikTok</div><div class="plat-pill">📸 Instagram</div><div class="plat-pill">▶️ YT Shorts</div><div class="plat-pill">🐦 X</div><div class="plat-pill">💼 LinkedIn</div></div>
     </div>
     <div class="clips-feed" id="homeFeed">
-      <div class="empty-feed" id="emptyFeed"><div class="empty-feed-icon">✂️</div><div class="empty-feed-title">Your viral clips appear here</div><div class="empty-feed-sub">Paste a YouTube URL above and hit Generate — clips appear instantly</div></div>
+      <div class="empty-feed" id="emptyFeed"><div class="empty-feed-icon">✂️</div><div class="empty-feed-title">Your viral clips appear here</div><div class="empty-feed-sub">Paste a YouTube URL above and hit Generate</div></div>
       <div id="homeClipsList" style="display:none">
         <div class="feed-header">
           <div class="feed-title">Your Clips <span class="feed-badge" id="clipBadge">0</span></div>
           <div class="feed-actions">
             <button class="feed-btn fb-p" onclick="openEditor(currentClips[0])">✏️ Editor</button>
             <button class="feed-btn fb-c" onclick="bulkDownload()">📦 All</button>
-            <button class="feed-btn fb-s" onclick="switchPage('analytics')">📊 Stats</button>
             <button class="feed-btn fb-r" onclick="clearClips()">🗑 Clear</button>
           </div>
         </div>
@@ -903,9 +874,9 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   <div style="padding:22px 26px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
       <div style="font-size:18px;font-weight:900">⚡ My Clips</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <div style="display:flex;gap:6px">
         <button class="feed-btn fb-p" onclick="openEditor(currentClips[0])">✏️ Editor</button>
-        <button class="feed-btn fb-c" onclick="bulkDownload()">📦 Download All</button>
+        <button class="feed-btn fb-c" onclick="bulkDownload()">📦 All</button>
         <button class="feed-btn fb-s" onclick="openShare()">🔗 Share</button>
       </div>
     </div>
@@ -920,33 +891,16 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   </div>
 </div>
 
-<div class="page" id="page-analytics"><div class="analytics-wrap"><div style="font-size:18px;font-weight:900;margin-bottom:18px">📊 Performance Analytics</div><div id="analyticsContent"><div style="color:var(--muted);text-align:center;padding:50px"><div style="font-size:32px;margin-bottom:10px">📊</div>Generate clips first to see analytics</div></div></div></div>
-
-<div class="page" id="page-brand">
-  <div class="brand-wrap">
-    <div style="font-size:18px;font-weight:900;margin-bottom:18px">🏷️ Brand &amp; Templates</div>
-    <div class="tmpl-grid" id="templatesGrid"></div>
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;max-width:500px">
-      <div style="font-size:13px;font-weight:800;margin-bottom:14px">🎨 Brand Customizer</div>
-      <input style="width:100%;padding:10px 12px;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:8px;color:#fff;font-size:12px;outline:none;margin-bottom:12px" placeholder="Your Brand" id="brandName">
-      <button onclick="showToast('💾 Brand kit saved!','#4ade80')" style="padding:10px 18px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:8px;color:#fff;font-size:11px;font-weight:800;cursor:pointer">💾 Save Brand Kit</button>
-    </div>
-  </div>
-</div>
-
+<div class="page" id="page-analytics"><div class="analytics-wrap"><div style="font-size:18px;font-weight:900;margin-bottom:18px">📊 Analytics</div><div id="analyticsContent"></div></div></div>
+<div class="page" id="page-brand"><div class="brand-wrap"><div style="font-size:18px;font-weight:900;margin-bottom:18px">🏷️ Brand &amp; Templates</div><div class="tmpl-grid" id="templatesGrid"></div></div></div>
 <div class="page" id="page-affiliate">
   <div class="aff-wrap">
     <div style="font-size:18px;font-weight:900;margin-bottom:4px">💰 Affiliate Dashboard</div>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:18px">Earn recurring commissions · Paid monthly · No cap</div>
     <div class="aff-stats">
       <div class="aff-stat"><div class="aff-lbl">Total Earned</div><div class="aff-val" style="color:var(--green)">$0.00</div></div>
       <div class="aff-stat"><div class="aff-lbl">Referrals</div><div class="aff-val">0</div></div>
       <div class="aff-stat"><div class="aff-lbl">Commission</div><div class="aff-val" style="color:var(--gold)">25%</div></div>
-      <div class="aff-stat"><div class="aff-lbl">Pending</div><div class="aff-val" style="color:var(--cyan)">$0</div></div>
     </div>
-    <div class="aff-tier current"><div style="font-size:22px;width:40px;text-align:center">🥉</div><div style="flex:1"><div style="font-size:13px;font-weight:800">Starter — Current</div><div style="font-size:10px;color:var(--muted);margin-top:2px">0–5 active referrals · 25% lifetime recurring</div></div><div class="aff-tier-rate">25%</div></div>
-    <div class="aff-tier"><div style="font-size:22px;width:40px;text-align:center">🥈</div><div style="flex:1"><div style="font-size:13px;font-weight:800">Silver</div><div style="font-size:10px;color:var(--muted);margin-top:2px">5–20 active referrals · 40%</div></div><div class="aff-tier-rate">40%</div></div>
-    <div class="aff-tier"><div style="font-size:22px;width:40px;text-align:center">🥇</div><div style="flex:1"><div style="font-size:13px;font-weight:800">Gold</div><div style="font-size:10px;color:var(--muted);margin-top:2px">20+ active referrals · 50%</div></div><div class="aff-tier-rate">50%</div></div>
     <div class="aff-ref-box" style="margin-top:16px">
       <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:7px">Your Referral Link</div>
       <div style="display:flex;gap:7px;align-items:center">
@@ -964,7 +918,7 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   <button class="mob-btn" id="mnb-brand" onclick="switchPage('brand')"><span class="mi">🏷️</span>Brand</button>
   <button class="mob-btn" onclick="switchPage('affiliate')"><span class="mi">💰</span>Earn</button>
 </div>
-</div><!-- /dashboard -->
+</div>
 
 <!-- PROCESSING OVERLAY -->
 <div id="procOverlay">
@@ -1008,18 +962,18 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 
 <!-- HERO DEMO OVERLAY -->
 <div id="heroDemoOverlay">
-  <button id="hdCloseBtn" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:var(--muted2);font-size:14px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:1">✕</button>
+  <button id="hdCloseBtn" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:var(--muted2);font-size:14px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1">✕</button>
   <div style="width:100%;max-width:660px;position:relative;z-index:1">
     <div id="hdProcessing">
       <div style="text-align:center;margin-bottom:22px">
-        <div class="hero-badge" style="display:inline-flex;margin-bottom:10px"><div class="live-dot"></div>⚡ ViralBrain™ is analyzing your video</div>
+        <div class="hero-badge" style="display:inline-flex;margin-bottom:10px"><div class="live-dot"></div>⚡ ViralBrain™ analyzing your video</div>
         <div id="hdUrlLabel" style="font-size:11px;color:var(--muted);word-break:break-all"></div>
       </div>
-      <div style="background:var(--bg2);border:1px solid rgba(168,85,247,.2);border-radius:22px;overflow:hidden;box-shadow:0 0 60px rgba(168,85,247,.15)">
+      <div style="background:var(--bg2);border:1px solid rgba(168,85,247,.2);border-radius:22px;overflow:hidden">
         <div style="height:3px;background:linear-gradient(90deg,var(--p2),var(--p),var(--cyan));animation:shimmer 2s linear infinite;background-size:200%"></div>
         <div style="padding:24px 26px">
           <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
-            <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,rgba(168,85,247,.3),rgba(34,211,238,.2));display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid rgba(168,85,247,.2);flex-shrink:0">🎬</div>
+            <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,rgba(168,85,247,.3),rgba(34,211,238,.2));display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🎬</div>
             <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:800;margin-bottom:3px">Analyzing your video...</div><div style="font-size:10px;color:var(--muted)" id="hdStep">Initializing AI engine...</div></div>
             <div style="position:relative;width:56px;height:56px;flex-shrink:0">
               <svg style="transform:rotate(-90deg)" width="56" height="56" viewBox="0 0 56 56">
@@ -1040,7 +994,6 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     <div id="hdClips" style="display:none;position:relative">
       <div style="text-align:center;margin-bottom:16px">
         <div class="hero-badge" style="display:inline-flex;margin-bottom:8px"><div class="live-dot"></div>🔥 3 Viral Clips Detected!</div>
-        <div style="font-size:13px;color:var(--muted2)">Your top moments are ready — see them below</div>
       </div>
       <div id="hdClipsList"></div>
       <div id="hdBlurGate" style="display:none;opacity:0;position:absolute;inset:0;z-index:10;backdrop-filter:blur(10px);background:linear-gradient(to bottom,rgba(3,7,18,.1) 0%,rgba(3,7,18,.97) 55%);border-radius:16px;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:10px;transition:opacity .6s ease">
@@ -1050,13 +1003,12 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
           <h3 style="font-size:clamp(17px,3vw,22px);font-weight:900;letter-spacing:-.8px;margin-bottom:6px">Your 3 clips are ready!</h3>
           <p style="font-size:12px;color:var(--muted2);margin-bottom:18px;line-height:1.6">Sign up free to download them — takes 10 seconds.<br><strong style="color:#fff">50 bonus credits included.</strong></p>
           <div style="display:flex;flex-direction:column;gap:9px">
-            <button onclick="closeHeroDemo();oauthLogin('google')" style="width:100%;padding:12px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s">
+            <button onclick="closeHeroDemo();oauthLogin('google')" style="width:100%;padding:12px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px">
               <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
               Continue with Google
             </button>
-            <button onclick="closeHeroDemo();openAuth(true)" style="width:100%;padding:12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:800;cursor:pointer;transition:all .2s">🚀 Sign up with Email — Free</button>
+            <button onclick="closeHeroDemo();openAuth(true)" style="width:100%;padding:12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:800;cursor:pointer">🚀 Sign up with Email — Free</button>
           </div>
-          <div style="margin-top:10px;font-size:10px;color:var(--muted)">✓ No credit card &nbsp;·&nbsp; ✓ 50 credits &nbsp;·&nbsp; ✓ Cancel anytime</div>
         </div>
       </div>
     </div>
@@ -1070,22 +1022,21 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     <div class="wizard-step active" id="wiz1">
       <div class="wizard-icon">🎁</div>
       <h3 class="wizard-title">50 Free Credits!</h3>
-      <p class="wizard-sub">Welcome! You just unlocked <strong style="color:var(--green)">50 free credits</strong> — enough to process 50 minutes of video.</p>
-      <div class="credits-bonus">🎁 50 Credits Added to Your Account</div>
+      <p class="wizard-sub">Welcome! You just unlocked <strong style="color:var(--green)">50 free credits</strong>.</p>
       <button class="wizard-cta" onclick="nextWizard()">Let's See It in Action →</button>
       <div class="wizard-skip" onclick="closeWizard()">Skip intro</div>
     </div>
     <div class="wizard-step" id="wiz2">
       <div class="wizard-icon">🔗</div>
       <h3 class="wizard-title">Paste your first URL</h3>
-      <p class="wizard-sub">Drop any YouTube video. ViralBrain™ will find your most viral moments in under 90 seconds.</p>
+      <p class="wizard-sub">Drop any YouTube video. ViralBrain™ finds your viral moments in under 90 seconds.</p>
       <div class="wiz-url-box"><div class="wiz-url-inner"><span style="font-size:15px;flex-shrink:0">🔗</span><input class="wiz-url-input" id="wizUrl" placeholder="https://youtube.com/watch?v=..."><button class="wiz-gen-btn" onclick="wizardGenerate()">Generate ⚡</button></div></div>
       <button class="wizard-cta" style="background:rgba(255,255,255,.06);border:1px solid var(--border2);margin-top:8px" onclick="nextWizard()">I'll paste a URL later →</button>
     </div>
     <div class="wizard-step" id="wiz3">
       <div class="wizard-icon">💰</div>
       <h3 class="wizard-title">Earn while you clip</h3>
-      <p class="wizard-sub">Earn <strong style="color:var(--gold)">25–50% recurring commission</strong> on every referral — forever.</p>
+      <p class="wizard-sub">Earn <strong style="color:var(--gold)">25–50% recurring commission</strong> on every referral.</p>
       <div class="ref-code-box"><span style="font-size:16px">🔗</span><div class="ref-code-val" id="wizRefLink">Loading...</div><button onclick="copyRefLinkWiz()" style="padding:6px 12px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:7px;color:#fff;font-size:10px;font-weight:700;cursor:pointer">Copy</button></div>
       <button class="wizard-cta" onclick="closeWizard()">🚀 Go to My Dashboard</button>
     </div>
@@ -1105,7 +1056,6 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
       <div class="e-sec"><div class="e-sec-title">Caption Text</div><textarea id="captionText" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:7px;padding:8px;color:#fff;font-size:10.5px;outline:none;resize:vertical;min-height:60px;font-family:inherit;line-height:1.5;transition:border .2s" oninput="onCaptionInput()" onfocus="this.style.borderColor='var(--p)'" onblur="this.style.borderColor='var(--border2)'" placeholder="Edit caption..."></textarea></div>
       <div class="e-sec"><div class="e-sec-title">AI Features</div>
         <div class="toggle-row"><span class="toggle-lbl">Speaker Reframe</span><div class="tog2 on" onclick="this.classList.toggle('on')"><div class="tok2"></div></div></div>
-        <div class="toggle-row"><span class="toggle-lbl">AI B-Roll</span><div class="tog2 on" onclick="this.classList.toggle('on')"><div class="tok2"></div></div></div>
         <div class="toggle-row"><span class="toggle-lbl">Show Captions</span><div class="tog2 on" id="t-caps" onclick="toggleCaps(this)"><div class="tok2"></div></div></div>
       </div>
     </div>
@@ -1220,24 +1170,19 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 <!-- EXIT INTENT -->
 <div id="exitPopup" style="position:fixed;inset:0;z-index:800;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.75);backdrop-filter:blur(10px)">
   <div style="max-width:480px;width:100%;background:var(--bg2);border:1.5px solid rgba(168,85,247,.45);border-radius:24px;padding:36px 32px;text-align:center;position:relative;overflow:hidden;animation:fadeUp .35s ease">
-    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan),var(--p))"></div>
     <button onclick="closeExitPopup()" style="position:absolute;top:13px;right:13px;width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid var(--border);cursor:pointer;color:var(--muted2);font-size:14px;display:flex;align-items:center;justify-content:center">✕</button>
-    <div style="position:relative;z-index:1">
-      <div style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);border-radius:99px;font-size:10px;font-weight:800;color:var(--green);margin-bottom:14px"><div class="live-dot"></div>STILL AVAILABLE — FREE</div>
-      <h2 style="font-size:clamp(20px,4vw,28px);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:10px">Wait — grab your <span style="background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">50 free credits</span> before you go</h2>
-      <p style="font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:20px">No credit card. No catch. Just 50 minutes of your best content turned into viral clips — on us.</p>
-      <div style="margin-bottom:18px;font-size:11px;color:var(--muted)">This offer disappears in <span id="exitCountdown" style="color:var(--p);font-weight:800">60s</span></div>
-      <button onclick="closeExitPopup();openAuth(true)" style="width:100%;padding:16px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:13px;color:#fff;font-size:15px;font-weight:900;cursor:pointer;letter-spacing:-.3px;transition:all .25s;box-shadow:0 8px 32px rgba(168,85,247,.4)">🚀 Claim My 50 Free Credits</button>
-      <div onclick="closeExitPopup()" style="margin-top:12px;font-size:11px;color:var(--muted);cursor:pointer">No thanks, I don't want free credits</div>
-    </div>
+    <h2 style="font-size:clamp(20px,4vw,28px);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:10px">Wait — grab your <span style="background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">50 free credits</span> before you go</h2>
+    <p style="font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:20px">No credit card. No catch.</p>
+    <div style="margin-bottom:18px;font-size:11px;color:var(--muted)">Offer disappears in <span id="exitCountdown" style="color:var(--p);font-weight:800">60s</span></div>
+    <button onclick="closeExitPopup();openAuth(true)" style="width:100%;padding:16px;background:linear-gradient(135deg,var(--p),var(--p2));border:none;border-radius:13px;color:#fff;font-size:15px;font-weight:900;cursor:pointer">🚀 Claim My 50 Free Credits</button>
+    <div onclick="closeExitPopup()" style="margin-top:12px;font-size:11px;color:var(--muted);cursor:pointer">No thanks</div>
   </div>
 </div>
 
 <script>
-// ── CONFIG ────────────────────────────────────────────────────
 const BACKEND      = 'https://clipspeedai-server-production.up.railway.app';
 const SUPABASE_URL  = 'https://okmatrgwapmvqvftphfz.supabase.co';
-const SUPABASE_ANON = 'sb_publishable_bwUYM5rcoHeEsoyNoDHPkQ_M7SiPDzq';
+const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY_HERE';
 
 const SB = {
   headers: { 'Content-Type':'application/json', apikey: SUPABASE_ANON, Authorization: 'Bearer '+SUPABASE_ANON },
@@ -1245,7 +1190,6 @@ const SB = {
   async signIn(email,pass){const r=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=password',{method:'POST',headers:this.headers,body:JSON.stringify({email,password:pass})});return r.json();},
   async signOut(token){await fetch(SUPABASE_URL+'/auth/v1/logout',{method:'POST',headers:{...this.headers,Authorization:'Bearer '+token}});},
   async getProfile(userId,token){const r=await fetch(SUPABASE_URL+'/rest/v1/profiles?id=eq.'+userId+'&select=*',{headers:{...this.headers,Authorization:'Bearer '+token}});const d=await r.json();return d[0];},
-  oauthUrl(provider){return SUPABASE_URL+'/auth/v1/authorize?provider='+provider+'&redirect_to='+encodeURIComponent(window.location.origin);}
 };
 
 const DEMO_CLIPS=[{id:'d1',clip_title:'The Moment That Changed Everything 🔥',viral_score:94,hook_score:91,retention_score:88,emotion_score:85,hook:'Wait — you have to see what happens next...',hashtags:'#viral #mindblowing #trending',platform:'TikTok',duration_seconds:47,views:'2.4M est.',transcript_excerpt:'This is the part nobody talks about — the exact moment when everything shifted.',broll:null,date:Date.now()},{id:'d2',clip_title:'Nobody Expected This Plot Twist 😱',viral_score:89,hook_score:86,retention_score:90,emotion_score:83,hook:'Everyone thought they knew the answer...',hashtags:'#plottwist #shocked #mustwatch',platform:'Instagram Reels',duration_seconds:52,views:'1.8M est.',transcript_excerpt:"Everyone assumed it was going one direction, then the data came in and completely flipped the narrative.",broll:null,date:Date.now()-86400000},{id:'d3',clip_title:'3 Facts That Break Your Brain 🧠',viral_score:91,hook_score:94,retention_score:87,emotion_score:80,hook:'These 3 facts literally broke the internet...',hashtags:'#facts #mindblown #learnontiktok',platform:'YouTube Shorts',duration_seconds:38,views:'3.1M est.',transcript_excerpt:'Fact one: this exists and nobody told you. Fact two: the implications are enormous.',broll:'🌆 Urban',date:Date.now()-172800000}];
@@ -1254,18 +1198,46 @@ const FACTS=[{tag:'💰 CLIPPING EMPIRE',text:'Top agencies process 500+ videos/
 const STAGE_STEPS=[{min:0,max:14,dot:0,label:'Downloading video via yt-dlp...',eta:'~90s'},{min:14,max:30,dot:1,label:'Whisper AI transcribing audio...',eta:'~70s'},{min:30,max:50,dot:2,label:'GPT-4o detecting viral moments...',eta:'~50s'},{min:50,max:66,dot:3,label:'FFmpeg precision cutting clips...',eta:'~30s'},{min:66,max:80,dot:4,label:'Burning animated captions...',eta:'~18s'},{min:80,max:90,dot:5,label:'Reframing to 9:16 format...',eta:'~8s'},{min:90,max:100,dot:6,label:'Uploading to your dashboard...',eta:'~3s'}];
 const HD_STAGES=['Fetch','Transcribe','Analyze','Cut','Captions','Reframe','Ready'];
 const HD_ICONS=['⬇','🎙','🧠','✂️','💬','📱','☁️'];
-const FAQS=[{q:'What is a credit and how does it work?',a:'1 credit = 1 minute of source video processed. A 60-minute podcast costs 60 credits. You are charged once per video, not per clip.'},{q:'How fast does ClipSpeedAI process videos?',a:'Most videos are processed in <strong>under 90 seconds</strong>. Long-form videos (60+ min) may take 3–5 minutes.'},{q:'What platforms are clips optimized for?',a:'<strong>TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn</strong>. Each gets the correct aspect ratio automatically.'},{q:'Do I need to edit clips after generation?',a:'No — clips come out ready to post. Captions are burned in, speaker is reframed, clip is trimmed to the exact viral moment.'},{q:'How does the Referral Program work?',a:'Earn <strong>25–50% recurring commission</strong> on every referral. The more referrals, the higher your tier and rate.'},{q:'Can I cancel anytime?',a:'Yes — upgrade, downgrade, or cancel anytime from your dashboard. No contracts, no fees.'},{q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small <strong>ClipSpeedAI</strong> watermark. All paid plans export with zero watermark.'},{q:'How does the AI decide what is viral?',a:'GPT-4o scores every segment on <strong>hook strength, emotional intensity, retention, and shareability</strong>. Each clip gets 0–100.'}];
+const FAQS=[{q:'What is a credit and how does it work?',a:'1 credit = 1 minute of source video processed. A 60-minute podcast costs 60 credits.'},{q:'How fast does ClipSpeedAI process videos?',a:'Most videos are processed in <strong>under 90 seconds</strong>.'},{q:'What platforms are clips optimized for?',a:'<strong>TikTok, Instagram Reels, YouTube Shorts, Twitter/X, and LinkedIn</strong>.'},{q:'Do I need to edit clips after generation?',a:'No — clips come out ready to post with captions burned in.'},{q:'How does the Referral Program work?',a:'Earn <strong>25–50% recurring commission</strong> on every referral.'},{q:'Can I cancel anytime?',a:'Yes — upgrade, downgrade, or cancel anytime. No contracts.'},{q:'Does the free plan have a watermark?',a:'Yes — free plan clips include a small watermark. All paid plans export watermark-free.'},{q:'How does the AI decide what is viral?',a:'GPT-4o scores every segment on <strong>hook strength, emotional intensity, retention, and shareability</strong>.'}];
 
 let isLoggedIn=false,isSignup=true,pendingUrl='',currentClips=[],activeFilter='all',wizStep=1;
 let procPct=0,procReady=0,factIdx=0,factTimer=null,editorClip=null,isAnnual=false,appliedTemplate=null;
 let userCredits=50,refCode='',currentUser=null,authToken=null;
 
-// ── SESSION RESTORE ───────────────────────────────────────────
+// ── SESSION RESTORE (with OAuth hash handler) ─────────────────
 (function restoreSession(){
-  const tok=localStorage.getItem('csai_token'),usr=localStorage.getItem('csai_user');
+  // Handle OAuth redirect — Supabase returns #access_token=... in URL hash
+  const hash = new URLSearchParams(window.location.hash.replace('#',''));
+  const hashToken = hash.get('access_token');
+  if(hashToken){
+    window.history.replaceState({},'',window.location.pathname + window.location.search);
+    try{
+      const payload = JSON.parse(atob(hashToken.split('.')[1]));
+      const user = { id: payload.sub, email: payload.email };
+      authToken = hashToken;
+      currentUser = user;
+      localStorage.setItem('csai_token', hashToken);
+      localStorage.setItem('csai_user', JSON.stringify(user));
+      const refresh = hash.get('refresh_token');
+      if(refresh) localStorage.setItem('csai_refresh', refresh);
+      SB.getProfile(user.id, hashToken)
+        .then(p=>{ if(p){ userCredits=p.credits||50; refCode=p.ref_code||''; }})
+        .catch(()=>{});
+      goToDashboard(true);
+      return;
+    }catch(e){ console.warn('OAuth token parse failed:',e); }
+  }
+  // Standard email/password session restore
+  const tok=localStorage.getItem('csai_token');
+  const usr=localStorage.getItem('csai_user');
   if(tok&&usr){
-    authToken=tok;currentUser=JSON.parse(usr);
-    SB.getProfile(currentUser.id,tok).then(p=>{if(p){userCredits=p.credits||50;refCode=p.ref_code||'';document.getElementById('planBadge').textContent=p.plan||'Free';}}).catch(()=>{});
+    authToken=tok;
+    currentUser=JSON.parse(usr);
+    SB.getProfile(currentUser.id,tok)
+      .then(p=>{
+        if(p){ userCredits=p.credits||50; refCode=p.ref_code||'';
+        document.getElementById('planBadge').textContent=p.plan||'Free'; }
+      }).catch(()=>{});
     goToDashboard(false);
   }
 })();
@@ -1274,15 +1246,15 @@ let userCredits=50,refCode='',currentUser=null,authToken=null;
 (function buildProcStageDots(){
   const labels=['Fetch','Transcribe','Analyze','Cut','Captions','Reframe','Ready'],icons=['⬇','🎙','🧠','✂️','💬','📱','☁️'];
   const c=document.getElementById('procStages');if(!c)return;
-  c.innerHTML=labels.map((l,i)=>`<div class="stage"><div class="sd" id="sd${i}">${icons[i]}</div><div class="stage-lbl">${l}</div></div>`).join('');
+  c.innerHTML=labels.map((l,i)=>`<div class="stage"><div class="sd" id="sd${i}">${icons[i]}</div></div>`).join('');
 })();
 
 function buildHDStageDots(){const c=document.getElementById('hdStageDots');if(!c)return;c.innerHTML=HD_STAGES.map((l,i)=>`<div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div class="hd-sd" id="hd-sd${i}">${HD_ICONS[i]}</div><div style="font-size:6px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px">${l}</div></div>`).join('');}
-function buildHDClipPreviews(){const c=document.getElementById('hdPreviews');if(!c)return;c.innerHTML=[1,2,3].map(n=>`<div id="hdPreview${n}" style="background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden;transition:all .5s"><div style="height:34px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border)">🎬</div><div style="padding:6px"><div style="font-size:7px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)">Clip 0${n}</div><div id="hdPreviewTxt${n}" style="font-size:9px;font-weight:700;color:var(--muted);margin-top:2px;line-height:1.3">Processing...</div></div></div>`).join('');}
+function buildHDClipPreviews(){const c=document.getElementById('hdPreviews');if(!c)return;c.innerHTML=[1,2,3].map(n=>`<div id="hdPreview${n}" style="background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden"><div style="height:34px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border)">🎬</div><div style="padding:6px"><div style="font-size:7px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)">Clip 0${n}</div><div id="hdPreviewTxt${n}" style="font-size:9px;font-weight:700;color:var(--muted);margin-top:2px;line-height:1.3">Processing...</div></div></div>`).join('');}
 
 // ── LANDING INIT ──────────────────────────────────────────────
 (function initLanding(){
-  const items=['⚡ 90-Second Processing','🧠 GPT-4o Viral Scoring','🎬 Auto B-Roll','💬 10 Caption Styles','📐 Auto Reframe','💰 Up to 50% Affiliate','🔥 AI-Powered Virality','🤖 GPT-4o Engine'];
+  const items=['⚡ 90-Second Processing','🧠 GPT-4o Viral Scoring','🎬 Auto B-Roll','💬 10 Caption Styles','📐 Auto Reframe','💰 Up to 50% Affiliate','🔥 AI-Powered Virality'];
   const ti=document.getElementById('tickerInner');const h=items.map(t=>`<span class="ticker-item"><span class="ticker-dot"></span>${t}</span>`).join('');ti.innerHTML=h+h;
   const ld={clips:Math.floor(Math.random()*12)+4,views:Math.floor(Math.random()*500000)+200000,creators:Math.floor(Math.random()*800)+300,saved:Math.floor(Math.random()*400)+80};
   const fmt=n=>n>=1000000?(n/1000000).toFixed(1)+'M':n>=1000?(n/1000).toFixed(0)+'K':String(n);
@@ -1293,12 +1265,12 @@ function buildHDClipPreviews(){const c=document.getElementById('hdPreviews');if(
   const lt=document.getElementById('logosTrack');const lh=creators.map((c,i)=>{const ini=c.n.split(' ').map(w=>w[0]).join('').slice(0,2);return`<span class="logo-item"><span class="logo-av" style="background:${grads[i%grads.length]}">${ini}</span>${c.n}<span style="font-size:9px;color:var(--muted)">${c.s}</span></span>`;}).join('');lt.innerHTML=lh+lh;
   const results=[{num:'266%',lbl:'Avg feed increase'},{num:'57%',lbl:'Watch time boost'},{num:'10x',lbl:'Faster than OpuClip'},{num:'99.9%',lbl:'AI Accuracy'},{num:'90s',lbl:'Avg processing'},{num:'4.9★',lbl:'Creator rating'},{num:'50%',lbl:'Max affiliate rate'},{num:'GPT-4o',lbl:'AI Engine'}];
   const rt=document.getElementById('resultsTrack');rt.innerHTML=results.map(r=>`<div class="result-card-inline"><div class="result-num">${r.num}</div><div class="result-lbl">${r.lbl}</div></div>`).join('').repeat(2);
-  const testis=[{s:'★★★★★',t:'"I was spending 3 hours clipping each podcast. Now it takes 90 seconds and the clips perform better than anything I made manually."',n:'Jake M.',h:'@jakecreates · 280K'},{s:'★★★★★',t:'"I only had 12K followers when I started using this. Two months later I\'m at 38K. The viral scoring actually works."',n:'Bree L.',h:'@breelifts · 38K'},{s:'★★★★★',t:'"Switched from OpusClip and never looked back. 10x faster and the caption styles actually look good."',n:'Marcus T.',h:'Viral Agency · 40+ clients'},{s:'★★★★★',t:'"I went from posting 2 clips a week to 15. The affiliate program is also legit."',n:'Dylan C.',h:'@dylanbuilds · 95K'},{s:'★★★★★',t:'"I\'m a small creator with 22K followers and this tool makes me feel like I have a full editing team behind me."',n:'Cam R.',h:'@camtalkstech · 22K'},{s:'★★★★★',t:'"Finally a clip tool that just works. Paste URL, come back in 90 seconds, done."',n:'Priya N.',h:'@priyapodcast · 140K'}];
+  const testis=[{s:'★★★★★',t:'"I was spending 3 hours clipping each podcast. Now it takes 90 seconds and the clips perform better than anything I made manually."',n:'Jake M.',h:'@jakecreates · 280K'},{s:'★★★★★',t:'"I only had 12K followers when I started using this. Two months later I\'m at 38K. The viral scoring actually works."',n:'Bree L.',h:'@breelifts · 38K'},{s:'★★★★★',t:'"Switched from OpusClip and never looked back. 10x faster and the caption styles actually look good."',n:'Marcus T.',h:'Viral Agency · 40+ clients'},{s:'★★★★★',t:'"I went from posting 2 clips a week to 15. The affiliate program is also legit."',n:'Dylan C.',h:'@dylanbuilds · 95K'},{s:'★★★★★',t:'"Finally a clip tool that just works. Paste URL, come back in 90 seconds, done."',n:'Priya N.',h:'@priyapodcast · 140K'}];
   const tt=document.getElementById('testiTrack');const th=testis.map(t=>`<div class="testi-card"><div class="testi-stars">${t.s}</div><div class="testi-text">${t.t}</div><div class="testi-author"><div class="testi-av">${t.n[0]}</div><div><div class="testi-name">${t.n}</div><div class="testi-handle">${t.h}</div></div></div></div>`).join('');tt.innerHTML=th+th;
   const sc=document.getElementById('scoreCards');
   if(sc){sc.style.gridTemplateColumns='repeat(4,1fr)';const cards=[{icon:'⚡',name:'ClipSpeedAI',score:98,winner:true},{icon:'🎬',name:'OpusClip',score:74,winner:false},{icon:'🎞️',name:'Pictory',score:54,winner:false},{icon:'✂️',name:'Descript',score:57,winner:false}];sc.innerHTML=cards.map(c=>`<div style="background:${c.winner?'linear-gradient(135deg,rgba(168,85,247,.18),rgba(99,102,241,.1))':'var(--bg2)'};border:${c.winner?'1.5px solid rgba(168,85,247,.55)':'1px solid var(--border)'};border-radius:20px;padding:22px 16px;text-align:center;position:relative;overflow:hidden">${c.winner?'<div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--cyan))"></div><div style="position:absolute;top:10px;right:10px;padding:3px 8px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:99px;font-size:8px;font-weight:800;color:#fff">WINNER</div>':''}<div style="font-size:26px;margin-bottom:8px">${c.icon}</div><div style="font-size:13px;font-weight:900;color:${c.winner?'#fff':'var(--muted2)'};margin-bottom:4px">${c.name}</div><div style="font-size:44px;font-weight:900;${c.winner?'background:linear-gradient(135deg,var(--p),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent':'color:var(--muted2)'};line-height:1">${c.score}</div><div style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px">Overall Score</div></div>`).join('');}
-  const rows=[{label:'Processing Speed',us:'~90 seconds',op:'5–15 min',pi:'10–20 min',de:'Manual'},{label:'GPT-4o Viral Scoring',us:'✓ Full 0–100',op:'Basic only',pi:'✗',de:'✗'},{label:'Auto Caption Styles',us:'✓ 10 styles',op:'✓ 3 styles',pi:'✓ 2 styles',de:'✓ Basic'},{label:'AI B-Roll Matching',us:'✓ Live Pexels',op:'Limited',pi:'✓ Stock only',de:'✗'},{label:'Speaker Auto-Reframe',us:'✓ All ratios',op:'✓ 9:16 only',pi:'✗',de:'✗'},{label:'Affiliate Program',us:'✓ Up to 50%',op:'✗',pi:'✗',de:'✗'},{label:'Free Credits on Signup',us:'✓ 50 credits',op:'3 clips/mo',pi:'7-day trial',de:'1hr free'},{label:'Pricing (Pro)',us:'$40/mo',op:'$49/mo',pi:'$47/mo',de:'$24/mo*'}];
-  const isGood=v=>v.startsWith('✓')||v.includes('90 sec')||v.includes('50 cr')||v.includes('10 styles')||v.includes('50%')||v.includes('All ratio')||v.includes('$40');
+  const rows=[{label:'Processing Speed',us:'~90 seconds',op:'5–15 min',pi:'10–20 min',de:'Manual'},{label:'GPT-4o Viral Scoring',us:'✓ Full 0–100',op:'Basic only',pi:'✗',de:'✗'},{label:'Auto Caption Styles',us:'✓ 10 styles',op:'✓ 3 styles',pi:'✓ 2 styles',de:'✓ Basic'},{label:'AI B-Roll Matching',us:'✓ Live Pexels',op:'Limited',pi:'✓ Stock only',de:'✗'},{label:'Affiliate Program',us:'✓ Up to 50%',op:'✗',pi:'✗',de:'✗'},{label:'Free Credits on Signup',us:'✓ 50 credits',op:'3 clips/mo',pi:'7-day trial',de:'1hr free'},{label:'Pricing (Pro)',us:'$40/mo',op:'$49/mo',pi:'$47/mo',de:'$24/mo*'}];
+  const isGood=v=>v.startsWith('✓')||v.includes('90 sec')||v.includes('50 cr')||v.includes('$40');
   const isBad=v=>v==='✗'||v==='Manual';
   const vr=document.getElementById('vsRows');
   if(vr){vr.innerHTML=rows.map(r=>`<div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;border-bottom:1px solid var(--border)"><div style="padding:13px 20px;font-size:12px;font-weight:700">${r.label}</div><div style="padding:13px 12px;text-align:center;background:rgba(168,85,247,.04)"><span style="display:inline-flex;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:800;background:${isGood(r.us)?'rgba(16,185,129,.12)':'rgba(255,255,255,.04)'};color:${isGood(r.us)?'var(--green)':'var(--muted2)'}">${r.us}</span></div><div style="padding:13px 12px;text-align:center"><span style="display:inline-flex;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.op)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.op)?'#f87171':'var(--muted2)'}">${r.op}</span></div><div style="padding:13px 12px;text-align:center"><span style="display:inline-flex;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.pi)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.pi)?'#f87171':'var(--muted2)'}">${r.pi}</span></div><div style="padding:13px 12px;text-align:center"><span style="display:inline-flex;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:700;background:${isBad(r.de)?'rgba(239,68,68,.07)':'rgba(255,255,255,.03)'};color:${isBad(r.de)?'#f87171':'var(--muted2)'}">${r.de}</span></div></div>`).join('')+'<div style="padding:8px 20px;font-size:9px;color:var(--muted)">* Pricing as of 2025.</div>';}
@@ -1330,7 +1302,7 @@ function startHeroDemo(url){
 function showDemoClips(clips){
   document.getElementById('hdProcessing').style.display='none';const clipsEl=document.getElementById('hdClips');clipsEl.style.display='block';
   const list=document.getElementById('hdClipsList');
-  list.innerHTML=clips.map((c,i)=>`<div class="hd-clip" style="animation-delay:${i*.25}s"><div class="hd-clip-score" style="color:${c.score>=90?'#4ade80':'#a855f7'}">${c.score}</div><div class="hd-clip-mid"><div class="hd-clip-title">${c.title}</div><div class="hd-clip-hook">${c.hook}</div><div style="font-size:9px;color:var(--muted);margin-top:4px">⏱ ${c.dur} &nbsp;·&nbsp; ${c.score>=90?'🔥 VIRAL':'⚡ HIGH'}</div></div><div class="hd-clip-play">▶</div></div>`).join('');
+  list.innerHTML=clips.map((c,i)=>`<div class="hd-clip" style="animation-delay:${i*.25}s"><div class="hd-clip-score" style="color:${c.score>=90?'#4ade80':'#a855f7'}">${c.score}</div><div class="hd-clip-mid"><div class="hd-clip-title">${c.title}</div><div class="hd-clip-hook">${c.hook}</div></div><div class="hd-clip-play">▶</div></div>`).join('');
   setTimeout(()=>{const gate=document.getElementById('hdBlurGate');gate.style.display='flex';setTimeout(()=>gate.style.opacity='1',20);},5000);
 }
 function closeHeroDemo(){const o=document.getElementById('heroDemoOverlay');o.style.opacity='0';setTimeout(()=>{o.style.display='none';},350);}
@@ -1338,18 +1310,17 @@ function toggleFaq(i){const item=document.getElementById('faq-'+i);const was=ite
 
 function initParticles(){
   const c=document.getElementById('particleCanvas');if(!c)return;
-  const ctx=c.getContext('2d');let W,H,particles=[];const mouse={x:0,y:0};
+  const ctx=c.getContext('2d');let W,H,particles=[];
   const COLORS=['rgba(168,85,247,','rgba(99,102,241,','rgba(34,211,238,'];
   function resize(){W=c.width=window.innerWidth;H=c.height=c.parentElement.offsetHeight;}
   resize();window.addEventListener('resize',resize);
-  document.querySelector('.hero').addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
   function P(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5;this.color=COLORS[Math.floor(Math.random()*COLORS.length)];this.alpha=Math.random()*.5+.1;}
   for(let i=0;i<80;i++)particles.push(new P());
-  function draw(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{const dx=mouse.x-p.x,dy=mouse.y-p.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){p.vx+=dx/dist*.02;p.vy+=dy/dist*.02;}p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.vy*=.99;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.color+p.alpha+')';ctx.fill();});for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(168,85,247,'+(1-d/100)*.1+')';ctx.lineWidth=.5;ctx.stroke();}}requestAnimationFrame(draw);}
+  function draw(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.vy*=.99;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.color+p.alpha+')';ctx.fill();});requestAnimationFrame(draw);}
   draw();
 }
 
-function toggleBilling(){isAnnual=!isAnnual;document.getElementById('togTrack').classList.toggle('on',isAnnual);document.getElementById('togKnob').classList.toggle('on',isAnnual);document.getElementById('monthlyLbl').classList.toggle('active',!isAnnual);document.getElementById('annualLbl').classList.toggle('active',isAnnual);const prices=isAnnual?{s:'$12',p:'$24'}:{s:'$20',p:'$40'};document.getElementById('starterP').textContent=prices.s;document.getElementById('proP').textContent=prices.p;const dayEl=document.getElementById('proDayPrice');if(dayEl)dayEl.textContent=isAnnual?'$0.80/day · 40% off annual':'$1.33/day · Cheaper than a coffee';}
+function toggleBilling(){isAnnual=!isAnnual;document.getElementById('togTrack').classList.toggle('on',isAnnual);document.getElementById('togKnob').classList.toggle('on',isAnnual);document.getElementById('monthlyLbl').classList.toggle('active',!isAnnual);document.getElementById('annualLbl').classList.toggle('active',isAnnual);const p=isAnnual?'$24':'$40';document.getElementById('proP').textContent=p;}
 function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
 function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
 
@@ -1384,10 +1355,16 @@ async function handleAuth(){
     closeAuth();goToDashboard(true);
   }catch(e){errEl.textContent='Network error — please try again';errEl.style.display='block';btn.disabled=false;btn.textContent=isSignup?'Sign Up Free — Get 50 Credits':'Sign In';}
 }
-async function oauthLogin(provider){window.location.href=SB.oauthUrl(provider);}
+
+// ── OAUTH — fixed to pass redirect_to ────────────────────────
+async function oauthLogin(provider){
+  const redirectTo=encodeURIComponent(window.location.origin);
+  window.location.href=SUPABASE_URL+'/auth/v1/authorize?provider='+provider+'&redirect_to='+redirectTo;
+}
+
 async function signOut(){
   if(authToken)await SB.signOut(authToken).catch(()=>{});
-  localStorage.removeItem('csai_token');localStorage.removeItem('csai_user');
+  localStorage.removeItem('csai_token');localStorage.removeItem('csai_user');localStorage.removeItem('csai_refresh');
   authToken=null;currentUser=null;isLoggedIn=false;
   document.getElementById('dashboard').style.display='none';document.getElementById('landing').style.display='block';document.getElementById('chatBubble').style.display='none';
   showToast('👋 Signed out successfully','#6366f1');
@@ -1404,11 +1381,10 @@ function goToDashboard(showWizard=true){
   document.getElementById('wizRefLink').textContent='clipspeed.ai/ref/'+rc;
   document.getElementById('creditsDisplay').textContent=userCredits;
   renderTemplates();
-  refreshBillingStatus(); // ← syncs plan + credits from backend
+  refreshBillingStatus();
   if(showWizard){setTimeout(()=>{if(pendingUrl)document.getElementById('wizUrl').value=pendingUrl;document.getElementById('wizardOverlay').classList.add('open');},400);}
 }
 
-// ── BILLING ───────────────────────────────────────────────────
 async function refreshBillingStatus(){
   if(!authToken)return;
   try{
@@ -1420,8 +1396,7 @@ async function refreshBillingStatus(){
     if(badge){
       badge.textContent=plan.charAt(0).toUpperCase()+plan.slice(1);
       const styles={pro:{bg:'rgba(168,85,247,.15)',border:'rgba(168,85,247,.4)',color:'#c084fc'},agency:{bg:'rgba(34,211,238,.12)',border:'rgba(34,211,238,.3)',color:'#22d3ee'},starter:{bg:'rgba(99,102,241,.12)',border:'rgba(99,102,241,.3)',color:'#818cf8'}};
-      const s=styles[plan]||{};
-      badge.style.background=s.bg||'';badge.style.borderColor=s.border||'';badge.style.color=s.color||'';
+      const s=styles[plan]||{};badge.style.background=s.bg||'';badge.style.borderColor=s.border||'';badge.style.color=s.color||'';
     }
     if(data.credits_remaining!==undefined){userCredits=data.credits_remaining;const chip=document.getElementById('creditsDisplay');if(chip)chip.textContent=userCredits;}
     return data;
@@ -1434,13 +1409,9 @@ async function selectPlan(name){
   const plan=planMap[name]||'pro';
   showToast('⏳ Opening checkout...','#a855f7');
   try{
-    const res=await fetch(BACKEND+'/billing/checkout',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Bearer '+authToken},
-      body:JSON.stringify({plan})
-    });
+    const res=await fetch(BACKEND+'/billing/checkout',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+authToken},body:JSON.stringify({plan})});
     const data=await res.json();
-    if(data.url){window.location.href=data.url;}
+    if(data.url){closeUpgrade();window.location.href=data.url;}
     else{console.error('Checkout error:',data);showToast('⚠️ Checkout error — try again','#ef4444');}
   }catch(e){console.error('selectPlan:',e);showToast('⚠️ Network error','#ef4444');}
 }
@@ -1460,7 +1431,7 @@ function startGenerate(){
   if(!url){err.textContent='⚠️ Please enter a valid URL';err.classList.add('show');return;}
   err.classList.remove('show');
   if(userCredits<=0){openUpgradeModal();showToast('⚠️ You need credits to generate clips!','#f59e0b');return;}
-  document.getElementById('procTitle').textContent=url.length>55?url.slice(0,55)+'...':url;document.getElementById('procMeta').textContent='⏱ Detecting duration · 📊 Scanning...';
+  document.getElementById('procTitle').textContent=url.length>55?url.slice(0,55)+'...':url;
   resetProc();document.getElementById('procOverlay').classList.add('show');document.getElementById('genBtn').disabled=true;
   rotateFact(0);factTimer=setInterval(()=>{factIdx++;rotateFact(factIdx);},7000);runSim();
 }
@@ -1485,16 +1456,16 @@ function buildClipCard(c,idx){
     <div class="cc-score"><div class="score-num" style="background:linear-gradient(135deg,${sA},#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${sc}</div><div class="score-lbl">Viral Score</div><div class="score-grade ${gc}">${gt}</div>
       <div style="width:100%;display:flex;flex-direction:column;gap:3px;margin-top:5px">${[['Hook',h,'#a855f7'],['Retain',ret,'#22d3ee'],['Emotion',emo,'#4ade80']].map(([n,v,col])=>`<div><div style="display:flex;justify-content:space-between;margin-bottom:1px"><span style="font-size:6.5px;color:var(--muted)">${n}</span><span style="font-size:6.5px;font-weight:800;color:${col}">${v}%</span></div><div style="height:2px;background:rgba(255,255,255,.06);border-radius:1px;overflow:hidden"><div style="height:100%;width:${v}%;background:${col};border-radius:1px"></div></div></div>`).join('')}</div>
     </div>
-    <div class="cc-vid"><div class="vid-mock" onclick="showToast('▶ Preview coming in Pro!','#6366f1')">🎥<div class="vid-play">▶</div><div class="vid-num">Clip ${idx+1}</div><div class="vid-plat">${pm[c.platform]||'📱'} ${esc(c.platform||'TikTok')}</div><div class="vid-dur">${dur}</div>${sc>=90?'<div style="position:absolute;bottom:7px;left:50%;transform:translateX(-50%);font-size:16px;animation:float 1.5s ease-in-out infinite">🔥</div>':''}</div></div>
+    <div class="cc-vid"><div class="vid-mock" onclick="showToast('▶ Preview coming in Pro!','#6366f1')">🎥<div class="vid-play">▶</div><div class="vid-num">Clip ${idx+1}</div><div class="vid-plat">${pm[c.platform]||'📱'} ${esc(c.platform||'TikTok')}</div><div class="vid-dur">${dur}</div></div></div>
     <div class="cc-info"><div class="cc-title">${esc(c.clip_title)}</div>${c.hook?`<div class="cc-hook">"${esc(c.hook)}"</div>`:''}<div class="cc-meta"><div class="cc-mi">🔥 <strong>${sc}/100</strong></div><div class="cc-mi">⏱ ${dur}</div><div class="cc-views">👁 ${esc(c.views||'—')}</div></div>${c.hashtags?`<div class="cc-tags">${esc(c.hashtags)}</div>`:''}${c.transcript_excerpt?`<div class="cc-transcript-lbl">📝 Transcript</div><div class="cc-transcript">${esc(c.transcript_excerpt)}</div>`:''}
       <div class="cc-actions"><button class="cc-btn cb-dl" onclick="downloadClip(${idx})">⬇ Download</button><button class="cc-btn cb-edit" onclick="openEditor(currentClips[${idx}])">✏️ Edit</button><button class="cc-btn cb-copy" onclick="copyCaption(${idx})">📋 Caption</button><button class="cc-btn cb-share" onclick="openShare()">🔗 Share</button><button class="cc-btn cb-del" onclick="deleteClip('${c.id}')">🗑</button></div>
     </div>
   </div>`;
 }
 function renderHomeFeed(){const empty=document.getElementById('emptyFeed'),list=document.getElementById('homeClipsList'),con=document.getElementById('homeClipsContainer'),badge=document.getElementById('clipBadge');if(!currentClips.length){empty.style.display='block';list.style.display='none';return;}empty.style.display='none';list.style.display='block';badge.textContent=currentClips.length;con.innerHTML=currentClips.map((c,i)=>buildClipCard(c,i)).join('');}
-function renderClipsTab(){const con=document.getElementById('clipsTabContainer');let clips=currentClips.filter(c=>{if(activeFilter==='fire')return c.viral_score>=90;if(activeFilter==='high')return c.viral_score>=80;if(activeFilter==='tiktok')return c.platform==='TikTok';if(activeFilter==='reels')return c.platform==='Instagram Reels';return true;});con.innerHTML=clips.length?clips.map((c,i)=>buildClipCard(c,i)).join(''):`<div class="empty-feed"><div class="empty-feed-icon">✂️</div><div class="empty-feed-title">${currentClips.length?'No clips match this filter':'No clips yet'}</div><div class="empty-feed-sub">${currentClips.length?'Try a different filter':'Head to Generate and paste a YouTube URL'}</div></div>`;}
+function renderClipsTab(){const con=document.getElementById('clipsTabContainer');let clips=currentClips.filter(c=>{if(activeFilter==='fire')return c.viral_score>=90;if(activeFilter==='high')return c.viral_score>=80;if(activeFilter==='tiktok')return c.platform==='TikTok';if(activeFilter==='reels')return c.platform==='Instagram Reels';return true;});con.innerHTML=clips.length?clips.map((c,i)=>buildClipCard(c,i)).join(''):`<div class="empty-feed"><div class="empty-feed-icon">✂️</div><div class="empty-feed-title">${currentClips.length?'No clips match this filter':'No clips yet'}</div></div>`;}
 function filterClips(f,el){activeFilter=f;document.querySelectorAll('#page-clips .src-tab').forEach(c=>c.classList.remove('active'));el.classList.add('active');renderClipsTab();}
-function clearClips(){if(!currentClips.length)return;currentClips=[];renderHomeFeed();renderClipsTab();showToast('🗑 All clips cleared','#ef4444');}
+function clearClips(){currentClips=[];renderHomeFeed();renderClipsTab();showToast('🗑 All clips cleared','#ef4444');}
 function deleteClip(id){currentClips=currentClips.filter(c=>c.id!==id);renderHomeFeed();renderClipsTab();showToast('🗑 Clip deleted','#ef4444');}
 function downloadClip(idx){showToast('⬇ Downloading Clip '+(idx+1)+'...','#6366f1');setTimeout(()=>showToast('✅ Download complete!','#4ade80'),1800);}
 function copyCaption(i){const c=currentClips[i];if(!c)return;const txt=[c.hook,c.transcript_excerpt,c.hashtags].filter(Boolean).join('\n\n');navigator.clipboard?.writeText(txt).catch(()=>{});showToast('📋 Caption + hashtags copied!','#22d3ee');}
@@ -1503,9 +1474,9 @@ function bulkDownload(){if(!currentClips.length){showToast('No clips yet!','#ef4
 function renderAnalytics(){
   const el=document.getElementById('analyticsContent');
   if(!currentClips.length){el.innerHTML='<div style="color:var(--muted);text-align:center;padding:50px"><div style="font-size:32px;margin-bottom:10px">📊</div>Generate clips first to see analytics</div>';return;}
-  const avg=Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||80),0)/currentClips.length);const best=Math.max(...currentClips.map(c=>c.viral_score||80));
+  const avg=Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||80),0)/currentClips.length);
   const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];const bd=days.map(()=>Math.floor(Math.random()*80+20));const mx=Math.max(...bd);
-  el.innerHTML=`<div class="stat-grid"><div class="stat-card"><div class="stat-lbl">Total Clips</div><div class="stat-val" style="color:var(--p)">${currentClips.length}</div></div><div class="stat-card"><div class="stat-lbl">Avg Score</div><div class="stat-val" style="color:var(--cyan)">${avg}</div></div><div class="stat-card"><div class="stat-lbl">Best Score</div><div class="stat-val" style="color:#4ade80">${best}</div></div><div class="stat-card"><div class="stat-lbl">Est. Views</div><div class="stat-val" style="color:var(--gold)">7.3M</div></div></div><div class="chart-card"><div class="chart-title">📈 Clips Generated — Last 7 Days</div><div class="bar-chart">${days.map((d,i)=>`<div class="bar-wrap"><div class="bar-inner"><div class="bar-fill" style="height:${(bd[i]/mx*100).toFixed(0)}%;background:linear-gradient(180deg,var(--p),var(--p2))"></div></div><div class="bar-lbl">${d}</div></div>`).join('')}</div></div><div class="chart-card"><div class="chart-title">🏆 Top Performing Clips</div>${currentClips.slice().sort((a,b)=>(b.viral_score||0)-(a.viral_score||0)).map((c,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:9px;background:var(--bg3);border-radius:9px;border:1px solid var(--border);margin-bottom:7px"><div style="font-size:16px;width:26px;text-align:center">${['🥇','🥈','🥉'][i]||i+1}</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(c.clip_title)}</div></div><div style="font-size:20px;font-weight:900;color:${c.viral_score>=90?'#4ade80':'#a855f7'}">${c.viral_score}</div></div>`).join('')}</div>`;
+  el.innerHTML=`<div class="stat-grid"><div class="stat-card"><div class="stat-lbl">Total Clips</div><div class="stat-val" style="color:var(--p)">${currentClips.length}</div></div><div class="stat-card"><div class="stat-lbl">Avg Score</div><div class="stat-val" style="color:var(--cyan)">${avg}</div></div><div class="stat-card"><div class="stat-lbl">Est. Views</div><div class="stat-val" style="color:var(--gold)">7.3M</div></div></div><div class="chart-card"><div class="chart-title">📈 Clips Generated — Last 7 Days</div><div class="bar-chart">${days.map((d,i)=>`<div class="bar-wrap"><div class="bar-inner"><div class="bar-fill" style="height:${(bd[i]/mx*100).toFixed(0)}%;background:linear-gradient(180deg,var(--p),var(--p2))"></div></div><div class="bar-lbl">${d}</div></div>`).join('')}</div></div>`;
 }
 
 function renderTemplates(){const el=document.getElementById('templatesGrid');if(!el)return;el.innerHTML=TEMPLATES.map(t=>`<div class="tmpl-card ${appliedTemplate===t.id?'applied':''}" onclick="applyTemplate('${t.id}')"><div class="tmpl-preview" style="background:${t.bg}">${t.emoji}</div><div class="tmpl-name">${t.name}</div><div class="tmpl-desc">${t.desc}</div><button style="width:100%;padding:6px;margin-top:8px;background:${appliedTemplate===t.id?'rgba(16,185,129,.15)':'linear-gradient(135deg,var(--p),var(--p2))'};border:${appliedTemplate===t.id?'1px solid rgba(16,185,129,.3)':'none'};border-radius:7px;color:${appliedTemplate===t.id?'var(--green)':'#fff'};font-size:10px;font-weight:700;cursor:pointer">${appliedTemplate===t.id?'✓ Applied':'Apply'}</button></div>`).join('');}
@@ -1520,21 +1491,19 @@ function setCapStyle(s,el){document.querySelectorAll('.cap-style').forEach(b=>b.
 function setFontSize(v){document.getElementById('eFontVal').textContent=v+'px';document.getElementById('edCapPrev').style.fontSize=v+'px';}
 function toggleCaps(el){el.classList.toggle('on');document.getElementById('edCapPrev').style.opacity=el.classList.contains('on')?'1':'0';}
 function toggleExportMenu(){document.getElementById('exportMenu').classList.toggle('open');}
-function exportTo(plat){const nm={tiktok:'TikTok',reels:'Instagram Reels',shorts:'YouTube Shorts',download:'your device'};showToast('⬇ Exporting to '+(nm[plat]||plat)+'...','#a855f7');closeEditor();document.getElementById('exportMenu').classList.remove('open');setTimeout(()=>showToast('✅ Export complete!','#4ade80'),2000);}
+function exportTo(plat){const nm={tiktok:'TikTok',reels:'Instagram Reels',shorts:'YouTube Shorts',download:'your device'};showToast('⬇ Exporting to '+(nm[plat]||plat)+'...','#a855f7');closeEditor();setTimeout(()=>showToast('✅ Export complete!','#4ade80'),2000);}
 document.addEventListener('click',e=>{const m=document.getElementById('exportMenu');if(m&&m.classList.contains('open')&&!e.target.closest('.editor-footer'))m.classList.remove('open');});
 
 // ── MODALS ────────────────────────────────────────────────────
 function openShare(){document.getElementById('shareOverlay').classList.add('open');}
 function closeShare(){document.getElementById('shareOverlay').classList.remove('open');}
-function shareClipTo(plat){const m={tiktok:'Opening TikTok...',instagram:'Opening Instagram...',youtube:'Opening YouTube Studio...',twitter:'Opening X...',linkedin:'Opening LinkedIn...',link:'🔗 Link copied!'};showToast(m[plat]||'Sharing...','#a855f7');closeShare();}
+function shareClipTo(plat){showToast('🔗 Sharing to '+plat+'...','#a855f7');closeShare();}
 function openUpgradeModal(){document.getElementById('upgradeOverlay').classList.add('open');}
 function closeUpgrade(){document.getElementById('upgradeOverlay').classList.remove('open');}
-
-// ── REFERRAL ──────────────────────────────────────────────────
 function copyRefLink(){navigator.clipboard?.writeText('https://clipspeed.ai/ref/'+refCode).catch(()=>{});showToast('📋 Referral link copied!','#22d3ee');}
 function copyRefLinkWiz(){navigator.clipboard?.writeText('https://clipspeed.ai/ref/'+refCode).catch(()=>{});showToast('📋 Referral link copied!','#22d3ee');}
 
-// ── AI CHAT (proxied through backend) ────────────────────────
+// ── AI CHAT ───────────────────────────────────────────────────
 function toggleChat(){document.getElementById('chatPanel').classList.toggle('open');}
 function quickChat(msg){document.getElementById('chatInput').value=msg;sendChat();}
 async function sendChat(){
@@ -1545,11 +1514,7 @@ async function sendChat(){
   const fallbacks=["Hook in first 0.5s, pattern interrupt at 3s, strong CTA at end. Your clips are primed! 🔥","Post between 6–9pm for 2–3× more reach. Consistency beats perfection! ⚡","Captions increase watch time by 40%. ClipSpeedAI does it automatically! 💬"];
   try{
     const ctx=currentClips.length?`User has ${currentClips.length} clips with avg viral score ${Math.round(currentClips.reduce((a,c)=>a+(c.viral_score||80),0)/currentClips.length)}.`:'No clips yet.';
-    const res=await fetch(BACKEND+'/claude',{
-      method:'POST',
-      headers:{'Content-Type':'application/json',...(authToken?{'Authorization':'Bearer '+authToken}:{})},
-      body:JSON.stringify({message:msg,context:ctx,system:'You are ClipSpeed AI — an expert viral short-form content strategist. Be energetic, concise, actionable. Max 60 words. No markdown.'})
-    });
+    const res=await fetch(BACKEND+'/claude',{method:'POST',headers:{'Content-Type':'application/json',...(authToken?{'Authorization':'Bearer '+authToken}:{})},body:JSON.stringify({message:msg,context:ctx,system:'You are ClipSpeed AI — an expert viral short-form content strategist. Be energetic, concise, actionable. Max 60 words. No markdown.'})});
     t.remove();
     if(res.ok){const data=await res.json();const reply=data.reply||data.message||data.content||fallbacks[0];msgs.innerHTML+=`<div class="chat-msg msg-bot">${esc(reply)}</div>`;}
     else throw new Error('Non-OK');
@@ -1562,13 +1527,11 @@ function showToast(msg,color='#a855f7'){const t=document.getElementById('toast')
 
 // ── EXIT INTENT ───────────────────────────────────────────────
 (function(){
-  let shown=false,countdownVal=60,countdownTimer=null,ctaClicked=false,mouseLeaveReady=false;
+  let shown=false,countdownVal=60,countdownTimer=null;
   function showExitPopup(){if(shown||isLoggedIn)return;shown=true;const popup=document.getElementById('exitPopup');popup.style.display='flex';countdownTimer=setInterval(()=>{countdownVal--;const el=document.getElementById('exitCountdown');if(el)el.textContent=countdownVal+'s';if(countdownVal<=0)closeExitPopup();},1000);}
   window.closeExitPopup=function(){document.getElementById('exitPopup').style.display='none';clearInterval(countdownTimer);};
-  document.addEventListener('mouseleave',e=>{if(mouseLeaveReady&&e.clientY<=10)showExitPopup();});
-  document.querySelectorAll('.hero-gen-btn,.btn-primary,.hero-cta-btn').forEach(btn=>btn.addEventListener('click',()=>{ctaClicked=true;}));
-  setTimeout(()=>{if(!ctaClicked&&!isLoggedIn)showExitPopup();},15000);
-  setTimeout(()=>{mouseLeaveReady=true;},5000);
+  document.addEventListener('mouseleave',e=>{if(e.clientY<=10)showExitPopup();});
+  setTimeout(()=>{if(!isLoggedIn)showExitPopup();},18000);
   document.getElementById('exitPopup').addEventListener('click',e=>{if(e.target===document.getElementById('exitPopup'))closeExitPopup();});
 })();
 
@@ -1581,7 +1544,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeEditor();close
   window.history.replaceState({},'',window.location.pathname);
   let attempts=0;
   const poll=setInterval(async()=>{
-    attempts++;if(attempts>20){clearInterval(poll);return;}
+    attempts++;if(attempts>30){clearInterval(poll);return;}
     if(!authToken||!currentUser)return;
     clearInterval(poll);
     const data=await refreshBillingStatus();
@@ -1590,7 +1553,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeEditor();close
     showToast(`🎉 You're now on ${plan.charAt(0).toUpperCase()+plan.slice(1)}! Welcome ⚡`,'#4ade80');
     setTimeout(()=>showToast('🔓 Watermark removed on all exports','#22d3ee'),1500);
     setTimeout(()=>showToast('🚀 Priority processing unlocked','#a855f7'),3000);
-  },300);
+  },500);
 })();
 </script>
 </body>
